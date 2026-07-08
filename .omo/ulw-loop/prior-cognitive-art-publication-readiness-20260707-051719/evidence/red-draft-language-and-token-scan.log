@@ -1,0 +1,49 @@
+output/pdf/_combined_manuscript.md:432:The bridge to policy entanglement should be sharpened in the next draft. The
+output/pdf/_combined_manuscript.md:629:## Remaining Scholarship Gaps
+output/web/_combined_manuscript.md:425:The bridge to policy entanglement should be sharpened in the next draft. The
+output/web/_combined_manuscript.md:618:## Remaining Scholarship Gaps
+output/manuscript/04_conclusion.md:18:The bridge to policy entanglement should be sharpened in the next draft. The
+output/manuscript/07_scope_and_related_work.md:99:## Remaining Scholarship Gaps
+manuscript/05_experimental_setup.md:7:- Project mode: {{PRIMARY_MODE}}
+manuscript/05_experimental_setup.md:8:- Simulation policy: {{SIMULATION_POLICY}}
+manuscript/05_experimental_setup.md:9:- Conceptual report status: {{CONCEPTUAL_REPORT_STATUS}}
+manuscript/05_experimental_setup.md:10:- Formal claims generated: {{FORMAL_CLAIM_COUNT}}
+manuscript/05_experimental_setup.md:11:- Symbol glossary rows generated: {{SYMBOL_COUNT}}
+manuscript/05_experimental_setup.md:12:- Text-validation checks generated: {{TEXT_VALIDATION_COUNT}}
+manuscript/05_experimental_setup.md:13:- Python version: {{PYTHON_VERSION}}
+manuscript/05_experimental_setup.md:14:- Platform: {{PLATFORM}}
+manuscript/05_experimental_setup.md:15:- Generation timestamp: {{GENERATION_TIMESTAMP}}
+manuscript/07_scope_and_related_work.md:99:## Remaining Scholarship Gaps
+manuscript/02_methodology.md:13:The source layer records {{QUADRANT_COUNT}} Tinbergen quadrants,
+manuscript/02_methodology.md:14:{{TERMINATION_COUNT}} termination modes, {{ARGUMENT_MODULE_COUNT}} argument
+manuscript/02_methodology.md:15:modules, {{FIGURE_COUNT}} figure specifications, {{FORMAL_CLAIM_COUNT}} formal
+manuscript/02_methodology.md:16:claims, and {{SYMBOL_COUNT}} glossary rows. Those records are rendered into
+manuscript/02_methodology.md:30:{{QUADRANT_TABLE_ROWS}}
+manuscript/02_methodology.md:49:{{TERMINATION_BULLETS}}
+manuscript/02_methodology.md:132:the source contract fails before render. The contract is deliberately small — {{FORMAL_CLAIM_COUNT}} claims, one glossary of
+manuscript/02_methodology.md:133:{{SYMBOL_COUNT}} rows, {{TEXT_VALIDATION_COUNT}} validation checks — because the point is not to
+manuscript/01_introduction.md:56:{{ARGUMENT_MODULES}}
+manuscript/03_results.md:132:{{VISUALIZATION_MANIFEST}}
+manuscript/06_reproducibility.md:8:- Config hash: `{{CONFIG_HASH}}`
+manuscript/06_reproducibility.md:9:- Version: `{{CONFIG_VERSION}}`
+manuscript/06_reproducibility.md:10:- First author: {{CONFIG_FIRST_AUTHOR}}
+manuscript/06_reproducibility.md:11:- Keywords: {{CONFIG_KEYWORDS}}
+manuscript/06_reproducibility.md:12:- Figure artifacts counted: {{ARTIFACT_FIGURES}}
+manuscript/06_reproducibility.md:13:- Data artifacts counted: {{ARTIFACT_DATA_FILES}}
+manuscript/06_reproducibility.md:14:- Report artifacts counted: {{ARTIFACT_REPORTS}}
+manuscript/06_reproducibility.md:15:- Conceptual integrity token: `{{CONCEPTUAL_INTEGRITY_TOKEN}}`
+manuscript/06_reproducibility.md:16:- Formal claims generated: {{FORMAL_CLAIM_COUNT}}
+manuscript/06_reproducibility.md:17:- Symbol glossary rows generated: {{SYMBOL_COUNT}}
+manuscript/06_reproducibility.md:18:- Text-validation checks generated: {{TEXT_VALIDATION_COUNT}}
+manuscript/00_abstract.md:3:{{THESIS_SENTENCE}} This working paper argues that Tinbergen's four questions
+manuscript/00_abstract.md:13:self-referential fixed-point termination. The project uses {{PRIMARY_MODE}}.
+manuscript/00_abstract.md:16:{{SIMULATION_POLICY}}
+manuscript/08_formal_supplement.md:8:The source layer currently generates {{FORMAL_CLAIM_COUNT}} formal claims,
+manuscript/08_formal_supplement.md:9:{{SYMBOL_COUNT}} glossary rows, {{TEXT_VALIDATION_COUNT}} text-validation
+manuscript/08_formal_supplement.md:10:checks, and {{CLAIM_DEPENDENCY_COUNT}} claim dependency edges. The inventory
+manuscript/08_formal_supplement.md:11:token for this version is `{{CONCEPTUAL_INTEGRITY_TOKEN}}`.
+manuscript/08_formal_supplement.md:15:{{FORMAL_CLAIMS}}
+manuscript/08_formal_supplement.md:20:{{CLAIM_DEPENDENCIES}}
+manuscript/08_formal_supplement.md:36:{{SYMBOL_GLOSSARY_ROWS}}
+manuscript/08_formal_supplement.md:54:{{TEXT_VALIDATION_TABLE_ROWS}}
+manuscript/04_conclusion.md:18:The bridge to policy entanglement should be sharpened in the next draft. The

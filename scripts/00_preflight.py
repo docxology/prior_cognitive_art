@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+"""Pre-flight check for manuscript rendering prerequisites."""
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _template_root() -> Path:
+    candidates = [
+        Path.cwd(),
+        PROJECT_ROOT.parents[2],
+        PROJECT_ROOT.parents[2] / "template",
+    ]
+    for candidate in candidates:
+        if (candidate / "infrastructure").is_dir():
+            return candidate
+    return PROJECT_ROOT.parents[2]
+
+
+REPO_ROOT = _template_root()
+sys.path.insert(0, str(REPO_ROOT))
+
+from infrastructure.rendering.preflight import run_manuscript_preflight  # noqa: E402
+
+
+def main() -> int:
+    manuscript_dir = Path(__file__).resolve().parent.parent / "manuscript"
+    ok, message = run_manuscript_preflight(manuscript_dir)
+    if ok:
+        return 0
+    sys.stderr.write(message)
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

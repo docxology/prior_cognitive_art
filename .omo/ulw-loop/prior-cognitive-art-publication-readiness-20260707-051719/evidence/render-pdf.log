@@ -1,0 +1,261 @@
+
+==================================================
+STAGE 03: Render PDF (Project: working/prior_cognitive_art)
+==================================================
+Executing PDF rendering pipeline for project 'working/prior_cognitive_art'...
+Hydrating manuscript variables before render: z_generate_manuscript_variables.py
+Using manuscript hydration interpreter: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/.venv/bin/python
+Resolved 11 manuscript file(s) to /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript
+/Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/data/manuscript_variables.json
+Manuscript variables hydrated
+Refreshed config.yaml in injected manuscript: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/config.yaml
+Refreshed references.bib in injected manuscript: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/references.bib
+Rendering from injected manuscript directory: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript
+Running pre-flight LaTeX package validation...
+Validating 12 required and 11 optional LaTeX packages...
+✓ All LaTeX packages available
+Verifying figures from analysis stage...
+Found 18 figure(s) in figures/
+  Found figures: active_inference_cycle.png, explanatory_complementarity_matrix.png, formal_claim_dependency_map.png
+  ... and 15 more
+Discovered 10 manuscript file(s):
+  Main sections (9):
+    • 00_abstract.md
+    • 01_introduction.md
+    • 02_methodology.md
+    • 03_results.md
+    • 04_conclusion.md
+    • 05_experimental_setup.md
+    • 06_reproducibility.md
+    • 07_scope_and_related_work.md
+    • 08_formal_supplement.md
+  References (1):
+    • 99_references.md
+
+============================================================
+MANUSCRIPT COMPOSITION (10 files)
+============================================================
+Markdown sections (10):
+  • 00_abstract.md                           (   1.4 KB)
+  • 01_introduction.md                       (   6.2 KB)
+  • 02_methodology.md                        (   9.9 KB)
+  • 03_results.md                            (  16.2 KB)
+  • 04_conclusion.md                         (   3.1 KB)
+  • 05_experimental_setup.md                 (   0.9 KB)
+  • 06_reproducibility.md                    (   1.0 KB)
+  • 07_scope_and_related_work.md             (   8.0 KB)
+  • 08_formal_supplement.md                  (  11.8 KB)
+  • 99_references.md                         (   0.1 KB)
+  Total markdown:                          (  58.7 KB)
+============================================================
+
+Initialized RenderManager from infrastructure.rendering
+Render formats: pdf=True html=True slides=True docx=False epub=False
+Removed 13 stale web artifact(s) from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/web
+  [1/10] 00_abstract.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/00_abstract.md
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/00_abstract_slides.tex with xelatex
+LaTeX compilation completed in 2.53s
+Generated beamer slides: 00_abstract_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/00_abstract.md
+    ✅ Completed in 3s
+  [2/10] 01_introduction.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/01_introduction.md
+Made 12 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/01_introduction_slides.tex with xelatex
+LaTeX compilation completed in 2.57s
+Generated beamer slides: 01_introduction_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/01_introduction.md
+    ✅ Completed in 2s
+  [3/10] 02_methodology.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/02_methodology.md
+Made 20 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/02_methodology_slides.tex with xelatex
+LaTeX compilation completed in 2.71s
+Generated beamer slides: 02_methodology_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/02_methodology.md
+    ✅ Completed in 2s
+  [4/10] 03_results.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/03_results.md
+Made 18 long monospace path span(s) breakable in slides
+Made 27 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/03_results_slides.tex with xelatex
+LaTeX compilation completed in 6.67s
+Generated beamer slides: 03_results_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/03_results.md
+    ✅ Completed in 6s
+  [5/10] 04_conclusion.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/04_conclusion.md
+Made 9 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/04_conclusion_slides.tex with xelatex
+LaTeX compilation completed in 2.39s
+Generated beamer slides: 04_conclusion_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/04_conclusion.md
+    ✅ Completed in 2s
+  [6/10] 05_experimental_setup.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/05_experimental_setup.md
+Made 2 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/05_experimental_setup_slides.tex with xelatex
+LaTeX compilation completed in 2.34s
+Generated beamer slides: 05_experimental_setup_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/05_experimental_setup.md
+    ✅ Completed in 2s
+  [7/10] 06_reproducibility.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/06_reproducibility.md
+Made 2 long monospace path span(s) breakable in slides
+Made 1 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/06_reproducibility_slides.tex with xelatex
+LaTeX compilation completed in 2.50s
+Generated beamer slides: 06_reproducibility_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/06_reproducibility.md
+    ✅ Completed in 2s
+  [8/10] 07_scope_and_related_work.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/07_scope_and_related_work.md
+Made 31 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/07_scope_and_related_work_slides.tex with xelatex
+LaTeX compilation completed in 2.61s
+Generated beamer slides: 07_scope_and_related_work_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/07_scope_and_related_work.md
+    ✅ Completed in 2s
+  [9/10] 08_formal_supplement.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/08_formal_supplement.md
+Made 10 long monospace path span(s) breakable in slides
+Made 6 unresolved cross-reference token(s) breakable in slides
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/08_formal_supplement_slides.tex with xelatex
+LaTeX compilation completed in 3.37s
+Generated beamer slides: 08_formal_supplement_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/08_formal_supplement.md
+    ✅ Completed in 3s
+  [10/10] 99_references.md
+Generating beamer slides from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/99_references.md
+Compiling /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/slides/99_references_slides.tex with xelatex
+LaTeX compilation completed in 2.76s
+Generated beamer slides: 99_references_slides.pdf
+Generating HTML from /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/manuscript/99_references.md
+    ✅ Completed in 2s
+Generating combined PDF manuscript...
+Rendering combined PDF from 10 files...
+
+============================================================
+COMBINED MANUSCRIPT RENDERING
+============================================================
+Combining 10 section(s):
+  [ 1/10] 00_abstract.md                           (   1.4 KB)
+  [ 2/10] 01_introduction.md                       (   6.2 KB)
+  [ 3/10] 02_methodology.md                        (   9.9 KB)
+  [ 4/10] 03_results.md                            (  16.2 KB)
+  [ 5/10] 04_conclusion.md                         (   3.1 KB)
+  [ 6/10] 05_experimental_setup.md                 (   0.9 KB)
+  [ 7/10] 06_reproducibility.md                    (   1.0 KB)
+  [ 8/10] 07_scope_and_related_work.md             (   8.0 KB)
+  [ 9/10] 08_formal_supplement.md                  (  11.8 KB)
+  [10/10] 99_references.md                         (   0.1 KB)
+  Total input size:                                (  58.7 KB)
+============================================================
+
+✓ Normalised 20 figure path(s) to ../figures/ in combined markdown
+Converting combined markdown to LaTeX...
+Using pandoc-crossref at /opt/homebrew/bin/pandoc-crossref
+✓ Disabled lmodern package to prevent XeLaTeX font conflicts
+✓ Patched hidelinks → colorlinks=true (uniform red hyperlinks)
+✓ Normalised 1 \hypersetup block(s) to uniform red link colours
+✓ Remapped 14 Unicode glyph(s) to PDF-safe output: →×12, ××2
+✓ Made 30 long monospace path span(s) breakable
+✓ Extracted preamble from preamble.md
+✓ Inserted title/opening matter after \begin{document}
+✓ Inserted \clearpage and \bibliography{...} before \end{document}
+Verifying 18 figure reference(s)...
+  Found: 18/18 figures
+Rendering combined manuscript to PDF: prior_cognitive_art_combined.pdf
+  Source files: 10
+  Bibliography: references.bib
+  LaTeX compilation pass 1/4...
+  Bibliography processing...
+Processing bibliography with bibtex...
+
+Successfully combined 10 sections
+   Output: prior_cognitive_art_combined.pdf
+   Size: 2028.9 KB (1.98 MB)
+   Location: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/pdf
+   Duration: 18.48 seconds
+✅ Generated combined PDF: prior_cognitive_art_combined.pdf
+Generating combined HTML manuscript...
+Rendering combined HTML from 10 files...
+
+============================================================
+COMBINED HTML RENDERING
+============================================================
+Combining 10 section(s):
+  [ 1/10] 00_abstract.md                           (   1.4 KB)
+  [ 2/10] 01_introduction.md                       (   6.2 KB)
+  [ 3/10] 02_methodology.md                        (   9.9 KB)
+  [ 4/10] 03_results.md                            (  16.2 KB)
+  [ 5/10] 04_conclusion.md                         (   3.1 KB)
+  [ 6/10] 05_experimental_setup.md                 (   0.9 KB)
+  [ 7/10] 06_reproducibility.md                    (   1.0 KB)
+  [ 8/10] 07_scope_and_related_work.md             (   8.0 KB)
+  [ 9/10] 08_formal_supplement.md                  (  11.8 KB)
+  [10/10] 99_references.md                         (   0.1 KB)
+  Total input size:                                (  58.7 KB)
+============================================================
+
+Using pandoc-crossref at /opt/homebrew/bin/pandoc-crossref for combined HTML
+Converting combined markdown to HTML...
+✓ Embedded CSS styling in index.html
+✅ Generated combined HTML: index.html
+
+Rendering Summary:
+  Individual files processed: 10
+  Markdown files: 10
+
+============================================================
+RENDERING RESULTS SUMMARY
+============================================================
+Project: working/prior_cognitive_art
+
+📕 Combined Manuscript PDF:
+   prior_cognitive_art_combined.pdf           2028.9 KB
+   Location: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/pdf/prior_cognitive_art_combined.pdf
+
+🌐 Combined Manuscript HTML:
+   index.html                                   94.8 KB
+   Location: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output/web/index.html
+
+🌐 Web Outputs (10):
+   manuscript__00_abstract.html                  5.2 KB
+   manuscript__01_introduction.html             10.5 KB
+   manuscript__02_methodology.html              15.3 KB
+   manuscript__03_results.html                  25.9 KB
+   manuscript__04_conclusion.html                7.2 KB
+   manuscript__05_experimental_setup.html        4.8 KB
+   manuscript__06_reproducibility.html           8.6 KB
+   manuscript__07_scope_and_related_work.html     12.3 KB
+   manuscript__08_formal_supplement.html        21.8 KB
+   manuscript__99_references.html                3.8 KB
+
+📊 Presentation Slides (10):
+   00_abstract_slides.pdf                        9.2 KB
+   01_introduction_slides.pdf                   20.8 KB
+   02_methodology_slides.pdf                    33.9 KB
+   03_results_slides.pdf                      1562.2 KB
+   04_conclusion_slides.pdf                     12.6 KB
+   05_experimental_setup_slides.pdf             11.0 KB
+   06_reproducibility_slides.pdf                16.1 KB
+   07_scope_and_related_work_slides.pdf         23.0 KB
+   08_formal_supplement_slides.pdf             424.9 KB
+   99_references_slides.pdf                      7.4 KB
+
+📦 Total Output Size: 2123.8 KB (2.07 MB)
+============================================================
+
+PDF rendering pipeline completed
+Verifying PDF outputs...
+Generated 1 PDF file(s)
+  📕 prior_cognitive_art_combined.pdf (1.98 MB) ✓
+
+✅ Manuscript bibliography file(s) found and will be processed
+
+✅ Combined manuscript PDF successfully generated!
+  File size: 1.98 MB
+  Valid PDFs: 1/1
+PDF rendering complete - ready for validation

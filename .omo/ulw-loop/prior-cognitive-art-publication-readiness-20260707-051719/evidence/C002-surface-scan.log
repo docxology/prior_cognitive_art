@@ -1,0 +1,30 @@
+C002 publication-surface scan PASS
+
+Scans and tests proving no publication residue:
+
+- evidence/broad-draft-marker-scan-after-split.log
+- evidence/output-token-scan-after-split.log
+- evidence/pdf-text-scan-after-split.log
+- evidence/publication-surface-stale-phrase-scan-after-split.log
+- tests/test_project_internals.py::test_manuscript_has_no_publication_draft_gap_language
+- tests/test_project_internals.py::test_rendered_manuscript_has_no_unresolved_tokens
+
+Results:
+
+- Source manuscript, hydrated manuscript, combined PDF markdown, and combined
+  web markdown contain no broad draft/future-work markers.
+- Rendered manuscript surfaces contain no unresolved template tokens.
+- Final PDF text contains no broad draft markers, unresolved tokens, TODO,
+  FIXME, or TBD markers.
+- Publication-facing docs contain no stale 15-figure, 69-test, 71-test, old
+  bibliography-count, or named draft-gap phrase residue.
+
+Scholarship and claim coverage:
+
+- docs/scholarship-audit.md records accepted and rejected/deferred sources.
+- data/claim_ledger.yaml contains 20 claim records, including the new
+  Markov-blanket scope, developmental-niche, pragmatic-prior-stop, and
+  Tinbergen/Konner boundary records.
+- evidence/final-contract-closure-after-split.log reports 40 BibTeX
+  entries and 40 cited BibTeX keys with zero phantom or orphan bibliography
+  entries.

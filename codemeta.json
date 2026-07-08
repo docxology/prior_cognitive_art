@@ -1,0 +1,28 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Prior Cognitive Art",
+  "version": "0.1.0",
+  "description": "Conceptual manuscript with deterministic visualizations about priors, Tinbergen axes, hyperprior regress, and fixed-point explanation.",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Daniel Ari",
+      "familyName": "Friedman",
+      "@id": "https://orcid.org/0000-0001-6232-9096"
+    }
+  ],
+  "license": "https://spdx.org/licenses/MIT",
+  "programmingLanguage": "Python",
+  "keywords": [
+    "priors",
+    "Tinbergen's four questions",
+    "hierarchical Bayes",
+    "free energy principle",
+    "Markov blankets",
+    "cognitive science",
+    "conceptual visualization",
+    "active inference",
+    "autopoiesis"
+  ]
+}

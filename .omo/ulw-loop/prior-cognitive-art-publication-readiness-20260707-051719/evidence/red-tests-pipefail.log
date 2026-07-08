@@ -1,0 +1,45 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.13.14, pytest-8.4.2, pluggy-1.6.0
+benchmark: 5.1.0 (defaults: timer=time.perf_counter disable_gc=False min_rounds=5 min_time=0.000005 max_time=1.0 calibration_precision=10 warmup=False warmup_iterations=100000)
+rootdir: /Users/4d/Documents/GitHub/projects/working/prior_cognitive_art
+configfile: pyproject.toml
+plugins: mock-3.15.1, asyncio-1.2.0, jaxtyping-0.3.3, anyio-4.9.0, html-4.1.1, xdist-3.8.0, timeout-2.4.0, metadata-3.1.1, hypothesis-6.138.15, pytest_httpserver-1.1.3, benchmark-5.1.0, cov-7.0.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 3 items
+
+tests/test_conceptual_model.py F                                         [ 33%]
+tests/test_project_internals.py FF                                       [100%]
+
+=================================== FAILURES ===================================
+________________ test_argument_and_figure_manifest_are_aligned _________________
+tests/test_conceptual_model.py:37: in test_argument_and_figure_manifest_are_aligned
+    assert [item.filename for item in figures] == [
+E   AssertionError: assert ['tinbergen_a...dge.png', ...] == ['tinbergen_a...dge.png', ...]
+E     
+E     Right contains 3 more items, first extra item: 'source_claim_boundary_map.png'
+E     Use -v to get more diff
+_________ test_scholarship_audit_records_publication_boundary_sources __________
+tests/test_project_internals.py:256: in test_scholarship_audit_records_publication_boundary_sources
+    assert audit_path.exists(), "publication pass must record accepted and rejected sources"
+E   AssertionError: publication pass must record accepted and rejected sources
+E   assert False
+E    +  where False = exists()
+E    +    where exists = PosixPath('/Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/docs/scholarship-audit.md').exists
+____________ test_manuscript_has_no_publication_draft_gap_language _____________
+tests/test_project_internals.py:280: in test_manuscript_has_no_publication_draft_gap_language
+    assert phrase not in manuscript_text
+E   AssertionError: assert 'Remaining Scholarship Gaps' not in '# Visual At...r methods.\n'
+E     
+E     'Remaining Scholarship Gaps' is contained here:
+E       eps].
+E       
+E       ## Remaining Scholarship Gaps
+E       
+E       The current draft uses these sources to frame the argument. A later scholarship...
+E     
+E     ...Full output truncated (166 lines hidden), use '-vv' to show
+=========================== short test summary info ============================
+FAILED tests/test_conceptual_model.py::test_argument_and_figure_manifest_are_aligned
+FAILED tests/test_project_internals.py::test_scholarship_audit_records_publication_boundary_sources
+FAILED tests/test_project_internals.py::test_manuscript_has_no_publication_draft_gap_language
+============================== 3 failed in 0.20s ===============================

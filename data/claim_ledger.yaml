@@ -1,0 +1,141 @@
+claims:
+  - claim_id: tinbergen-crossed-axes
+    kind: conceptual-framing
+    value: "Tinbergen's four questions can be represented as proximate/ultimate crossed with static/developmental explanation."
+    source: "tinbergen1963aims"
+    source_tier: "scholarly"
+    freshness: "stable"
+    artifact_path: "manuscript/references.bib"
+  - claim_id: no-simulations
+    kind: local-invariant
+    value: "This paper runs no simulations and makes no numerical performance claims."
+    source: "AGENTS.md"
+    source_tier: "project-contract"
+    freshness: "current"
+    artifact_path: "AGENTS.md"
+  - claim_id: termination-three
+    kind: local-invariant
+    value: "The manuscript analyzes pragmatic, selection, and fixed-point termination moves for the prior regress."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: formal-symbol-closure
+    kind: local-invariant
+    value: "Every project-specific symbol used by a formal claim is represented in the generated symbol glossary."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: generated-integrity-token
+    kind: local-invariant
+    value: "The conceptual integrity token is generated from the source inventory that feeds prose, figures, formal claims, and tests."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: regress-shape-parallel
+    kind: conceptual-framing
+    value: "The hyperprior regress in hierarchical Bayes and the ontogenetic prior-selection chain share the same regress shape."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: selection-filter-blocks-regress
+    kind: conceptual-framing
+    value: "Function plus phylogeny blocks regress by filtering the forms that remain available as explanatory targets."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: fixed-point-category-shift
+    kind: conceptual-framing
+    value: "The fixed-point answer is a category shift: the system is the prior-like settlement rather than a bearer of one more hidden prior."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: decomposition-caution
+    kind: conceptual-framing
+    value: "Policy, prior-like constraint, and state factors are useful decompositions of joint organization without being ontologically prior to it."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: niche-co-construction
+    kind: conceptual-framing
+    value: "The prior is not fully endogenous or exogenous; it is co-shaped by organism and niche."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: blanket-achievement
+    kind: conceptual-framing
+    value: "The Markov blanket is used as a model-level boundary whose realized approximation depends on the system's self-maintaining dynamics."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: explanatory-complementarity
+    kind: conceptual-framing
+    value: "The four Tinbergen questions are complementary perspectives, not rival hypotheses. Conflating them is the source of the regress."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: claim-dependency-closure
+    kind: local-invariant
+    value: "Every claim dependency edge references a claim key that exists in the formal claims."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: active-inference-bridge
+    kind: conceptual-framing
+    value: "Active inference closes the action-perception loop: the prior serves a process that minimizes free energy through both inference and action."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: variational-closure
+    kind: conceptual-framing
+    value: "The prior-like structure is the settling point of the variational free-energy bound, not an external parameter."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: scale-invariance
+    kind: conceptual-framing
+    value: "The fixed-point termination recurs at cellular, organismic, and social scales without requiring a new hidden prior."
+    source: "src/conceptual_model.py"
+    source_tier: "source"
+    freshness: "current"
+    artifact_path: "src/conceptual_model.py"
+  - claim_id: markov-blanket-scope-boundary
+    kind: conceptual-framing
+    value: "Markov blankets can support active-inference modeling without automatically demarcating literal organismal or cognitive boundaries."
+    source: "bruineberg2022emperor; raja2021markov"
+    source_tier: "scholarly"
+    freshness: "stable"
+    artifact_path: "manuscript/references.bib"
+  - claim_id: developmental-niche-boundary
+    kind: conceptual-framing
+    value: "Developmental niche construction and selective niche construction name different causal patterns, so co-construction constrains selection termination without becoming a fourth termination move."
+    source: "stotz2017developmental"
+    source_tier: "scholarly"
+    freshness: "stable"
+    artifact_path: "manuscript/references.bib"
+  - claim_id: pragmatic-prior-stop
+    kind: conceptual-framing
+    value: "Weakly informative, reference, and penalized-complexity priors are pragmatic stops whose adequacy is checked by model workflow rather than by claiming ultimate prior origin."
+    source: "gelman2013philosophy; simpson2017penalising"
+    source_tier: "scholarly"
+    freshness: "stable"
+    artifact_path: "manuscript/references.bib"
+  - claim_id: tinbergen-extension-boundary
+    kind: conceptual-framing
+    value: "Konner's nine-level proposal is treated as a cautious extension of Tinbergen's explanatory framework, not as a replacement for the paper's crossed-axis argument."
+    source: "konner2021nine"
+    source_tier: "scholarly"
+    freshness: "stable"
+    artifact_path: "manuscript/references.bib"

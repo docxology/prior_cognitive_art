@@ -1,0 +1,52 @@
+conditions:
+  - name: tinbergen_grid
+    role: reference
+    description: "Use Tinbergen's four questions as a crossed explanatory map."
+  - name: hyperprior_regress
+    role: proposed
+    description: "Treat ontogenetic prior selection as structurally parallel to hyperprior inheritance."
+  - name: fixed_point_stop
+    role: variant
+    description: "Treat the prior as a settled organization rather than another level."
+  - name: niche_co_construction
+    role: proposed
+    description: "Treat the prior as co-shaped by organism and niche, not fully endogenous or exogenous."
+  - name: blanket_achievement
+    role: variant
+    description: "Treat the Markov blanket as a self-maintaining boundary achieved by the system."
+  - name: formal_integrity
+    role: proposed
+    description: "Use generated formal claims, symbol glossary closure, claim dependencies, and integrity tokens as manuscript-drift checks."
+metrics:
+  primary:
+    name: explanatory_coverage
+    direction: maximize
+protocol: "Generate deterministic conceptual diagrams and check that the manuscript separates mechanism, function, ontogeny, phylogeny, and termination modes without simulation-result claims."
+expected_figures:
+  - fig:tinbergen_axes
+  - fig:regress_terminations
+  - fig:prior_equilibrium_map
+  - fig:ontogeny_hyperprior_parallel
+  - fig:selection_filter
+  - fig:policy_entanglement_bridge
+  - fig:formal_claim_dependency_map
+  - fig:symbol_glossary_closure
+  - fig:text_validation_ladder
+  - fig:niche_construction_diagram
+  - fig:markov_blanket_achievement
+  - fig:explanatory_complementarity_matrix
+  - fig:active_inference_cycle
+  - fig:variational_free_energy_landscape
+  - fig:scale_invariance_diagram
+  - fig:source_claim_boundary_map
+  - fig:markov_blanket_scope_split
+  - fig:niche_prior_feedback_field
+expected_tables:
+  - tbl:tinbergen_quadrants
+  - tbl:symbol_glossary
+  - tbl:text_validation_checks
+baselines:
+  - tinbergen_grid
+ablations:
+  - fixed_point_stop
+  - niche_co_construction

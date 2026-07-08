@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this working manuscript, cite it as below."
+title: "Prior Cognitive Art"
+authors:
+  - family-names: "Friedman"
+    given-names: "Daniel Ari"
+    orcid: "https://orcid.org/0000-0001-6232-9096"
+version: "0.1.0"
+date-released: "2026-07-03"
+license: "MIT"
+keywords:
+  - "priors"
+  - "Tinbergen's four questions"
+  - "hierarchical Bayes"
+  - "free energy principle"
+  - "Markov blankets"
+  - "cognitive science"
+  - "conceptual visualization"
+  - "active inference"
+  - "autopoiesis"

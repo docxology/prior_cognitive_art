@@ -1,0 +1,144 @@
+{
+  "codeReview": {
+    "by": "lazycodex-code-reviewer",
+    "recommendation": "APPROVE",
+    "codeQualityStatus": "CLEAR",
+    "reportPath": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/code-review-slop-report-after-split.md",
+    "evidence": "Oversized figure-generation module was split; code-review slop report after split records no blocking code-quality issues.",
+    "blockers": []
+  },
+  "manualQa": {
+    "by": "lazycodex-qa-executor",
+    "status": "passed",
+    "evidence": "Fresh reassessment ran tests, deterministic generation, template rendering, qpdf, PDF/source scans, contract parity, and visual contact-sheet inspection.",
+    "surfaceEvidence": [
+      {
+        "id": "surface-cli-tests-render",
+        "criterionRef": "publication-ready-rendered-manuscript",
+        "surface": "cli",
+        "invocation": "uv run pytest tests/ && uv run python scripts/optimization_analysis.py && uv run python scripts/build_dashboard.py && uv run python scripts/generate_api_docs.py && uv run python scripts/z_generate_manuscript_variables.py && uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art",
+        "verdict": "passed",
+        "artifactRefs": [
+          "artifact-final-quality-gate-note"
+        ]
+      },
+      {
+        "id": "surface-gui-visual-contact-sheets",
+        "criterionRef": "manual-visual-qa",
+        "surface": "gui",
+        "invocation": "view_image figure-contact-sheet-reassess.png and pdf-page-contact-sheet-reassess.png",
+        "verdict": "passed",
+        "artifactRefs": [
+          "artifact-figure-contact-sheet",
+          "artifact-pdf-contact-sheet"
+        ]
+      },
+      {
+        "id": "surface-data-contract-parity",
+        "criterionRef": "figure-claim-source-contract",
+        "surface": "data",
+        "invocation": "python parity check over conceptual_model.figure_specs(), output manifests, output figure files, and embedded manuscript figure references",
+        "verdict": "passed",
+        "artifactRefs": [
+          "artifact-data-contract-parity"
+        ]
+      }
+    ],
+    "adversarialCases": [
+      {
+        "id": "adv-draft-token-residue",
+        "criterionRef": "no-draft-gap-language",
+        "scenario": "Rendered manuscript or PDF still contains draft-gap language or unresolved template tokens after the rewrite.",
+        "expectedBehavior": "Source/rendered manuscript scans and PDF text scans return no draft-gap markers or unresolved template tokens.",
+        "verdict": "passed",
+        "artifactRefs": [
+          "artifact-final-quality-gate-note"
+        ]
+      },
+      {
+        "id": "adv-quality-gate-schema",
+        "criterionRef": "ulw-ledger-completion",
+        "scenario": "Checkpoint completion is attempted with incomplete or stale quality-gate evidence.",
+        "expectedBehavior": "The ULW checkpoint validator rejects incomplete gates until complete, artifact-backed evidence is supplied.",
+        "verdict": "passed",
+        "artifactRefs": [
+          "artifact-quality-gate-schema-retry"
+        ]
+      }
+    ],
+    "artifactRefs": [
+      {
+        "id": "artifact-final-quality-gate-note",
+        "kind": "log",
+        "description": "Human-readable final quality-gate reassessment with commands, visual QA, and runtime hypotheses.",
+        "path": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md"
+      },
+      {
+        "id": "artifact-figure-contact-sheet",
+        "kind": "image",
+        "description": "Fresh visual contact sheet for all 18 generated conceptual figures.",
+        "path": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/figure-contact-sheet-reassess.png"
+      },
+      {
+        "id": "artifact-pdf-contact-sheet",
+        "kind": "image",
+        "description": "Fresh visual contact sheet for representative rendered PDF pages.",
+        "path": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/pdf-page-contact-sheet-reassess.png"
+      },
+      {
+        "id": "artifact-data-contract-parity",
+        "kind": "data-diff",
+        "description": "Final parity log for source figure specs, generated manifests, figure files, and embedded figure references.",
+        "path": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/data-contract-parity-reassess.log"
+      },
+      {
+        "id": "artifact-quality-gate-schema-retry",
+        "kind": "log",
+        "description": "Transcript summary of quality-gate checkpoint rejections and schema corrections.",
+        "path": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/quality-gate-schema-retry-reassess.log"
+      }
+    ]
+  },
+  "gateReview": {
+    "by": "lazycodex-gate-reviewer",
+    "recommendation": "APPROVE",
+    "reportPath": ".omo/evidence/prior-cognitive-art-publication-readiness-20260707-051719-gate-review.md",
+    "evidence": "Independent gate reviewer approved after after-split evidence, live files, rendered outputs, visual QA, 18-figure contract, <=250 LOC figure modules, slop report, TODO/readiness docs, and no-simulation boundary were reviewed.",
+    "blockers": []
+  },
+  "iteration": {
+    "fullRerun": true,
+    "status": "passed",
+    "rerunCommands": [
+      "uv run pytest tests/",
+      "uv run python scripts/optimization_analysis.py",
+      "uv run python scripts/build_dashboard.py",
+      "uv run python scripts/generate_api_docs.py",
+      "uv run python scripts/z_generate_manuscript_variables.py",
+      "uv run python -m infrastructure.orchestration link-projects --dry-run",
+      "uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art",
+      "qpdf --check output/pdf/prior_cognitive_art_combined.pdf",
+      "pdftotext output/pdf/prior_cognitive_art_combined.pdf - | rg draft/token markers",
+      "view_image figure-contact-sheet-reassess.png",
+      "view_image pdf-page-contact-sheet-reassess.png"
+    ],
+    "evidence": "Full final rerun passed during reassessment, including source generation, template render, PDF checks, text scans, contract parity, and manual visual QA."
+  },
+  "criteriaCoverage": {
+    "totalCriteria": 8,
+    "passCount": 8,
+    "originalIntent": "The user requested exhaustive publication-readiness remediation for Prior Cognitive Art, with verified scholarship, manuscript revisions, ambitious visualizations, synchronized contracts/docs/tests, TODO updates, and a final readiness report.",
+    "desiredOutcome": "A clean venue-neutral preprint/working-paper manuscript with no draft-gap language, bounded scholarly claims, exactly 18 conceptual figures, synchronized claim/source/figure surfaces, regenerated outputs, and artifact-backed readiness evidence.",
+    "userOutcomeReview": "The final artifact satisfies the requested outcome: scholarship was promoted only where verified and claim-relevant; manuscript and contract surfaces agree; tests, generation, rendering, scans, and manual visual QA pass; remaining work is only venue-specific submission preparation.",
+    "adversarialClassesCovered": [
+      "stale_draft_language",
+      "unresolved_template_tokens",
+      "figure_contract_drift",
+      "missing_visual_artifacts",
+      "citation_bibliography_drift",
+      "claim_ledger_drift",
+      "oversized_generated_code_module",
+      "stale_or_incomplete_quality_gate"
+    ]
+  }
+}

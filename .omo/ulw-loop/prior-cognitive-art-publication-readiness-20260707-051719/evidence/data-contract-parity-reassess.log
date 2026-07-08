@@ -1,0 +1,19 @@
+Final reassessment data-contract parity
+
+{
+  "figure_specs": 18,
+  "registry_records": 18,
+  "manifest_records": 18,
+  "pngs": 18,
+  "svgs": 18,
+  "embedded_figure_refs": 18,
+  "formal_claims": 11,
+  "symbols": 25,
+  "text_validation_checks": 10,
+  "claim_dependency_edges": 12,
+  "missing_pngs": [],
+  "unexpected_embedded_refs": [],
+  "missing_embedded_refs": []
+}
+
+Result: PASS

@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "createdAt": "2026-07-07T12:17:32.320Z",
+  "updatedAt": "2026-07-07T22:34:11.213Z",
+  "briefPath": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/brief.md",
+  "goalsPath": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/goals.json",
+  "ledgerPath": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/ledger.jsonl",
+  "codexGoalMode": "aggregate",
+  "goals": [
+    {
+      "id": "G001-implement-the-prior-cognitive-art-pu",
+      "title": "Implement the Prior Cognitive Art publication-readiness plan end to e...",
+      "objective": "Implement the Prior Cognitive Art publication-readiness plan end to end: verify and add claim-relevant scholarship, remove draft-gap manuscript language, add three deterministic conceptual figures for an 18-figure contract, update claim ledger/docs/TODO/readiness report, regenerate outputs, render PDF through the template pipeline, prove no draft/template-token residue remains, perform visual QA, and finish with reviewer approval. Constraints: conceptual manuscript only, no simulations or empirical performance numbers, preserve unrelated worktree changes, no commit/push unless separately requested.",
+      "status": "complete",
+      "successCriteria": [
+        {
+          "id": "C001",
+          "scenario": "CLI/data happy path: from project root run uv scripts and tests, from template root render the PDF, then verify exact 18-figure parity and fresh publication-readiness/TODO outputs. PASS iff all commands exit 0 and parity/report checks pass.",
+          "userModel": "happy",
+          "expectedEvidence": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/C001-happy-path.log plus regenerated output/report artifacts",
+          "essential": true,
+          "capturedEvidence": "Post-split project generation and render passed: optimization_analysis-after-split, build_dashboard-after-split, generate_api_docs-after-split, z_generate_manuscript_variables-after-split, pytest 73 passed, link-projects dry-run clean, template render-after-split produced 1.98 MB combined PDF with 18/18 figure references. Authoritative evidence file: evidence/C001-happy-path.log. Supporting logs: evidence/pytest-after-split.log, evidence/render-pdf-after-split.log, evidence/final-contract-closure-after-split.log.",
+          "status": "pass",
+          "capturedAt": "2026-07-07T19:34:15.745Z"
+        },
+        {
+          "id": "C002",
+          "scenario": "publication-surface edge/adversarial path: scan source and rendered manuscript/PDF text for draft-gap phrases and unresolved template tokens, and verify scholarship claims are backed by accepted source decisions plus claim-ledger rows. PASS iff the scan has zero forbidden matches and ledger/audit checks pass.",
+          "userModel": "edge",
+          "expectedEvidence": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/C002-surface-scan.log plus docs/scholarship-audit.md and data/claim_ledger.yaml",
+          "essential": true,
+          "capturedEvidence": "Post-split surface/adversarial scans passed: broad source/rendered/PDF draft/future-work scans clean, rendered token scans clean, publication-surface stale-count scan clean, 40 BibTeX entries closed to 40 cited keys, scholarship audit and claim ledger updated. Authoritative evidence file: evidence/C002-surface-scan.log. Supporting logs: evidence/broad-draft-marker-scan-after-split.log, evidence/output-token-scan-after-split.log, evidence/pdf-text-scan-after-split.log, evidence/publication-surface-stale-phrase-scan-after-split.log, evidence/final-contract-closure-after-split.log.",
+          "status": "pass",
+          "capturedAt": "2026-07-07T19:34:31.061Z"
+        },
+        {
+          "id": "C003",
+          "scenario": "regression and visual surface: inspect all 18 regenerated PNG figures plus representative PDF pages for readability and confirm existing dashboard/API-doc output surfaces still generate. PASS iff visual QA artifact records no clipping/blank figures and dashboard/API docs regenerate.",
+          "userModel": "regression",
+          "expectedEvidence": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/C003-visual-regression.md plus contact sheet/screenshot artifacts",
+          "essential": false,
+          "capturedEvidence": "Post-split regression, manual QA, cleanup, and slop/overfit coverage passed: exact 18 PNG/18 SVG parity, qpdf clean after split, all figures and representative PDF pages inspected after split, expected visual-regression evidence file present, code-review/slop report present, no-residue tests and pure-LOC ceiling test pass, figure renderer split into <=250 pure-LOC modules. Authoritative evidence file: evidence/C003-visual-regression.md. Supporting files: evidence/figure-contact-sheet-after-split.png, evidence/pdf-page-contact-sheet-after-split.png, evidence/code-review-slop-report-after-split.md, evidence/figure-module-size-after-split.log.",
+          "status": "pass",
+          "capturedAt": "2026-07-07T19:34:49.574Z"
+        }
+      ],
+      "attempt": 0,
+      "createdAt": "2026-07-07T12:17:32.320Z",
+      "updatedAt": "2026-07-07T22:34:11.213Z",
+      "completedAt": "2026-07-07T22:34:11.213Z",
+      "evidence": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md: reassessment PASS; 73 tests; fresh deterministic generation; template render 18/18 figures; qpdf clean; PDF/source token scans clean; visual QA contact sheets passed; final reviewer approved."
+    }
+  ],
+  "codexObjective": "Complete the durable ulw-loop plan in .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/goals.json, including later accepted/appended stories, under the original brief constraints; use .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/ledger.jsonl as the audit trail.",
+  "aggregateCompletion": {
+    "status": "complete",
+    "completedAt": "2026-07-07T22:34:11.213Z",
+    "evidence": ".omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md: reassessment PASS; 73 tests; fresh deterministic generation; template render 18/18 figures; qpdf clean; PDF/source token scans clean; visual QA contact sheets passed; final reviewer approved.",
+    "codexGoal": {
+      "goal": {
+        "threadId": "019f3c6c-2e85-7b23-b2c0-a38d928dd15f",
+        "objective": "Complete the durable ulw-loop plan in .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/goals.json, including later accepted/appended stories, under the original brief constraints; use .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/ledger.jsonl as the audit trail.",
+        "status": "complete",
+        "tokensUsed": 1197598,
+        "timeUsedSeconds": 4559,
+        "createdAt": 1783426670,
+        "updatedAt": 1783463495
+      },
+      "remainingTokens": null,
+      "completionBudgetReport": null
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Prior Cognitive Art",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "description": "Simulation-free conceptual manuscript about Tinbergen axes, hyperprior regress, fixed-point explanation, and policy-entanglement bridges.",
+  "creators": [
+    {
+      "name": "Friedman, Daniel Ari",
+      "orcid": "0000-0001-6232-9096"
+    }
+  ],
+  "license": "mit",
+  "keywords": [
+    "priors",
+    "Tinbergen's four questions",
+    "hierarchical Bayes",
+    "free energy principle",
+    "Markov blankets",
+    "cognitive science",
+    "conceptual visualization",
+    "active inference",
+    "autopoiesis"
+  ]
+}

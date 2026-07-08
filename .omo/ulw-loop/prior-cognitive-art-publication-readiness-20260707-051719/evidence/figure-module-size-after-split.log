@@ -1,0 +1,8 @@
+PASS    2 src/figures/__init__.py
+PASS  157 src/figures/_active_scale_figures.py
+PASS  221 src/figures/_argument_figures.py
+PASS  204 src/figures/_boundary_figures.py
+PASS  204 src/figures/_contract_figures.py
+PASS  168 src/figures/_niche_blanket_figures.py
+PASS   74 src/figures/_shared.py
+PASS   81 src/figures/conceptual.py

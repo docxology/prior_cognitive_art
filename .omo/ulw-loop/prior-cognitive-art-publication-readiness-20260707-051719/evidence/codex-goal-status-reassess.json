@@ -1,0 +1,13 @@
+{
+  "goal": {
+    "threadId": "019f3c6c-2e85-7b23-b2c0-a38d928dd15f",
+    "objective": "Complete the durable ulw-loop plan in .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/goals.json, including later accepted/appended stories, under the original brief constraints; use .omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/ledger.jsonl as the audit trail.",
+    "status": "complete",
+    "tokensUsed": 1197598,
+    "timeUsedSeconds": 4559,
+    "createdAt": 1783426670,
+    "updatedAt": 1783463495
+  },
+  "remainingTokens": null,
+  "completionBudgetReport": null
+}

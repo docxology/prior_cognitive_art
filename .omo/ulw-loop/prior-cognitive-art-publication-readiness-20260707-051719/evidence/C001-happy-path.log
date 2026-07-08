@@ -1,0 +1,36 @@
+C001 happy path PASS
+
+Project-root generation commands passed:
+
+- uv run python scripts/optimization_analysis.py
+- uv run python scripts/build_dashboard.py
+- uv run python scripts/generate_api_docs.py
+- uv run python scripts/z_generate_manuscript_variables.py
+- uv run pytest tests/
+
+Final project test evidence:
+
+- evidence/pytest-after-split.log
+- result: 73 passed
+
+Template-root render commands passed:
+
+- uv run python -m infrastructure.orchestration link-projects --dry-run
+- uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
+
+Render evidence:
+
+- evidence/link-projects-dry-run.log
+- evidence/render-pdf-after-split.log
+- result: link sync reported 0 created, 0 updated, 0 removed, 0 skipped
+- result: combined PDF generated at output/pdf/prior_cognitive_art_combined.pdf
+- result: render found 18/18 figure references
+- result: final PDF size 1.98 MB
+
+Contract evidence:
+
+- evidence/final-contract-closure-after-split.log
+- result: 18 figures, 18 PNGs, 18 SVGs, 11 formal claims, 20 claim-ledger
+  records, 25 symbols, 10 validation checks, 12 claim dependency edges, 40
+  BibTeX entries, and 40 cited BibTeX keys.
+- result: all `src/figures/*.py` modules are at or below 250 pure LOC.

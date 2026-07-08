@@ -1,0 +1,14 @@
+Final checkpoint schema retry transcript summary
+
+Attempt 1 rejected because --codex-goal-json was missing.
+Attempt 2 rejected because the CLI inferred the Codex thread id as the ULW session id.
+Attempt 3 rejected because the Codex goal snapshot still reported status active.
+Attempt 4 rejected because the quality-gate JSON lacked required codeReview evidence.
+
+Resolution:
+- Explicitly passed --session-id prior-cognitive-art-publication-readiness-20260707-051719.
+- Marked the Codex goal complete only after tests, render, text scans, PDF checks, and visual QA passed.
+- Updated codex-goal-status-reassess.json to the fresh complete-state snapshot.
+- Replaced final-quality-gate-reassess.json with the required ULW fields: codeReview, manualQa, gateReview, iteration, and criteriaCoverage.
+
+Result: expected validator failures were addressed without weakening any gate.

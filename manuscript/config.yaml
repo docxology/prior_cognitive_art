@@ -1,0 +1,62 @@
+paper:
+  title: "Prior Cognitive Art"
+  subtitle: "Tinbergen Axes, Hyperprior Regress, and Fixed-Point Explanation"
+  version: "0.1.0"
+  date: "2026-07-03"
+
+authors:
+  - name: "Daniel Ari Friedman"
+    orcid: "0000-0001-6232-9096"
+    email: "daniel@activeinference.institute"
+    affiliation: "Active Inference Institute"
+    corresponding: true
+
+publication:
+  doi: ""
+  github_repository: "docxology/prior_cognitive_art"
+  journal: ""
+  volume: ""
+  pages: ""
+  year: "2026"
+
+keywords:
+  - "priors"
+  - "Tinbergen's four questions"
+  - "hierarchical Bayes"
+  - "free energy principle"
+  - "Markov blankets"
+  - "cognitive science"
+  - "conceptual visualization"
+
+metadata:
+  license: "MIT"
+  language: "en"
+  conceptual:
+    mode: "plain-text argument with deterministic conceptual visualizations"
+    simulations: false
+    thesis: "A prior is not explained by stacking more priors; it is located by mechanism, function, history, and fixed-point organization."
+    central_question: "Why is there a prior?"
+    adjacent_work:
+      - "policy entanglement"
+      - "lambda-decomposition"
+      - "Markov blanket self-individuation"
+
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: true
+    docx: false
+    epub: false
+
+analysis:
+  scripts:
+    - optimization_analysis.py
+    - build_dashboard.py
+    - generate_api_docs.py
+    - z_generate_manuscript_variables.py
+
+testing:
+  max_test_failures: 0
+  max_infra_test_failures: 0
+  max_project_test_failures: 0
