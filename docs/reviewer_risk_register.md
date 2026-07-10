@@ -1,6 +1,6 @@
 # Reviewer Risk Register
 
-Date: 2026-07-07
+Date: 2026-07-09
 
 This register anticipates likely reviewer objections and points to the current
 manuscript or project surface that answers them. It is a publication-prep tool,
@@ -16,6 +16,10 @@ not a substitute for a venue-specific response letter.
 | R6 | The figures may look like results even though the paper is conceptual. | The project and manuscript state that figures are deterministic conceptual diagrams, not empirical outputs. | `README.md`, `docs/submission_package.md`, `output/figures/figure_registry.json` |
 | R7 | The bibliography may be padded or only loosely connected to claims. | Accepted/deferred scholarship decisions are tied to claim boundaries and ledger records. | `docs/scholarship-audit.md`, `data/claim_ledger.yaml`, `source_claim_boundary_map` |
 | R8 | The paper may hide unresolved draft work behind generated artifacts. | Tests and scans cover draft-gap phrases, unresolved tokens, citation closure, figure parity, module-size slop, and package-level artifact consistency. | `tests/`, `scripts/validate_publication_package.py`, `docs/publication_readiness_report.md`, `.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md` |
+| R9 | The variational-free-energy claim may imply literal zero free energy or confuse priors with posteriors. | F10 and the VFE caption now state a relative variational-bound/KL reading and explicitly reject literal zero-energy and prior-origin claims. | `src/conceptual_model.py`, `manuscript/02_methodology.md`, `variational_free_energy_landscape` |
+| R10 | The title may appear to claim a general predictive-processing theory of art. | The paper now treats "art" as a bounded analogy: aesthetic practices arrange encounters with expectation, ambiguity, affect, and meaning, while 4E and neuroaesthetic critiques block reductionism. | `manuscript/01_introduction.md`, `manuscript/07_scope_and_related_work.md`, `docs/scholarship-audit.md` |
+| R11 | The added material-engagement scholarship may be read as saying artworks literally contain predictive models or directly install priors. | The new art/prior-craft figure and claim-ledger rows frame artworks as material scaffolds for encounters with priors, not as neural mechanisms or empirical updating claims. | `aesthetic_prior_craft_map`, `data/claim_ledger.yaml`, `manuscript/02_methodology.md` |
+| R12 | The deterministic simulation trace may be mistaken for a stochastic model, empirical pilot, or performance claim. | The trace is formalized as a finite authored state order, and the publication validator compares the generated JSON against the source sequence, labels, transitions, and invariants. | `manuscript/08_formal_supplement.md`, `deterministic_simulation_trace`, `scripts/validate_publication_package.py`, `output/data/deterministic_simulation_trace.json` |
 
 ## Pre-Submission Reviewer Strategy
 
@@ -26,6 +30,12 @@ not a substitute for a venue-specific response letter.
 - Use `source_claim_boundary_map` when presenting to interdisciplinary
   audiences; it shows that scholarship was selected for claim control rather
   than for bibliography volume.
-- Keep the no-simulation boundary explicit in abstracts, talks, and submission
-  forms. The project is reproducible because its conceptual inventory and
-  deterministic figures are reproducible, not because it estimates effects.
+- Use the predictive-aesthetics paragraph as a title clarification, not as a
+  mechanism claim about all art.
+- Pair that paragraph with `aesthetic_prior_craft_map` when presenting to
+  philosophy-of-art or 4E audiences; it shows the material-practice support and
+  the mechanism ceiling on the same page.
+- Keep the deterministic-trace boundary explicit in abstracts, talks, and
+  submission forms. The project is reproducible because its conceptual
+  inventory, formal trace, and deterministic figures are reproducible, not
+  because it estimates effects.

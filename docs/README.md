@@ -1,7 +1,8 @@
 # Prior Cognitive Art Docs
 
-This directory records the local workflow for a simulation-free conceptual
-manuscript.
+This directory records the local workflow for a conceptual manuscript with one
+deterministic illustrative simulation trace and no stochastic, empirical,
+synthetic-data, or performance claims.
 
 - `agent_instructions.md` — editing contract for AI agents
 - `architecture.md` — source/script/manuscript boundary

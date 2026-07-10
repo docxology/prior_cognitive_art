@@ -39,7 +39,9 @@ def _require_files(project_root: Path, relative_paths: tuple[str, ...], issues: 
 def _check_counts(project_root: Path, issues: list[str]) -> dict[str, int]:
     _load_project_modules(project_root)
     from src.conceptual_model import (  # noqa: PLC0415
+        as_records,
         claim_dependencies,
+        deterministic_simulation_trace,
         figure_specs,
         formal_claims,
         symbol_glossary,
@@ -54,6 +56,7 @@ def _check_counts(project_root: Path, issues: list[str]) -> dict[str, int]:
         "symbol_count": len(symbol_glossary()),
         "text_validation_count": len(text_validation_checks()),
         "claim_dependency_count": len(claim_dependencies()),
+        "deterministic_simulation_step_count": len(deterministic_simulation_trace()),
     }
 
     for error in validate_conceptual_contract():
@@ -70,10 +73,44 @@ def _check_counts(project_root: Path, issues: list[str]) -> dict[str, int]:
                 )
         if report.get("simulation_free") is not True:
             issues.append("conceptual_analysis.json must preserve simulation_free=true")
+        for key in (
+            "deterministic_illustrative_simulation",
+            "empirical_simulation_free",
+            "stochastic_simulation_free",
+        ):
+            if report.get(key) is not True:
+                issues.append(f"conceptual_analysis.json must preserve {key}=true")
+        if "no stochastic sampling" not in str(report.get("simulation_scope", "")):
+            issues.append("conceptual_analysis.json simulation_scope must reject stochastic sampling")
         if report.get("contract_errors") not in ([], ()):
             issues.append("conceptual_analysis.json reports contract_errors")
         if report.get("claim_dependency_errors") not in ([], ()):
             issues.append("conceptual_analysis.json reports claim_dependency_errors")
+
+    trace = _load_json(project_root / "output/data/deterministic_simulation_trace.json", issues)
+    if isinstance(trace, dict):
+        if len(trace.get("steps", [])) != expected["deterministic_simulation_step_count"]:
+            issues.append("deterministic_simulation_trace.json step count does not match source")
+        if "no stochastic sampling" not in str(trace.get("scope", "")):
+            issues.append("deterministic_simulation_trace.json scope must reject stochastic sampling")
+        _check_deterministic_trace_contract(
+            trace,
+            as_records(deterministic_simulation_trace()),
+            issues,
+        )
+
+    simulation_manifest = _load_json(project_root / "output/reports/deterministic_simulation_manifest.json", issues)
+    if isinstance(simulation_manifest, dict):
+        if simulation_manifest.get("step_count") != expected["deterministic_simulation_step_count"]:
+            issues.append("deterministic_simulation_manifest.json step_count does not match source")
+        for key in (
+            "deterministic_illustrative_simulation",
+            "empirical_simulation_free",
+            "stochastic_simulation_free",
+            "performance_claims_free",
+        ):
+            if simulation_manifest.get(key) is not True:
+                issues.append(f"deterministic_simulation_manifest.json must preserve {key}=true")
 
     manifest = _load_json(project_root / "output/reports/figure_manifest.json", issues)
     if isinstance(manifest, dict) and len(manifest.get("figures", [])) != expected["figure_count"]:
@@ -97,6 +134,62 @@ def _check_counts(project_root: Path, issues: list[str]) -> dict[str, int]:
                 issues.append(f"manuscript_variables.json {key}={variables.get(key)!r}; expected {expected_value}")
 
     return expected
+
+
+def _check_deterministic_trace_contract(
+    trace: dict[str, Any],
+    expected_steps: list[dict[str, object]],
+    issues: list[str],
+) -> None:
+    if trace.get("schema") != "prior_cognitive_art.deterministic_simulation_trace.v1":
+        issues.append("deterministic_simulation_trace.json schema is stale")
+
+    actual_steps = trace.get("steps")
+    if not isinstance(actual_steps, list):
+        issues.append("deterministic_simulation_trace.json steps must be a list")
+        return
+
+    expected_order = list(range(len(expected_steps)))
+    actual_order = [step.get("step") for step in actual_steps if isinstance(step, dict)]
+    if actual_order != expected_order:
+        issues.append(
+            f"deterministic_simulation_trace.json step order={actual_order!r}; "
+            f"expected {expected_order!r}"
+        )
+
+    source_owned_fields = ("step", "state", "formal_state", "transition", "invariant")
+    for index, expected_step in enumerate(expected_steps):
+        if index >= len(actual_steps) or not isinstance(actual_steps[index], dict):
+            continue
+        actual_step = actual_steps[index]
+        for field in source_owned_fields:
+            if actual_step.get(field) != expected_step[field]:
+                issues.append(
+                    "deterministic_simulation_trace.json "
+                    f"step {index} field {field}={actual_step.get(field)!r}; "
+                    f"expected {expected_step[field]!r}"
+                )
+
+    forbidden_step_terms = (
+        "random",
+        "stochastic",
+        "monte carlo",
+        "synthetic data",
+        "empirical effect",
+        "effect size",
+        "performance metric",
+        "benchmark",
+    )
+    for index, actual_step in enumerate(actual_steps):
+        if not isinstance(actual_step, dict):
+            continue
+        step_text = " ".join(str(actual_step.get(field, "")) for field in source_owned_fields).lower()
+        for term in forbidden_step_terms:
+            if term in step_text:
+                issues.append(
+                    "deterministic_simulation_trace.json "
+                    f"step {index} uses forbidden empirical/simulation term {term!r}"
+                )
 
 
 def _check_figure_artifacts(project_root: Path, expected_figure_count: int, issues: list[str]) -> None:
@@ -208,6 +301,8 @@ def validate_publication_package(project_root: Path) -> tuple[bool, list[str], d
         "output/reports/conceptual_analysis.json",
         "output/reports/figure_manifest.json",
         "output/reports/cover_art_manifest.json",
+        "output/reports/deterministic_simulation_manifest.json",
+        "output/data/deterministic_simulation_trace.json",
         "output/data/manuscript_variables.json",
     )
     _require_files(project_root, required, issues)

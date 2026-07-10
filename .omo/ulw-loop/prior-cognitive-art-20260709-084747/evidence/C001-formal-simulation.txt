@@ -1,0 +1,37 @@
+C001 RED proof - deterministic simulation artifacts absent before implementation
+timestamp=2026-07-09T08:53:03-0700
+command: test -f output/reports/deterministic_simulation_manifest.json && test -f output/data/deterministic_simulation_trace.json
+exit_status=1
+RED PASS: expected failure observed; artifacts are absent.
+
+find output deterministic files before implementation:
+cleanup: no spawned runtime resources.
+
+C001 GREEN proof - deterministic illustrative simulation artifacts are source-owned and generated
+timestamp=2026-07-09T11:45:00-0700
+commands:
+  uv run python scripts/optimization_analysis.py
+  uv run python scripts/validate_publication_package.py
+  uv run pytest tests/ -q
+
+observed:
+  Publication package OK: 20 figures, 12 claims, 28 symbols
+  77 passed
+  output/data/deterministic_simulation_trace.json exists
+  output/reports/deterministic_simulation_manifest.json exists
+  output/figures/deterministic_simulation_trace.png exists
+  deterministic_simulation_trace has 5 authored formal-state steps
+
+scope:
+  deterministic illustrative conceptual trace only
+  no stochastic sampling
+  no synthetic data
+  no empirical effects
+  no performance metrics
+
+debugging audit:
+  hypothesis: Adding a simulation trace might violate the conceptual-manuscript contract.
+  evidence: The trace is deterministic and authored in src/conceptual_model.py, with scope gates in scripts/validate_publication_package.py and tests.
+  result: Contract preserved.
+
+cleanup: no spawned runtime resources.

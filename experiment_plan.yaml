@@ -11,6 +11,9 @@ conditions:
   - name: niche_co_construction
     role: proposed
     description: "Treat the prior as co-shaped by organism and niche, not fully endogenous or exogenous."
+  - name: first_prior_grounding
+    role: proposed
+    description: "Treat upstream bias as viability, regulation, co-homeostasis, development, and niche structure before learned priors."
   - name: blanket_achievement
     role: variant
     description: "Treat the Markov blanket as a self-maintaining boundary achieved by the system."
@@ -21,7 +24,7 @@ metrics:
   primary:
     name: explanatory_coverage
     direction: maximize
-protocol: "Generate deterministic conceptual diagrams and check that the manuscript separates mechanism, function, ontogeny, phylogeny, and termination modes without simulation-result claims."
+protocol: "Generate deterministic conceptual diagrams and one deterministic illustrative formal-state trace; check that the manuscript separates mechanism, function, ontogeny, phylogeny, and termination modes without stochastic, empirical, synthetic-data, or performance claims."
 expected_figures:
   - fig:tinbergen_axes
   - fig:regress_terminations
@@ -37,10 +40,13 @@ expected_figures:
   - fig:explanatory_complementarity_matrix
   - fig:active_inference_cycle
   - fig:variational_free_energy_landscape
+  - fig:deterministic_simulation_trace
   - fig:scale_invariance_diagram
   - fig:source_claim_boundary_map
+  - fig:aesthetic_prior_craft_map
   - fig:markov_blanket_scope_split
   - fig:niche_prior_feedback_field
+  - fig:first_prior_grounding_stack
 expected_tables:
   - tbl:tinbergen_quadrants
   - tbl:symbol_glossary
@@ -50,3 +56,4 @@ baselines:
 ablations:
   - fixed_point_stop
   - niche_co_construction
+  - first_prior_grounding

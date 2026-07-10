@@ -3,6 +3,7 @@ import pytest
 from src.conceptual_model import (
     claim_dependencies,
     conceptual_integrity_token,
+    deterministic_simulation_trace,
     figure_specs,
     formal_claims,
     quadrant_grid,
@@ -49,10 +50,13 @@ def test_argument_and_figure_manifest_are_aligned() -> None:
         "explanatory_complementarity_matrix.png",
         "active_inference_cycle.png",
         "variational_free_energy_landscape.png",
+        "deterministic_simulation_trace.png",
         "scale_invariance_diagram.png",
         "source_claim_boundary_map.png",
+        "aesthetic_prior_craft_map.png",
         "markov_blanket_scope_split.png",
         "niche_prior_feedback_field.png",
+        "first_prior_grounding_stack.png",
     ]
 
 
@@ -72,11 +76,12 @@ def test_formal_supplement_contract_is_closed() -> None:
         "Active inference bridge",
         "Variational closure",
         "Scale invariance",
+        "Deterministic trace boundary",
     ]
     assert len(symbols) == len(used_symbol_keys())
     assert {symbol.key for symbol in symbols} == set(used_symbol_keys())
     assert [check.key for check in checks] == [
-        "no_simulation_boundary",
+        "deterministic_simulation_boundary",
         "figure_registry_closure",
         "symbol_glossary_closure",
         "token_hydration",
@@ -98,7 +103,7 @@ def test_conceptual_integrity_token_is_stable_shape() -> None:
 
 def test_claim_dependencies_reference_valid_claims() -> None:
     deps = claim_dependencies()
-    assert len(deps) == 12
+    assert len(deps) == 14
     assert validate_claim_dependencies() == ()
 
 
@@ -108,6 +113,22 @@ def test_claim_dependencies_have_rationales() -> None:
         assert dep.target_claim
         assert dep.rationale
         assert dep.source_claim != dep.target_claim
+
+
+def test_deterministic_trace_is_finite_ordered_formal_contract() -> None:
+    trace = deterministic_simulation_trace()
+    assert [step.step for step in trace] == list(range(len(trace)))
+    assert [step.state for step in trace] == [
+        "Question typed",
+        "Regress exposed",
+        "Tinbergen split",
+        "Termination chosen",
+        "Settlement named",
+    ]
+    assert trace[0].formal_state.startswith(r"$\sigma_0")
+    assert trace[-1].formal_state.startswith(r"$\sigma_4")
+    assert "not a hidden prior" in trace[-1].invariant
+    assert all("empirical" not in step.invariant.lower() for step in trace)
 
 
 def test_validate_claim_dependencies_detects_bad_source(monkeypatch: pytest.MonkeyPatch) -> None:

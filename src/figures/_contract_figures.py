@@ -14,6 +14,7 @@ from ._shared import (
     _clean_axes,
     _save,
     plt,
+    topic_pair,
 )
 
 from src.conceptual_model import formal_claims, symbol_glossary, text_validation_checks
@@ -25,9 +26,10 @@ def draw_policy_entanglement_bridge(output_dir: Path) -> Path:
     ax.set_ylim(0, 6)
     ax.set_facecolor(PALETTE["paper"])
 
-    ax.add_patch(Ellipse((2.2, 3.1), 2.55, 2.15, facecolor=PALETTE["blue_fill"], edgecolor=PALETTE["blue"], lw=2.5))
-    ax.text(2.2, 3.55, "Lambda", ha="center", va="center", fontsize=14, color=PALETTE["blue"], weight="bold")
-    ax.text(2.2, 3.16, "joint\norganization", ha="center", va="center", fontsize=13.5, color=PALETTE["blue"], weight="bold", linespacing=1.0)
+    joint_edge, joint_face = topic_pair("formal")
+    ax.add_patch(Ellipse((2.2, 3.1), 2.55, 2.15, facecolor=joint_face, edgecolor=joint_edge, lw=2.5))
+    ax.text(2.2, 3.55, "Lambda", ha="center", va="center", fontsize=14, color=joint_edge, weight="bold")
+    ax.text(2.2, 3.16, "joint\norganization", ha="center", va="center", fontsize=13.5, color=joint_edge, weight="bold", linespacing=1.0)
     ax.text(2.2, 2.45, "prior to the\nfactors extracted", ha="center", va="center", fontsize=10.2, color=PALETTE["muted"], linespacing=1.0)
 
     _arrow(ax, (3.55, 3.1), (4.75, 3.1), color=PALETTE["ink"], lw=1.8, mutation_scale=18)
@@ -35,9 +37,9 @@ def draw_policy_entanglement_bridge(output_dir: Path) -> Path:
     ax.text(4.31, 3.88, "lambda-\ndecomposition", ha="center", va="center", fontsize=9.8, color=PALETTE["ink"], linespacing=0.95)
 
     factor_boxes = [
-        ("pi\npolicy", 6.45, 4.62, PALETTE["green"], PALETTE["green_fill"]),
-        ("P\nprior-like\nconstraint", 7.66, 3.1, PALETTE["gold"], PALETTE["gold_fill"]),
-        ("x\nstate factor", 6.45, 1.58, PALETTE["red"], PALETTE["red_fill"]),
+        ("pi\npolicy", 6.45, 4.62, *topic_pair("policy")),
+        ("P\nprior-like\nconstraint", 7.66, 3.1, *topic_pair("fixed_point")),
+        ("x\nstate factor", 6.45, 1.58, *topic_pair("source")),
     ]
     split_origin = (4.75, 3.1)
     for label, x, y, color, face in factor_boxes:
@@ -68,11 +70,11 @@ def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
     ax.text(1.25, 7.55, "source records", ha="center", fontsize=11.5, color=PALETTE["muted"], weight="bold")
     ax.text(5.5, 7.55, "auto-numbered claims", ha="center", fontsize=11.5, color=PALETTE["muted"], weight="bold")
     sources = [
-        ("Tinbergen\naxes", 1.35, 6.85, PALETTE["blue"]),
-        ("regress\nshape", 1.35, 5.65, PALETTE["gold"]),
-        ("termination\nmoves", 1.35, 4.45, PALETTE["green"]),
-        ("joint\nstructure", 1.35, 3.25, PALETTE["red"]),
-        ("niche &\nblanket", 1.35, 2.05, PALETTE["purple"]),
+        ("Tinbergen\naxes", 1.35, 6.85, topic_pair("mechanism")[0]),
+        ("regress\nshape", 1.35, 5.65, topic_pair("regress")[0]),
+        ("termination\nmoves", 1.35, 4.45, topic_pair("selection")[0]),
+        ("joint\nstructure", 1.35, 3.25, topic_pair("formal")[0]),
+        ("niche &\nblanket", 1.35, 2.05, topic_pair("niche")[0]),
         ("explanatory\ncompl.", 1.35, 0.85, PALETTE["muted"]),
     ]
     # Grounding: which auto-numbered claim each source record anchors.
@@ -89,6 +91,7 @@ def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
         (4, 7),   # niche & blanket -> F7 blanket_achievement
         (4, 10),  # niche & blanket -> F10 variational_closure
         (5, 11),  # explanatory complementarity -> F11 scale_invariance
+        (1, 12),
     }
 
     for label, x, y, color in sources:
@@ -113,18 +116,22 @@ def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
         _, sx, sy, sc = sources[s_idx]
         cx, cy = positions[c_idx - 1]
         _arrow(ax, (2.2, sy), (cx - box_width / 2 - 0.08, cy), color=PALETTE["muted"], lw=1.1, mutation_scale=12)
-    claim_colors = [
-        PALETTE["blue"], PALETTE["gold"], PALETTE["green"],
-        PALETTE["blue"], PALETTE["red"], PALETTE["purple"],
-        PALETTE["purple"], PALETTE["muted"],
-        PALETTE["blue"], PALETTE["green"], PALETTE["gold"],
-    ]
-    claim_faces = [
-        PALETTE["blue_fill"], PALETTE["gold_fill"], PALETTE["green_fill"],
-        PALETTE["blue_fill"], PALETTE["red_fill"], PALETTE["purple_fill"],
-        PALETTE["purple_fill"], PALETTE["paper"],
-        PALETTE["blue_fill"], PALETTE["green_fill"], PALETTE["gold_fill"],
-    ]
+    claim_topics = (
+        "mechanism",
+        "regress",
+        "selection",
+        "fixed_point",
+        "formal",
+        "niche",
+        "boundary",
+        "validation",
+        "action",
+        "inference",
+        "practice",
+        "limit",
+    )
+    claim_colors = [topic_pair(topic)[0] for topic in claim_topics]
+    claim_faces = [topic_pair(topic)[1] for topic in claim_topics]
     box_width = 2.3
     for index, (claim, (x, y)) in enumerate(zip(claims, positions), start=1):
         color = claim_colors[index - 1]
@@ -152,10 +159,10 @@ def draw_symbol_glossary_closure(output_dir: Path) -> Path:
         ax,
         (2.55, 3.25),
         (3.0, 2.15),
-        PALETTE["blue"],
+        topic_pair("formal")[0],
         "symbols used\nby formal claims",
         f"{counts['symbols']} keys across F1-F{counts['claims']}",
-        face=PALETTE["blue_fill"],
+        face=topic_pair("formal")[1],
         title_size=12.4,
         subtitle_size=10.2,
     )
@@ -163,10 +170,10 @@ def draw_symbol_glossary_closure(output_dir: Path) -> Path:
         ax,
         (7.45, 3.25),
         (3.0, 2.15),
-        PALETTE["green"],
+        topic_pair("validation")[0],
         "glossary rows\ngenerated as table",
         f"{counts['symbols']} rows in the supplement",
-        face=PALETTE["green_fill"],
+        face=topic_pair("validation")[1],
         title_size=12.4,
         subtitle_size=10.2,
     )
@@ -200,10 +207,10 @@ def draw_text_validation_ladder(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     layers = [
-        ("source records", "quadrants / figures / formalisms / symbols", PALETTE["blue"]),
-        ("analysis artifacts", "conceptual report + figure registry", PALETTE["green"]),
-        ("injected tokens", "counts, glossary, claims, integrity token", PALETTE["gold"]),
-        ("rendered manuscript", "PDF / HTML / slides from hydrated text", PALETTE["red"]),
+        ("source records", "quadrants / figures / formalisms / symbols", topic_pair("source")[0]),
+        ("analysis artifacts", "conceptual report + figure registry", topic_pair("formal")[0]),
+        ("injected tokens", "counts, glossary, claims, integrity token", topic_pair("practice")[0]),
+        ("rendered manuscript", "PDF / HTML / slides from hydrated text", topic_pair("limit")[0]),
         ("validation gates", f"{len(text_validation_checks())} contract checks", PALETTE["ink"]),
     ]
     y_positions = [5.15, 4.05, 2.95, 1.85, 0.75]
@@ -213,6 +220,7 @@ def draw_text_validation_ladder(output_dir: Path) -> Path:
             PALETTE["green"]: PALETTE["green_fill"],
             PALETTE["gold"]: PALETTE["gold_fill"],
             PALETTE["red"]: PALETTE["red_fill"],
+            PALETTE["purple"]: PALETTE["purple_fill"],
         }.get(color, "white")
         ax.add_patch(Rectangle((1.45, y - 0.35), 6.25, 0.72, facecolor=fill, edgecolor=color, lw=2))
         ax.text(1.75, y + 0.12, title, ha="left", va="center", fontsize=12.2, color=color, weight="bold")
@@ -223,5 +231,5 @@ def draw_text_validation_ladder(output_dir: Path) -> Path:
     ax.add_patch(Rectangle((8.08, 2.2), 1.72, 1.48, facecolor="white", edgecolor=PALETTE["line"], lw=1.5))
     ax.text(8.94, 3.05, "the text is\nvalidated as an\nartifact surface", ha="center", va="center", fontsize=10.5, color=PALETTE["muted"], linespacing=1.12)
     _arrow(ax, (7.72, 2.95), (8.05, 2.95), color=PALETTE["line"], lw=1.3, mutation_scale=13)
-    ax.set_title("Text validation ladder for a simulation-free conceptual paper", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Text validation ladder for a deterministic conceptual paper", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "text_validation_ladder.png")

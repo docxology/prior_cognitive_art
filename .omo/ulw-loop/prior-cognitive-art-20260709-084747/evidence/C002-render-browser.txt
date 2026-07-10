@@ -1,0 +1,35 @@
+C002 RED proof - rendered surfaces lack deterministic simulation/formal-state visual integration before implementation
+timestamp=2026-07-09T08:53:43-0700
+command: rg 'deterministic simulation|formal state' output/web/dashboard.html output/pdf/_combined_manuscript.tex
+exit_status=1
+RED PASS: expected failure observed; rendered surfaces lack target language.
+cleanup: no spawned runtime resources.
+
+C002 GREEN proof - rendered PDF and browser dashboard include cover art and deterministic trace
+timestamp=2026-07-09T11:46:00-0700
+commands:
+  uv run python scripts/optimization_analysis.py
+  uv run python scripts/z_generate_manuscript_variables.py
+  cd /Users/4d/Documents/GitHub/template && uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
+  uv run python scripts/build_dashboard.py
+  qpdf --check output/pdf/prior_cognitive_art_combined.pdf
+  pdftotext -f 1 -l 1 output/pdf/prior_cognitive_art_combined.pdf -
+  Chrome headless dashboard load via Playwright using /Applications/Google Chrome.app
+
+observed:
+  output/pdf/prior_cognitive_art_combined.pdf exists, 3.3M
+  qpdf reported no syntax or stream encoding errors
+  title page text includes DOI: forthcoming
+  title page text includes July 9, 2026
+  .codex_qa/title_page.png shows visible cover art on the first page
+  .codex_qa/page_21.png shows the deterministic simulation trace and caption in the PDF
+  Chrome dashboard load reported 21 images and 0 broken images
+  Chrome dashboard load reported no console errors and no page errors
+  mobile Chrome dashboard pass reported 0 overflowing elements
+
+debugging audit:
+  hypothesis: The PDF render may delete or stale the dashboard after web output is rebuilt.
+  evidence: build_dashboard.py was rerun after scripts/03_render_pdf.py; Chrome loaded output/web/dashboard.html and found all images intact.
+  result: Dashboard verified after final render.
+
+cleanup: Chrome browser closed.

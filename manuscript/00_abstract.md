@@ -18,4 +18,7 @@ glossary as text-integrity artifacts rather than empirical machinery.
 The "art" in the title names the craft at stake: arranging explanatory kinds
 (proximate/ultimate, static/developmental, selection/fixed-point) so that no
 single kind is mistaken for the whole, and rendering that arrangement as
-deterministic figures and checkable formalism rather than as a simulation.
+deterministic figures and checkable formalism rather than as a simulation. It
+also marks a bounded link to aesthetic practice: artworks can stage encounters
+with expectations, material affordances, ambiguity, and meaning, but this paper
+treats that link as a conceptual analogy, not as an empirical theory of art.

@@ -118,22 +118,22 @@ def _draw_orbital_field(ax) -> None:
 
 
 def _draw_quadrant_spine(ax) -> None:
-    ax.plot([0.5, 0.5], [0.19, 0.79], color=PALETTE["line"], lw=1.6, alpha=0.78)
-    ax.plot([0.18, 0.82], [0.49, 0.49], color=PALETTE["line"], lw=1.6, alpha=0.78)
+    ax.plot([0.5, 0.5], [0.26, 0.68], color=PALETTE["line"], lw=1.4, alpha=0.50)
+    ax.plot([0.22, 0.78], [0.49, 0.49], color=PALETTE["line"], lw=1.4, alpha=0.58)
     quadrant_specs = [
-        ((0.206, 0.785), "mechanism", "policy decomposition", PALETTE["blue"], PALETTE["blue_fill"]),
-        ((0.684, 0.785), "function", "selection filter", PALETTE["green"], PALETTE["green_fill"]),
-        ((0.194, 0.193), "ontogeny", "hyperprior stop", PALETTE["gold"], PALETTE["gold_fill"]),
-        ((0.680, 0.193), "phylogeny", "inherited priors", PALETTE["red"], PALETTE["red_fill"]),
+        ((0.180, 0.704), "mechanism", "policy decomposition", PALETTE["blue"], PALETTE["blue_fill"]),
+        ((0.684, 0.704), "function", "selection filter", PALETTE["green"], PALETTE["green_fill"]),
+        ((0.180, 0.210), "ontogeny", "hyperprior stop", PALETTE["gold"], PALETTE["gold_fill"]),
+        ((0.684, 0.210), "phylogeny", "inherited priors", PALETTE["red"], PALETTE["red_fill"]),
     ]
     for (x, y), title, subtitle, edge, face in quadrant_specs:
-        _panel(ax, (x - 0.012, y - 0.020), (0.178, 0.064), edge, face, alpha=0.62, lw=1.0)
+        _panel(ax, (x - 0.012, y - 0.020), (0.188, 0.066), edge, face, alpha=0.58, lw=1.0)
         ax.text(x, y + 0.018, title, color=edge, fontsize=12.5, weight="bold", ha="left", va="center")
         ax.text(x, y - 0.014, subtitle, color=PALETTE["muted"], fontsize=7.6, ha="left", va="center")
 
 
 def _draw_source_claim_band(ax) -> None:
-    y = 0.735
+    y = 0.800
     labels = [
         ("source\nfamilies", PALETTE["blue"], PALETTE["blue_fill"]),
         ("claim\nledger", PALETTE["purple"], PALETTE["purple_fill"]),
@@ -142,20 +142,20 @@ def _draw_source_claim_band(ax) -> None:
     ]
     xs = [0.232, 0.402, 0.572, 0.742]
     for i, ((label, edge, face), x) in enumerate(zip(labels, xs)):
-        _label_box(ax, (x, y), label, edge, face, width=0.125, height=0.064, size=8.6)
+        _label_box(ax, (x, y), label, edge, face, width=0.116, height=0.052, size=7.8)
         if i < len(xs) - 1:
-            _arrow(ax, (x + 0.067, y), (xs[i + 1] - 0.067, y), edge, lw=1.25, scale=12, alpha=0.7)
+            _arrow(ax, (x + 0.062, y), (xs[i + 1] - 0.062, y), edge, lw=1.15, scale=11, alpha=0.62)
 
 
 def _draw_hyperprior_chain(ax) -> None:
-    xs = [0.245, 0.345, 0.445]
-    ys = [0.622, 0.656, 0.690]
+    xs = [0.222, 0.326, 0.430]
+    ys = [0.570, 0.600, 0.630]
     labels = ["prior", "hyperprior", "stop"]
     for i, (x, y, label) in enumerate(zip(xs, ys, labels)):
-        _label_box(ax, (x, y), label, PALETTE["blue"], PALETTE["blue_fill"], width=0.140, height=0.048, size=10.5)
+        _label_box(ax, (x, y), label, PALETTE["blue"], PALETTE["blue_fill"], width=0.126, height=0.044, size=9.5)
         if i < 2:
             _arrow(ax, (x + 0.075, y + 0.003), (xs[i + 1] - 0.075, ys[i + 1] - 0.002), PALETTE["blue"], lw=1.4, scale=13)
-    ax.text(0.288, 0.574, "regress terminates as a\nhigher-order constraint", color=PALETTE["muted"], fontsize=7.8, ha="center")
+    ax.text(0.290, 0.526, "regress terminates as a\nhigher-order constraint", color=PALETTE["muted"], fontsize=7.4, ha="center")
 
 
 def _draw_selection_filter(ax) -> None:
@@ -195,6 +195,20 @@ def _draw_niche_feedback(ax) -> None:
     ax.text(0.735, 0.273, "organism / niche / culture\nfeedback loop", ha="center", color=PALETTE["muted"], fontsize=7.4)
 
 
+def _draw_art_prior_craft(ax) -> None:
+    _panel(ax, (0.372, 0.120), (0.256, 0.064), PALETTE["purple"], PALETTE["purple_fill"], alpha=0.72, lw=1.25)
+    ax.text(0.500, 0.151, "aesthetic prior-craft", ha="center", va="center", fontsize=10.8, color=PALETTE["purple"], weight="bold")
+    ax.text(
+        0.500,
+        0.128,
+        "staged expectation / material engagement / scope ceiling",
+        ha="center",
+        va="center",
+        fontsize=7.3,
+        color=PALETTE["muted"],
+    )
+
+
 def _draw_center(ax) -> None:
     ax.add_patch(Circle((0.5, 0.49), 0.069, facecolor="#fffaf0", edgecolor=PALETTE["gold"], lw=2.5, alpha=0.98))
     ax.add_patch(Circle((0.5, 0.49), 0.036, facecolor="#ffffff", edgecolor=PALETTE["line"], lw=1.1, alpha=0.95))
@@ -231,28 +245,20 @@ def draw_square_cover_art(output_dir: Path) -> Path:
     _draw_selection_filter(ax)
     _draw_blanket_scope(ax)
     _draw_niche_feedback(ax)
+    _draw_art_prior_craft(ax)
     _draw_center(ax)
 
-    ax.text(0.5, 0.912, "PRIOR COGNITIVE ART", ha="center", va="center", fontsize=34, color=PALETTE["ink"], weight="bold")
+    ax.text(0.5, 0.912, "PRIOR COGNITIVE ART", ha="center", va="center", fontsize=30, color=PALETTE["ink"], weight="bold")
     ax.text(
         0.5,
         0.870,
-        "Tinbergen axes / hyperprior stopping / model-level blankets / niche-prior feedback",
+        "Tinbergen axes / hyperprior stopping / material prior-craft / model-level blankets",
         ha="center",
         va="center",
         fontsize=11.8,
         color=PALETTE["muted"],
     )
-    ax.text(
-        0.5,
-        0.111,
-        "A deterministic square cover for a simulation-free conceptual manuscript",
-        ha="center",
-        va="center",
-        fontsize=10.8,
-        color=PALETTE["muted"],
-    )
-    ax.text(0.5, 0.080, "Daniel Ari Friedman", ha="center", va="center", fontsize=12.4, color=PALETTE["ink"])
+    ax.text(0.5, 0.087, "Daniel Ari Friedman", ha="center", va="center", fontsize=11.6, color=PALETTE["ink"])
 
     fig.savefig(png_path, dpi=256, facecolor=fig.get_facecolor(), edgecolor="none")
     fig.savefig(svg_path, facecolor=fig.get_facecolor(), edgecolor="none")

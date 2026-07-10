@@ -18,7 +18,6 @@ from src.conceptual_model import (
     termination_catalog,
     text_validation_checks,
     used_symbol_keys,
-    validate_claim_dependencies,
     validate_conceptual_contract,
 )
 from src.documentation import build_api_reference_markdown
@@ -425,6 +424,16 @@ def test_metadata_versions_are_consistent() -> None:
     )
 
 
+def test_cover_metadata_uses_dynamic_date_and_forthcoming_doi() -> None:
+    import yaml
+
+    config = yaml.safe_load((PROJECT_ROOT / "manuscript" / "config.yaml").read_text())
+    assert "date" not in config["paper"]
+    assert config["paper"]["cover"]["image"] == "cover/prior_cognitive_art_cover_square.png"
+    assert config["publication"]["doi"] == ""
+    assert config["publication"]["doi_status"] == "forthcoming"
+
+
 # ── manuscript citation integrity ─────────────────────────────────────
 
 
@@ -613,7 +622,6 @@ def test_generate_variables_without_config_uses_defaults(tmp_path: Path) -> None
 
 def test_generate_all_figures_raises_on_manifest_mismatch(tmp_path: Path) -> None:
     """If the produced figures don't match the specs, generate_all_figures should raise."""
-    from src import figures as figures_mod
     from src.figures import conceptual as fig
 
     # Monkey-patch one draw function to produce a different filename

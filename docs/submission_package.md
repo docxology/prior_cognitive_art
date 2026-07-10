@@ -11,8 +11,9 @@ and repository deposition choices remain downstream decisions.
 - Title: Prior Cognitive Art
 - Subtitle: Tinbergen Axes, Hyperprior Regress, and Fixed-Point Explanation
 - Manuscript type: conceptual working paper / preprint
-- Scope boundary: no simulations, no empirical performance results, no new
-  stochastic experiment claims
+- Scope boundary: one deterministic illustrative formal-state trace; no
+  stochastic simulations, empirical performance results, synthetic-data
+  experiments, or benchmark claims
 - Current readiness decision: ready for venue-neutral preprint / working-paper
   circulation
 
@@ -27,8 +28,10 @@ fixed-point organization. The paper treats Markov blankets as useful
 model-level boundary structures whose realized-boundary readings require
 explicit assumptions, and treats niche construction as a co-forming condition on
 prior formation rather than as an extra regress terminator. The contribution is
-a bounded conceptual framework with deterministic figures, formal claim records,
-and source-linked validation surfaces.
+a bounded conceptual framework with deterministic figures, a deterministic
+illustrative formal-state trace, formal claim records, source-linked validation
+surfaces, and a limited predictive-aesthetics account of art as staged
+encounters with expectation, ambiguity, affect, and meaning.
 
 ## Keywords
 
@@ -51,9 +54,12 @@ and source-linked validation surfaces.
 3. It provides a bounded Markov blanket treatment that separates Pearl/Friston
    model use, biological realization, and critique-sensitive metaphysical
    overreach.
-4. It adds a reproducible conceptual inventory: 18 deterministic figures, 11
-   formal claims, 20 claim-ledger records, 25 glossary rows, and 10 text
-   validation checks.
+4. It bounds the title's "art" claim with predictive-processing aesthetics,
+   neuroaesthetic scope, 4E affordance accounts, and Bayesian-overclaim
+   cautions.
+5. It adds a reproducible conceptual inventory: 20 deterministic figures, 12
+   formal claims, 23 claim-ledger records, 28 glossary rows, 10 text validation
+   checks, and one deterministic trace artifact.
 
 ## Evidence And Reproducibility
 
@@ -63,6 +69,8 @@ and source-linked validation surfaces.
 - Readiness report: `docs/publication_readiness_report.md`
 - Rendered manuscript: `output/pdf/prior_cognitive_art_combined.pdf`
 - Figure registry: `output/figures/figure_registry.json`
+- Deterministic trace: `output/data/deterministic_simulation_trace.json`
+- Deterministic trace manifest: `output/reports/deterministic_simulation_manifest.json`
 - Final ULW gate: `.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md`
 
 Reproduction commands:
@@ -85,7 +93,7 @@ uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
 
 ## Figure Set
 
-The manuscript has 18 deterministic conceptual figures. The strongest
+The manuscript has 19 deterministic conceptual figures. The strongest
 submission figures for a short preprint pitch are:
 
 - `tinbergen_axes`: establishes the explanatory separation.
@@ -98,9 +106,9 @@ submission figures for a short preprint pitch are:
   claims.
 
 The project also includes square-format cover art at
-`output/cover/prior_cognitive_art_cover_square.png`. It is intended for
-preprint cards, dashboard presentation, and venue-neutral promotion; it is not
-counted as a manuscript figure.
+`output/cover/prior_cognitive_art_cover_square.png`. It is intended for the
+PDF title page, preprint cards, dashboard presentation, and venue-neutral
+promotion; it is not counted as a manuscript figure.
 
 ## Data, Code, And Materials Statement
 

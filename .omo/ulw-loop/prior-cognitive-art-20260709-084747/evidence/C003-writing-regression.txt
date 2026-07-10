@@ -1,0 +1,43 @@
+C003 RED proof - manuscript/docs lack bounded deterministic illustrative simulation scope before implementation
+timestamp=2026-07-09T08:54:22-0700
+command: rg 'deterministic illustrative simulation|conceptual simulation' manuscript docs README.md
+exit_status=1
+RED PASS: expected failure observed; bounded simulation-scope phrase absent.
+
+Current no-simulation claims that must be migrated carefully:
+README.md:11:does not run simulations, estimate empirical effects, or claim numerical
+tests/test_scripts_smoke.py:46:    assert variables["SIMULATION_POLICY"].startswith("No simulations")
+docs/submission_package.md:14:- Scope boundary: no simulations, no empirical performance results, no new
+docs/submission_package.md:111:The project contains no empirical dataset and no simulation results. Code is
+manuscript/layer_contract.yaml:7:  - "no simulations or empirical-performance claims"
+manuscript/02_methodology.md:3:This is a conceptual paper. It uses no simulations, no synthetic data, and no
+manuscript/05_experimental_setup.md:19:optimization, empirical metric collection, stochastic sampling, or cognitive simulation.
+src/manuscript_variables.py:176:        "SIMULATION_POLICY": "No simulations are run or claimed in this paper.",
+tests/test_analysis_workflow.py:8:def test_build_conceptual_report_is_simulation_free(tmp_path: Path) -> None:
+tests/test_analysis_workflow.py:10:    assert report["simulation_free"] is True
+tests/test_manuscript_variables.py:29:        json.dumps({"simulation_free": True}),
+src/analysis/workflow.py:51:        "simulation_free": True,
+src/conceptual_model.py:600:            invariant="The project states that it uses no simulations or numerical performance claims.",
+src/conceptual_model.py:601:            evidence="SIMULATION_POLICY token and conceptual_analysis.json simulation_free flag.",
+cleanup: no spawned runtime resources.
+
+C003 GREEN proof - manuscript/docs/captions updated and stale scope language removed
+timestamp=2026-07-09T11:47:00-0700
+commands:
+  rg -n "simulation-free|simulation free|no simulations|No simulations|19 figures|18-figure|Formal claims: 11|Symbol glossary rows: 25|73 tests|76 tests|64 BibTeX|F1-F11|no_simulation_boundary" README.md TODO.md docs manuscript tests src scripts domain_profile.yaml experiment_plan.yaml output/manuscript output/web output/pdf/_combined_manuscript.tex || true
+  uv run python scripts/validate_publication_package.py
+  uv run pytest tests/ -q
+
+observed:
+  stale-language scan returned no matches
+  README/TODO/docs/manuscript state 20 figures, 12 formal claims, 28 symbols, 10 validation checks, 14 dependency edges, and 77 tests where those counts are surfaced
+  captions now name deterministic/conceptual boundaries explicitly
+  manuscript/result prose describes the trace as formal-state order, not empirical modeling
+  DOI is configured as forthcoming and paper.date is absent so the template uses the render date
+
+debugging audit:
+  hypothesis: Moving from no-simulation language to deterministic trace language could leave contradictory old claims.
+  evidence: The stale-language scan across source, docs, generated manuscript, dashboard, and combined TeX returned no matches for the old prohibitions/counts.
+  result: Wording is internally consistent with the bounded deterministic trace scope.
+
+cleanup: no spawned runtime resources.

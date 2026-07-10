@@ -15,8 +15,8 @@ documentation.
 |---|---|
 | `src/conceptual_model.py` | Static argument and figure inventory, formal claims, symbol glossary, validation checks, integrity token |
 | `src/figures/conceptual.py` | Public figure-generation orchestrator and stable import surface |
-| `src/figures/_*_figures.py` | Deterministic matplotlib visualization builders split by responsibility (18 figures total) |
-| `src/figures/_shared.py` | Shared palette, drawing helpers, and save routine |
+| `src/figures/_*_figures.py` | Deterministic matplotlib visualization builders split by responsibility (21 figures total) |
+| `src/figures/_shared.py` | Shared semantic palette, drawing helpers, and save routine |
 | `src/analysis/workflow.py` | Output generation for the template analysis stage |
 | `src/manuscript_variables.py` | Token hydration from conceptual inventory and config |
 | `src/documentation.py` | API reference markdown generation |

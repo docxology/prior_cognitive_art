@@ -1,9 +1,9 @@
 # Reproducibility {#sec:reproducibility}
 
 The reproducibility claim is modest: the prose tokens and figures are generated
-from explicit project files, and the project states its no-simulation boundary.
-The formal supplement in [@sec:formal-supplement] provides the integrity
-checks that make drift detectable before render.
+from explicit project files, and the project states its deterministic-trace
+boundary. The formal supplement in [@sec:formal-supplement] provides the
+integrity checks that make drift detectable before render.
 
 - Config hash: `{{CONFIG_HASH}}`
 - Version: `{{CONFIG_VERSION}}`

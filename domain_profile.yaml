@@ -23,14 +23,17 @@ figure_types:
   - complementarity_matrix
   - active_inference_cycle
   - free_energy_landscape
+  - deterministic_simulation_trace
   - scale_invariance_diagram
   - source_claim_boundary_map
+  - aesthetic_prior_craft_map
   - markov_blanket_scope_split
   - niche_prior_feedback_field
+  - first_prior_grounding_stack
 citation_policy: official_or_scholarly
 source_policy: "Prefer primary Tinbergen, FEP, autopoiesis, and Bayesian sources for publication claims."
 review_gates:
-  - no_simulation_claim_hygiene
+  - deterministic_simulation_scope_hygiene
   - source_quality
   - render_validation
 artifact_expectations:
@@ -50,18 +53,23 @@ artifact_expectations:
   - output/figures/explanatory_complementarity_matrix.png
   - output/figures/active_inference_cycle.png
   - output/figures/variational_free_energy_landscape.png
+  - output/figures/deterministic_simulation_trace.png
   - output/figures/scale_invariance_diagram.png
   - output/figures/source_claim_boundary_map.png
+  - output/figures/aesthetic_prior_craft_map.png
   - output/figures/markov_blanket_scope_split.png
   - output/figures/niche_prior_feedback_field.png
+  - output/figures/first_prior_grounding_stack.png
   - output/figures/figure_registry.json
   - output/reports/conceptual_analysis.json
   - output/reports/figure_manifest.json
+  - output/reports/deterministic_simulation_manifest.json
+  - output/data/deterministic_simulation_trace.json
   - output/reports/validation_report.json
   - output/web/dashboard.html
   - output/web/dashboard_data.json
   - output/docs/api_reference.md
-llm_prompt_guidance: "Evaluate explanatory kind, regress termination, and no-simulation claim boundaries."
+llm_prompt_guidance: "Evaluate explanatory kind, regress termination, deterministic-trace boundaries, and the prohibition on stochastic or empirical simulation claims."
 analogy_boundary:
   source_domain: "hierarchical Bayes hyperpriors"
   target_domain: "biological and cognitive priors"

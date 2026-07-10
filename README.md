@@ -1,15 +1,16 @@
 # Prior Cognitive Art
 
 Prior Cognitive Art is a working manuscript project rewritten from the public
-`template_code_project` scaffold as a simulation-free conceptual paper. It
+`template_code_project` scaffold as a conceptual paper with a bounded
+deterministic illustrative simulation trace. It
 explores why a prior exists by separating Tinbergen's four questions into
 crossed axes, comparing ontogenetic regress with the hierarchical Bayes
 hyperprior problem, and treating selection and fixed-point organization as the
 live stopping moves.
 
-The project uses plain text plus deterministic conceptual visualizations. It
-does not run simulations, estimate empirical effects, or claim numerical
-results.
+The project uses plain text, deterministic conceptual visualizations, and one
+authored formal-state trace. It does not run stochastic simulations, synthetic
+data experiments, empirical-effect estimation, or numerical performance claims.
 
 ## Run
 
@@ -27,7 +28,7 @@ hydrates manuscript variables into `output/manuscript/`.
 
 ## Generated Artifacts
 
-### Figures (18 conceptual visualizations)
+### Figures (21 conceptual visualizations)
 
 - `output/figures/tinbergen_axes.png`
 - `output/figures/regress_terminations.png`
@@ -43,17 +44,22 @@ hydrates manuscript variables into `output/manuscript/`.
 - `output/figures/explanatory_complementarity_matrix.png`
 - `output/figures/active_inference_cycle.png`
 - `output/figures/variational_free_energy_landscape.png`
+- `output/figures/deterministic_simulation_trace.png`
 - `output/figures/scale_invariance_diagram.png`
 - `output/figures/source_claim_boundary_map.png`
+- `output/figures/aesthetic_prior_craft_map.png`
 - `output/figures/markov_blanket_scope_split.png`
 - `output/figures/niche_prior_feedback_field.png`
+- `output/figures/first_prior_grounding_stack.png`
 
 ### Reports and Data
 
 - `output/reports/conceptual_analysis.json`
 - `output/reports/figure_manifest.json`
 - `output/reports/cover_art_manifest.json`
+- `output/reports/deterministic_simulation_manifest.json`
 - `output/data/conceptual_map.json`
+- `output/data/deterministic_simulation_trace.json`
 - `output/data/manuscript_variables.json`
 - `output/figures/figure_registry.json`
 
@@ -62,9 +68,9 @@ hydrates manuscript variables into `output/manuscript/`.
 - `output/cover/prior_cognitive_art_cover_square.png`
 - `output/cover/prior_cognitive_art_cover_square.svg`
 
-The cover art is a deterministic 2048 x 2048 square asset for preprint cards,
-dashboard presentation, and venue-neutral promotion. It is not counted as one
-of the 18 manuscript figures.
+The cover art is a deterministic 2048 x 2048 square asset for the PDF title
+page, preprint cards, dashboard presentation, and venue-neutral promotion. It
+is not counted as one of the 21 manuscript figures.
 
 ### Web Dashboard
 
@@ -86,12 +92,12 @@ of the 18 manuscript figures.
 |---|---|
 | Tinbergen quadrants | 4 |
 | Termination modes | 3 |
-| Argument modules | 10 |
-| Generated figures | 18 |
-| Formal claims | 11 |
-| Symbol glossary rows | 25 |
+| Argument modules | 12 |
+| Generated figures | 21 |
+| Formal claims | 12 |
+| Symbol glossary rows | 28 |
 | Text-validation checks | 10 |
-| Claim dependencies | 12 |
+| Claim dependencies | 14 |
 
 All counts are generated from `src/conceptual_model.py` and validated by a
 source contract that checks for symbol glossary closure, figure manifest
@@ -122,4 +128,4 @@ and tests stay aligned while publication prose changes.
 uv run pytest projects/working/prior_cognitive_art/tests/ --cov=projects/working/prior_cognitive_art/src
 ```
 
-76 tests, 100% coverage target on `src/`.
+77 tests, 100% coverage target on `src/`.

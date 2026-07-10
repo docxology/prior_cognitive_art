@@ -4,4 +4,4 @@ rules:
   - "src/conceptual_model.py owns the argument inventory"
   - "scripts are thin entry points"
   - "manuscript references generated figures under ../output/figures"
-  - "no simulations or empirical-performance claims"
+  - "only deterministic illustrative simulation trace; no stochastic simulations, empirical estimates, synthetic data, or performance claims"

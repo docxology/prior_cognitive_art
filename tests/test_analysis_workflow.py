@@ -2,16 +2,29 @@ import json
 from pathlib import Path
 
 from src.analysis.workflow import build_conceptual_report, run_analysis_pipeline
+from src.conceptual_model import (
+    claim_dependencies,
+    deterministic_simulation_trace,
+    figure_specs,
+    formal_claims,
+    symbol_glossary,
+    text_validation_checks,
+)
 
 
-def test_build_conceptual_report_is_simulation_free(tmp_path: Path) -> None:
+def test_build_conceptual_report_has_bounded_deterministic_simulation_scope(tmp_path: Path) -> None:
     report = build_conceptual_report(tmp_path)
     assert report["simulation_free"] is True
-    assert report["figure_count"] == 18
-    assert report["formal_claim_count"] == 11
-    assert report["symbol_count"] == 25
-    assert report["text_validation_count"] == 10
-    assert report["claim_dependency_count"] == 12
+    assert report["deterministic_illustrative_simulation"] is True
+    assert report["empirical_simulation_free"] is True
+    assert report["stochastic_simulation_free"] is True
+    assert "no stochastic sampling" in report["simulation_scope"]
+    assert report["figure_count"] == len(figure_specs())
+    assert report["formal_claim_count"] == len(formal_claims())
+    assert report["symbol_count"] == len(symbol_glossary())
+    assert report["text_validation_count"] == len(text_validation_checks())
+    assert report["claim_dependency_count"] == len(claim_dependencies())
+    assert report["deterministic_simulation_step_count"] == len(deterministic_simulation_trace())
     assert report["contract_errors"] == []
     assert len(report["quadrants"]) == 4
 
@@ -20,6 +33,8 @@ def test_run_analysis_pipeline_writes_manifest_and_figures(tmp_path: Path) -> No
     paths = run_analysis_pipeline(tmp_path)
     assert paths["conceptual_report"].exists()
     assert paths["conceptual_map"].exists()
+    assert paths["deterministic_simulation_trace"].exists()
+    assert paths["deterministic_simulation_manifest"].exists()
     assert paths["manifest"].exists()
     assert paths["cover_art"].exists()
     assert paths["cover_art"].suffix == ".png"
@@ -34,7 +49,14 @@ def test_run_analysis_pipeline_writes_manifest_and_figures(tmp_path: Path) -> No
             assert path.with_suffix(".svg").stat().st_size > 0
 
     report = json.loads(paths["conceptual_report"].read_text(encoding="utf-8"))
-    assert report["mode"] == "plain text plus deterministic conceptual visualization"
+    assert report["mode"] == "plain text plus deterministic conceptual visualization and illustrative simulation trace"
+    trace = json.loads(paths["deterministic_simulation_trace"].read_text(encoding="utf-8"))
+    assert trace["schema"] == "prior_cognitive_art.deterministic_simulation_trace.v1"
+    assert len(trace["steps"]) == len(deterministic_simulation_trace())
+    assert "formal state" in trace["steps"][0]["invariant"].lower() or trace["steps"][0]["formal_state"]
+    simulation_manifest = json.loads(paths["deterministic_simulation_manifest"].read_text(encoding="utf-8"))
+    assert simulation_manifest["stochastic_simulation_free"] is True
+    assert simulation_manifest["performance_claims_free"] is True
     cover_manifest = json.loads(paths["cover_art_manifest"].read_text(encoding="utf-8"))
     assert cover_manifest["format"] == "square"
     assert cover_manifest["width_px"] == 2048
@@ -56,8 +78,11 @@ def test_run_analysis_pipeline_writes_manifest_and_figures(tmp_path: Path) -> No
         "fig:explanatory_complementarity_matrix",
         "fig:active_inference_cycle",
         "fig:variational_free_energy_landscape",
+        "fig:deterministic_simulation_trace",
         "fig:scale_invariance_diagram",
         "fig:source_claim_boundary_map",
+        "fig:aesthetic_prior_craft_map",
         "fig:markov_blanket_scope_split",
         "fig:niche_prior_feedback_field",
+        "fig:first_prior_grounding_stack",
     }

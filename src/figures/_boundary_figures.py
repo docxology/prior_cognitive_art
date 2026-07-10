@@ -14,6 +14,7 @@ from ._shared import (
     _clean_axes,
     _save,
     plt,
+    topic_pair,
 )
 
 def draw_source_claim_boundary_map(output_dir: Path) -> Path:
@@ -24,11 +25,11 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     source_nodes = [
-        ("Tinbergen /\nKonner", 1.35, 5.8, PALETTE["blue"], PALETTE["blue_fill"]),
-        ("FEP /\nactive inference", 1.35, 4.55, PALETTE["green"], PALETTE["green_fill"]),
-        ("niche /\nDST", 1.35, 3.3, PALETTE["gold"], PALETTE["gold_fill"]),
-        ("Bayesian\nworkflow", 1.35, 2.05, PALETTE["purple"], PALETTE["purple_fill"]),
-        ("boundary\ncritiques", 1.35, 0.8, PALETTE["red"], PALETTE["red_fill"]),
+        ("Tinbergen /\nKonner", 1.35, 5.8, *topic_pair("mechanism")),
+        ("FEP /\nactive inference", 1.35, 4.55, *topic_pair("action")),
+        ("niche /\nDST", 1.35, 3.3, *topic_pair("niche")),
+        ("Bayesian\nworkflow", 1.35, 2.05, *topic_pair("formal")),
+        ("boundary\ncritiques", 1.35, 0.8, *topic_pair("limit")),
     ]
     for label, x, y, color, face in source_nodes:
         _box(ax, (x, y), (1.7, 0.78), color, label, face=face, title_size=10.2)
@@ -37,10 +38,10 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (4.1, 4.75),
         (2.25, 1.05),
-        PALETTE["green"],
+        topic_pair("selection")[0],
         "accepted\nsource layer",
         "primary, scholarly,\nclaim-relevant",
-        face=PALETTE["green_fill"],
+        face=topic_pair("selection")[1],
         title_size=11.0,
         subtitle_size=8.6,
     )
@@ -48,10 +49,10 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (4.1, 2.55),
         (2.25, 1.05),
-        PALETTE["red"],
+        topic_pair("limit")[0],
         "rejected /\ndeferred",
         "noisy, indirect,\nor overextended",
-        face=PALETTE["red_fill"],
+        face=topic_pair("limit")[1],
         title_size=11.0,
         subtitle_size=8.6,
     )
@@ -59,10 +60,10 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (6.85, 4.75),
         (2.05, 1.05),
-        PALETTE["blue"],
+        topic_pair("source")[0],
         "claim\nledger",
         "source tier +\nartifact path",
-        face=PALETTE["blue_fill"],
+        face=topic_pair("source")[1],
         title_size=11.0,
         subtitle_size=8.6,
     )
@@ -70,10 +71,10 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (9.7, 5.65),
         (2.15, 0.86),
-        PALETTE["gold"],
+        topic_pair("practice")[0],
         "manuscript\nclaims",
         "bounded prose",
-        face=PALETTE["gold_fill"],
+        face=topic_pair("practice")[1],
         title_size=11.0,
         subtitle_size=8.7,
     )
@@ -81,10 +82,10 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (9.7, 3.85),
         (2.15, 0.86),
-        PALETTE["purple"],
+        topic_pair("formal")[0],
         "formal\ninventory",
         "checkable records",
-        face=PALETTE["purple_fill"],
+        face=topic_pair("formal")[1],
         title_size=11.0,
         subtitle_size=8.7,
     )
@@ -92,21 +93,21 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
         ax,
         (9.7, 2.05),
         (2.15, 0.86),
-        PALETTE["green"],
+        topic_pair("validation")[0],
         "visual\natlas",
         "deterministic figures",
-        face=PALETTE["green_fill"],
+        face=topic_pair("validation")[1],
         title_size=11.0,
         subtitle_size=8.7,
     )
 
     for _, x, y, color, _ in source_nodes:
-        target_y = 4.75 if color != PALETTE["red"] else 2.55
+        target_y = 2.55 if color == topic_pair("limit")[0] else 4.75
         _arrow(ax, (x + 0.9, y), (2.92, target_y), color=color, lw=1.35, mutation_scale=12)
-    _arrow(ax, (5.25, 4.75), (5.82, 4.75), color=PALETTE["green"], lw=1.8)
-    _arrow(ax, (7.88, 4.95), (8.62, 5.55), color=PALETTE["gold"], lw=1.7)
-    _arrow(ax, (7.88, 4.75), (8.62, 3.92), color=PALETTE["purple"], lw=1.7)
-    _arrow(ax, (7.88, 4.55), (8.62, 2.18), color=PALETTE["green"], lw=1.7)
+    _arrow(ax, (5.25, 4.75), (5.82, 4.75), color=topic_pair("selection")[0], lw=1.8)
+    _arrow(ax, (7.88, 4.95), (8.62, 5.55), color=topic_pair("practice")[0], lw=1.7)
+    _arrow(ax, (7.88, 4.75), (8.62, 3.92), color=topic_pair("formal")[0], lw=1.7)
+    _arrow(ax, (7.88, 4.55), (8.62, 2.18), color=topic_pair("validation")[0], lw=1.7)
 
     ax.add_patch(Rectangle((3.0, 0.38), 6.95, 0.56, facecolor="white", edgecolor=PALETTE["line"], lw=1.4))
     ax.text(
@@ -121,6 +122,7 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
     ax.set_title("Source-to-claim boundary map", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "source_claim_boundary_map.png")
 
+
 def draw_markov_blanket_scope_split(output_dir: Path) -> Path:
     fig, ax = plt.subplots(figsize=(11.5, 7.0))
     _clean_axes(ax)
@@ -129,9 +131,9 @@ def draw_markov_blanket_scope_split(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     layers = [
-        ("Pearl blanket", "conditional\nindependence", "epistemic tool", PALETTE["blue"], PALETTE["blue_fill"], 5.7),
-        ("Friston blanket", "active-inference\nmodel boundary", "formal organism\nmodeling", PALETTE["green"], PALETTE["green_fill"], 3.75),
-        ("Realized boundary", "biological /\ncognitive system", "requires extra\ndynamical premises", PALETTE["gold"], PALETTE["gold_fill"], 1.8),
+        ("Pearl blanket", "conditional\nindependence", "epistemic tool", *topic_pair("boundary"), 5.7),
+        ("Friston blanket", "active-inference\nmodel boundary", "formal organism\nmodeling", *topic_pair("formal"), 3.75),
+        ("Realized boundary", "biological /\ncognitive system", "requires extra\ndynamical premises", *topic_pair("viability"), 1.8),
     ]
     for title, middle, footer, color, face, y in layers:
         ax.add_patch(Rectangle((1.0, y - 0.62), 3.1, 1.24, facecolor=face, edgecolor=color, lw=2.2))
@@ -139,9 +141,9 @@ def draw_markov_blanket_scope_split(output_dir: Path) -> Path:
         ax.text(2.55, y, middle, ha="center", va="center", fontsize=12.2, color=PALETTE["ink"], weight="bold", linespacing=1.0)
         ax.text(2.55, y - 0.38, footer, ha="center", va="center", fontsize=9.2, color=PALETTE["muted"], linespacing=1.0)
 
-    _arrow(ax, (4.25, 5.7), (5.02, 5.7), color=PALETTE["blue"], lw=1.6)
-    _arrow(ax, (4.25, 3.75), (5.02, 3.75), color=PALETTE["green"], lw=1.6)
-    _arrow(ax, (4.25, 1.8), (5.02, 1.8), color=PALETTE["gold"], lw=1.6)
+    _arrow(ax, (4.25, 5.7), (5.02, 5.7), color=topic_pair("boundary")[0], lw=1.6)
+    _arrow(ax, (4.25, 3.75), (5.02, 3.75), color=topic_pair("formal")[0], lw=1.6)
+    _arrow(ax, (4.25, 1.8), (5.02, 1.8), color=topic_pair("viability")[0], lw=1.6)
 
     ax.add_patch(Ellipse((6.35, 3.75), 2.0, 4.7, facecolor="white", edgecolor=PALETTE["line"], lw=1.8))
     ax.text(6.35, 5.75, "scope split", ha="center", va="center", fontsize=13, color=PALETTE["ink"], weight="bold")
@@ -185,9 +187,9 @@ def draw_niche_prior_feedback_field(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     bands = [
-        ("organismic action", 5.75, PALETTE["blue"], PALETTE["blue_fill"]),
-        ("developmental resources", 3.75, PALETTE["green"], PALETTE["green_fill"]),
-        ("cultural inheritance", 1.75, PALETTE["gold"], PALETTE["gold_fill"]),
+        ("organismic action", 5.75, *topic_pair("action")),
+        ("developmental resources", 3.75, *topic_pair("development")),
+        ("cultural inheritance", 1.75, *topic_pair("practice")),
     ]
     for label, y, color, face in bands:
         ax.add_patch(Rectangle((1.0, y - 0.55), 9.5, 1.1, facecolor=face, edgecolor=color, lw=2.0, alpha=0.92))

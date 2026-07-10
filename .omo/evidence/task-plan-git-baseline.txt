@@ -1,0 +1,66 @@
+## git status --short baseline
+ M README.md
+ M TODO.md
+ M data/claim_ledger.yaml
+ M docs/architecture.md
+ M docs/audit/documentation-audit-report.md
+ M docs/cover_letter_template.md
+ M docs/preprint_release_checklist.md
+ M docs/publication_readiness_report.md
+ M docs/reviewer_risk_register.md
+ M docs/scholarship-audit.md
+ M docs/submission_package.md
+ M docs/venue_selection_matrix.md
+ M domain_profile.yaml
+ M experiment_plan.yaml
+ M manuscript/00_abstract.md
+ M manuscript/01_introduction.md
+ M manuscript/02_methodology.md
+ M manuscript/03_results.md
+ M manuscript/04_conclusion.md
+ M manuscript/07_scope_and_related_work.md
+ M manuscript/08_formal_supplement.md
+ M manuscript/README.md
+ M manuscript/config.yaml
+ M manuscript/config.yaml.example
+ M manuscript/references.bib
+ M scripts/build_dashboard.py
+ M src/README.md
+ M src/analysis/workflow.py
+ M src/conceptual_model.py
+ M src/documentation.py
+ M src/figures/_active_scale_figures.py
+ M src/figures/_boundary_figures.py
+ M src/figures/_cover_art.py
+ M src/figures/_shared.py
+ M src/figures/conceptual.py
+ M tests/test_analysis_workflow.py
+ M tests/test_conceptual_model.py
+ M tests/test_manuscript_variables.py
+ M tests/test_project_internals.py
+ M tests/test_publication_package.py
+ M tests/test_scripts_smoke.py
+?? .codex_qa/
+?? .omo/evidence/task-plan-completeness-red.txt
+?? .omo/evidence/task-plan-file-inventory.txt
+?? .omo/evidence/task-plan-git-baseline.txt
+?? .omo/evidence/task-plan-template-red.txt
+?? .omo/ulw-loop/prior-cognitive-art-20260709-084747/
+?? src/figures/_art_figures.py
+
+## git rev-parse --show-toplevel
+/Users/4d/Documents/GitHub/projects/working/prior_cognitive_art
+
+## tracked/untracked .omo baseline
+.omo/evidence/prior-cognitive-art-publication-readiness-20260707-051719-gate-review.md
+.omo/evidence/prior-cognitive-art-publication-readiness-gate-review.md
+.omo/evidence/task-plan-completeness-red.txt
+.omo/evidence/task-plan-file-inventory.txt
+.omo/evidence/task-plan-git-baseline.txt
+.omo/evidence/task-plan-template-red.txt
+.omo/ulw-loop/prior-cognitive-art-20260709-084747/brief.md
+.omo/ulw-loop/prior-cognitive-art-20260709-084747/goals.json
+.omo/ulw-loop/prior-cognitive-art-20260709-084747/ledger.jsonl
+.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/brief.md
+.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/goals.json
+.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/ledger.jsonl

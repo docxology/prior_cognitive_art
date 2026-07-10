@@ -14,6 +14,7 @@ from ._shared import (
     _clean_axes,
     _save,
     plt,
+    topic_pair,
 )
 
 from src.conceptual_model import quadrant_grid
@@ -26,28 +27,32 @@ def draw_niche_construction_diagram(output_dir: Path) -> Path:
     ax.set_ylim(0, 6)
     ax.set_facecolor(PALETTE["paper"])
 
-    ax.add_patch(Ellipse((2.2, 3.0), 2.8, 1.8, facecolor=PALETTE["blue_fill"], edgecolor=PALETTE["blue"], lw=2.5))
-    ax.text(2.2, 3.0, "Organism", ha="center", va="center", fontsize=15, color=PALETTE["blue"], weight="bold")
+    organism_edge, organism_face = topic_pair("action")
+    niche_edge, niche_face = topic_pair("niche")
+    prior_edge, prior_face = topic_pair("fixed_point")
 
-    ax.add_patch(Ellipse((7.8, 3.0), 2.8, 1.8, facecolor=PALETTE["green_fill"], edgecolor=PALETTE["green"], lw=2.5))
-    ax.text(7.8, 3.12, "Environment /", ha="center", va="center", fontsize=13.5, color=PALETTE["green"], weight="bold")
-    ax.text(7.8, 2.78, "Niche", ha="center", va="center", fontsize=13.5, color=PALETTE["green"], weight="bold")
+    ax.add_patch(Ellipse((2.2, 3.0), 2.8, 1.8, facecolor=organism_face, edgecolor=organism_edge, lw=2.5))
+    ax.text(2.2, 3.0, "Organism", ha="center", va="center", fontsize=15, color=organism_edge, weight="bold")
 
-    ax.add_patch(Circle((5.0, 3.0), 0.58, facecolor=PALETTE["gold_fill"], edgecolor=PALETTE["gold"], lw=2.5))
-    ax.text(5.0, 3.0, "P", ha="center", va="center", fontsize=18, color=PALETTE["gold"], weight="bold")
+    ax.add_patch(Ellipse((7.8, 3.0), 2.8, 1.8, facecolor=niche_face, edgecolor=niche_edge, lw=2.5))
+    ax.text(7.8, 3.12, "Environment /", ha="center", va="center", fontsize=13.5, color=niche_edge, weight="bold")
+    ax.text(7.8, 2.78, "Niche", ha="center", va="center", fontsize=13.5, color=niche_edge, weight="bold")
 
-    _arrow(ax, (3.62, 3.18), (4.40, 3.18), color=PALETTE["blue"], lw=2.0, mutation_scale=16, rad=0.25)
-    _arrow(ax, (4.40, 2.82), (3.62, 2.82), color=PALETTE["blue"], lw=2.0, mutation_scale=16, rad=0.25)
-    _arrow(ax, (6.38, 3.18), (5.60, 3.18), color=PALETTE["green"], lw=2.0, mutation_scale=16, rad=-0.25)
-    _arrow(ax, (5.60, 2.82), (6.38, 2.82), color=PALETTE["green"], lw=2.0, mutation_scale=16, rad=-0.25)
+    ax.add_patch(Circle((5.0, 3.0), 0.58, facecolor=prior_face, edgecolor=prior_edge, lw=2.5))
+    ax.text(5.0, 3.0, "P", ha="center", va="center", fontsize=18, color=prior_edge, weight="bold")
+
+    _arrow(ax, (3.62, 3.18), (4.40, 3.18), color=organism_edge, lw=2.0, mutation_scale=16, rad=0.25)
+    _arrow(ax, (4.40, 2.82), (3.62, 2.82), color=organism_edge, lw=2.0, mutation_scale=16, rad=0.25)
+    _arrow(ax, (6.38, 3.18), (5.60, 3.18), color=niche_edge, lw=2.0, mutation_scale=16, rad=-0.25)
+    _arrow(ax, (5.60, 2.82), (6.38, 2.82), color=niche_edge, lw=2.0, mutation_scale=16, rad=-0.25)
 
     ax.text(5.0, 5.18, r"$\mathcal{N}(P) \leftrightarrow P$", ha="center", va="center",
             fontsize=18, color=PALETTE["ink"], weight="bold")
 
     ax.text(3.62, 1.62, r"$O$ = organism", ha="center", va="center", fontsize=9.6,
-            color=PALETTE["blue"], weight="bold")
+            color=organism_edge, weight="bold")
     ax.text(6.38, 1.62, r"$N$ = niche", ha="center", va="center", fontsize=9.6,
-            color=PALETTE["green"], weight="bold")
+            color=niche_edge, weight="bold")
 
     _box(
         ax,
@@ -70,12 +75,14 @@ def draw_markov_blanket_achievement(output_dir: Path) -> Path:
     ax.set_aspect("equal")
     ax.set_facecolor(PALETTE["paper"])
 
-    ax.add_patch(Circle((0, 0), 1.35, facecolor=PALETTE["blue_fill"], edgecolor=PALETTE["blue"], lw=4))
+    blanket_edge, blanket_face = topic_pair("boundary")
+    settlement_edge = topic_pair("fixed_point")[0]
+    ax.add_patch(Circle((0, 0), 1.35, facecolor=blanket_face, edgecolor=blanket_edge, lw=4))
 
-    ax.text(0, 0.18, "settled system", ha="center", va="center", fontsize=13, color=PALETTE["gold"], weight="bold")
-    ax.text(0, -0.22, r"$X^* = \Phi(X^*)$", ha="center", va="center", fontsize=13.5, color=PALETTE["gold"], weight="bold")
+    ax.text(0, 0.18, "settled system", ha="center", va="center", fontsize=13, color=settlement_edge, weight="bold")
+    ax.text(0, -0.22, r"$X^* = \Phi(X^*)$", ha="center", va="center", fontsize=13.5, color=settlement_edge, weight="bold")
 
-    ax.text(0, 1.52, r"model boundary  $M = \Phi(X^*)$", ha="center", va="bottom", fontsize=12, color=PALETTE["blue"], weight="bold")
+    ax.text(0, 1.52, r"model boundary  $M = \Phi(X^*)$", ha="center", va="bottom", fontsize=12, color=blanket_edge, weight="bold")
 
     ax.text(0, -1.05, "internal states", ha="center", va="center", fontsize=10.5, color=PALETTE["muted"])
 
@@ -96,7 +103,7 @@ def draw_markov_blanket_achievement(output_dir: Path) -> Path:
                 arrowstyle="-|>",
                 connectionstyle=f"arc3,rad={rad}",
                 mutation_scale=16,
-                color=PALETTE["blue"],
+                color=blanket_edge,
                 lw=2.2,
             )
         )
@@ -123,8 +130,8 @@ def draw_explanatory_complementarity_matrix(output_dir: Path) -> Path:
     questions = [q.label for q in quadrant_grid()]  # Mechanism, Function, Ontogeny, Phylogeny
     n = len(questions)
 
-    diag_colors = [PALETTE["blue"], PALETTE["green"], PALETTE["gold"], PALETTE["red"]]
-    diag_fills = [PALETTE["blue_fill"], PALETTE["green_fill"], PALETTE["gold_fill"], PALETTE["red_fill"]]
+    diag_colors = [topic_pair(key)[0] for key in ("mechanism", "function", "ontogeny", "phylogeny")]
+    diag_fills = [topic_pair(key)[1] for key in ("mechanism", "function", "ontogeny", "phylogeny")]
 
     cell_size = 1.0
     origin_x = 1.2  # left margin for row labels

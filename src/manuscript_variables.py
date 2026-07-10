@@ -15,6 +15,7 @@ from .conceptual_model import (
     argument_modules,
     claim_dependencies,
     conceptual_integrity_token,
+    deterministic_simulation_trace,
     figure_specs,
     formal_claims,
     quadrant_grid,
@@ -172,8 +173,11 @@ def generate_variables(project_root: Path, *, require_analysis_outputs: bool = F
         "PROJECT_SUBTITLE": str(paper.get("subtitle", "")),
         "CONFIG_VERSION": str(paper.get("version", "0.1.0")),
         "THESIS_SENTENCE": str(thesis),
-        "PRIMARY_MODE": "plain text and deterministic conceptual visualizations",
-        "SIMULATION_POLICY": "No simulations are run or claimed in this paper.",
+        "PRIMARY_MODE": "plain text, deterministic conceptual visualizations, and one deterministic illustrative simulation trace",
+        "SIMULATION_POLICY": (
+            "The paper includes one deterministic illustrative simulation trace over authored formal states; "
+            "it does not run stochastic simulations, synthetic-data experiments, empirical estimates, or performance benchmarks."
+        ),
         "QUADRANT_COUNT": str(len(quadrant_grid())),
         "TERMINATION_COUNT": str(len(termination_catalog())),
         "ARGUMENT_MODULE_COUNT": str(len(argument_modules())),
@@ -182,6 +186,7 @@ def generate_variables(project_root: Path, *, require_analysis_outputs: bool = F
         "SYMBOL_COUNT": str(len(symbol_glossary())),
         "TEXT_VALIDATION_COUNT": str(len(text_validation_checks())),
         "CLAIM_DEPENDENCY_COUNT": str(len(claim_dependencies())),
+        "DETERMINISTIC_SIMULATION_STEP_COUNT": str(len(deterministic_simulation_trace())),
         "QUADRANT_TABLE_ROWS": _markdown_quadrant_rows(),
         "TERMINATION_BULLETS": _markdown_termination_bullets(),
         "ARGUMENT_MODULES": _markdown_argument_modules(),

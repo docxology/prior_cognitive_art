@@ -10,9 +10,10 @@ explanatory rule [@jaynes2003probability; @pearl2009causality;
 @gelman2013philosophy].
 
 Tinbergen's four questions help locate the issue [@tinbergen1963aims;
-@bateson2004toward]. The questions are often read as a ladder, but for this
-manuscript they are a grid. One axis asks whether the account is proximate or
-ultimate. The other asks whether the account is static or developmental.
+@bateson2004toward; @bergman2022leveling]. The questions are often read as a
+ladder, but for this manuscript they are a grid. One axis asks whether the
+account is proximate or ultimate. The other asks whether the account is static
+or developmental.
 Mechanism is proximate-static; function is ultimate-static; ontogeny is
 proximate-developmental; phylogeny is ultimate-developmental. The four questions
 are not four rungs of a single explanatory climb; they are four cells of a
@@ -41,12 +42,32 @@ to autonomy and self-individuation [@kirchhoff2018markov]. Recent critiques
 warn that those two registers should not be conflated: a Markov blanket can
 organize an explanatory model without automatically demarcating the literal
 physical or cognitive boundary of an organism [@bruineberg2022emperor;
-@raja2021markov]. This creates the same question at a deeper level: if the
-prior-like structure is a bounded model of what the system maintains, then
-"where did the prior come from?" is not answered by naming another prior above
-it. The answer must either be pragmatic (stop here for calculation), selective
-(filter by viability), or fixed-point (the system is the prior-like settlement,
-not a bearer of one more hidden prior).
+@raja2021markov]. The more recent mathematical expositions of active inference
+and the free energy principle reinforce the same discipline: action,
+perception, and model evidence belong to a formal description whose scope has
+to be stated [@friston2012agency; @friston2023simpler]. This creates the same
+question at a deeper level: if the prior-like structure is a bounded model of
+what the system maintains, then "where did the prior come from?" is not
+answered by naming another prior above it. The answer must either be pragmatic
+(stop here for calculation), selective (filter by viability), or fixed-point
+(the system is the prior-like settlement, not a bearer of one more hidden
+prior).
+
+The harder upstream version asks what comes before the first prior, or what
+could count as a bias before explicit bias. The manuscript treats that question
+as a first-principles pressure test. If "prior" means an inferential parameter,
+then putting another prior before it merely restarts the regress. The better
+answer is pre-inferential constraint: viability asymmetries, predictive bodily
+regulation, shared early-life regulation, and developmental niche structure
+make some expectation-forming paths available before they become belief-like
+priors. Work on the body as first prior, co-embodiment and co-homeostasis,
+allostatic regulation, visceral rhythmicity in development, morphogenesis, and
+evolved active-inference architectures supports this upstream frame
+[@allen2018body_first_prior; @ciaunica2021first_prior;
+@sterling2012allostasis; @corcoran2025body_first_teacher;
+@kuchling2020morphogenesis; @pezzulo2022evolution]. This is not a discovery of
+a literal hidden meta-prior. It is a category correction: before learned priors
+come histories of regulation, support, embodiment, and viable form.
 
 The working hypothesis is therefore modular: the regress is not a property of
 Tinbergen's framework; it is a property of choosing the ontogenetic quadrant as
@@ -69,3 +90,19 @@ joint organization may be prior to the factors later extracted from it
 sense: the craft of keeping explanatory kinds distinct and rendering that
 distinction as deterministic figures and checkable claims, rather than as a
 metaphysical theory of priors.
+
+This use of "art" is also disciplined by recent predictive-processing
+aesthetics. Work on visual art, music, and neuroaesthetics shows that aesthetic
+experience often turns on learned expectations, uncertainty, affect, and
+meaning-making [@van_de_cruys2011putting; @pearce2018statistical;
+@frascaroli2024aesthetics; @pearce2016neuroaesthetics]. That literature
+supports the paper's modest analogy: aesthetic practices arrange encounters
+with priors and prediction errors. Material-engagement and extended-mind work
+make the analogy more public and embodied: art-making uses artifacts, media,
+and situated practice to make expectations available for inspection rather
+than keeping them inside the head [@dewey1934art; @clark1998extended;
+@malafouris2013things; @noe2015strange; @wynn2021four_e]. None of this
+supports a stronger conclusion that art is reducible to prediction-error
+optimization, that aesthetic value is the same as epistemic value, or that the
+free energy principle is a complete theory of art [@kesner2014predictive;
+@burnett2020four_e; @brown2009arts; @bowers2012bayesian].

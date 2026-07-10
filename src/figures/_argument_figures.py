@@ -14,6 +14,7 @@ from ._shared import (
     _clean_axes,
     _save,
     plt,
+    topic_pair,
 )
 
 from src.conceptual_model import quadrant_grid, termination_catalog
@@ -25,18 +26,8 @@ def draw_tinbergen_axes(output_dir: Path) -> Path:
     ax.set_ylim(-0.18, 2.38)
     ax.set_facecolor(PALETTE["paper"])
 
-    color_by_key = {
-        "mechanism": PALETTE["blue"],
-        "function": PALETTE["green"],
-        "ontogeny": PALETTE["gold"],
-        "phylogeny": PALETTE["red"],
-    }
-    fill_by_key = {
-        "mechanism": PALETTE["blue_fill"],
-        "function": PALETTE["green_fill"],
-        "ontogeny": PALETTE["gold_fill"],
-        "phylogeny": PALETTE["red_fill"],
-    }
+    color_by_key = {key: topic_pair(key)[0] for key in ("mechanism", "function", "ontogeny", "phylogeny")}
+    fill_by_key = {key: topic_pair(key)[1] for key in ("mechanism", "function", "ontogeny", "phylogeny")}
     positions = {
         ("proximate", "static"): (0, 1),
         ("ultimate", "static"): (1, 1),
@@ -79,8 +70,9 @@ def draw_regress_terminations(output_dir: Path) -> Path:
         ("H(P)", "hyperprior", 2.65),
         ("H(H(P))", "next level", 4.55),
     ]
+    chain_edge, chain_face = topic_pair("formal")
     for expression, label, x in chain:
-        _box(ax, (x, 5.12), (1.25, 0.72), PALETTE["blue"], expression, label, face=PALETTE["blue_fill"], title_size=14, subtitle_size=9)
+        _box(ax, (x, 5.12), (1.25, 0.72), chain_edge, expression, label, face=chain_face, title_size=14, subtitle_size=9)
     for start, end in [((1.64, 5.12), (2.02, 5.12)), ((3.28, 5.12), (3.9, 5.12)), ((5.2, 5.12), (5.85, 5.12))]:
         _arrow(ax, start, end, color=PALETTE["muted"], lw=1.4)
     ax.text(6.05, 5.05, "...", fontsize=22, color=PALETTE["muted"])
@@ -88,9 +80,9 @@ def draw_regress_terminations(output_dir: Path) -> Path:
     _arrow(ax, (7.02, 4.95), (7.02, 4.25), color=PALETTE["red"], lw=1.8)
 
     display = {
-        "pragmatic": ("flat/weak hyperprior", "formal stop", "thin explanation", PALETTE["gold"], PALETTE["gold_fill"]),
-        "selection": ("function + phylogeny", "filters viable survivors", "not individual detail", PALETTE["green"], PALETTE["green_fill"]),
-        "fixed_point": ("X* = Phi(X*)", "category shift", "no hidden new prior", PALETTE["blue"], PALETTE["blue_fill"]),
+        "pragmatic": ("flat/weak hyperprior", "formal stop", "thin explanation", *topic_pair("pragmatic")),
+        "selection": ("function + phylogeny", "filters viable survivors", "not individual detail", *topic_pair("selection")),
+        "fixed_point": ("X* = Phi(X*)", "category shift", "no hidden new prior", *topic_pair("fixed_point")),
     }
     y_positions = [3.65, 2.45, 1.25]
     for item, y in zip(termination_catalog(), y_positions, strict=True):
@@ -114,13 +106,13 @@ def draw_prior_equilibrium_map(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     for patch in (
-        Circle((0, 0), 0.92, fill=False, edgecolor=PALETTE["blue"], lw=3),
-        Circle((0, 0), 0.58, fill=False, edgecolor=PALETTE["green"], lw=2.2),
-        Circle((0, 0), 0.28, facecolor=PALETTE["gold_fill"], edgecolor=PALETTE["gold"], lw=2.2),
+        Circle((0, 0), 0.92, fill=False, edgecolor=topic_pair("boundary")[0], lw=3),
+        Circle((0, 0), 0.58, fill=False, edgecolor=topic_pair("action")[0], lw=2.2),
+        Circle((0, 0), 0.28, facecolor=topic_pair("fixed_point")[1], edgecolor=topic_pair("fixed_point")[0], lw=2.2),
     ):
         ax.add_patch(patch)
 
-    ax.text(0, 0.05, "prior-like\nsettlement", ha="center", va="center", fontsize=11.4, color=PALETTE["gold"], weight="bold", linespacing=1.0)
+    ax.text(0, 0.05, "prior-like\nsettlement", ha="center", va="center", fontsize=11.4, color=topic_pair("fixed_point")[0], weight="bold", linespacing=1.0)
 
     arrows = [
         ((0.54, 0.65), (0.87, 0.17)),
@@ -132,10 +124,10 @@ def draw_prior_equilibrium_map(output_dir: Path) -> Path:
         _arrow(ax, start, end, color=PALETTE["ink"], lw=1.6, mutation_scale=16, rad=0.25)
 
     callouts = [
-        ("blanket\npersistence", (0, 1.12), PALETTE["blue"], PALETTE["blue_fill"]),
-        ("action-perception\nclosure", (1.22, 0), PALETTE["green"], PALETTE["green_fill"]),
+        ("blanket\npersistence", (0, 1.12), *topic_pair("boundary")),
+        ("action-perception\nclosure", (1.22, 0), *topic_pair("action")),
         ("environmental\nviability", (-1.26, 0), PALETTE["muted"], "white"),
-        ("fixed point\nX* = Phi(X*)", (0, -1.12), PALETTE["gold"], PALETTE["gold_fill"]),
+        ("fixed point\nX* = Phi(X*)", (0, -1.12), *topic_pair("fixed_point")),
     ]
     for text, center, color, face in callouts:
         _box(ax, center, (0.78, 0.28), color, text, face=face, title_size=8.8)
@@ -163,19 +155,18 @@ def draw_ontogeny_hyperprior_parallel(output_dir: Path) -> Path:
             4.25,
             "Hierarchical\nBayes",
             ["prior", "hyperprior", "hyper-hyperprior"],
-            PALETTE["blue"],
+            topic_pair("formal"),
         ),
         (
             2.05,
             "Ontogeny-only\nanswer",
             ["current prior", "developmental selector", "source of selector"],
-            PALETTE["gold"],
+            topic_pair("ontogeny"),
         ),
     ]
     x_positions = [2.75, 5.45, 8.15]
     half_width = 0.96
-    for y, label, items, color in rows:
-        face = PALETTE["blue_fill"] if color == PALETTE["blue"] else PALETTE["gold_fill"]
+    for y, label, items, (color, face) in rows:
         ax.add_patch(Rectangle((0.42, y - 0.58), 8.92, 1.16, facecolor=face, edgecolor="none", alpha=0.55))
         ax.text(1.35, y + 0.1, label, ha="right", fontsize=11.7, weight="bold", color=color, va="center", linespacing=1.0)
         for x, item in zip(x_positions, items, strict=True):
@@ -188,10 +179,10 @@ def draw_ontogeny_hyperprior_parallel(output_dir: Path) -> Path:
 
     ax.add_patch(FancyArrowPatch((9.35, 4.25), (9.35, 2.05), arrowstyle="<->", mutation_scale=18, color=PALETTE["red"], lw=2))
     ax.text(9.5, 3.13, "same\nregress\nshape", fontsize=10.8, color=PALETTE["red"], va="center", linespacing=1.0)
-    ax.text(3.95, 4.65, "H", fontsize=11.5, color=PALETTE["blue"], weight="bold")
-    ax.text(6.63, 4.65, "H", fontsize=11.5, color=PALETTE["blue"], weight="bold")
-    ax.text(3.95, 2.45, "D", fontsize=11.5, color=PALETTE["gold"], weight="bold")
-    ax.text(6.63, 2.45, "D", fontsize=11.5, color=PALETTE["gold"], weight="bold")
+    ax.text(3.95, 4.65, "H", fontsize=11.5, color=topic_pair("formal")[0], weight="bold")
+    ax.text(6.63, 4.65, "H", fontsize=11.5, color=topic_pair("formal")[0], weight="bold")
+    ax.text(3.95, 2.45, "D", fontsize=11.5, color=topic_pair("ontogeny")[0], weight="bold")
+    ax.text(6.63, 2.45, "D", fontsize=11.5, color=topic_pair("ontogeny")[0], weight="bold")
     ax.add_patch(Rectangle((1.95, 0.46), 6.35, 0.62, facecolor="white", edgecolor=PALETTE["red"], lw=1.8))
     ax.text(
         5.12,
@@ -213,32 +204,32 @@ def draw_selection_filter(output_dir: Path) -> Path:
     ax.set_facecolor(PALETTE["paper"])
 
     candidates = [
-        ("fragile\nprior", 1.18, 4.85, PALETTE["red"], 0.42),
-        ("miscalibrated\nprior", 1.18, 3.65, PALETTE["gold"], 0.54),
-        ("viable\nprior", 1.18, 2.45, PALETTE["green"], 0.95),
-        ("overfit\nprior", 1.18, 1.25, PALETTE["red"], 0.42),
+        ("fragile\nprior", 1.18, 4.85, topic_pair("regress")[0], 0.42),
+        ("miscalibrated\nprior", 1.18, 3.65, topic_pair("pragmatic")[0], 0.54),
+        ("viable\nprior", 1.18, 2.45, topic_pair("selection")[0], 0.95),
+        ("overfit\nprior", 1.18, 1.25, topic_pair("regress")[0], 0.42),
     ]
     for label, x, y, color, alpha in candidates:
         ax.add_patch(Ellipse((x, y), 1.52, 0.68, facecolor=color, edgecolor=color, alpha=alpha))
         ax.text(x, y, label, ha="center", va="center", fontsize=9.2, color="white" if alpha > 0.7 else PALETTE["ink"], linespacing=1.0)
-        arrow_color = PALETTE["green"] if "viable" in label else PALETTE["line"]
+        arrow_color = topic_pair("selection")[0] if "viable" in label else PALETTE["line"]
         _arrow(ax, (1.98, y), (3.28, 3.05), color=arrow_color, lw=1.5 if "viable" in label else 1.2, mutation_scale=13)
 
     funnel = Polygon(
         [(3.3, 5.24), (6.65, 4.1), (6.65, 2.0), (3.3, 0.86)],
         closed=True,
-        facecolor=PALETTE["green_fill"],
-        edgecolor=PALETTE["green"],
+        facecolor=topic_pair("selection")[1],
+        edgecolor=topic_pair("selection")[0],
         lw=2.2,
     )
     ax.add_patch(funnel)
-    ax.text(4.98, 3.62, "function", ha="center", fontsize=15, weight="bold", color=PALETTE["green"])
+    ax.text(4.98, 3.62, "function", ha="center", fontsize=15, weight="bold", color=topic_pair("function")[0])
     ax.text(4.98, 2.95, "+", ha="center", fontsize=18, color=PALETTE["muted"])
-    ax.text(4.98, 2.3, "phylogeny", ha="center", fontsize=15, weight="bold", color=PALETTE["green"])
+    ax.text(4.98, 2.3, "phylogeny", ha="center", fontsize=15, weight="bold", color=topic_pair("selection")[0])
     ax.text(4.98, 1.45, "viability filter", ha="center", fontsize=11.2, color=PALETTE["muted"])
 
-    _arrow(ax, (6.68, 3.05), (7.9, 3.05), color=PALETTE["green"], lw=2, mutation_scale=17)
-    _box(ax, (8.62, 3.05), (1.58, 1.36), PALETTE["green"], "persisting\nprior", "available because\nit lasted", face="white", title_size=12.2, subtitle_size=9.2)
+    _arrow(ax, (6.68, 3.05), (7.9, 3.05), color=topic_pair("selection")[0], lw=2, mutation_scale=17)
+    _box(ax, (8.62, 3.05), (1.58, 1.36), topic_pair("selection")[0], "persisting\nprior", "available because\nit lasted", face="white", title_size=12.2, subtitle_size=9.2)
     ax.text(1.18, 5.55, "candidate forms", ha="center", fontsize=10.5, color=PALETTE["muted"], weight="bold")
     ax.set_title("Selection termination blocks regress by filtering what can persist", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "selection_filter.png")

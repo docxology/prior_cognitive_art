@@ -73,6 +73,17 @@ class ClaimDependency:
     rationale: str
 
 
+@dataclass(frozen=True)
+class DeterministicSimulationStep:
+    step: int
+    state: str
+    formal_state: str
+    transition: str
+    invariant: str
+    x: float
+    y: float
+
+
 def quadrant_grid() -> tuple[Quadrant, ...]:
     return (
         Quadrant(
@@ -171,6 +182,15 @@ def argument_modules() -> tuple[ArgumentModule, ...]:
             ),
         ),
         ArgumentModule(
+            key="first_prior_grounding",
+            title="Before the first prior is constraint history",
+            claim=(
+                "Going upstream does not reveal a hidden prior before all priors; it "
+                "reveals viability, regulation, shared embodiment, developmental "
+                "tuning, and niche structure that make learned priors possible."
+            ),
+        ),
+        ArgumentModule(
             key="policy_entanglement",
             title="Joint structure precedes factor cleanup",
             claim=(
@@ -203,6 +223,65 @@ def argument_modules() -> tuple[ArgumentModule, ...]:
             title="Prior-like structure appears at multiple scales",
             claim="The regress-termination problem recurs at the cellular, organismic, and social scales; the fixed-point move applies at each level without requiring a new hidden prior.",
         ),
+        ArgumentModule(
+            key="aesthetic_prior_craft",
+            title="Art arranges encounters with priors",
+            claim=(
+                "The paper's art claim is bounded: aesthetic practices arrange cues, "
+                "contexts, and meanings that interact with predictive priors; they do "
+                "not prove that art directly rewires priors as an empirical mechanism."
+            ),
+        ),
+    )
+
+
+def deterministic_simulation_trace() -> tuple[DeterministicSimulationStep, ...]:
+    return (
+        DeterministicSimulationStep(
+            step=0,
+            state="Question typed",
+            formal_state=r"$\sigma_0 = P?$",
+            transition="Ask why the prior exists.",
+            invariant="No numerical belief update is introduced.",
+            x=1.05,
+            y=2.65,
+        ),
+        DeterministicSimulationStep(
+            step=1,
+            state="Regress exposed",
+            formal_state=r"$\sigma_1 = H(P)$",
+            transition="A hyperprior answer repeats the question at one level up.",
+            invariant="The step records logical deferral only.",
+            x=3.1,
+            y=3.25,
+        ),
+        DeterministicSimulationStep(
+            step=2,
+            state="Tinbergen split",
+            formal_state=r"$\sigma_2 \in Q_T$",
+            transition="The question is partitioned by explanatory kind.",
+            invariant="Quadrants organize scope; they do not estimate effects.",
+            x=5.0,
+            y=2.6,
+        ),
+        DeterministicSimulationStep(
+            step=3,
+            state="Termination chosen",
+            formal_state=r"$\sigma_3 \models \tau$",
+            transition="Selection or fixed-point criteria provide a stop rule.",
+            invariant="The stop rule is conceptual sufficiency, not model fit.",
+            x=6.9,
+            y=3.25,
+        ),
+        DeterministicSimulationStep(
+            step=4,
+            state="Settlement named",
+            formal_state=r"$\sigma_4 = X^*=\Phi(X^*)$",
+            transition="The prior is redescribed as settled organization.",
+            invariant="The trace ends in a category shift, not a hidden prior.",
+            x=8.85,
+            y=2.6,
+        ),
     )
 
 
@@ -212,218 +291,276 @@ def figure_specs() -> tuple[FigureSpec, ...]:
             key="tinbergen_axes",
             filename="tinbergen_axes.png",
             title="Tinbergen axes for priors",
-            purpose="Show the crossed proximate/ultimate and static/developmental structure.",
+            purpose="Stage the crossed explanatory axes as a reading surface for prior-origin questions.",
             caption=(
-                "Tinbergen's four questions form two crossed axes, not a stacked ladder: "
-                "proximate versus ultimate (columns) and static versus developmental (rows). "
-                "Mechanism and function close locally; ontogeny defers; phylogeny blocks regress "
-                "through selection-filtered persistence. The regress appears only when one cell "
-                "is asked to carry the load of all four."
+                "Four colored panels hold Tinbergen's questions in tension rather than stacking "
+                "them into a causal ladder. Read across scale and then down temporality: mechanism "
+                "and function can close local questions, while ontogeny and phylogeny ask how the "
+                "form was shaped and retained. The regress appears when one panel, usually "
+                "ontogeny, is asked to speak for the whole grid."
             ),
         ),
         FigureSpec(
             key="regress_terminations",
             filename="regress_terminations.png",
             title="Where the hyperprior regress can stop",
-            purpose="Compare pragmatic, selection, and fixed-point endings.",
+            purpose="Set the repeating hyperprior chain against the three legitimate stopping moves.",
             caption=(
-                "Iterating a prior-on-prior (or a prior-selecting-prior) chain is easy; the "
-                "explanatory work is in naming where it stops. Three live terminations are shown: "
-                "pragmatic (install a weak hyperprior and stop), selection (filter by viability), "
-                "and fixed-point (the system is the prior-like settlement, not a bearer of one more "
-                "hidden prior)."
+                "The upper chain is deliberately too easy to extend: a prior receives a hyperprior, "
+                "then that hyperprior seems to need its own warrant. The lower register names the "
+                "three different ways the picture can stop without pretending the next box solves "
+                "the problem. Pragmatic, selection, and fixed-point endings are visualized as "
+                "explanatory disciplines, not as empirical discoveries of prior origins."
             ),
         ),
         FigureSpec(
             key="prior_equilibrium_map",
             filename="prior_equilibrium_map.png",
             title="Prior as settled organization",
-            purpose="Render the fixed-point move as a self-individuating loop, not another level.",
+            purpose="Present the fixed-point move as a loop of maintenance rather than a higher cause.",
             caption=(
-                "The fixed-point reading treats the prior as the settled organization that "
-                "persists under its own process, written as the self-map X* = Phi(X*). Blanket "
-                "persistence, action-perception closure, and environmental viability circle back "
-                "into one self-individuating loop rather than a further explanatory level."
+                "The circular composition makes the fixed-point move visible: the prior is not "
+                "another hidden object above the system, but the settled organization of the "
+                "system's own process. Blanket persistence, action-perception closure, and "
+                "environmental viability feed back into the same maintained form. The claim is a "
+                "category shift about what is being explained, not a numerical equilibrium result."
             ),
         ),
         FigureSpec(
             key="ontogeny_hyperprior_parallel",
             filename="ontogeny_hyperprior_parallel.png",
             title="Ontogeny and hyperpriors share a regress shape",
-            purpose="Compare prior-on-prior and developmental prior-selection chains.",
+            purpose="Pair developmental deferral with hyperprior deferral to expose their shared silhouette.",
             caption=(
-                "A prior-on-prior chain in hierarchical Bayes and a current-prior-selecting-a-"
-                "developmental-source chain in ontogeny share the same regress shape: each step "
-                "defers the question to the next selector. Adding another selector does not answer "
-                "why selection terminates."
+                "The two horizontal chains are drawn as visual echoes. A Bayesian hyperprior and "
+                "an ontogenetic selector are not the same biological claim, but both can defer the "
+                "question to the source that licensed the current prior. The red bracket marks "
+                "that shared silhouette of deferral while preserving the difference between "
+                "formal hierarchy and developmental history."
             ),
         ),
         FigureSpec(
             key="selection_filter",
             filename="selection_filter.png",
             title="Selection as regress blocker",
-            purpose="Show function and phylogeny as viability filters rather than another hidden level.",
+            purpose="Turn function and phylogeny into a filter that explains persistence without another selector.",
             caption=(
-                "Function and phylogeny act as a viability filter over candidate priors: fragile, "
-                "miscalibrated, and overfit forms do not remain available as the objects whose "
-                "origin we ask about. Selection blocks regress by naming what persists, not by "
-                "adding another hidden level."
+                "Candidate prior-like forms enter as a rough population, not as equal explanatory "
+                "successes. The function-plus-phylogeny funnel removes forms that cannot remain "
+                "available as persisting targets: fragile, miscalibrated, or overfit structures "
+                "drop out of the story. Selection blocks regress by explaining availability "
+                "through viability rather than placing one more selector behind the filter."
             ),
         ),
         FigureSpec(
             key="policy_entanglement_bridge",
             filename="policy_entanglement_bridge.png",
             title="Joint structure before decomposition",
-            purpose="Connect the argument to policy entanglement and lambda-decomposition.",
+            purpose="Frame lambda-decomposition as an analytic cut through prior joint organization.",
             caption=(
-                "Lambda-decomposition extracts policy, prior-like constraint, and state factors "
-                "from an already joint organization. The useful factors are analytic cuts, not "
-                "proof that the factors were ontologically first; joint organization can precede "
-                "the decomposition that later makes it legible."
+                "The large joint form on the left is intentionally prior to the separated boxes on "
+                "the right. Lambda-decomposition makes policy, prior-like constraint, and state "
+                "factor legible after the analytic cut, but it does not prove that those factors "
+                "were ontologically first. The bridge keeps the argument focused on how cleaned-up "
+                "factors are extracted from an already organized field."
             ),
         ),
         FigureSpec(
             key="formal_claim_dependency_map",
             filename="formal_claim_dependency_map.png",
             title="Formal claim dependency map",
-            purpose="Show how the numbered formal claims depend on axes, regress, termination, and decomposition records.",
+            purpose="Make the formal supplement look like a source-derived map, not decorative theorem labels.",
             caption=(
-                "The auto-numbered formal claims (F1-F11) are generated views over the shared "
-                "conceptual inventory: Tinbergen axes, the regress shape, termination moves, joint "
-                "structure, niche and blanket, and explanatory complementarity. Source order fixes "
-                "the numbering, so the claims cannot drift from the prose or figures they label."
+                "The map turns the formal supplement into a provenance surface. Claims F1-F12 are "
+                "not decorative theorem labels; they are routed views over source records for axes, "
+                "regress shape, termination moves, joint structure, niche, blanket, complementarity, "
+                "and trace boundaries. Numbering follows source order, so prose, figures, and "
+                "formal labels have to move together."
             ),
         ),
         FigureSpec(
             key="symbol_glossary_closure",
             filename="symbol_glossary_closure.png",
             title="Symbol glossary closure",
-            purpose="Show the integrity check that every formal symbol used in the supplement is glossaryed.",
+            purpose="Treat notation as a closure surface where every mark must be accounted for.",
             caption=(
-                "Every symbol key used by a formal claim must appear exactly once as a glossary "
-                "row. Used-symbol and glossary sets are equal; a missing or orphan glossary row is "
-                "a source-contract error caught before render."
+                "The paired panels make a simple editorial demand: every formal mark used by a "
+                "claim must be defined, and every definition must be used. This turns notation "
+                "from ornament into an accountable surface of the manuscript. If the two sides "
+                "fall out of correspondence, the package fails before render."
             ),
         ),
         FigureSpec(
             key="text_validation_ladder",
             filename="text_validation_ladder.png",
             title="Text validation ladder",
-            purpose="Show source records, injected tokens, generated artifacts, and rendered paper as linked validation layers.",
+            purpose="Stack source, generation, rendering, and validation as a single manuscript-making ladder.",
             caption=(
-                "Authored source records hydrate figures, reports, the figure registry, and the "
-                "manuscript token layer; each surface is checked again at render time. The text is "
-                "validated as an artifact surface, not trusted as prose."
+                "The ladder treats the paper as something made, not merely written. Source records "
+                "hydrate reports, figures, tokens, and render surfaces; validation then climbs the "
+                "same stack after generation. A drifting caption, registry row, or prose token is "
+                "therefore not a minor typo but a contract error in the artifact pipeline."
             ),
         ),
         FigureSpec(
             key="niche_construction_diagram",
             filename="niche_construction_diagram.png",
             title="Niche construction: organism-environment co-shaping of the prior",
-            purpose="Show the reciprocal relationship between organism and environment co-shaping the prior.",
+            purpose="Paint prior formation as reciprocal organism-niche work rather than one-way inheritance.",
             caption=(
-                "The prior-like structure is co-shaped, not fully given by the environment nor "
-                "fully endogenous: the organism (O) and its niche (N) reciprocally shape the prior "
-                "P, written as N(P) <-> P. Viability still filters what can persist, but the filter "
-                "is not purely external."
+                "The central prior is drawn between organism and niche because neither side owns "
+                "the explanation alone. Organisms act into environments that answer back as altered "
+                "regularities, affordances, and selection pressures. Viability still filters what "
+                "persists, but the filter is partly made by the organism-niche loop it later "
+                "appears to judge."
             ),
         ),
         FigureSpec(
             key="markov_blanket_achievement",
             filename="markov_blanket_achievement.png",
             title="Markov blanket as model-bound achievement",
-            purpose="Show the Markov blanket as a model-level boundary whose realization depends on the system's dynamics.",
+            purpose="Draw the blanket as an achieved model boundary with explicit ontological restraint.",
             caption=(
-                "The Markov blanket (M = Phi(X*)) is treated here as a model-level boundary "
-                "whose realized approximation depends on the persisting system's own dynamics. "
-                "It is neither a merely external partition nor a license to read organismal "
-                "boundaries directly from the formalism without additional assumptions."
+                "The boundary is deliberately drawn as something achieved by the model's settled "
+                "organization, not as a line simply read off the world. The blanket can organize "
+                "conditional-dependence claims inside an active-inference account, but it does not "
+                "automatically become a literal organismal or cognitive border. The image keeps "
+                "formal usefulness and ontological restraint in the same frame."
             ),
         ),
         FigureSpec(
             key="explanatory_complementarity_matrix",
             filename="explanatory_complementarity_matrix.png",
             title="Tinbergen questions are complementary, not rival",
-            purpose="Show a 4x4 grid of Tinbergen questions indicating complementarity rather than rivalry.",
+            purpose="Turn Tinbergen's questions into a coordination matrix instead of a rivalry table.",
             caption=(
-                "A 4x4 matrix of the four Tinbergen questions: each diagonal cell is one question "
-                "asked of the same phenomenon, and every off-diagonal pair contributes "
-                "independently. No question subsumes another; conflating them is the source of the "
-                "regress, not the framework."
+                "The matrix lets each Tinbergen question meet the others without being absorbed by "
+                "them. Diagonal cells name each explanatory mode; off-diagonal cells mark places "
+                "where coordination is legitimate but reduction is not. The regress is not caused "
+                "by asking several questions. It is caused by collapsing their different jobs into "
+                "one overburdened answer."
             ),
         ),
         FigureSpec(
             key="active_inference_cycle",
             filename="active_inference_cycle.png",
             title="Active inference action-perception cycle",
-            purpose="Show how action and perception close the free-energy-minimizing loop that the prior serves.",
+            purpose="Show action and perception as one circular practice served by prior-like structure.",
             caption=(
-                "Active inference closes the free-energy-minimizing loop through four stages: "
-                "perception, inference, action, and policy selection. The prior serves a process "
-                "that minimizes variational free energy F through both inference and action, not "
-                "inference alone."
+                "The loop makes active inference a practice rather than a passive estimate. "
+                "Perception, inference, action, and policy selection keep returning into one "
+                "another under a generative model. Prior-like structure serves that circular "
+                "organization: it is a constraint in an action-perception loop, not merely a static "
+                "number placed before observation."
             ),
         ),
         FigureSpec(
             key="variational_free_energy_landscape",
             filename="variational_free_energy_landscape.png",
-            title="Variational free energy landscape",
-            purpose="Show the free-energy landscape as a surface the system settles into, with the prior as the settling point.",
+            title="Variational bound landscape",
+            purpose="Use a basin image for relative variational settlement without implying zero free energy.",
             caption=(
-                "The variational free-energy landscape is a surface the system settles into; the "
-                "prior-like structure is the settling point P at the basin floor where F* ~ 0. The "
-                "zero-energy limit is the exact posterior, anchoring the prior to the system's own "
-                "inference rather than to an external parameter."
+                "The basin is a picture of relative settlement inside a model, not a claim that "
+                "free energy literally falls to zero. The marked path shows an approximate "
+                "posterior moving toward a target posterior under a tractable bound. The figure "
+                "supports a bounded settling metaphor for prior-like constraint while refusing an "
+                "empirical origin story for priors."
+            ),
+        ),
+        FigureSpec(
+            key="deterministic_simulation_trace",
+            filename="deterministic_simulation_trace.png",
+            title="Deterministic simulation trace",
+            purpose="Present the authored state sequence as a conceptual trace, not simulation evidence.",
+            caption=(
+                "The trace borrows the visual grammar of a state diagram while staying inside the "
+                "paper's conceptual scope. Each node is an authored formal state: question, "
+                "regress, Tinbergen partition, termination choice, and fixed-point settlement. "
+                "The arrows record argumentative order only; the invariants block stochastic, "
+                "synthetic-data, performance, or effect-size readings."
             ),
         ),
         FigureSpec(
             key="scale_invariance_diagram",
             filename="scale_invariance_diagram.png",
             title="Scale invariance of prior-like structure",
-            purpose="Show that the regress-termination problem recurs at cellular, organismic, and social scales.",
+            purpose="Repeat the fixed-point grammar across scales while keeping the recurrence conceptual.",
             caption=(
-                "The fixed-point move recurs at cellular, organismic, and social scales: "
-                "the prior-like settlement X*_k at one scale becomes the substrate for the "
-                "next via the scale recursion operator R, written X*_k = Phi(X*_k). No new "
-                "hidden prior is needed at each transition; the same regress-termination "
-                "structure repeats without introducing a new explanatory kind."
+                "The three panels repeat the fixed-point grammar at cellular, organismic, and "
+                "social registers. A prior-like settlement at one scale can become substrate for "
+                "another through R, but the image does not smuggle in a new hidden prior at each "
+                "transition. It shows recurrence of an explanatory problem, not scale-free "
+                "empirical proof."
             ),
         ),
         FigureSpec(
             key="source_claim_boundary_map",
             filename="source_claim_boundary_map.png",
             title="Source-to-claim boundary map",
-            purpose="Show how scholarship is promoted into claims only through the claim ledger and boundary audit.",
+            purpose="Make scholarship promotion visibly pass through verification and claim-boundary gates.",
             caption=(
-                "Publication claims pass through a source boundary: primary or scholarly sources "
-                "enter the accepted-source layer, noisy or overextended sources are rejected or "
-                "deferred, and only ledger-backed claims reach the manuscript and formal inventory. "
-                "The map makes source discipline visible as part of the paper's argument surface."
+                "The map makes citation discipline part of the artwork of the paper. Discovery "
+                "candidates do not flow directly into prose; they pass through verification and "
+                "claim-ledger boundaries before reaching manuscript claims, formal inventory, or "
+                "visual atlas. Rejected and deferred sources stay visible so scholarship does not "
+                "become unbounded accumulation."
+            ),
+        ),
+        FigureSpec(
+            key="aesthetic_prior_craft_map",
+            filename="aesthetic_prior_craft_map.png",
+            title="Aesthetic prior-craft map",
+            purpose="Locate prior-craft between predictive aesthetics, 4E practice, and claim restraint.",
+            caption=(
+                "This figure is the paper's most self-conscious art claim. Predictive aesthetics, "
+                "4E/material engagement, and neuroaesthetic scope converge on prior-craft: artworks "
+                "can stage encounters with expectation, ambiguity, affordance, affect, and meaning. "
+                "The red ceiling matters as much as the purple center: this is not a total theory "
+                "of art, intention, culture, or neural updating."
             ),
         ),
         FigureSpec(
             key="markov_blanket_scope_split",
             filename="markov_blanket_scope_split.png",
             title="Markov blanket scope split",
-            purpose="Separate formal Markov blanket use from realized organismal boundary claims.",
+            purpose="Separate formal blanket use from stronger organism-boundary commitments.",
             caption=(
-                "Markov blankets do different work in different registers: as Pearl-style "
-                "conditional-independence structures, as Friston-style model boundaries in active "
-                "inference, and as realized biological boundaries only when additional dynamical "
-                "and philosophical assumptions are supplied. The split guards the paper against "
-                "turning a useful formalism into an unqualified ontology."
+                "The split makes three registers visible before they can be collapsed: a "
+                "conditional-independence structure, an active-inference model boundary, and a "
+                "realized biological or cognitive boundary. The first two support the paper's "
+                "model-level argument. The third requires additional dynamical and philosophical "
+                "premises, so it is held behind an explicit boundary condition."
             ),
         ),
         FigureSpec(
             key="niche_prior_feedback_field",
             filename="niche_prior_feedback_field.png",
             title="Niche-prior feedback field",
-            purpose="Show organism, niche, and cultural resources co-shaping prior-like structure across timescales.",
+            purpose="Layer organismal, developmental, and cultural feedback as one prior-stabilizing field.",
             caption=(
-                "The niche-prior field layers organismal action, developmental resources, and "
-                "cultural inheritance across time. Prior-like structure is shown as a feedback "
-                "field stabilized by recurrent organism-niche coupling rather than as a parameter "
-                "delivered by either the organism or the environment alone."
+                "The field layers fast organismal action, slower developmental resources, and "
+                "still slower cultural inheritance. Prior-like structure stabilizes through the "
+                "recurrence among these bands, including material and cultural scaffolds, rather "
+                "than arriving from organism or environment alone. The field constrains selection "
+                "termination without becoming a fourth stopping rule."
+            ),
+        ),
+        FigureSpec(
+            key="first_prior_grounding_stack",
+            filename="first_prior_grounding_stack.png",
+            title="Before the first prior",
+            purpose=(
+                "Render upstream bias as a layered constraint history before learned priors, "
+                "not as another hidden meta-prior."
+            ),
+            caption=(
+                "The stack answers the RedTeam question by refusing the easy move of placing "
+                "one more prior behind the first prior. Viability asymmetry, homeostatic and "
+                "allostatic regulation, co-embodiment and co-homeostasis, developmental tuning, "
+                "and cultural niche craft are shown as enabling constraints before explicit "
+                "belief-like priors. The bottom boundary is part of the claim: upstream bias is "
+                "a history of regulation and support, not an empirical discovery of a literal "
+                "prior-before-priors."
             ),
         ),
     )
@@ -512,8 +649,13 @@ def formal_claims() -> tuple[FormalClaim, ...]:
         FormalClaim(
             key="variational_closure",
             title="Variational closure",
-            expression="$\\mathcal{F}(q) \\geq \\mathcal{F}^*$ and $\\mathcal{F}^* \\approx 0$ iff $q = p$; the prior is the settling point of this bound.",
-            reading="The variational free energy bounds the log evidence from above (the evidence lower bound). The variational posterior $q$ equals the true posterior $p$ exactly at the minimum, and the free-energy minimum is then approximately zero, anchoring the prior to the system's own inference rather than to an externally supplied distribution.",
+            expression="$\\mathcal{F}(q)-\\mathcal{F}^* = D_{KL}(q\\|p^*) \\ge 0$; at the variational minimum $q = p^*$.",
+            reading=(
+                "The variational free-energy bound tightens as the approximate posterior $q$ "
+                "approaches the target posterior $p^*$. This supports a bounded, model-internal "
+                "settling interpretation of prior-like constraint; it is not a literal zero-energy "
+                "claim and it does not derive the historical origin of the prior."
+            ),
             symbol_keys=("F", "F_star", "q", "p_true", "P"),
         ),
         FormalClaim(
@@ -522,6 +664,18 @@ def formal_claims() -> tuple[FormalClaim, ...]:
             expression="$R_k(X^*_k) = X^*_{k+1}$ for scales $k \\in \\{\\text{cell}, \\text{organism}, \\text{social}\\}$.",
             reading="The fixed-point termination recurs at each scale: the prior-like settlement at one scale becomes the substrate for the next. No new hidden prior is needed; the same category shift applies recursively.",
             symbol_keys=("R", "X_star"),
+        ),
+        FormalClaim(
+            key="deterministic_trace_boundary",
+            title="Deterministic trace boundary",
+            expression="$T=(\\sigma_0,\\ldots,\\sigma_4)$ and $\\delta(\\sigma_i)=\\sigma_{i+1}$ for authored conceptual states only.",
+            reading=(
+                "The deterministic illustrative simulation records the formal state path through "
+                "regress pressure and termination choice. It is a checkable exposition device, not "
+                "a stochastic simulation, synthetic data generator, empirical estimate, or "
+                "performance metric."
+            ),
+            symbol_keys=("T", "sigma", "delta"),
         ),
     )
 
@@ -549,20 +703,23 @@ def symbol_glossary() -> tuple[SymbolSpec, ...]:
         SymbolSpec("M", "$M$", "Markov blanket", "The statistical boundary achieved by the settled system process."),
         SymbolSpec("A", "$A$", "active inference operator", "The operator coupling perception and action under a prior and policy to minimize free energy."),
         SymbolSpec("F", "$\\mathcal{F}$", "variational free energy", "The upper bound on negative log evidence that the system minimizes."),
-        SymbolSpec("F_star", "$\\mathcal{F}^*$", "optimal free energy", "The minimum free energy achieved when the variational posterior equals the true posterior."),
+        SymbolSpec("F_star", "$\\mathcal{F}^*$", "reference bound minimum", "The variational free-energy value at the selected reference minimum."),
         SymbolSpec("q", "$q$", "variational posterior", "The approximate posterior distribution the system maintains."),
-        SymbolSpec("p_true", "$p^*$", "true posterior", "The exact posterior distribution $p$, written $p^*$ at the variational minimum; the zero-free-energy limit of variational inference."),
+        SymbolSpec("p_true", "$p^*$", "target posterior", "The posterior distribution approached by the variational approximation at the selected minimum."),
         SymbolSpec("R", "$R$", "scale recursion operator", "The operator mapping a settled system at one scale to the substrate at the next."),
+        SymbolSpec("T", "$T$", "deterministic trace", "The finite authored sequence of conceptual states used for illustration."),
+        SymbolSpec("sigma", "$\\sigma_i$", "formal trace state", "A named state in the deterministic illustrative trace."),
+        SymbolSpec("delta", "$\\delta$", "deterministic transition", "The transition function that orders adjacent trace states without stochastic sampling."),
     )
 
 
 def text_validation_checks() -> tuple[TextValidationCheck, ...]:
     return (
         TextValidationCheck(
-            key="no_simulation_boundary",
+            key="deterministic_simulation_boundary",
             surface="manuscript and analysis report",
-            invariant="The project states that it uses no simulations or numerical performance claims.",
-            evidence="SIMULATION_POLICY token and conceptual_analysis.json simulation_free flag.",
+            invariant="The project limits simulation language to a deterministic illustrative trace and rejects stochastic, empirical, synthetic-data, and performance claims.",
+            evidence="SIMULATION_POLICY token, deterministic_simulation_manifest.json, and conceptual_analysis.json scope flags.",
         ),
         TextValidationCheck(
             key="figure_registry_closure",
@@ -631,10 +788,12 @@ def claim_dependencies() -> tuple[ClaimDependency, ...]:
         ClaimDependency("axis_partition", "explanatory_complementarity", "The axis partition shows the questions are complementary."),
         ClaimDependency("decomposition_caution", "niche_co_construction", "Joint structure and niche co-construction both resist factor-first readings."),
         ClaimDependency("blanket_achievement", "active_inference_bridge", "The achieved blanket provides the boundary within which active inference operates."),
-        ClaimDependency("fixed_point_stop", "variational_closure", "The fixed-point settlement is the zero-energy limit of the variational bound."),
+        ClaimDependency("fixed_point_stop", "variational_closure", "The fixed-point settlement is represented as a relative variational-bound minimum."),
         ClaimDependency("active_inference_bridge", "scale_invariance", "Active inference at one scale provides the substrate for the next."),
         ClaimDependency("variational_closure", "scale_invariance", "The variational closure applies recursively at each scale."),
         ClaimDependency("explanatory_complementarity", "active_inference_bridge", "Complementarity of perspectives is preserved when action and perception are unified."),
+        ClaimDependency("regress_shape", "deterministic_trace_boundary", "The trace records the regress shape before any termination claim is accepted."),
+        ClaimDependency("deterministic_trace_boundary", "fixed_point_stop", "The trace boundary preserves the fixed-point stop as a conceptual category shift."),
     )
 
 
@@ -691,6 +850,7 @@ def conceptual_integrity_token() -> str:
     payload = {
         "argument_modules": as_records(argument_modules()),
         "claim_dependencies": as_records(claim_dependencies()),
+        "deterministic_simulation_trace": as_records(deterministic_simulation_trace()),
         "figures": as_records(figure_specs()),
         "formal_claims": as_records(formal_claims()),
         "quadrants": as_records(quadrant_grid()),

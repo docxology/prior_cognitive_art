@@ -18,7 +18,7 @@ Supporting files:
 - `config.yaml` — paper metadata, authors, keywords, render settings
 - `config.yaml.example` — template for new configurations
 - `preamble.md` — LaTeX preamble injected during PDF compilation
-- `references.bib` — BibTeX bibliography (40 entries)
+- `references.bib` — BibTeX bibliography (77 entries)
 - `SYNTAX.md` — Pandoc figure/table reference syntax guide
 - `layer_contract.yaml` — source/script/manuscript boundary rules
 

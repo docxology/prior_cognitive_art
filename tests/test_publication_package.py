@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import json
 import subprocess
 import sys
 from pathlib import Path
+
+from src.conceptual_model import figure_specs
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -30,8 +33,9 @@ def test_publication_package_validator_passes_current_package() -> None:
         text=True,
     )
     assert result.returncode == 0, result.stderr
-    assert '"ok": true' in result.stdout
-    assert '"figure_count": 18' in result.stdout
+    payload = json.loads(result.stdout)
+    assert payload["ok"] is True
+    assert payload["expected_counts"]["figure_count"] == len(figure_specs())
 
 
 def test_publication_package_validator_rejects_missing_root() -> None:

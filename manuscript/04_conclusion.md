@@ -24,18 +24,18 @@ from outside; it persists as the organization that makes prior-like constraint
 legible [@da_costa2020active; @parr2022active]. In active inference terms, the
 generative model is not an object carried by the agent; it is a bounded
 description of the agent's mode of persisting under a Markov blanket
-[@friston2013life; @kirchhoff2018markov; @bruineberg2022emperor]. The
-decomposition into policy, prior, and state is analytically useful but
-ontologically secondary [@hohwy2016viability].
+[@friston2013life; @kirchhoff2018markov; @bruineberg2022emperor;
+@friston2023simpler]. The decomposition into policy, prior, and state is
+analytically useful but ontologically secondary [@hohwy2016viability].
 
 The niche-construction reading adds a further dimension
-[@constant2018free]. If the organism partly constructs the statistical
-regularities it exploits, then the prior is not fully given by the environment
-nor fully endogenous. It is co-shaped. This does not change the logic of
-termination — it still blocks regress by naming what persists rather than by
-adding another level — but it complicates the simple inside/outside picture
-that the fixed-point move can suggest. The argument therefore treats niche
-construction as a constraint on selection
+[@laland2000niche; @odling_smee2003niche; @constant2018free]. If the organism
+partly constructs the statistical regularities it exploits, then the prior is
+not fully given by the environment nor fully endogenous. It is co-shaped. This
+does not change the logic of termination — it still blocks regress by naming
+what persists rather than by adding another level — but it complicates the
+simple inside/outside picture that the fixed-point move can suggest. The
+argument therefore treats niche construction as a constraint on selection
 termination rather than as a fourth stop: developmental and cultural resources
 shape what can later be selected, but the logical work is still done by naming
 the persisting organization rather than by adding another selector
@@ -48,3 +48,14 @@ level of rigor for this paper: enough structure to catch drift, without
 pretending that conceptual notation has become an empirical result. The
 supplement does not prove the thesis; it makes the thesis checkable against its
 own artifacts.
+
+The same discipline now governs the word "art." Predictive-processing
+aesthetics makes the title more than a metaphor: artworks can organize
+encounters with learned expectations, ambiguity, and meaning. Material and
+enactive art scholarship strengthens the point by showing that these encounters
+are often made through bodies, media, tools, affordances, and chance
+[@wynn2021four_e; @march2023art; @malafouris2023enactychism]. But the paper
+does not collapse aesthetic value into epistemic value, and it does not treat
+the free energy principle as a general theory of art. The art here is a
+practice of arranging explanatory encounters with priors while keeping the
+explanatory kinds visible enough that the arrangement can be inspected.

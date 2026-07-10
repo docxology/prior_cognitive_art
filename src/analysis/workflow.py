@@ -9,6 +9,7 @@ from src.conceptual_model import (
     as_records,
     claim_dependencies,
     conceptual_integrity_token,
+    deterministic_simulation_trace,
     figure_specs,
     formal_claims,
     quadrant_grid,
@@ -42,13 +43,21 @@ def _figure_registry() -> dict[str, dict[str, object]]:
 
 def build_conceptual_report(project_root: Path) -> dict[str, Any]:
     figures = figure_specs()
+    simulation_trace = deterministic_simulation_trace()
     contract_errors = validate_conceptual_contract()
     if contract_errors:
         raise ValueError("; ".join(contract_errors))
     return {
         "project": "prior_cognitive_art",
-        "mode": "plain text plus deterministic conceptual visualization",
+        "mode": "plain text plus deterministic conceptual visualization and illustrative simulation trace",
         "simulation_free": True,
+        "deterministic_illustrative_simulation": True,
+        "empirical_simulation_free": True,
+        "stochastic_simulation_free": True,
+        "simulation_scope": (
+            "deterministic illustrative conceptual trace only; no stochastic sampling, "
+            "synthetic data, empirical effects, or performance metrics"
+        ),
         "quadrants": as_records(quadrant_grid()),
         "terminations": as_records(termination_catalog()),
         "argument_modules": as_records(argument_modules()),
@@ -56,6 +65,8 @@ def build_conceptual_report(project_root: Path) -> dict[str, Any]:
         "claim_dependencies": as_records(claim_dependencies()),
         "symbol_glossary": as_records(symbol_glossary()),
         "text_validation_checks": as_records(text_validation_checks()),
+        "deterministic_simulation_trace": as_records(simulation_trace),
+        "deterministic_simulation_step_count": len(simulation_trace),
         "conceptual_integrity_token": conceptual_integrity_token(),
         "contract_errors": [],
         "claim_dependency_errors": list(validate_claim_dependencies()),
@@ -85,6 +96,37 @@ def run_analysis_pipeline(project_root: Path | None = None) -> dict[str, Path]:
     data_path = dirs["data"] / "conceptual_map.json"
     data_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
+    simulation_trace_path = dirs["data"] / "deterministic_simulation_trace.json"
+    simulation_trace_path.write_text(
+        json.dumps(
+            {
+                "schema": "prior_cognitive_art.deterministic_simulation_trace.v1",
+                "scope": report["simulation_scope"],
+                "steps": report["deterministic_simulation_trace"],
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
+    simulation_manifest_path = dirs["reports"] / "deterministic_simulation_manifest.json"
+    simulation_manifest_path.write_text(
+        json.dumps(
+            {
+                "schema": "prior_cognitive_art.deterministic_simulation_manifest.v1",
+                "deterministic_illustrative_simulation": True,
+                "empirical_simulation_free": True,
+                "stochastic_simulation_free": True,
+                "performance_claims_free": True,
+                "trace_path": str(simulation_trace_path.relative_to(root)),
+                "step_count": report["deterministic_simulation_step_count"],
+                "source": "src/conceptual_model.py:deterministic_simulation_trace",
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+
     manifest_path = dirs["reports"] / "figure_manifest.json"
     manifest_path.write_text(
         json.dumps({"figures": [str(path.relative_to(root)) for path in figure_paths]}, indent=2),
@@ -105,8 +147,8 @@ def run_analysis_pipeline(project_root: Path | None = None) -> dict[str, Path]:
                 "width_px": COVER_ART_SIZE_PX,
                 "height_px": COVER_ART_SIZE_PX,
                 "generated_by": "optimization_analysis.py",
-                "role": "preprint cover art and dashboard hero; stored outside output/figures so it is not counted as a manuscript figure",
-                "concept": "Tinbergen quadrants, hyperprior chain, selection filter, Markov blanket boundary, and central prior settlement",
+                "role": "PDF title-page cover art, dashboard hero, and preprint card; stored outside output/figures so it is not counted as a manuscript figure",
+                "concept": "Tinbergen quadrants, hyperprior chain, selection filter, Markov blanket boundary, niche-prior feedback, aesthetic prior-craft, and central prior settlement",
             },
             indent=2,
         ),
@@ -119,6 +161,8 @@ def run_analysis_pipeline(project_root: Path | None = None) -> dict[str, Path]:
     return {
         "conceptual_report": report_path,
         "conceptual_map": data_path,
+        "deterministic_simulation_trace": simulation_trace_path,
+        "deterministic_simulation_manifest": simulation_manifest_path,
         "manifest": manifest_path,
         "cover_art_manifest": cover_manifest_path,
         "cover_art": cover_path,

@@ -5,7 +5,8 @@ delegate.
 
 `optimization_analysis.py` is retained because the template analysis stage looks
 for project scripts. In this project it generates conceptual figures, JSON
-reports, and no simulations.
+reports, and the deterministic illustrative trace; it does not run stochastic
+simulations or empirical analyses.
 
 Run order:
 

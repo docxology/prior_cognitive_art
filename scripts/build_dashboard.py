@@ -3,7 +3,9 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import sys
+from html import escape
 from pathlib import Path
 
 os.environ.setdefault("MPLBACKEND", "Agg")
@@ -98,6 +100,11 @@ h2 { font-size: 1.3rem; margin-top: 2rem; border-bottom: 2px solid var(--line); 
 }
 .cover-hero .cover-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 0.35rem; }
 .cover-hero .cover-note { color: var(--muted); font-size: 0.94rem; }
+@media (max-width: 720px) {
+  body { padding: 1rem; }
+  .cover-hero { grid-template-columns: 1fr; align-items: start; }
+  .cover-hero img { max-width: min(100%, 360px); justify-self: center; }
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -111,6 +118,38 @@ th, td {
   font-size: 0.9rem;
 }
 th { background: var(--paper); font-weight: bold; }
+td { overflow-wrap: anywhere; }
+@media (max-width: 720px) {
+  table.responsive-table,
+  table.responsive-table thead,
+  table.responsive-table tbody,
+  table.responsive-table tr,
+  table.responsive-table th,
+  table.responsive-table td {
+    display: block;
+    width: 100%;
+  }
+  table.responsive-table thead { display: none; }
+  table.responsive-table tr {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: white;
+    overflow: hidden;
+  }
+  table.responsive-table td {
+    display: grid;
+    grid-template-columns: minmax(7rem, 34%) minmax(0, 1fr);
+    gap: 0.65rem;
+    align-items: start;
+    border-bottom: 1px solid var(--line);
+  }
+  table.responsive-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--muted);
+  }
+}
 .figure-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -125,7 +164,8 @@ th { background: var(--paper); font-weight: bold; }
 }
 .figure-card img { width: 100%; height: auto; border-radius: 4px; }
 .figure-card .title { font-weight: bold; margin: 0.5rem 0 0.25rem; font-size: 0.85rem; }
-.figure-card .purpose { color: var(--muted); font-size: 0.8rem; }
+.figure-card .purpose { color: var(--muted); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.figure-card .caption { color: var(--ink); font-size: 0.8rem; margin-top: 0.35rem; }
 .claim-block {
   background: white;
   border-left: 4px solid var(--blue);
@@ -160,13 +200,15 @@ def _cover_hero(figures_dir: Path) -> str:
 
 def _quadrant_table() -> str:
     rows = "".join(
-        f"<tr><td><strong>{q.label}</strong></td><td>{q.scale}</td>"
-        f"<td>{q.temporality}</td><td>{q.role}</td>"
-        f"<td>{q.regress_status}</td></tr>"
+        f"<tr><td data-label='Question'><strong>{q.label}</strong></td>"
+        f"<td data-label='Scale'>{q.scale}</td>"
+        f"<td data-label='Time-form'>{q.temporality}</td>"
+        f"<td data-label='Role'>{q.role}</td>"
+        f"<td data-label='Regress status'>{q.regress_status}</td></tr>"
         for q in quadrant_grid()
     )
     return (
-        "<table><thead><tr><th>Question</th><th>Scale</th><th>Time-form</th>"
+        "<table class='responsive-table'><thead><tr><th>Question</th><th>Scale</th><th>Time-form</th>"
         "<th>Role</th><th>Regress status</th></tr></thead>"
         f"<tbody>{rows}</tbody></table>"
     )
@@ -197,10 +239,25 @@ def _figure_gallery(figures_dir: Path) -> str:
         img_html = f'<img src="{src}" alt="{spec.title}">' if src else ""
         cards.append(
             f'<div class="figure-card">{img_html}'
-            f'<div class="title">{spec.title}</div>'
-            f'<div class="purpose">{spec.purpose}</div></div>'
+            f'<div class="title">{escape(spec.title)}</div>'
+            f'<div class="purpose">{escape(spec.purpose)}</div>'
+            f'<div class="caption">{escape(spec.caption)}</div></div>'
         )
     return f'<div class="figure-gallery">{"".join(cards)}</div>'
+
+
+def _mirror_web_assets(web_dir: Path, figures_dir: Path) -> None:
+    for source_dir, asset_name in (
+        (figures_dir, "figures"),
+        (figures_dir.parent / "cover", "cover"),
+    ):
+        if not source_dir.exists():
+            continue
+        dest_dir = web_dir / asset_name
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        for path in source_dir.iterdir():
+            if path.suffix.lower() in {".png", ".svg"}:
+                shutil.copy2(path, dest_dir / path.name)
 
 
 def _formal_claims() -> str:
@@ -219,23 +276,27 @@ def _formal_claims() -> str:
 
 def _symbol_table() -> str:
     rows = "".join(
-        f"<tr><td>{s.symbol}</td><td>{s.name}</td><td>{s.role}</td></tr>"
+        f"<tr><td data-label='Symbol'>{s.symbol}</td>"
+        f"<td data-label='Name'>{s.name}</td>"
+        f"<td data-label='Role'>{s.role}</td></tr>"
         for s in symbol_glossary()
     )
     return (
-        "<table><thead><tr><th>Symbol</th><th>Name</th><th>Role</th></tr></thead>"
+        "<table class='responsive-table'><thead><tr><th>Symbol</th><th>Name</th><th>Role</th></tr></thead>"
         f"<tbody>{rows}</tbody></table>"
     )
 
 
 def _validation_table() -> str:
     rows = "".join(
-        f"<tr><td><code>{c.key}</code></td><td>{c.surface}</td>"
-        f"<td>{c.invariant}</td><td>{c.evidence}</td></tr>"
+        f"<tr><td data-label='Check'><code>{c.key}</code></td>"
+        f"<td data-label='Surface'>{c.surface}</td>"
+        f"<td data-label='Invariant'>{c.invariant}</td>"
+        f"<td data-label='Evidence'>{c.evidence}</td></tr>"
         for c in text_validation_checks()
     )
     return (
-        "<table><thead><tr><th>Check</th><th>Surface</th>"
+        "<table class='responsive-table'><thead><tr><th>Check</th><th>Surface</th>"
         "<th>Invariant</th><th>Evidence</th></tr></thead>"
         f"<tbody>{rows}</tbody></table>"
     )
@@ -304,6 +365,7 @@ def cli_main() -> int:
     }
     json_path = web_dir / "dashboard_data.json"
     json_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    _mirror_web_assets(web_dir, figures_dir)
 
     print(str(out_path))
     print(str(json_path))

@@ -2,7 +2,8 @@ paper:
   title: "Prior Cognitive Art"
   subtitle: "Tinbergen Axes, Hyperprior Regress, and Fixed-Point Explanation"
   version: "0.1.0"
-  date: "2026-07-03"
+  cover:
+    image: "cover/prior_cognitive_art_cover_square.png"
 
 authors:
   - name: "Daniel Ari Friedman"
@@ -13,6 +14,7 @@ authors:
 
 publication:
   doi: ""
+  doi_status: "forthcoming"
   github_repository: "docxology/prior_cognitive_art"
   journal: ""
   volume: ""
@@ -32,8 +34,11 @@ metadata:
   license: "MIT"
   language: "en"
   conceptual:
-    mode: "plain-text argument with deterministic conceptual visualizations"
-    simulations: false
+    mode: "plain-text argument with deterministic conceptual visualizations and one deterministic illustrative trace"
+    simulations: "deterministic illustrative trace only"
+    stochastic_simulations: false
+    empirical_estimates: false
+    performance_benchmarks: false
     thesis: "A prior is not explained by stacking more priors; it is located by mechanism, function, history, and fixed-point organization."
     central_question: "Why is there a prior?"
     adjacent_work:

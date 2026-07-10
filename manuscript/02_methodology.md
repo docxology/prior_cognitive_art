@@ -1,14 +1,16 @@
 # Conceptual Method {#sec:method}
 
-This is a conceptual paper. It uses no simulations, no synthetic data, and no
-numerical performance claims. Its method is diagrammatic clarification: keep the
-quadrants, regress types, and termination moves explicit enough that the prose
-cannot silently trade one explanatory kind for another. The methodological
-commitment is that the distinction between explanatory kinds — proximate versus
-ultimate, static versus developmental — must be preserved through every stage
-of the argument. When the distinction is lost, the regress reappears as if it
-were forced by the framework, when in fact it is forced by a category error:
-asking a developmental question to answer a static one.
+This is a conceptual paper. It includes one deterministic illustrative
+simulation trace over authored formal states, but it uses no stochastic
+simulation, no synthetic data, no empirical-effect estimate, and no numerical
+performance claim. Its method is diagrammatic clarification: keep the
+quadrants, regress types, trace states, and termination moves explicit enough
+that the prose cannot silently trade one explanatory kind for another. The
+methodological commitment is that the distinction between explanatory kinds —
+proximate versus ultimate, static versus developmental — must be preserved
+through every stage of the argument. When the distinction is lost, the regress
+reappears as if it were forced by the framework, when in fact it is forced by a
+category error: asking a developmental question to answer a static one.
 
 The source layer records {{QUADRANT_COUNT}} Tinbergen quadrants,
 {{TERMINATION_COUNT}} termination modes, {{ARGUMENT_MODULE_COUNT}} argument
@@ -38,12 +40,14 @@ to be over time. The regress appears when a developmental answer is asked to
 serve as the whole explanation. This is why Bateson and Laland's update of
 Tinbergen's framework matters: they show that the four questions are
 complementary, not competing, and that conflation among them is the source of
-persistent confusion in ethology and beyond [@bateson2004toward]. The same
-conflation arises when "why is there a prior?" is answered by only naming a
-developmental channel. Konner's nine-level proposal is useful here as a
-cautionary extension rather than as a replacement: one can split Tinbergen's
-questions into finer levels, but this paper depends only on preserving the
-kinds of explanation they name [@konner2021nine]. The category-theoretic
+persistent confusion in ethology and beyond [@bateson2004toward]. Bergman and
+Beehner's cause/consequence leveling is useful because it shows the framework
+can be reorganized without losing the need for explanatory distinctions
+[@bergman2022leveling]. The same conflation arises when "why is there a prior?"
+is answered by only naming a developmental channel. Konner's nine-level
+proposal is useful here as a cautionary extension rather than as a replacement:
+one can split Tinbergen's questions into finer levels, but this paper depends
+only on preserving the kinds of explanation they name [@konner2021nine]. The category-theoretic
 distinction between explanatory kinds is not merely terminological: it tracks a
 real difference in what an explanation is being asked to do [@smith2000formal;
 @godfrey2013theoretical].
@@ -79,19 +83,55 @@ modeling claim, not a metaphysical shortcut [@bruineberg2022emperor;
 @raja2021markov]. The system does not have a prior in the way it has a property;
 it persists as the organization that makes prior-like constraint legible.
 
+## Before The First Prior
+
+The first-principles version of the problem asks what is upstream of the first
+inferential prior. This paper answers by refusing to treat "before" as another
+level in a Bayesian hierarchy. A prior-before-priors would only duplicate the
+hyperprior regress. The upstream layer has to be a different explanatory kind:
+viability constraints, regulatory asymmetries, embodied support, and
+developmental scaffolding that make expectation-forming possible before the
+organism can own an explicit prior.
+
+This move draws on four adjacent literatures. Interoceptive predictive
+processing treats the body as a first prior for self-modeling, which shifts the
+origin question from detached belief to regulatory bodily organization
+[@allen2018body_first_prior]. Early-life co-embodiment and co-homeostasis work
+pushes farther upstream: bodily regulation is initially shared with caregivers
+and environments rather than privately possessed [@ciaunica2021first_prior].
+Allostasis names predictive regulation as a core physiological pattern, while
+recent developmental work on rhythmic visceral dynamics describes how bodily
+regularities can teach early cognition before explicit conceptual learning
+[@sterling2012allostasis; @corcoran2025body_first_teacher]. Finally,
+morphogenesis and evolutionary active-inference accounts suggest that
+constraint histories can be biological and architectural before they are
+cognitive in the narrow sense [@kuchling2020morphogenesis;
+@pezzulo2022evolution; @linson2018active_ecological].
+
+The RedTeam boundary is therefore strict. These sources license an upstream
+constraint stack, not a literal first-prior discovery. "Bias before bias" means
+asymmetry before inference: some forms are viable, regulatable, shareable, and
+developmentally reachable before they are available as priors in a model.
+[@fig:first_prior_grounding_stack] renders that distinction as a visual
+constraint stack.
+
 ## The Role of Niche Construction
 
 The niche-construction reading of the free energy principle deepens the
-selection-termination move. Constant and colleagues argue that organisms actively
-structure their niche, and the niche structures them back, so that the
-statistical regularities exploited by the organism are partly of its own making
-[@constant2018free; @baltieri2022extended]. Developmental niche construction
-adds an important boundary: the constructed environment does not only select
-among ready-made forms; it also helps produce developmental variation and
-transmit resources across generations [@stotz2017developmental]. This does not
-eliminate selection — viability still filters what can persist — but it shows
-that the filter is not purely external. The prior-like structure is co-shaped by
-the system and its environment. This complicates the selection-termination move
+selection-termination move. Foundational niche-construction theory argues that
+organisms modify the selection pressures they and their descendants face, and
+that cultural practices can participate in that feedback
+[@laland2000niche; @odling_smee2003niche]. Constant and colleagues add the
+variational version: organisms actively structure their niche, and the niche
+structures them back, so that the statistical regularities exploited by the
+organism are partly of its own making [@constant2018free;
+@baltieri2022extended]. Developmental niche construction adds an important
+boundary: the constructed environment does not only select among ready-made
+forms; it also helps produce developmental variation and transmit resources
+across generations [@stotz2017developmental]. This does not eliminate
+selection — viability still filters what can persist — but it shows that the
+filter is not purely external. The prior-like structure is co-shaped by the
+system and its environment. This complicates the selection-termination move
 without changing its logical role: it still blocks regress by naming what
 persists rather than by adding another hidden level. The visual atlas in
 [@sec:visual-atlas] renders this co-shaping diagrammatically.
@@ -99,21 +139,74 @@ persists rather than by adding another hidden level. The visual atlas in
 ## Active Inference and Variational Closure
 
 Active inference extends the free energy principle to action and policy
-selection [@friston2015active; @da_costa2020active; @friston2017active].
+selection [@friston2012agency; @friston2015active; @da_costa2020active;
+@friston2017active].
 Extended active-inference work makes the same point at the organism-niche
 surface: action changes the sensory and material field in which future
 inference occurs [@baltieri2022extended]. The prior serves a process that
 minimizes variational free energy through both inference and action, not
 inference alone. This closes the explanatory loop: the prior is not merely a
-parameter for belief updating but a constraint on the coupled perception-action
-system. The variational free energy bounds the
-negative log evidence from above [@blei2017variational], and the prior-like
-structure is the settling point of this bound — not an external parameter but
-the system's own inference achieving its minimum
-[@friston2019free; @da_costa2023bayesian]. The zero-energy limit, where the
-variational posterior equals the true posterior, anchors the prior to the
-system's own inferential process rather than to an externally supplied
-distribution [@parr2020prefrontal].
+parameter for belief updating but a constraint on the coupled
+perception-action system. The variational free energy bounds negative log
+evidence from above, or equivalently tightens the evidence lower bound as the
+approximate posterior approaches the target posterior
+[@blei2017variational]. In this paper that formal fact is used narrowly: it
+supports a model-internal settling interpretation of prior-like constraint, not
+a claim that free energy literally vanishes or that variational inference has
+derived the historical origin of the prior [@friston2019free;
+@friston2023simpler; @da_costa2023bayesian; @bowers2012bayesian].
+
+The same boundary applies to epistemic value. Active inference can model
+information-seeking policies and uncertainty reduction [@friston2015active;
+@parr2022active], but epistemic value is not aesthetic value. When the paper
+uses aesthetic scholarship, it treats art as a field of staged expectation,
+ambiguity, affect, and meaning, not as a proof that aesthetic worth is just
+expected free-energy minimization [@van_de_cruys2024order;
+@frascaroli2024aesthetics; @burnett2020four_e].
+
+## Aesthetic Prior-Craft As A Bounded Analogy
+
+Predictive-processing aesthetics offers the paper its title discipline. Visual
+art, music, and aesthetic experience often involve learned regularities,
+expectation, prediction error, affect, and meaning-making
+[@van_de_cruys2011putting; @kesner2014predictive; @pearce2018statistical;
+@starr2023aesthetic]. Those sources make it legitimate to say that artworks can
+arrange encounters with priors: a painting, musical style, performance, or
+conceptual work can build expectations, violate or loosen them, and invite a
+viewer or listener to recover structure at another level. Neuroaesthetics adds
+a useful triad of sensory-motor, emotion-valuation, and meaning-knowledge
+systems, which keeps the account from reducing art to low-level perceptual
+surprise [@chatterjee2014neuroaesthetics; @pearce2016neuroaesthetics].
+
+The analogy becomes stronger, and safer, when art is treated as material
+practice rather than as perception alone. Dewey's art-as-experience frame,
+Noe's "strange tools" account, extended-mind theory, and material-engagement
+archaeology all support a view in which artworks and art-making are public,
+embodied, and artifact-mediated ways of reorganizing attention and action
+[@dewey1934art; @noe2015strange; @clark1998extended;
+@malafouris2013things; @malafouris2019mind; @wynn2021four_e]. Recent material-engagement work on
+art and chance sharpens this point: making is not merely the execution of an
+inner plan but an encounter with affordances, accidents, and media that can
+change what counts as the next relevant move [@march2023art;
+@malafouris2023enactychism]. In the paper's terms, the artwork is not a hidden
+predictive model; it is a crafted environment in which prior-like expectations
+are exposed, perturbed, and made legible. [@fig:aesthetic_prior_craft_map]
+summarizes this source-to-claim boundary.
+
+That analogy is deliberately bounded. Predictive processing is a fruitful lens
+for expectation and ambiguity in aesthetic experience, not a master theory of
+art. Enactive and 4E accounts emphasize that artworks are embodied,
+sociomaterial practices and affordance fields, while neuroaesthetic critics warn
+that the arts exceed narrow aesthetic preference or neural reward
+[@rietveld2014rich; @burnett2020four_e; @brown2009arts]. Predictive accounts
+of imagination and enactive accounts of surprise add the same caution from
+another angle: prediction can illuminate imaginative perception and
+improvisation, but it should not erase the difference between controlled
+imagining, embodied discovery, and aesthetic practice [@jones2020prediction;
+@cavedon_taylor2022predictive; @gallagher2022surprise]. The manuscript
+therefore treats "prior cognitive art" as the craft of arranging explanatory
+encounters with priors, not as a mechanism claim about artists' intentions,
+viewers' neural updating, or imagination as prediction alone.
 
 ## Scale Invariance
 

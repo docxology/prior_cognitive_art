@@ -18,7 +18,7 @@ Score each candidate from 1 to 5 for each criterion.
 | Interdisciplinary tolerance | Welcomes cross-field synthesis and careful boundary-setting. | Strongly discipline-specific review norms make the paper appear out of category. |
 | Markov blanket debate fit | Reviewers are likely to understand both active-inference use and critique-sensitive boundary claims. | Reviewers may expect an exhaustive Markov blanket controversy review. |
 | Figure tolerance | Allows conceptual diagrams and visual argument maps. | Treats figures mainly as empirical results or requires data-backed plots. |
-| Length and reference budget | Word count and citation policy can accommodate the argument and 40-source bibliography. | Strict limits would force removal of necessary scope-control passages. |
+| Length and reference budget | Word count and citation policy can accommodate the argument and 77-source bibliography. | Strict limits would force removal of necessary scope-control passages. |
 | Open access and cost | Fees and licensing are acceptable for the author. | Fees, licensing, or copyright terms conflict with the intended release. |
 | Review speed and audience | Timeline and readership match the author's publication goals. | Long review queue or narrow readership reduces the value of submission. |
 | Preprint compatibility | Permits prior preprint circulation if a preprint route is chosen. | Policies restrict preprint posting or public working-paper circulation. |

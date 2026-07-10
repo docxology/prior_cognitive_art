@@ -4,6 +4,14 @@ import re
 
 import pytest
 
+from src.conceptual_model import (
+    claim_dependencies,
+    deterministic_simulation_trace,
+    figure_specs,
+    formal_claims,
+    symbol_glossary,
+    text_validation_checks,
+)
 from src.manuscript_variables import generate_variables, save_variables
 
 
@@ -36,17 +44,18 @@ def test_generate_variables_uses_concept_inventory(tmp_path: Path) -> None:
     assert variables["PROJECT_TITLE"] == "Prior Cognitive Art"
     assert variables["QUADRANT_COUNT"] == "4"
     assert variables["TERMINATION_COUNT"] == "3"
-    assert variables["FIGURE_COUNT"] == "18"
-    assert variables["FORMAL_CLAIM_COUNT"] == "11"
-    assert variables["SYMBOL_COUNT"] == "25"
-    assert variables["TEXT_VALIDATION_COUNT"] == "10"
+    assert variables["FIGURE_COUNT"] == str(len(figure_specs()))
+    assert variables["FORMAL_CLAIM_COUNT"] == str(len(formal_claims()))
+    assert variables["SYMBOL_COUNT"] == str(len(symbol_glossary()))
+    assert variables["TEXT_VALIDATION_COUNT"] == str(len(text_validation_checks()))
     assert "Ontogeny" in variables["QUADRANT_TABLE_ROWS"]
     assert "fixed-point" in variables["TERMINATION_BULLETS"]
     assert "Formal Claim F1" in variables["FORMAL_CLAIMS"]
     assert "$Q_T$" in variables["SYMBOL_GLOSSARY_ROWS"]
     assert "integrity_signature" in variables["TEXT_VALIDATION_TABLE_ROWS"]
     assert len(variables["CONCEPTUAL_INTEGRITY_TOKEN"]) == 16
-    assert variables["CLAIM_DEPENDENCY_COUNT"] == "12"
+    assert variables["CLAIM_DEPENDENCY_COUNT"] == str(len(claim_dependencies()))
+    assert variables["DETERMINISTIC_SIMULATION_STEP_COUNT"] == str(len(deterministic_simulation_trace()))
     assert "axis_partition" in variables["CLAIM_DEPENDENCIES"]
     assert "regress_shape" in variables["CLAIM_DEPENDENCIES"]
 

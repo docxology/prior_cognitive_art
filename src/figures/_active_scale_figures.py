@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from src.conceptual_model import deterministic_simulation_trace
+
 from ._shared import (
     PALETTE,
     Circle,
@@ -14,6 +16,7 @@ from ._shared import (
     _clean_axes,
     _save,
     plt,
+    topic_pair,
 )
 
 def draw_active_inference_cycle(output_dir: Path) -> Path:
@@ -31,10 +34,10 @@ def draw_active_inference_cycle(output_dir: Path) -> Path:
 
     # 4 stage positions: N (top), E (right), S (bottom), W (left)
     stages = [
-        ("Perception",      ( 0,             ring_radius),  PALETTE["blue"],   PALETTE["blue_fill"]),
-        ("Inference",       ( ring_radius,   0),            PALETTE["green"],  PALETTE["green_fill"]),
-        ("Action",          ( 0,            -ring_radius),  PALETTE["gold"],   PALETTE["gold_fill"]),
-        ("Policy\nselection", (-ring_radius,  0),           PALETTE["red"],    PALETTE["red_fill"]),
+        ("Perception", (0, ring_radius), *topic_pair("perception")),
+        ("Inference", (ring_radius, 0), *topic_pair("inference")),
+        ("Action", (0, -ring_radius), *topic_pair("action")),
+        ("Policy\nselection", (-ring_radius, 0), *topic_pair("policy")),
     ]
 
     node_radius = 0.6
@@ -53,7 +56,12 @@ def draw_active_inference_cycle(output_dir: Path) -> Path:
         (270, 180, -0.35),   # Action     -> Policy selection
         (180,  90, -0.35),   # Policy selection -> Perception
     ]
-    colors_cycle = [PALETTE["blue"], PALETTE["green"], PALETTE["gold"], PALETTE["red"]]
+    colors_cycle = [
+        topic_pair("perception")[0],
+        topic_pair("inference")[0],
+        topic_pair("action")[0],
+        topic_pair("policy")[0],
+    ]
     gap = node_radius / ring_radius  # angular gap in radians to clear the node circle
 
     for (a_deg, b_deg, rad_sign), color in zip(arrow_pairs, colors_cycle):
@@ -93,29 +101,35 @@ def draw_active_inference_cycle(output_dir: Path) -> Path:
     return _save(fig, output_dir / "active_inference_cycle.png")
 
 def draw_variational_free_energy_landscape(output_dir: Path) -> Path:
-    """Free-energy landscape as a valley; the prior is the settling point."""
+    """Variational-bound landscape as a relative inferential minimum."""
     import numpy as np
 
     fig, ax = plt.subplots(figsize=(9, 7))
     _clean_axes(ax)
     ax.set_facecolor(PALETTE["paper"])
 
-    # Build Gaussian landscape: high at edges, low at centre
     x = np.linspace(-3, 3, 300)
     y = np.linspace(-3, 3, 300)
     X, Y = np.meshgrid(x, y)
-    Z = 1.0 - np.exp(-((X ** 2 + Y ** 2) / 0.5))  # 0 at centre, ~1 at edges
+    relative_floor = 0.18
+    relative_range = 1.0 - relative_floor
+    Z = relative_floor + relative_range * (1.0 - np.exp(-((X ** 2 + Y ** 2) / 0.5)))
 
     cf = ax.contourf(X, Y, Z, levels=24, cmap="Blues_r", alpha=0.85)
-    plt.colorbar(cf, ax=ax, fraction=0.035, pad=0.03, label="Variational free energy F")
+    cbar = plt.colorbar(cf, ax=ax, fraction=0.035, pad=0.03)
+    cbar.set_label("Relative variational bound (a.u.)")
 
-    # Bottom-of-basin contour (F ≈ 0)
-    cs = ax.contour(X, Y, Z, levels=[0.08], colors=[PALETTE["gold"]], linewidths=2.2, linestyles="--")
-    ax.clabel(cs, fmt=lambda _: r"$\mathcal{F}^* \approx 0$", fontsize=11, colors=PALETTE["gold"])
+    # Bottom-of-basin contour as a relative KL/bound minimum.
+    ax.contour(X, Y, Z, levels=[0.26], colors=[PALETTE["gold"]], linewidths=2.2, linestyles="--")
+    ax.text(
+        -0.95, -0.75, r"$\Delta\mathcal{F}=D_{KL}(q\|p^*) \downarrow$",
+        fontsize=11, color=PALETTE["gold"], weight="bold",
+        bbox=dict(boxstyle="round,pad=0.24", facecolor=PALETTE["paper"], edgecolor="none", alpha=0.82),
+    )
 
-    # Gold dot at basin centre = prior/settling point P
+    # Gold dot at basin centre = target posterior / settled inferential state.
     ax.plot(0, 0, "o", color=PALETTE["gold"], markersize=12, zorder=5)
-    ax.text(0.18, -0.28, r"$P$  (prior / settling point)", fontsize=12,
+    ax.text(0.18, -0.28, r"$p^*$  (target posterior)", fontsize=12,
             color=PALETTE["gold"], weight="bold", va="top")
 
     # Arrow from initial q (off-centre) down to the basin
@@ -143,10 +157,93 @@ def draw_variational_free_energy_landscape(output_dir: Path) -> Path:
     ax.set_xlabel("Belief state dimension 1", fontsize=10, color=PALETTE["muted"])
     ax.set_ylabel("Belief state dimension 2", fontsize=10, color=PALETTE["muted"])
     ax.set_title(
-        "Variational free energy landscape: the prior as settling point",
+        "Variational bound landscape: relative inferential minimum",
         fontsize=14, color=PALETTE["ink"], pad=18,
     )
     return _save(fig, output_dir / "variational_free_energy_landscape.png")
+
+
+def draw_deterministic_simulation_trace(output_dir: Path) -> Path:
+    from textwrap import fill
+
+    trace = deterministic_simulation_trace()
+    fig, ax = plt.subplots(figsize=(14.0, 7.2))
+    _clean_axes(ax)
+    ax.set_facecolor(PALETTE["paper"])
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0.25, 4.35)
+
+    colors = [
+        topic_pair("source"),
+        topic_pair("regress"),
+        topic_pair("mechanism"),
+        topic_pair("selection"),
+        topic_pair("fixed_point"),
+    ]
+    for index, step in enumerate(trace):
+        edge, face = colors[index % len(colors)]
+        _box(
+            ax,
+            (step.x, step.y),
+            (1.65, 0.86),
+            edge,
+            f"{step.step}. {step.state}",
+            step.formal_state,
+            face=face,
+            title_size=9.8,
+            subtitle_size=9.0,
+        )
+        ax.text(
+            step.x,
+            step.y - 0.67,
+            fill(step.transition, width=24),
+            ha="center",
+            va="top",
+            fontsize=7.8,
+            color=PALETTE["ink"],
+            linespacing=1.05,
+        )
+        ax.text(
+            step.x,
+            step.y - 1.05,
+            fill(step.invariant, width=26),
+            ha="center",
+            va="top",
+            fontsize=7.3,
+            color=PALETTE["muted"],
+            linespacing=1.05,
+        )
+
+    for left, right in zip(trace[:-1], trace[1:], strict=True):
+        _arrow(
+            ax,
+            (left.x + 0.88, left.y),
+            (right.x - 0.88, right.y),
+            color=PALETTE["line"],
+            lw=1.7,
+            mutation_scale=16,
+            rad=-0.12,
+        )
+
+    ax.add_patch(Rectangle((0.55, 0.48), 8.9, 0.68, facecolor="white", edgecolor=PALETTE["line"], lw=1.4))
+    ax.text(
+        5.0,
+        0.82,
+        "Deterministic illustrative simulation: formal state order only.\nNo stochastic sampling, synthetic data, empirical effects, or performance metrics.",
+        ha="center",
+        va="center",
+        fontsize=9.4,
+        color=PALETTE["muted"],
+        linespacing=1.1,
+    )
+    ax.set_title(
+        "Deterministic simulation trace over formal states",
+        fontsize=15,
+        color=PALETTE["ink"],
+        pad=16,
+    )
+    return _save(fig, output_dir / "deterministic_simulation_trace.png")
+
 
 def draw_scale_invariance_diagram(output_dir: Path) -> Path:
     """Three stacked panels: the same fixed-point structure at three scales."""
@@ -154,9 +251,9 @@ def draw_scale_invariance_diagram(output_dir: Path) -> Path:
     fig.patch.set_facecolor(PALETTE["paper"])
 
     scale_configs = [
-        ("Cellular scale",    r"$X^*_{\mathrm{cell}}$",     PALETTE["blue"],  PALETTE["blue_fill"],  0.38),
-        ("Organismic scale",  r"$X^*_{\mathrm{organism}}$", PALETTE["green"], PALETTE["green_fill"], 0.55),
-        ("Social scale",      r"$X^*_{\mathrm{social}}$",   PALETTE["gold"],  PALETTE["gold_fill"],  0.72),
+        ("Cellular scale", r"$X^*_{\mathrm{cell}}$", *topic_pair("mechanism"), 0.38),
+        ("Organismic scale", r"$X^*_{\mathrm{organism}}$", *topic_pair("action"), 0.55),
+        ("Social scale", r"$X^*_{\mathrm{social}}$", *topic_pair("practice"), 0.72),
     ]
 
     for ax, (scale_label, var_label, edge, face, r) in zip(axes, scale_configs):
@@ -198,9 +295,4 @@ def draw_scale_invariance_diagram(output_dir: Path) -> Path:
         fontsize=14, color=PALETTE["ink"], y=0.98,
     )
     fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.96))
-    path = output_dir / "scale_invariance_diagram.png"
-    path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=180, bbox_inches="tight")
-    fig.savefig(path.with_suffix(".svg"), bbox_inches="tight")
-    plt.close(fig)
-    return path
+    return _save(fig, output_dir / "scale_invariance_diagram.png")

@@ -1,6 +1,6 @@
 # Documentation Audit Report — Prior Cognitive Art
 
-**Date:** 2026-07-07
+**Date:** 2026-07-09
 **Scope:** `/Users/4d/Documents/GitHub/template/projects/working/prior_cognitive_art`
 **Method:** `documentation-audit` skill (broken-link scan, bibliography closure,
 executable API-claim validation, generated-artifact count check, caption-system
@@ -13,9 +13,10 @@ The following were already fixed before this audit pass:
 - Figure captions unified to a single source of truth (`FigureSpec.caption` in
   `src/conceptual_model.py`); figure registry, API docs, dashboard, and
   manuscript manifest all consume it.
-- Stale documentation counts corrected: `src/documentation.py` (9/5/5/17/5 ->
-  18/11/25/10), `docs/architecture.md` ("9 figures" -> "18 figures"),
-  `manuscript/README.md` ("23 bib entries" -> "40 entries").
+- Stale documentation counts corrected and refreshed again after the
+  art/prior-craft and deterministic-trace expansions: `src/documentation.py`,
+  `docs/architecture.md`, `src/README.md`, and `manuscript/README.md` now
+  match the 20-figure and 70-entry bibliography contracts.
 - "Art" framing (previously undefined title term) defined in abstract + intro.
 - Figure layout defects fixed: `markov_blanket_achievement` label overflow,
   `ontogeny_hyperprior_parallel` "same regress shape" overflow,
@@ -26,10 +27,10 @@ The following were already fixed before this audit pass:
 | Check | Result |
 |-------|--------|
 | Broken internal Markdown links | **0** across all `*.md` |
-| Bibliography bidirectional closure | **Closed**: 40 entries, 40 cited, 0 orphan, 0 phantom |
-| Generated-artifact count vs docs | **18 PNGs** = 18 claimed (README, architecture.md, src/README) - no drift |
+| Bibliography bidirectional closure | **Closed**: 70 entries, 70 cited, 0 orphan, 0 phantom |
+| Generated-artifact count vs docs | **20 PNGs** = 20 claimed (README, architecture.md, src/README) - no drift |
 | Mermaid blocks / alt-text | **0 mermaid blocks** (none used) |
-| Executable API-claim validation (Phase 12.5) | **ALL PASS**: every documented symbol in `src/documentation.py` / `docs/architecture.md` imports and behaves as documented (counts 4/3/10/18/11/25/10/12; token len 16; `FigureSpec.caption` present; `generate_all_figures` -> 18 real PNGs; report/vars/api-doc counts consistent) |
+| Executable API-claim validation (Phase 12.5) | **ALL PASS**: every documented symbol in `src/documentation.py` / `docs/architecture.md` imports and behaves as documented (counts 4/3/11/20/12/28/10/14; token len 16; `FigureSpec.caption` present; `generate_all_figures` -> 20 real PNGs; report/vars/api-doc counts consistent) |
 | `src/__init__.py` re-exports vs `__all__` | Not separately asserted; `from src import …` used throughout tests imports cleanly |
 
 ## Documentation improvements added this pass
@@ -56,14 +57,18 @@ The following were already fixed before this audit pass:
   reproducibility, visual inspection, metadata, and archive notes.
 - `output/cover/prior_cognitive_art_cover_square.png` plus
   `output/reports/cover_art_manifest.json` - square-format deterministic cover
-  art for preprint cards and dashboard presentation, outside the 18 manuscript
-  figures.
+  art for the PDF title page, preprint cards, and dashboard presentation,
+  outside the manuscript figure set.
+- `output/data/deterministic_simulation_trace.json` plus
+  `output/reports/deterministic_simulation_manifest.json` - deterministic
+  formal-state trace artifacts, validated against the source-owned sequence.
 
 ## Verification
 
-- `uv run pytest tests/` -> **73 passed**, 100% `src/` coverage target.
+- `uv run pytest tests/` -> **77 passed**.
 - Full PDF render via `scripts/03_render_pdf.py --project working/prior_cognitive_art`
-  -> valid `prior_cognitive_art_combined.pdf` (1.98 MB, 18 figures, no LaTeX errors).
+  -> valid `prior_cognitive_art_combined.pdf` (3.3 MB, 20 manuscript figures
+  plus title-page cover art, no LaTeX errors).
 - `qpdf --check output/pdf/prior_cognitive_art_combined.pdf` -> no syntax or
   stream-encoding errors.
 - Final source/rendered/PDF text scans -> no broad draft markers, unresolved

@@ -16,4 +16,6 @@ claims are detailed in [@sec:reproducibility].
 
 The retained analysis-stage script name is compatibility glue for the template
 runner. It generates conceptual figures and JSON reports; it does not perform
-optimization, empirical metric collection, stochastic sampling, or cognitive simulation.
+optimization, empirical metric collection, stochastic sampling, synthetic-data
+generation, or cognitive simulation. The deterministic trace artifacts record
+only the authored formal-state sequence described in [@sec:visual-atlas].
