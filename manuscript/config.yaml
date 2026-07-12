@@ -13,8 +13,8 @@ authors:
     corresponding: true
 
 publication:
-  doi: ""
-  doi_status: "forthcoming"
+  doi: "10.5281/zenodo.21316510"
+  doi_status: "published"
   github_repository: "docxology/prior_cognitive_art"
   repository_url: "https://github.com/docxology/prior_cognitive_art"
   repository_label: "docxology/prior_cognitive_art"
@@ -22,6 +22,13 @@ publication:
   volume: ""
   pages: ""
   year: "2026"
+  version_doi: "10.5281/zenodo.21316511"
+  version_record: "https://zenodo.org/records/21316511"
+  published_artifacts:
+    zenodo_concept_doi: "https://doi.org/10.5281/zenodo.21316510"
+    zenodo_version_doi: "https://doi.org/10.5281/zenodo.21316511"
+    zenodo_record: "https://zenodo.org/records/21316511"
+    github_repository: "https://github.com/docxology/prior_cognitive_art"
 
 keywords:
   - "priors"

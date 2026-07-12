@@ -20,5 +20,18 @@
     "conceptual visualization",
     "active inference",
     "autopoiesis"
+  ],
+  "doi": "10.5281/zenodo.21316510",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/docxology/prior_cognitive_art",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.21316511",
+      "relation": "isVersionOf",
+      "scheme": "doi"
+    }
   ]
 }

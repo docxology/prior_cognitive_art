@@ -424,14 +424,17 @@ def test_metadata_versions_are_consistent() -> None:
     )
 
 
-def test_cover_metadata_uses_dynamic_date_and_forthcoming_doi() -> None:
+def test_cover_metadata_uses_dynamic_date_and_published_doi() -> None:
     import yaml
 
     config = yaml.safe_load((PROJECT_ROOT / "manuscript" / "config.yaml").read_text())
+    publication = config["publication"]
     assert "date" not in config["paper"]
     assert config["paper"]["cover"]["image"] == "cover/prior_cognitive_art_cover_square.png"
-    assert config["publication"]["doi"] == ""
-    assert config["publication"]["doi_status"] == "forthcoming"
+    assert publication["doi"] == "10.5281/zenodo.21316510"
+    assert publication["version_doi"] == "10.5281/zenodo.21316511"
+    assert publication["version_record"] == "https://zenodo.org/records/21316511"
+    assert publication["doi_status"] == "published"
 
 
 # ── manuscript citation integrity ─────────────────────────────────────

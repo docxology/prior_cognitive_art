@@ -24,5 +24,13 @@
     "conceptual visualization",
     "active inference",
     "autopoiesis"
-  ]
+  ],
+  "identifier": "https://doi.org/10.5281/zenodo.21316510",
+  "url": "https://doi.org/10.5281/zenodo.21316510",
+  "codeRepository": "https://github.com/docxology/prior_cognitive_art",
+  "sameAs": [
+    "https://zenodo.org/records/21316511",
+    "https://github.com/docxology/prior_cognitive_art"
+  ],
+  "datePublished": "2026-07-12"
 }

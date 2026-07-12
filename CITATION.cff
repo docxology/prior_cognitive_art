@@ -6,7 +6,10 @@ authors:
     given-names: "Daniel Ari"
     orcid: "https://orcid.org/0000-0001-6232-9096"
 version: "0.1.0"
-date-released: "2026-07-03"
+doi: "10.5281/zenodo.21316510"
+url: "https://github.com/docxology/prior_cognitive_art"
+repository-code: "https://github.com/docxology/prior_cognitive_art"
+date-released: "2026-07-12"
 license: "MIT"
 keywords:
   - "priors"
