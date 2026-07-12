@@ -521,11 +521,11 @@ def test_build_conceptual_report_raises_on_contract_violation(
         build_conceptual_report(tmp_path)
 
 
-def test_analysis_main_returns_zero() -> None:
+def test_analysis_main_returns_zero(tmp_path: Path) -> None:
     """The main() entry point should run the pipeline and return 0."""
     from src.analysis.workflow import main
 
-    result = main()
+    result = main(tmp_path)
     assert result == 0
 
 

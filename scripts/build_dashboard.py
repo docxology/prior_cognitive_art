@@ -18,6 +18,8 @@ for _path in (PROJECT_ROOT, PROJECT_ROOT / "src", PROJECT_ROOT.parents[2]):
 
 from src.conceptual_model import (  # noqa: E402
     argument_modules,
+    claim_dependencies,
+    claim_grounding,
     conceptual_integrity_token,
     figure_specs,
     formal_claims,
@@ -155,6 +157,8 @@ td { overflow-wrap: anywhere; }
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
+.figure-section { margin: 1.5rem 0 2rem; }
+.figure-section h3 { color: var(--muted); font-size: 1rem; margin: 0 0 0.75rem; }
 .figure-card {
   background: white;
   border: 1px solid var(--line);
@@ -231,19 +235,34 @@ def _argument_list() -> str:
     return f"<ul>{items}</ul>"
 
 
+def _grounding_list() -> str:
+    items = "".join(
+        f"<li><code>{escape(edge.source_record)}</code> grounds "
+        f"<code>{escape(edge.claim_key)}</code></li>"
+        for edge in claim_grounding()
+    )
+    return f"<ul>{items}</ul>"
+
+
 def _figure_gallery(figures_dir: Path) -> str:
-    cards = []
+    grouped: dict[str, list[str]] = {}
     for spec in figure_specs():
         img_path = figures_dir / spec.filename
         src = f"../figures/{spec.filename}" if img_path.exists() else ""
-        img_html = f'<img src="{src}" alt="{spec.title}">' if src else ""
-        cards.append(
+        img_html = f'<img src="{src}" alt="{escape(spec.alt_text, quote=True)}">' if src else ""
+        grouped.setdefault(spec.section, []).append(
             f'<div class="figure-card">{img_html}'
             f'<div class="title">{escape(spec.title)}</div>'
             f'<div class="purpose">{escape(spec.purpose)}</div>'
             f'<div class="caption">{escape(spec.caption)}</div></div>'
         )
-    return f'<div class="figure-gallery">{"".join(cards)}</div>'
+    sections = []
+    for section, cards in grouped.items():
+        sections.append(
+            f'<section class="figure-section"><h3>{escape(section)} ({len(cards)})</h3>'
+            f'<div class="figure-gallery">{"".join(cards)}</div></section>'
+        )
+    return "".join(sections)
 
 
 def _mirror_web_assets(web_dir: Path, figures_dir: Path) -> None:
@@ -255,6 +274,14 @@ def _mirror_web_assets(web_dir: Path, figures_dir: Path) -> None:
             continue
         dest_dir = web_dir / asset_name
         dest_dir.mkdir(parents=True, exist_ok=True)
+        expected_names = {
+            path.name
+            for path in source_dir.iterdir()
+            if path.suffix.lower() in {".png", ".svg"}
+        }
+        for stale in dest_dir.iterdir():
+            if stale.suffix.lower() in {".png", ".svg"} and stale.name not in expected_names:
+                stale.unlink()
         for path in source_dir.iterdir():
             if path.suffix.lower() in {".png", ".svg"}:
                 shutil.copy2(path, dest_dir / path.name)
@@ -322,6 +349,8 @@ def cli_main() -> int:
         "Formal Claims": len(formal_claims()),
         "Symbols": len(symbol_glossary()),
         "Validation Checks": len(text_validation_checks()),
+        "Claim Dependencies": len(claim_dependencies()),
+        "Grounding Edges": len(claim_grounding()),
     }
     summary_cards = "".join(
         f'<div class="summary-card"><div class="count">{v}</div>'
@@ -331,6 +360,7 @@ def cli_main() -> int:
 
     html = (
         f"<!doctype html><html><head><meta charset='utf-8'>"
+        f"<link rel='icon' href='favicon.ico'>"
         f"<title>Prior Cognitive Art — Dashboard</title>"
         f"<style>{_CSS}</style></head><body>"
         f"<h1>Prior Cognitive Art</h1>"
@@ -343,6 +373,7 @@ def cli_main() -> int:
         f"<h2>Termination Moves</h2>{_termination_list()}"
         f"<h2>Argument Modules</h2>{_argument_list()}"
         f"<h2>Visual Atlas</h2>{_figure_gallery(figures_dir)}"
+        f"<h2>Claim Grounding</h2>{_grounding_list()}"
         f"<h2>Formal Claims</h2>{_formal_claims()}"
         f"<h2>Symbol Glossary</h2>{_symbol_table()}"
         f"<h2>Text-Validation Checks</h2>{_validation_table()}"
@@ -354,6 +385,7 @@ def cli_main() -> int:
 
     # Also write a compact JSON payload for programmatic consumers
     payload = {
+        "schema": "prior_cognitive_art.dashboard_data.v1",
         "title": "Prior Cognitive Art",
         "integrity_token": conceptual_integrity_token(),
         "contract_errors": list(contract_errors),
@@ -361,6 +393,27 @@ def cli_main() -> int:
         "argument_modules": [m.title for m in argument_modules()],
         "terminations": [t.name for t in termination_catalog()],
         "figures": [s.filename for s in figure_specs()],
+        "figure_sections": {
+            section: [s.filename for s in figure_specs() if s.section == section]
+            for section in sorted({s.section for s in figure_specs()})
+        },
+        "figure_section_counts": {
+            section: sum(1 for s in figure_specs() if s.section == section)
+            for section in sorted({s.section for s in figure_specs()})
+        },
+        "figure_metadata": {
+            f"fig:{s.key}": {
+                "filename": s.filename,
+                "caption": s.caption,
+                "alt_text": s.alt_text,
+                "section": s.section,
+            }
+            for s in figure_specs()
+        },
+        "claim_grounding": [
+            {"source_record": edge.source_record, "claim_key": edge.claim_key}
+            for edge in claim_grounding()
+        ],
         "cover_art": "cover/prior_cognitive_art_cover_square.png",
     }
     json_path = web_dir / "dashboard_data.json"

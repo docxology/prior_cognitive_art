@@ -10,17 +10,17 @@ text-validation checks.
 1. Update `src/conceptual_model.py` with any new records.
 2. Update `src/figures/conceptual.py` and the relevant `src/figures/_*_figures.py`
    module if figure rendering needs to change.
-3. Run `scripts/optimization_analysis.py` to regenerate figures and reports.
-4. Run `scripts/z_generate_manuscript_variables.py` to hydrate manuscript tokens.
-5. Run `scripts/build_dashboard.py` and `scripts/generate_api_docs.py` for docs.
-6. Run `uv run pytest projects/working/prior_cognitive_art/tests/` to verify.
+3. Run `uv run python scripts/build_publication_package.py` to regenerate the
+   complete package in dependency order.
+4. Run `uv run pytest tests/` to verify source and generated contracts.
 
 ## Figure captions
 
-Captions live in one place: the `caption` field of each `FigureSpec` in
+Captions, accessibility text, and figure grouping live in one place: the
+`caption`, `alt_text`, and `section` fields of each `FigureSpec` in
 `src/conceptual_model.py`. The figure registry, API reference, dashboard, and
-manuscript figure manifest are generated from it. Change `FigureSpec.caption`
-and regenerate; do not edit a caption in only one surface.
+manuscript are generated from those fields. Change the source record and
+regenerate; do not edit one surface in isolation.
 
 ## Project constraints
 

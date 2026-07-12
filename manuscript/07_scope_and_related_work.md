@@ -1,4 +1,4 @@
-# Scope And Related Work {#sec:scope-related}
+# Scope and Related Work: What the Paper Uses, Bounds, and Refuses {#sec:scope-related}
 
 The paper is not a full literature review. It uses a focused set of sources to
 frame the argument introduced in [@sec:introduction] and to bound the claims

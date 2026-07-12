@@ -35,6 +35,7 @@ def main() -> int:
 
     from infrastructure.rendering.manuscript_injection import write_resolved_manuscript_tree
     from src.manuscript_variables import generate_variables, save_variables
+    from src.render_manifest import stamp_render_input_fingerprint
 
     variables = generate_variables(
         _PROJECT_ROOT,
@@ -43,6 +44,7 @@ def main() -> int:
     out_path = _PROJECT_ROOT / "output" / "data" / "manuscript_variables.json"
     save_variables(variables, out_path)
     write_resolved_manuscript_tree(_PROJECT_ROOT, variables)
+    stamp_render_input_fingerprint(_PROJECT_ROOT)
     print(str(out_path))
     return 0
 

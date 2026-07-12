@@ -1,4 +1,4 @@
-# Reproducibility {#sec:reproducibility}
+# Reproducibility: Source-Owned Figures, Tokens, and Validation Gates {#sec:reproducibility}
 
 The reproducibility claim is modest: the prose tokens and figures are generated
 from explicit project files, and the project states its deterministic-trace

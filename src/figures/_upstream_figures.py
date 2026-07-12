@@ -15,7 +15,7 @@ def draw_first_prior_grounding_stack(output_dir: Path) -> Path:
     ax.text(
         6.5,
         7.03,
-        "Before the first prior: constraint history, not a hidden meta-prior",
+        "Before the first prior: layered constraint history, not a hidden meta-prior",
         ha="center",
         va="center",
         fontsize=17,
@@ -25,7 +25,7 @@ def draw_first_prior_grounding_stack(output_dir: Path) -> Path:
     ax.text(
         6.5,
         6.55,
-        "The upstream answer is not another belief above belief. It is the ordered field that makes priors possible.",
+        "The upstream answer is not another belief above belief; it is an ordered field of viability, regulation, and shared support.",
         ha="center",
         va="center",
         fontsize=10.9,
@@ -117,11 +117,11 @@ def draw_first_prior_grounding_stack(output_dir: Path) -> Path:
 
     ax.text(
         6.5,
-        0.36,
-        "First-principles reading: before inferential priors come viability gradients, regulatory control, shared bodily support, and developmental niche structure.",
+        0.16,
+        "First-principles reading: before inferential priors come viability gradients, regulatory control, shared bodily support, developmental tuning, and niche structure.",
         ha="center",
         va="center",
-        fontsize=9.4,
+        fontsize=8.9,
         color=PALETTE["muted"],
     )
     return _save(fig, output_dir / "first_prior_grounding_stack.png")

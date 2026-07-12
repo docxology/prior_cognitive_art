@@ -1,6 +1,6 @@
 # Preprint Release Checklist
 
-Date: 2026-07-09
+Date: 2026-07-10
 
 Use this checklist only after the author chooses to circulate the manuscript as
 a preprint or public working paper. It assumes the current venue-neutral
@@ -22,34 +22,30 @@ readiness gate remains green.
 ## Reproducibility And Source Package
 
 - [ ] Run `uv run pytest tests/`.
-- [ ] Run `uv run python scripts/optimization_analysis.py`.
-- [ ] Run `uv run python scripts/build_dashboard.py`.
-- [ ] Run `uv run python scripts/generate_api_docs.py`.
-- [ ] Run `uv run python scripts/z_generate_manuscript_variables.py`.
-- [ ] Run `uv run python scripts/validate_publication_package.py`.
-- [ ] From `/Users/4d/Documents/GitHub/template`, run
-      `uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art`.
-- [ ] Rerun `uv run python scripts/build_dashboard.py` after the PDF render if
-      the render refreshed `output/web/`.
+- [ ] Run `uv run python scripts/build_publication_package.py`.
+- [ ] Confirm `output/reports/render_manifest.json` is present and current.
 - [ ] Run `qpdf --check output/pdf/prior_cognitive_art_combined.pdf`.
 - [ ] Run a PDF text scan for stale planning language, unresolved render tokens,
       and task-marker residue.
 
 ## Visual QA
 
-- [ ] Inspect all 20 figure PNGs.
+- [ ] Inspect all 21 figure PNGs via contact sheet and representative full-size
+      views; confirm the atlas has 18 figures and the formal supplement has 3.
 - [ ] Inspect representative PDF pages: title page, table of contents,
       abstract, introduction, main visual atlas pages, formal supplement, and
       references.
 - [ ] Confirm the late-added figures render:
       `source_claim_boundary_map`, `markov_blanket_scope_split`, and
       `niche_prior_feedback_field`, plus `aesthetic_prior_craft_map` and
-      `deterministic_simulation_trace`.
+      `first_prior_grounding_stack` and `deterministic_simulation_trace`.
 - [ ] Confirm the square cover art is 2048 x 2048 pixels and visually legible
       at thumbnail size.
 - [ ] Confirm the title page shows the cover art, automatic render date, and
       `DOI: forthcoming`.
-- [ ] Confirm the dashboard loads in a browser with no broken image assets.
+- [ ] Serve `output/` as the web root and open `/web/index.html` in a browser;
+      confirm no missing images, console errors, broken links, stale counts,
+      raw citation markers, or unresolved tokens at desktop and mobile widths.
 
 ## Metadata
 

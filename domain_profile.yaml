@@ -24,7 +24,7 @@ figure_types:
   - active_inference_cycle
   - free_energy_landscape
   - deterministic_simulation_trace
-  - scale_invariance_diagram
+  - scale_recurrence_diagram
   - source_claim_boundary_map
   - aesthetic_prior_craft_map
   - markov_blanket_scope_split
@@ -54,7 +54,7 @@ artifact_expectations:
   - output/figures/active_inference_cycle.png
   - output/figures/variational_free_energy_landscape.png
   - output/figures/deterministic_simulation_trace.png
-  - output/figures/scale_invariance_diagram.png
+  - output/figures/scale_recurrence_diagram.png
   - output/figures/source_claim_boundary_map.png
   - output/figures/aesthetic_prior_craft_map.png
   - output/figures/markov_blanket_scope_split.png

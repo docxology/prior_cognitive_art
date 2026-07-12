@@ -1,11 +1,16 @@
 # Scholarship Audit
 
-Date: 2026-07-09
+Date: 2026-07-10
 
 This audit records the publication-readiness scholarship decisions for a
 conceptual manuscript with one deterministic illustrative simulation trace.
 Sources were promoted only when they directly changed claim boundaries, formal
 inventory, prose, or figure contracts.
+
+The 2026-07-10 continuation pass did not pad the bibliography. It attacked
+the publication oracle and dashboard provenance surfaces, keeping the existing
+source set while tightening the distinction between scholarly support,
+source-owned claims, and generated presentation artifacts.
 A high-depth Perplexity synthesis query timed out during the first readiness
 pass; that work was split into targeted Markov blanket, niche construction,
 hyperprior, active-inference, and Tinbergen/Konner checks and then verified
@@ -16,10 +21,10 @@ sources that changed live claims or figures were promoted. A caption-focused
 follow-up pass used Perplexity as discovery, then verified accepted sources
 against direct publisher, PubMed/Europe PMC, JSTOR, Springer, Sage, Cambridge,
 or ScienceDirect records before editing captions, prose, and the claim ledger.
-The 2026-07-09 continuation added no new bibliography entries; it tightened the
-formal trace contract, validator, visual QA evidence, and readiness wording so
-the scholarship layer remains attached to live claims rather than becoming a
-reference-growth exercise.
+The 2026-07-09 upstream-bias continuation added first-prior, co-homeostasis,
+allostasis, developmental visceral-dynamics, morphogenesis, ecological active
+inference, and evolutionary active-inference sources because they tightened the
+"before the first prior" claim boundary.
 
 ## Accepted Sources
 
@@ -29,6 +34,13 @@ reference-growth exercise.
 | `raja2021markov` | Adds scope pressure on free-energy/active-inference uses of the Markov blanket. | [PubMed](https://pubmed.ncbi.nlm.nih.gov/34563472/) and journal metadata verify DOI `10.1016/j.plrev.2021.09.001`; used as a boundary source, not as a premise for rejecting active inference. |
 | `stotz2017developmental` | Separates developmental niche construction from selective niche construction, preventing the niche section from becoming a fourth termination mode. | [Macquarie institutional record](https://researchers.mq.edu.au/en/publications/why-developmental-niche-construction-is-not-selective-niche-const/) verifies Interface Focus 7(5), article `20160157`, DOI `10.1098/rsfs.2016.0157`. |
 | `baltieri2022extended` | Supports extended active inference as an organism-environment construction frame. | [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC9292365/) and journal metadata verify Mind & Language publication and DOI `10.1111/mila.12330`. |
+| `ciaunica2021first_prior` | Grounds the requested first-prior / co-homeostasis passage and the new upstream-grounding figure while blocking a private hidden-prior reading. | PubMed PMID `33872985`, ScienceDirect, and institutional metadata verify *Consciousness and Cognition* 91, article `103117`, DOI `10.1016/j.concog.2021.103117`. |
+| `allen2018body_first_prior` | Connects the upstream argument to interoceptive predictive processing and the body as a first prior for self-modeling. | Oxford University Press metadata verify the chapter in *The Interoceptive Mind* and DOI `10.1093/oso/9780198811930.003.0002`. |
+| `sterling2012allostasis` | Supports predictive regulation as a physiological constraint layer before explicit learned priors. | ScienceDirect metadata verify *Physiology & Behavior* 106(1), 5-15, DOI `10.1016/j.physbeh.2011.06.004`. |
+| `corcoran2025body_first_teacher` | Adds developmental support for visceral rhythmicity as an early cognitive teacher, not an empirical result of this manuscript. | PubMed PMID `37694720` and Sage metadata verify *Perspectives on Psychological Science* and DOI `10.1177/17456916231185343`. |
+| `kuchling2020morphogenesis` | Extends the upstream constraint layer into biological pattern formation while preserving the conceptual, non-simulation scope. | PubMed PMID `31320316` and ScienceDirect metadata verify *Physics of Life Reviews* 33, 88-108, DOI `10.1016/j.plrev.2019.06.001`. |
+| `pezzulo2022evolution` | Supports evolved active-inference architectures as shaped constraints before individual learned priors. | PubMed PMID `34957844` and Royal Society metadata verify *Philosophical Transactions B* 377, article `20200531`, DOI `10.1098/rstb.2020.0531`. |
+| `linson2018active_ecological` | Keeps the upstream active-inference reading ecological and embodied rather than skull-bound. | Frontiers metadata verify *Frontiers in Robotics and AI* 5:21, DOI `10.3389/frobt.2018.00021`. |
 | `simpson2017penalising` | Grounds the hyperprior stop in penalized-complexity prior practice, alongside weakly informative and reference priors. | [Project Euclid](https://projecteuclid.org/journals/statistical-science/volume-32/issue-1/Penalising-Model-Component-Complexity-A-Principled-Practical-Approach-to-Constructing/10.1214/16-STS576.full) / arXiv metadata verifies Statistical Science 32(1), 1-28, DOI `10.1214/16-STS576`. |
 | `konner2021nine` | Extends the Tinbergen-level discussion cautiously beyond four explanatory levels without changing the paper's core two-axis decomposition. | [PubMed](https://pubmed.ncbi.nlm.nih.gov/34739657/) / Springer metadata verifies Human Nature 32(4), 748-793, DOI `10.1007/s12110-021-09414-8`. |
 | `bergman2022leveling` | Improves the Tinbergen captions by acknowledging a contemporary causes/consequences re-leveling while preserving the manuscript's crossed-axis visual grammar. | PubMed/Europe PMC/Wiley metadata verify Evolutionary Anthropology 31(1), 12-19, DOI `10.1002/evan.21931`. |
@@ -59,12 +71,12 @@ reference-growth exercise.
 | Key | Boundary |
 | --- | --- |
 | `tinbergen1963aims` | Kept as the canonical explanatory-level anchor. Konner is used as an extension, not a replacement. |
-| `mayr1961cause` | Retained for proximate/ultimate framing. |
-| `friston2010freeenergy` and `ramstead2018answering` | Active inference and Markov blanket language is now bounded by the critique literature. |
-| `constant2018extended` | Kept for extended active inference and niche construction; strengthened with Baltieri and Stotz. |
-| `gelman2006data` and `bernardo1979reference` | Kept as pragmatic/reference-prior anchors; Simpson adds the PC-prior version of the same stop. |
-| `maturana1980autopoiesis`, `varela1991embodied`, and `thompson2007mind` | Kept for autopoiesis/enactive closure. No new closure claim was added beyond the already bounded conceptual role. |
-| `ramstead2023encultured` | Retained for cultural prior transmission and scale invariance. |
+| `mayr1961cause` | Added as the foundational proximate/ultimate framing source behind the crossed explanatory grid. |
+| `friston2010free` and `ramstead2018answering` | Active inference and Markov blanket language is now bounded by the critique literature. |
+| `constant2018free` | Kept for extended active inference and niche construction; strengthened with Baltieri and Stotz. |
+| `gelman2013philosophy` and `bernardo1979reference` | Kept as pragmatic/reference-prior anchors; Simpson adds the PC-prior version of the same stop. |
+| `maturana1980autopoiesis`, `varela1991embodied`, and `thompson2007mind` | Kept for autopoiesis/enactive closure and the embodied, non-skull-bound boundary around the art analogy. |
+| `ramstead2023encultured` | Retained for cultural prior transmission and scale recurrence, not empirical scale invariance. |
 
 ## Rejected or deferred sources
 
@@ -104,10 +116,13 @@ reference-growth exercise.
 - The introduction, methodology, conclusion, related work, and claim ledger now
   define "art" through predictive aesthetics, music enculturation,
   neuroaesthetic triads, 4E affordance accounts, and anti-reduction cautions.
-- Four deterministic figures were added to make these boundaries visible:
+- Five deterministic figures were added to make these boundaries visible:
   `source_claim_boundary_map`, `markov_blanket_scope_split`, and
   `niche_prior_feedback_field`, plus the new
-  `aesthetic_prior_craft_map`.
+  `aesthetic_prior_craft_map` and `first_prior_grounding_stack`.
 - The 2026-07-08 pass added two claim-ledger rows for material prior-craft and
   cultural prior-craft boundaries, and expanded the existing aesthetic boundary
   row with imagination and improvisation cautions.
+- The 2026-07-09 upstream pass added the `first-prior-grounding-stack`
+  claim-ledger row and integrated the requested PMID `33872985` source into the
+  introduction, methodology, visual atlas, and related-work scope boundary.

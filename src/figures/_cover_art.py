@@ -97,6 +97,24 @@ def _label_box(
     ax.text(x, y, text, ha="center", va="center", color=edge, fontsize=size, weight="bold", linespacing=0.95)
 
 
+def _cover_panel(
+    ax,
+    center: tuple[float, float],
+    title: str,
+    subtitle: str,
+    edge: str,
+    face: str,
+    *,
+    width: float = 0.205,
+) -> None:
+    """Draw one legible cover concept without paragraph-sized annotation."""
+    x, y = center
+    _panel(ax, (x - width / 2, y - 0.032), (width, 0.064), edge, face, alpha=0.92, lw=1.7)
+    ax.text(x, y + 0.012, title, ha="center", va="center", color=edge, fontsize=10.4, weight="bold")
+    ax.text(x, y - 0.014, subtitle, ha="center", va="center", color=PALETTE["muted"], fontsize=7.0)
+    return None
+
+
 def _draw_orbital_field(ax) -> None:
     theta = np.linspace(0, 2 * np.pi, 640)
     orbits = [
@@ -238,21 +256,25 @@ def draw_square_cover_art(output_dir: Path) -> Path:
             Rectangle((margin, margin), 1 - 2 * margin, 1 - 2 * margin, fill=False, edgecolor=PALETTE["ink"], lw=lw, alpha=alpha)
         )
 
-    _draw_quadrant_spine(ax)
+    # The cover is a publication mark, not a miniature dashboard. Keep only
+    # the argument's four high-level moves so it remains legible as a thumbnail.
+    _cover_panel(ax, (0.195, 0.755), "QUESTION GRID", "mechanism / function / history", PALETTE["blue"], PALETTE["blue_fill"], width=0.235)
+    _cover_panel(ax, (0.425, 0.755), "REGRESS", "prior → hyperprior → ?", PALETTE["red"], PALETTE["red_fill"], width=0.205)
+    _cover_panel(ax, (0.655, 0.755), "STOP RULE", "selection / fixed point", PALETTE["green"], PALETTE["green_fill"], width=0.205)
+    _arrow(ax, (0.315, 0.755), (0.320, 0.755), PALETTE["blue"], lw=1.5, scale=12)
+    _arrow(ax, (0.530, 0.755), (0.550, 0.755), PALETTE["red"], lw=1.5, scale=12)
     _draw_orbital_field(ax)
-    _draw_source_claim_band(ax)
-    _draw_hyperprior_chain(ax)
-    _draw_selection_filter(ax)
-    _draw_blanket_scope(ax)
-    _draw_niche_feedback(ax)
-    _draw_art_prior_craft(ax)
     _draw_center(ax)
+
+    _cover_panel(ax, (0.240, 0.245), "MODEL BOUNDARY", "use without ontological shortcut", PALETTE["purple"], PALETTE["purple_fill"], width=0.255)
+    _cover_panel(ax, (0.760, 0.245), "NICHE FEEDBACK", "organism ↔ environment", PALETTE["teal"], PALETTE["teal_fill"], width=0.225)
+    _cover_panel(ax, (0.500, 0.145), "ART / PRIOR-CRAFT", "staged expectation · material practice · scope ceiling", PALETTE["purple"], PALETTE["purple_fill"], width=0.36)
 
     ax.text(0.5, 0.912, "PRIOR COGNITIVE ART", ha="center", va="center", fontsize=30, color=PALETTE["ink"], weight="bold")
     ax.text(
         0.5,
         0.870,
-        "Tinbergen axes / hyperprior stopping / material prior-craft / model-level blankets",
+        "explanatory kinds / regress / settlement / bounded prior-craft",
         ha="center",
         va="center",
         fontsize=11.8,

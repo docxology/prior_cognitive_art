@@ -1,15 +1,16 @@
-# Conclusion {#sec:conclusion}
+# Conclusion: Prior Origins as Termination Problems, Not Hidden Meta-Priors {#sec:conclusion}
 
 The regress was never forced by Tinbergen. It appeared because an ontogenetic
 answer was asked to do the work of every quadrant. Mechanism and function can
 close locally. Phylogeny and function can jointly block regress through
 selection. The fixed-point move goes further by denying that another prior is
-needed at the same explanatory type. These three terminations are not rivals:
-they are appropriate at different explanatory kinds, and the error is to use
-one where another is needed. The active inference bridge
+needed at the same explanatory type. These three terminations are organizing
+families appropriate to different explanatory kinds, not an exhaustive
+catalogue. The error is to use one where another is needed, or to pretend that
+a stop answers more than it does. The active inference bridge
 ([@sec:method]; [@sec:visual-atlas]) shows that the prior serves a
 free-energy-minimizing process that couples perception and action, and the
-scale-invariance argument shows that the same fixed-point structure recurs at
+ scale-recurrence argument shows that the same fixed-point structure recurs at
 cellular, organismic, and social levels. The related work in
 [@sec:scope-related] situates these claims in the broader literature, and the
 artifact protocol in [@sec:artifact-protocol] documents the reproducibility
@@ -40,6 +41,16 @@ termination rather than as a fourth stop: developmental and cultural resources
 shape what can later be selected, but the logical work is still done by naming
 the persisting organization rather than by adding another selector
 [@bateson2004toward; @stotz2017developmental; @baltieri2022extended].
+
+The upstream first-prior argument sharpens the same point. Asking what comes
+before the first prior should not license a prior-before-priors. The better
+answer is a stack of constraints that precede explicit inferential ownership:
+viability, predictive regulation, co-embodiment, co-homeostasis, developmental
+tuning, and niche-supported expectation. In that sense, the bias before bias is
+not another belief. It is the embodied and ecological history that makes some
+belief-like priors possible [@ciaunica2021first_prior;
+@allen2018body_first_prior; @sterling2012allostasis;
+@corcoran2025body_first_teacher; @pezzulo2022evolution].
 
 The formal supplement adds a second constraint on the manuscript itself. If a
 later revision changes the formal claims, symbols, figures, or validation checks,

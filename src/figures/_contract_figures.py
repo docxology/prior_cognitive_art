@@ -6,8 +6,6 @@ from ._shared import (
     PALETTE,
     Circle,
     Ellipse,
-    FancyArrowPatch,
-    Polygon,
     Rectangle,
     _arrow,
     _box,
@@ -17,7 +15,7 @@ from ._shared import (
     topic_pair,
 )
 
-from src.conceptual_model import formal_claims, symbol_glossary, text_validation_checks
+from src.conceptual_model import claim_grounding, formal_claims, symbol_glossary, text_validation_checks
 
 def draw_policy_entanglement_bridge(output_dir: Path) -> Path:
     fig, ax = plt.subplots(figsize=(11.2, 6.6))
@@ -57,7 +55,7 @@ def draw_policy_entanglement_bridge(output_dir: Path) -> Path:
         fontsize=11.0,
         color=PALETTE["muted"],
     )
-    ax.set_title("Policy entanglement bridge: joint structure before cleaned-up factors", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Lambda-decomposition clarifies factors after joint organization is already present", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "policy_entanglement_bridge.png")
 
 def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
@@ -70,31 +68,16 @@ def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
     ax.text(1.25, 7.55, "source records", ha="center", fontsize=11.5, color=PALETTE["muted"], weight="bold")
     ax.text(5.5, 7.55, "auto-numbered claims", ha="center", fontsize=11.5, color=PALETTE["muted"], weight="bold")
     sources = [
-        ("Tinbergen\naxes", 1.35, 6.85, topic_pair("mechanism")[0]),
-        ("regress\nshape", 1.35, 5.65, topic_pair("regress")[0]),
-        ("termination\nmoves", 1.35, 4.45, topic_pair("selection")[0]),
-        ("joint\nstructure", 1.35, 3.25, topic_pair("formal")[0]),
-        ("niche &\nblanket", 1.35, 2.05, topic_pair("niche")[0]),
-        ("explanatory\ncompl.", 1.35, 0.85, PALETTE["muted"]),
+        ("tinbergen_axes", "Tinbergen\naxes", 1.35, 6.85, topic_pair("mechanism")[0]),
+        ("regress_shape", "regress\nshape", 1.35, 5.65, topic_pair("regress")[0]),
+        ("termination_moves", "termination\nmoves", 1.35, 4.45, topic_pair("selection")[0]),
+        ("joint_structure", "joint\nstructure", 1.35, 3.25, topic_pair("formal")[0]),
+        ("niche_blanket", "niche &\nblanket", 1.35, 2.05, topic_pair("niche")[0]),
+        ("cross_scale_recurrence", "cross-scale\nrecurrence", 1.35, 0.85, PALETTE["muted"]),
     ]
     # Grounding: which auto-numbered claim each source record anchors.
     # (source_index -> claim index in formal_claims(), 1-based)
-    grounded = {
-        (0, 1),   # Tinbergen axes -> F1 axis_partition
-        (0, 8),   # Tinbergen axes -> F8 explanatory_complementarity
-        (1, 2),   # regress shape -> F2 regress_shape
-        (2, 3),   # termination moves -> F3 selection_filter
-        (2, 4),   # termination moves -> F4 fixed_point_stop
-        (3, 5),   # joint structure -> F5 decomposition_caution
-        (3, 9),   # joint structure -> F9 active_inference_bridge
-        (4, 6),   # niche & blanket -> F6 niche_co_construction
-        (4, 7),   # niche & blanket -> F7 blanket_achievement
-        (4, 10),  # niche & blanket -> F10 variational_closure
-        (5, 11),  # explanatory complementarity -> F11 scale_invariance
-        (1, 12),
-    }
-
-    for label, x, y, color in sources:
+    for _, label, x, y, color in sources:
         _box(ax, (x, y), (1.58, 0.72), color, label, face="white", title_size=10.0)
 
     claims = list(formal_claims())
@@ -112,36 +95,35 @@ def draw_formal_claim_dependency_map(output_dir: Path) -> Path:
     )
     box_width = 2.3
     # Draw grounding arrows from each source record to the claim(s) it anchors.
-    for s_idx, c_idx in grounded:
-        _, sx, sy, sc = sources[s_idx]
-        cx, cy = positions[c_idx - 1]
+    claim_positions = {claim.key: positions[index] for index, claim in enumerate(claims)}
+    source_positions = {key: (x, y) for key, _, x, y, _ in sources}
+    for grounding in claim_grounding():
+        sx, sy = source_positions[grounding.source_record]
+        cx, cy = claim_positions[grounding.claim_key]
         _arrow(ax, (2.2, sy), (cx - box_width / 2 - 0.08, cy), color=PALETTE["muted"], lw=1.1, mutation_scale=12)
-    claim_topics = (
-        "mechanism",
-        "regress",
-        "selection",
-        "fixed_point",
-        "formal",
-        "niche",
-        "boundary",
-        "validation",
-        "action",
-        "inference",
-        "practice",
-        "limit",
-    )
-    claim_colors = [topic_pair(topic)[0] for topic in claim_topics]
-    claim_faces = [topic_pair(topic)[1] for topic in claim_topics]
+    claim_topics = {
+        "axis_partition": "mechanism",
+        "regress_shape": "regress",
+        "selection_filter": "selection",
+        "fixed_point_stop": "fixed_point",
+        "decomposition_caution": "formal",
+        "niche_co_construction": "niche",
+        "blanket_achievement": "boundary",
+        "explanatory_complementarity": "validation",
+        "active_inference_bridge": "action",
+        "variational_closure": "inference",
+        "scale_recurrence": "practice",
+        "deterministic_trace_boundary": "limit",
+    }
     box_width = 2.3
     for index, (claim, (x, y)) in enumerate(zip(claims, positions), start=1):
-        color = claim_colors[index - 1]
-        face = claim_faces[index - 1]
+        color, face = topic_pair(claim_topics[claim.key])
         ax.add_patch(Rectangle((x - box_width / 2, y - 0.33), box_width, 0.66, facecolor=face, edgecolor=color, lw=2))
         ax.text(x, y + 0.1, f"F{index}: {claim.title}", ha="center", va="center", fontsize=9.6, color=PALETTE["ink"])
         ax.text(x, y - 0.15, f"{len(claim.symbol_keys)} symbols", ha="center", va="center", fontsize=8.2, color=PALETTE["muted"])
 
     _box(ax, (8.55, 0.58), (1.45, 0.54), PALETTE["line"], "source order", f"fixes F1-F{n}", face="white", title_size=9.8, subtitle_size=8.2)
-    ax.set_title("Formal claims are numbered views over the source inventory", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Formal claims are grounded views over source records, not freestanding theorems", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "formal_claim_dependency_map.png")
 
 def draw_symbol_glossary_closure(output_dir: Path) -> Path:
@@ -196,7 +178,7 @@ def draw_symbol_glossary_closure(output_dir: Path) -> Path:
         linespacing=1.1,
     )
     ax.text(5.0, 5.25, f"{counts['claims']} formal claims share one glossary contract", ha="center", fontsize=12, color=PALETTE["muted"])
-    ax.set_title("Symbol glossary closure: no orphan formal notation", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Symbol glossary closure keeps every formal mark defined and every definition used", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "symbol_glossary_closure.png")
 
 def draw_text_validation_ladder(output_dir: Path) -> Path:
@@ -231,5 +213,5 @@ def draw_text_validation_ladder(output_dir: Path) -> Path:
     ax.add_patch(Rectangle((8.08, 2.2), 1.72, 1.48, facecolor="white", edgecolor=PALETTE["line"], lw=1.5))
     ax.text(8.94, 3.05, "the text is\nvalidated as an\nartifact surface", ha="center", va="center", fontsize=10.5, color=PALETTE["muted"], linespacing=1.12)
     _arrow(ax, (7.72, 2.95), (8.05, 2.95), color=PALETTE["line"], lw=1.3, mutation_scale=13)
-    ax.set_title("Text validation ladder for a deterministic conceptual paper", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Text validation ladder binds source records to rendered manuscript surfaces", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "text_validation_ladder.png")

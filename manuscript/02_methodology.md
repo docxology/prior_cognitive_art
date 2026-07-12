@@ -1,4 +1,4 @@
-# Conceptual Method {#sec:method}
+# Conceptual Method: Typed Explanations and Source-Owned Artifacts {#sec:method}
 
 This is a conceptual paper. It includes one deterministic illustrative
 simulation trace over authored formal states, but it uses no stochastic
@@ -17,7 +17,28 @@ The source layer records {{QUADRANT_COUNT}} Tinbergen quadrants,
 modules, {{FIGURE_COUNT}} figure specifications, {{FORMAL_CLAIM_COUNT}} formal
 claims, and {{SYMBOL_COUNT}} glossary rows. Those records are rendered into
 visual artifacts, supplement formalisms, and manuscript variables during the
-analysis stage.
+analysis stage. The visual inventory is deliberately partitioned: the atlas
+contains {{VISUAL_ATLAS_FIGURE_COUNT}} argument diagrams, while the formal
+supplement contains {{FORMAL_SUPPLEMENT_FIGURE_COUNT}} contract diagrams.
+
+## Operational Protocol
+
+The manuscript applies a compact five-step protocol to each "why" question:
+
+1. **Type the request.** State whether the question concerns mechanism,
+   function, ontogeny, phylogeny, or another explicitly named explanatory kind.
+2. **Expose deferral.** Show whether the proposed answer merely moves the
+   prior to a hyperprior, selector, or earlier developmental condition.
+3. **Name the stop.** Identify pragmatic, selection, or fixed-point closure when
+   one of those families does the relevant explanatory work; do not imply the
+   list is exhaustive.
+4. **State the ceiling.** Mark what the stop explains and what it leaves open,
+   especially for Markov blankets, niche construction, and aesthetic analogy.
+5. **Render and validate.** Generate the diagram and formal record from the
+   source inventory, hydrate the prose, and reject stale or mismatched outputs.
+
+This protocol is an accountability device, not a causal model or an empirical
+estimator. It makes category changes visible before they become prose claims.
 
 ## Tinbergen Crossed With Prior Explanation
 
@@ -52,11 +73,12 @@ distinction between explanatory kinds is not merely terminological: it tracks a
 real difference in what an explanation is being asked to do [@smith2000formal;
 @godfrey2013theoretical].
 
-## Termination Candidates
+## Regress-Closure Strategies
 
 {{TERMINATION_BULLETS}}
 
-The first move, pragmatic termination, is the standard move in applied
+These are closure strategies rather than three proofs that one metaphysical
+question has been answered. The first move, pragmatic termination, is the standard move in applied
 Bayesian statistics: install a weakly informative, reference, or penalized
 complexity prior and then test whether the model is adequate for the task
 [@gelman2013philosophy; @simpson2017penalising]. It is epistemically honest
@@ -143,13 +165,14 @@ selection [@friston2012agency; @friston2015active; @da_costa2020active;
 @friston2017active].
 Extended active-inference work makes the same point at the organism-niche
 surface: action changes the sensory and material field in which future
-inference occurs [@baltieri2022extended]. The prior serves a process that
-minimizes variational free energy through both inference and action, not
-inference alone. This closes the explanatory loop: the prior is not merely a
-parameter for belief updating but a constraint on the coupled
-perception-action system. The variational free energy bounds negative log
-evidence from above, or equivalently tightens the evidence lower bound as the
-approximate posterior approaches the target posterior
+inference occurs [@baltieri2022extended]. The prior serves a coupled
+perception-action process, but the objectives must not be collapsed:
+variational free energy evaluates an approximate posterior, whereas expected
+free energy evaluates policies. This closes the explanatory loop without
+claiming that inference and policy selection are the same optimization problem.
+The variational free energy bounds negative log evidence from above, or
+equivalently tightens the evidence lower bound as the approximate posterior
+approaches the target posterior within its variational family
 [@blei2017variational]. In this paper that formal fact is used narrowly: it
 supports a model-internal settling interpretation of prior-like constraint, not
 a claim that free energy literally vanishes or that variational inference has
@@ -208,13 +231,13 @@ therefore treats "prior cognitive art" as the craft of arranging explanatory
 encounters with priors, not as a mechanism claim about artists' intentions,
 viewers' neural updating, or imagination as prediction alone.
 
-## Scale Invariance
+## Scale Recurrence
 
 The regress-termination problem recurs at multiple scales. The fixed-point move
 applies at each scale without requiring a new hidden prior: the prior-like
-settlement at one scale becomes the substrate for the next. This scale
-invariance is a structural consequence of the fixed-point termination, not a
-separate empirical claim. Three concrete instances make the recurrence precise.
+settlement at one scale becomes the substrate for the next. This recurrence is
+a structural analogy, not a claim of scale invariance or empirical
+self-similarity. Three concrete instances make the recurrence precise.
 
 At the **cellular** level, the Markov blanket of a single cell is a prior-like
 model of molecular organization: the cell maintains exchange statistics that

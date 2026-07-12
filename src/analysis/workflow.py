@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 import json
+import os
+import platform
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -8,6 +11,7 @@ from src.conceptual_model import (
     argument_modules,
     as_records,
     claim_dependencies,
+    claim_grounding,
     conceptual_integrity_token,
     deterministic_simulation_trace,
     figure_specs,
@@ -18,9 +22,23 @@ from src.conceptual_model import (
     text_validation_checks,
     validate_conceptual_contract,
     validate_claim_dependencies,
+    validate_claim_grounding,
 )
 from src.figures import COVER_ART_FILENAME, COVER_ART_SIZE_PX, COVER_ART_SVG_FILENAME, draw_square_cover_art, generate_all_figures
 from src.project_paths import project_output_dirs
+
+
+def _generation_metadata() -> dict[str, str]:
+    epoch = os.environ.get("SOURCE_DATE_EPOCH", "").strip()
+    if epoch.isdigit():
+        generated_at = datetime.fromtimestamp(int(epoch), tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    else:
+        generated_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return {
+        "generated_at": generated_at,
+        "python_version": platform.python_version(),
+        "platform": platform.platform(),
+    }
 
 
 def _figure_registry() -> dict[str, dict[str, object]]:
@@ -31,8 +49,9 @@ def _figure_registry() -> dict[str, dict[str, object]]:
             "figure_id": f"figure_{index:03d}",
             "filename": spec.filename,
             "caption": spec.caption,
+            "alt_text": spec.alt_text,
             "label": label,
-            "section": "Visual Atlas",
+            "section": spec.section,
             "width": "0.86\\textwidth",
             "placement": "h",
             "generated_by": "optimization_analysis.py",
@@ -63,19 +82,27 @@ def build_conceptual_report(project_root: Path) -> dict[str, Any]:
         "argument_modules": as_records(argument_modules()),
         "formal_claims": as_records(formal_claims()),
         "claim_dependencies": as_records(claim_dependencies()),
+        "claim_grounding": as_records(claim_grounding()),
         "symbol_glossary": as_records(symbol_glossary()),
         "text_validation_checks": as_records(text_validation_checks()),
         "deterministic_simulation_trace": as_records(simulation_trace),
         "deterministic_simulation_step_count": len(simulation_trace),
         "conceptual_integrity_token": conceptual_integrity_token(),
+        "generation": _generation_metadata(),
         "contract_errors": [],
         "claim_dependency_errors": list(validate_claim_dependencies()),
+        "claim_grounding_errors": list(validate_claim_grounding()),
         "figures": as_records(figures),
         "figure_count": len(figures),
+        "figure_section_counts": {
+            section: sum(1 for figure in figures if figure.section == section)
+            for section in sorted({figure.section for figure in figures})
+        },
         "formal_claim_count": len(formal_claims()),
         "symbol_count": len(symbol_glossary()),
         "text_validation_count": len(text_validation_checks()),
         "claim_dependency_count": len(claim_dependencies()),
+        "claim_grounding_count": len(claim_grounding()),
         "project_root": str(project_root),
     }
 
@@ -85,6 +112,15 @@ def run_analysis_pipeline(project_root: Path | None = None) -> dict[str, Path]:
     dirs = project_output_dirs(root)
     for directory in dirs.values():
         directory.mkdir(parents=True, exist_ok=True)
+
+    expected_figure_files = {
+        name
+        for spec in figure_specs()
+        for name in (spec.filename, Path(spec.filename).with_suffix(".svg").name)
+    }
+    for candidate in dirs["figures"].iterdir():
+        if candidate.suffix in {".png", ".svg"} and candidate.name not in expected_figure_files:
+            candidate.unlink()
 
     figure_paths = generate_all_figures(dirs["figures"])
     cover_path = draw_square_cover_art(dirs["output"] / "cover")
@@ -172,8 +208,8 @@ def run_analysis_pipeline(project_root: Path | None = None) -> dict[str, Path]:
     }
 
 
-def main() -> int:
-    paths = run_analysis_pipeline()
+def main(project_root: Path | None = None) -> int:
+    paths = run_analysis_pipeline(project_root)
     for path in paths.values():
         print(path)
     return 0

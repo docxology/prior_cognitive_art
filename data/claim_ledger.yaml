@@ -8,7 +8,7 @@ claims:
     artifact_path: "manuscript/references.bib"
   - claim_id: no-simulations
     kind: local-invariant
-    value: "This paper runs no simulations and makes no numerical performance claims."
+    value: "This paper runs no stochastic or empirical simulations and makes no numerical performance claims; it includes one deterministic illustrative formal-state trace."
     source: "AGENTS.md"
     source_tier: "project-contract"
     freshness: "current"
@@ -111,9 +111,9 @@ claims:
     source_tier: "source+scholarly"
     freshness: "current"
     artifact_path: "src/conceptual_model.py"
-  - claim_id: scale-invariance
+  - claim_id: scale-recurrence
     kind: conceptual-framing
-    value: "The fixed-point termination recurs at cellular, organismic, and social scales without requiring a new hidden prior."
+    value: "The fixed-point termination recurs at cellular, organismic, and social scales without requiring a new hidden prior; this is conceptual recurrence, not empirical scale invariance."
     source: "src/conceptual_model.py"
     source_tier: "source"
     freshness: "current"

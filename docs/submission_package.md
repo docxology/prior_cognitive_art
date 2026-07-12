@@ -1,6 +1,6 @@
 # Venue-Neutral Submission Package
 
-Date: 2026-07-07
+Date: 2026-07-10
 
 This package is a reusable pre-submission layer for `Prior Cognitive Art`. It is
 not a journal-specific checklist; venue house style, word limits, author forms,
@@ -57,9 +57,11 @@ encounters with expectation, ambiguity, affect, and meaning.
 4. It bounds the title's "art" claim with predictive-processing aesthetics,
    neuroaesthetic scope, 4E affordance accounts, and Bayesian-overclaim
    cautions.
-5. It adds a reproducible conceptual inventory: 20 deterministic figures, 12
-   formal claims, 23 claim-ledger records, 28 glossary rows, 10 text validation
-   checks, and one deterministic trace artifact.
+5. It adds a reproducible conceptual inventory: 18 atlas diagrams plus 3
+   formal-supplement contract diagrams (21 deterministic figures total), 12
+   formal claims, 24 claim-ledger records, 35 glossary rows, 11 text validation
+   checks, 14 dependency edges, 12 claim-grounding edges, and one deterministic
+   trace artifact.
 
 ## Evidence And Reproducibility
 
@@ -71,17 +73,14 @@ encounters with expectation, ambiguity, affect, and meaning.
 - Figure registry: `output/figures/figure_registry.json`
 - Deterministic trace: `output/data/deterministic_simulation_trace.json`
 - Deterministic trace manifest: `output/reports/deterministic_simulation_manifest.json`
+- Render freshness manifest: `output/reports/render_manifest.json`
 - Final ULW gate: `.omo/ulw-loop/prior-cognitive-art-publication-readiness-20260707-051719/evidence/final-quality-gate-reassess.md`
 
 Reproduction commands:
 
 ```bash
 uv run pytest tests/
-uv run python scripts/optimization_analysis.py
-uv run python scripts/build_dashboard.py
-uv run python scripts/generate_api_docs.py
-uv run python scripts/z_generate_manuscript_variables.py
-uv run python scripts/validate_publication_package.py
+uv run python scripts/build_publication_package.py
 ```
 
 From `/Users/4d/Documents/GitHub/template`:
@@ -93,7 +92,8 @@ uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
 
 ## Figure Set
 
-The manuscript has 19 deterministic conceptual figures. The strongest
+The manuscript has 18 atlas diagrams and 3 formal-supplement contract figures,
+21 deterministic conceptual figures in total. The strongest
 submission figures for a short preprint pitch are:
 
 - `tinbergen_axes`: establishes the explanatory separation.
@@ -102,6 +102,8 @@ submission figures for a short preprint pitch are:
 - `markov_blanket_scope_split`: bounds model-level and realized-boundary claims.
 - `niche_prior_feedback_field`: shows organism, resources, and culture across
   timescales.
+- `first_prior_grounding_stack`: answers the upstream first-prior question as a
+  constraint stack rather than a hidden meta-prior.
 - `source_claim_boundary_map`: connects scholarship decisions to manuscript
   claims.
 

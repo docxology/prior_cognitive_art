@@ -6,6 +6,7 @@ import pytest
 
 from src.conceptual_model import (
     claim_dependencies,
+    claim_grounding,
     deterministic_simulation_trace,
     figure_specs,
     formal_claims,
@@ -55,9 +56,11 @@ def test_generate_variables_uses_concept_inventory(tmp_path: Path) -> None:
     assert "integrity_signature" in variables["TEXT_VALIDATION_TABLE_ROWS"]
     assert len(variables["CONCEPTUAL_INTEGRITY_TOKEN"]) == 16
     assert variables["CLAIM_DEPENDENCY_COUNT"] == str(len(claim_dependencies()))
+    assert variables["CLAIM_GROUNDING_COUNT"] == str(len(claim_grounding()))
     assert variables["DETERMINISTIC_SIMULATION_STEP_COUNT"] == str(len(deterministic_simulation_trace()))
     assert "axis_partition" in variables["CLAIM_DEPENDENCIES"]
     assert "regress_shape" in variables["CLAIM_DEPENDENCIES"]
+    assert "tinbergen_axes" in variables["CLAIM_GROUNDING"]
 
 
 def test_generate_variables_requires_analysis_report(tmp_path: Path) -> None:

@@ -14,6 +14,7 @@ from ._runtime import get_logger
 from .conceptual_model import (
     argument_modules,
     claim_dependencies,
+    claim_grounding,
     conceptual_integrity_token,
     deterministic_simulation_trace,
     figure_specs,
@@ -71,7 +72,13 @@ def _count_output_artifacts(project_root: Path) -> dict[str, int]:
     for subdir, suffixes in suffixes_by_dir.items():
         dir_path = output_dir / subdir
         if dir_path.exists():
-            counts[subdir] = sum(1 for path in dir_path.iterdir() if path.is_file() and path.suffix.lower() in suffixes)
+            counts[subdir] = sum(
+                1
+                for path in dir_path.iterdir()
+                if path.is_file()
+                and path.name != "render_manifest.json"
+                and path.suffix.lower() in suffixes
+            )
         else:
             counts[subdir] = 0
     return counts
@@ -103,6 +110,20 @@ def _markdown_argument_modules() -> str:
 
 def _markdown_figure_manifest() -> str:
     return "\n".join(f"- `{spec.filename}`: {spec.caption}" for spec in figure_specs())
+
+
+def _figure_alt_text_variables() -> dict[str, str]:
+    return {
+        f"FIGURE_ALT_{spec.key.upper()}": spec.alt_text
+        for spec in figure_specs()
+    }
+
+
+def _figure_section_counts() -> dict[str, int]:
+    counts: dict[str, int] = {}
+    for spec in figure_specs():
+        counts[spec.section] = counts.get(spec.section, 0) + 1
+    return counts
 
 
 def _formal_claim_label(index: int) -> str:
@@ -149,6 +170,14 @@ def _markdown_claim_dependencies() -> str:
     return "\n".join(lines)
 
 
+def _markdown_claim_grounding() -> str:
+    lines: list[str] = []
+    claims = {claim.key: index for index, claim in enumerate(formal_claims(), start=1)}
+    for grounding in claim_grounding():
+        lines.append(f"- `{grounding.source_record}` → **F{claims[grounding.claim_key]}** ({grounding.claim_key})")
+    return "\n".join(lines)
+
+
 def generate_variables(project_root: Path, *, require_analysis_outputs: bool = False) -> dict[str, str]:
     config = _load_config(project_root)
     report = _load_json_report(project_root, "conceptual_analysis.json")
@@ -163,11 +192,13 @@ def generate_variables(project_root: Path, *, require_analysis_outputs: bool = F
     paper = config.get("paper", {})
     metadata = config.get("metadata", {})
     conceptual = metadata.get("conceptual", {})
+    generation = report.get("generation", {})
     thesis = conceptual.get(
         "thesis",
         "A prior is not explained by stacking more priors; it is located by mechanism, function, history, and fixed-point organization.",
     )
 
+    section_counts = _figure_section_counts()
     return {
         "PROJECT_TITLE": str(paper.get("title", "Prior Cognitive Art")),
         "PROJECT_SUBTITLE": str(paper.get("subtitle", "")),
@@ -182,10 +213,13 @@ def generate_variables(project_root: Path, *, require_analysis_outputs: bool = F
         "TERMINATION_COUNT": str(len(termination_catalog())),
         "ARGUMENT_MODULE_COUNT": str(len(argument_modules())),
         "FIGURE_COUNT": str(len(figure_specs())),
+        "VISUAL_ATLAS_FIGURE_COUNT": str(section_counts.get("Visual Atlas", 0)),
+        "FORMAL_SUPPLEMENT_FIGURE_COUNT": str(section_counts.get("Formal Supplement", 0)),
         "FORMAL_CLAIM_COUNT": str(len(formal_claims())),
         "SYMBOL_COUNT": str(len(symbol_glossary())),
         "TEXT_VALIDATION_COUNT": str(len(text_validation_checks())),
         "CLAIM_DEPENDENCY_COUNT": str(len(claim_dependencies())),
+        "CLAIM_GROUNDING_COUNT": str(len(claim_grounding())),
         "DETERMINISTIC_SIMULATION_STEP_COUNT": str(len(deterministic_simulation_trace())),
         "QUADRANT_TABLE_ROWS": _markdown_quadrant_rows(),
         "TERMINATION_BULLETS": _markdown_termination_bullets(),
@@ -195,17 +229,19 @@ def generate_variables(project_root: Path, *, require_analysis_outputs: bool = F
         "SYMBOL_GLOSSARY_ROWS": _markdown_symbol_glossary_rows(),
         "TEXT_VALIDATION_TABLE_ROWS": _markdown_text_validation_rows(),
         "CLAIM_DEPENDENCIES": _markdown_claim_dependencies(),
+        "CLAIM_GROUNDING": _markdown_claim_grounding(),
         "CONCEPTUAL_INTEGRITY_TOKEN": conceptual_integrity_token(),
         "CONCEPTUAL_REPORT_STATUS": "available" if report else "draft",
-        "PYTHON_VERSION": platform.python_version(),
-        "PLATFORM": platform.platform(),
-        "GENERATION_TIMESTAMP": _build_timestamp(),
+        "PYTHON_VERSION": str(generation.get("python_version", platform.python_version())),
+        "PLATFORM": str(generation.get("platform", platform.platform())),
+        "GENERATION_TIMESTAMP": str(generation.get("generated_at", _build_timestamp())),
         "CONFIG_HASH": _compute_config_hash(project_root),
         "CONFIG_FIRST_AUTHOR": (config.get("authors") or [{}])[0].get("name", "Project Author"),
         "CONFIG_KEYWORDS": ", ".join(config.get("keywords", [])),
         "ARTIFACT_FIGURES": str(artifact_counts.get("figures", 0)),
         "ARTIFACT_DATA_FILES": str(artifact_counts.get("data", 0)),
         "ARTIFACT_REPORTS": str(artifact_counts.get("reports", 0)),
+        **_figure_alt_text_variables(),
     }
 
 

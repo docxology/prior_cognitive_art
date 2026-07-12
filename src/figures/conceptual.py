@@ -7,7 +7,7 @@ from src.conceptual_model import figure_specs
 from ._active_scale_figures import (
     draw_active_inference_cycle,
     draw_deterministic_simulation_trace,
-    draw_scale_invariance_diagram,
+    draw_scale_recurrence_diagram,
     draw_variational_free_energy_landscape,
 )
 from ._art_figures import draw_aesthetic_prior_craft_map
@@ -55,7 +55,7 @@ def generate_all_figures(output_dir: Path) -> list[Path]:
         draw_active_inference_cycle(output_dir),
         draw_variational_free_energy_landscape(output_dir),
         draw_deterministic_simulation_trace(output_dir),
-        draw_scale_invariance_diagram(output_dir),
+        draw_scale_recurrence_diagram(output_dir),
         draw_source_claim_boundary_map(output_dir),
         draw_aesthetic_prior_craft_map(output_dir),
         draw_markov_blanket_scope_split(output_dir),
@@ -88,7 +88,7 @@ __all__ = [
     "draw_active_inference_cycle",
     "draw_variational_free_energy_landscape",
     "draw_deterministic_simulation_trace",
-    "draw_scale_invariance_diagram",
+    "draw_scale_recurrence_diagram",
     "draw_source_claim_boundary_map",
     "draw_aesthetic_prior_craft_map",
     "draw_markov_blanket_scope_split",

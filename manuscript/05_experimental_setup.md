@@ -1,4 +1,4 @@
-# Artifact Protocol {#sec:artifact-protocol}
+# Artifact Protocol: Deterministic Generation Without Empirical Simulation {#sec:artifact-protocol}
 
 The project deliberately preserves the template's reproducible artifact surface
 while changing the research mode described in [@sec:method]. The reproducibility

@@ -1,6 +1,6 @@
 # Reviewer Risk Register
 
-Date: 2026-07-09
+Date: 2026-07-10
 
 This register anticipates likely reviewer objections and points to the current
 manuscript or project surface that answers them. It is a publication-prep tool,
@@ -19,7 +19,10 @@ not a substitute for a venue-specific response letter.
 | R9 | The variational-free-energy claim may imply literal zero free energy or confuse priors with posteriors. | F10 and the VFE caption now state a relative variational-bound/KL reading and explicitly reject literal zero-energy and prior-origin claims. | `src/conceptual_model.py`, `manuscript/02_methodology.md`, `variational_free_energy_landscape` |
 | R10 | The title may appear to claim a general predictive-processing theory of art. | The paper now treats "art" as a bounded analogy: aesthetic practices arrange encounters with expectation, ambiguity, affect, and meaning, while 4E and neuroaesthetic critiques block reductionism. | `manuscript/01_introduction.md`, `manuscript/07_scope_and_related_work.md`, `docs/scholarship-audit.md` |
 | R11 | The added material-engagement scholarship may be read as saying artworks literally contain predictive models or directly install priors. | The new art/prior-craft figure and claim-ledger rows frame artworks as material scaffolds for encounters with priors, not as neural mechanisms or empirical updating claims. | `aesthetic_prior_craft_map`, `data/claim_ledger.yaml`, `manuscript/02_methodology.md` |
-| R12 | The deterministic simulation trace may be mistaken for a stochastic model, empirical pilot, or performance claim. | The trace is formalized as a finite authored state order, and the publication validator compares the generated JSON against the source sequence, labels, transitions, and invariants. | `manuscript/08_formal_supplement.md`, `deterministic_simulation_trace`, `scripts/validate_publication_package.py`, `output/data/deterministic_simulation_trace.json` |
+| R12 | The deterministic simulation trace may be mistaken for a stochastic model, empirical pilot, or performance claim. | The trace is formalized as a finite authored state order, and the publication validator compares the generated JSON against source coordinates, labels, transitions, invariants, schema, path, and manifest metadata. | `manuscript/08_formal_supplement.md`, `deterministic_simulation_trace`, `scripts/validate_publication_package.py`, `output/data/deterministic_simulation_trace.json` |
+| R13 | First-prior scholarship may be read as claiming a literal hidden meta-prior before all priors. | The upstream section and figure frame first-prior sources as a constraint stack of viability, regulation, co-homeostasis, development, and niche support, not as an empirical discovery of a prior-before-priors. | `manuscript/02_methodology.md`, `manuscript/07_scope_and_related_work.md`, `first_prior_grounding_stack`, `data/claim_ledger.yaml` |
+| R14 | A compact render may make captions, labels, or accessibility metadata drift from the source inventory. | `FigureSpec` owns caption, alt text, and section; hydration, registry, dashboard, and the validator compare all three fields, while representative PDF and browser views are required. | `src/conceptual_model.py`, `output/figures/figure_registry.json`, `scripts/validate_publication_package.py`, `output/reports/render_manifest.json` |
+| R15 | A stale PDF or HTML could be mistaken for the current manuscript. | The canonical build stamps a hydrated-source digest and hashes combined Markdown, HTML, PDF, and slide outputs; validation fails on any mismatch. | `scripts/build_publication_package.py`, `src/render_manifest.py`, `docs/rendering_pipeline.md` |
 
 ## Pre-Submission Reviewer Strategy
 
@@ -35,6 +38,9 @@ not a substitute for a venue-specific response letter.
 - Pair that paragraph with `aesthetic_prior_craft_map` when presenting to
   philosophy-of-art or 4E audiences; it shows the material-practice support and
   the mechanism ceiling on the same page.
+- Use `first_prior_grounding_stack` when audiences ask "what came before the
+  first prior"; it answers with upstream constraints rather than another
+  hidden prior.
 - Keep the deterministic-trace boundary explicit in abstracts, talks, and
   submission forms. The project is reproducible because its conceptual
   inventory, formal trace, and deterministic figures are reproducible, not

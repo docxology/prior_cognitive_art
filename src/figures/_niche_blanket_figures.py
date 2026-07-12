@@ -7,7 +7,6 @@ from ._shared import (
     Circle,
     Ellipse,
     FancyArrowPatch,
-    Polygon,
     Rectangle,
     _arrow,
     _box,
@@ -64,7 +63,7 @@ def draw_niche_construction_diagram(output_dir: Path) -> Path:
         title_size=11.2,
     )
 
-    ax.set_title("Niche construction: organism and environment co-shape the prior", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Niche construction co-shapes prior-like structure through reciprocal organism-environment work", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "niche_construction_diagram.png")
 
 def draw_markov_blanket_achievement(output_dir: Path) -> Path:
@@ -82,9 +81,10 @@ def draw_markov_blanket_achievement(output_dir: Path) -> Path:
     ax.text(0, 0.18, "settled system", ha="center", va="center", fontsize=13, color=settlement_edge, weight="bold")
     ax.text(0, -0.22, r"$X^* = \Phi(X^*)$", ha="center", va="center", fontsize=13.5, color=settlement_edge, weight="bold")
 
-    ax.text(0, 1.52, r"model boundary  $M = \Phi(X^*)$", ha="center", va="bottom", fontsize=12, color=blanket_edge, weight="bold")
+    ax.text(0, 1.52, r"model boundary  $M=(a,s)$", ha="center", va="bottom", fontsize=12, color=blanket_edge, weight="bold")
 
     ax.text(0, -1.05, "internal states", ha="center", va="center", fontsize=10.5, color=PALETTE["muted"])
+    ax.text(0, -1.42, r"$\Pr(\eta\mid\mu,a,s)=\Pr(\eta\mid a,s)$", ha="center", va="center", fontsize=10.4, color=blanket_edge)
 
     ax.text(1.75, 1.55, "external states", ha="left", va="center", fontsize=10.5, color=PALETTE["muted"])
     ax.text(1.72, -1.28, "not read off\nwithout assumptions", ha="left", va="center", fontsize=9.2, color=PALETTE["red"], linespacing=1.0)
@@ -113,12 +113,12 @@ def draw_markov_blanket_achievement(output_dir: Path) -> Path:
         (0, -1.98),
         (4.0, 0.54),
         PALETTE["muted"],
-        "The formal boundary is useful; the ontology is bounded.",
+        "Formal boundary is useful;\nbiology needs extra premises.",
         face="white",
         title_size=11.2,
     )
 
-    ax.set_title("Markov blanket as model-bound achievement", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Markov blanket as an achieved model boundary with explicit ontological restraint", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "markov_blanket_achievement.png")
 
 def draw_explanatory_complementarity_matrix(output_dir: Path) -> Path:
@@ -203,12 +203,12 @@ def draw_explanatory_complementarity_matrix(output_dir: Path) -> Path:
     ax.text(
         origin_x + n * cell_size / 2,
         caption_y,
-        "Each pair of questions contributes independently — no question subsumes another.",
+        "Diagonal = named mode; + = coordinated view without subsumption.",
         ha="center",
         va="center",
         fontsize=9.8,
         color=PALETTE["muted"],
     )
 
-    ax.set_title("Tinbergen questions are complementary, not rival", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Tinbergen questions coordinate across the grid without reducing one mode to another", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "explanatory_complementarity_matrix.png")

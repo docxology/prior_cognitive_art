@@ -16,10 +16,10 @@ manuscript. Each entry has:
 - `freshness` — `stable` or `current`
 - `artifact_path` — path to the source artifact
 
-The ledger currently has 16 entries covering the Tinbergen crossed-axes framing,
+The ledger currently has 24 entries covering the Tinbergen crossed-axes framing,
 the no-simulation boundary, the three termination moves, the formal symbol
 closure, the generated integrity token, the regress-shape parallel, the
 selection filter, the fixed-point category shift, the decomposition caution,
 niche co-construction, blanket achievement, explanatory complementarity,
 claim dependency closure, active inference bridge, variational closure, and
-scale invariance.
+scale recurrence, plus the bounded art and upstream-first-prior additions.

@@ -1,16 +1,18 @@
-# Introduction {#sec:introduction}
+# Introduction: Why the Question of a Prior's Origin Needs More Than Ontogeny {#sec:introduction}
 
-The question "why is there a prior?" becomes unstable when the answer is only
+The question "why is there a prior?" is ill-typed until the explanatory kind is
+identified. It becomes unstable when the answer is only
 "because an earlier process selected it." That move is not wrong, but it is
 developmental, and developmental answers naturally invite another question about
 where the selecting process came from. This is the same shape as the hyperprior
 problem in hierarchical Bayes: a prior receives another prior above it, which
 receives another, until the account stops by convention or by a stronger
-explanatory rule [@jaynes2003probability; @pearl2009causality;
+explanatory rule. The paper therefore treats "why" as a typed request, not as a
+license to stack levels indefinitely [@jaynes2003probability; @pearl2009causality;
 @gelman2013philosophy].
 
 Tinbergen's four questions help locate the issue [@tinbergen1963aims;
-@bateson2004toward; @bergman2022leveling]. The questions are often read as a
+@mayr1961cause; @bateson2004toward; @bergman2022leveling]. The questions are often read as a
 ladder, but for this manuscript they are a grid. One axis asks whether the
 account is proximate or ultimate. The other asks whether the account is static
 or developmental.
@@ -19,6 +21,11 @@ proximate-developmental; phylogeny is ultimate-developmental. The four questions
 are not four rungs of a single explanatory climb; they are four cells of a
 two-by-two map, and the regress pressure arises when one cell is asked to carry
 the load of all four.
+
+This grid is an explicit analytic re-description, not a claim that Tinbergen's
+framework is uniquely or naturally a Cartesian product. Bergman and Beehner's
+causes/consequences leveling is compatible as a reorganization, but it does not
+license treating the two-axis map as an empirical taxonomy [@bergman2022leveling].
 
 An ontogenetic answer keeps an important part of the story: it explains how a
 prior was acquired or tuned in an individual history. It cannot carry the entire
@@ -29,12 +36,17 @@ organized so that "having a prior" is the right description
 problem appears when a prior is justified by a hyperprior, and the hyperprior
 by another hyperprior. The iteration is technically harmless — it just produces
 a deeper model — but it is explanatorily inert unless a termination condition
-is named that is not itself another prior [@gelman2013philosophy].
+is named that is not itself another prior [@gelman2013philosophy; @bernardo1979reference].
 
 The free energy principle provides the most developed contemporary site for
 this problem. A system that minimizes variational free energy under a Markov
-blanket can be described as instantiating a generative model, and the
-sufficient statistics of that model function as priors
+blanket can be described as instantiating a generative model. Here, *prior*
+means a distribution or parameterization supplied before the current update;
+*posterior* means the distribution after conditioning; and *prior-like*
+means a broader organizational constraint that may support inference without
+being a Bayesian prior in that narrow sense. Sufficient statistics of a model
+are therefore not automatically priors: the manuscript uses them only when
+their role is explicitly identified as a prior or prior-like constraint
 [@friston2010free; @friston2013life; @hohwy2016self]. But the Markov blanket
 must be used with care. In active-inference work it is a statistical boundary
 within a model of the system; in stronger biological readings it is connected
@@ -51,7 +63,8 @@ what the system maintains, then "where did the prior come from?" is not
 answered by naming another prior above it. The answer must either be pragmatic
 (stop here for calculation), selective (filter by viability), or fixed-point
 (the system is the prior-like settlement, not a bearer of one more hidden
-prior).
+prior). These are the paper's three organizing families, not a claim that the
+space of explanatory stops is exhausted by them.
 
 The harder upstream version asks what comes before the first prior, or what
 could count as a bias before explicit bias. The manuscript treats that question
@@ -101,6 +114,7 @@ with priors and prediction errors. Material-engagement and extended-mind work
 make the analogy more public and embodied: art-making uses artifacts, media,
 and situated practice to make expectations available for inspection rather
 than keeping them inside the head [@dewey1934art; @clark1998extended;
+@varela1991embodied; @thompson2007mind;
 @malafouris2013things; @noe2015strange; @wynn2021four_e]. None of this
 supports a stronger conclusion that art is reducible to prediction-error
 optimization, that aesthetic value is the same as epistemic value, or that the

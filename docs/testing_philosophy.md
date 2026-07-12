@@ -18,7 +18,7 @@ temporary directories (via `tmp_path`) or the project `output/` directory.
 
 ## Current test suite
 
-77 tests, 100% coverage target on `src/`:
+The project test suite targets full coverage of `src/` and includes:
 
 - `test_conceptual_model.py` — concept inventory and contract validation
 - `test_analysis_workflow.py` — pipeline output and figure generation

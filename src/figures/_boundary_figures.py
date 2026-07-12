@@ -6,8 +6,6 @@ from ._shared import (
     PALETTE,
     Circle,
     Ellipse,
-    FancyArrowPatch,
-    Polygon,
     Rectangle,
     _arrow,
     _box,
@@ -113,13 +111,13 @@ def draw_source_claim_boundary_map(output_dir: Path) -> Path:
     ax.text(
         6.48,
         0.66,
-        "Perplexity discovers candidates; direct source checks decide what enters the paper.",
+        "Discovery proposes candidates; verification and claim boundaries decide what enters prose, formalisms, and figures.",
         ha="center",
         va="center",
         fontsize=10.5,
         color=PALETTE["muted"],
     )
-    ax.set_title("Source-to-claim boundary map", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Source-to-claim boundary map for disciplined scholarship promotion", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "source_claim_boundary_map.png")
 
 
@@ -176,7 +174,7 @@ def draw_markov_blanket_scope_split(output_dir: Path) -> Path:
     _arrow(ax, (7.35, 4.35), (8.2, 4.8), color=PALETTE["red"], lw=1.6)
     _arrow(ax, (7.35, 3.05), (8.2, 2.55), color=PALETTE["green"], lw=1.6)
 
-    ax.set_title("Markov blanket scope split", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Markov blanket scope split separates notation, model boundary, and biological realization", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "markov_blanket_scope_split.png")
 
 def draw_niche_prior_feedback_field(output_dir: Path) -> Path:
@@ -211,15 +209,15 @@ def draw_niche_prior_feedback_field(output_dir: Path) -> Path:
     _arrow(ax, (0.7, 6.28), (0.7, 1.05), color=PALETTE["muted"], lw=1.2, mutation_scale=12)
     ax.text(0.42, 3.65, "timescale", ha="center", va="center", fontsize=10.0, color=PALETTE["muted"], rotation=90)
 
-    ax.add_patch(Rectangle((2.25, 0.34), 7.0, 0.56, facecolor="white", edgecolor=PALETTE["line"], lw=1.4))
+    ax.add_patch(Rectangle((2.25, 0.16), 7.0, 0.48, facecolor="white", edgecolor=PALETTE["line"], lw=1.4))
     ax.text(
         5.75,
-        0.62,
-        "The field stabilizes through recurrent organism-niche coupling, not one-way inheritance.",
+        0.40,
+        "The field stabilizes through recurrent organism-niche coupling across fast action, development, and culture.",
         ha="center",
         va="center",
-        fontsize=10.3,
+        fontsize=9.8,
         color=PALETTE["muted"],
     )
-    ax.set_title("Niche-prior feedback field across timescales", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Niche-prior feedback field shows how slower supports shape fast prior-like action", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "niche_prior_feedback_field.png")

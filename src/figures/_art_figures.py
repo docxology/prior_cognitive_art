@@ -80,5 +80,5 @@ def draw_aesthetic_prior_craft_map(output_dir: Path) -> Path:
     )
     _arrow(ax, (9.72, 3.55), (9.92, 3.55), color=PALETTE["red"], lw=1.45, mutation_scale=12)
 
-    ax.set_title("Aesthetic prior-craft: art stages bounded encounters with priors", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Aesthetic prior-craft shows how art stages bounded encounters with expectation", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "aesthetic_prior_craft_map.png")

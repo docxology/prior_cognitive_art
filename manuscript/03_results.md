@@ -1,11 +1,14 @@
-# Visual Atlas {#sec:visual-atlas}
+# Visual Atlas: Eighteen Deterministic Argument Diagrams {#sec:visual-atlas}
 
 This section is called a visual atlas rather than results because the paper does
-not run experiments. The figures are conceptual artifacts generated from the
-static source inventory; the one deterministic simulation trace is an
-authored formal-state sequence, not stochastic sampling or empirical evidence.
-They visualize the argument developed in [@sec:method] and are formally indexed
-in [@sec:formal-supplement].
+not run experiments. It contains {{VISUAL_ATLAS_FIGURE_COUNT}} conceptual
+argument diagrams generated from the static source inventory. The complete
+21-figure set also includes {{FORMAL_SUPPLEMENT_FIGURE_COUNT}} contract diagrams
+in [@sec:formal-supplement]; those supplement figures validate claims, symbols,
+and text rather than add new substantive arguments. The one deterministic
+simulation trace is an authored formal-state sequence, not stochastic sampling
+or empirical evidence. Every figure is source-owned, captioned, and given
+generated accessibility text.
 
 ## Tinbergen Axes
 
@@ -16,7 +19,7 @@ work that re-levels Tinbergen into causes and consequences sharpens the same
 point: the questions can be reorganized, but they cannot be collapsed into one
 explanatory kind [@bergman2022leveling].
 
-![Tinbergen's four questions are rendered as a crossed explanatory grid, where ontogeny creates regress pressure only when it is forced to answer for mechanism, function, and phylogeny as well.](../output/figures/tinbergen_axes.png){#fig:tinbergen_axes}
+![{{FIGURE_ALT_TINBERGEN_AXES}}](../output/figures/tinbergen_axes.png){#fig:tinbergen_axes}
 
 ## Hyperprior Regress And Termination
 
@@ -29,7 +32,7 @@ workflow discipline: a prior is justified by model adequacy and regularization,
 not by discovering an ultimate meta-prior [@gelman2013philosophy;
 @simpson2017penalising].
 
-![A prior can always be placed under another prior; the figure therefore compares pragmatic modeling stops, selection filters, and fixed-point category shifts as three bounded ways to end the regress.](../output/figures/regress_terminations.png){#fig:regress_terminations}
+![{{FIGURE_ALT_REGRESS_TERMINATIONS}}](../output/figures/regress_terminations.png){#fig:regress_terminations}
 
 ## Prior As Settled Equilibrium
 
@@ -39,7 +42,7 @@ is the settled organization of perception, action, and boundary maintenance that
 persists. This is where the argument sits closest to free-energy and
 autopoietic readings of cognition [@friston2010free; @maturana1980autopoiesis].
 
-![A circular equilibrium map treats the prior as the settled organization X* = Phi(X*) of blanket persistence, action-perception closure, and environmental viability, not as another object behind the system.](../output/figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
+![{{FIGURE_ALT_PRIOR_EQUILIBRIUM_MAP}}](../output/figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
 
 ## Ontogeny And Hyperprior Shape
 
@@ -50,17 +53,19 @@ current prior can be justified by a developmental selector, which can then be
 asked to justify its own source. The point is not that these are the same
 substantive theory. The point is that they share a regress shape.
 
-![Two parallel chains compare hierarchical Bayes with ontogeny-only explanation; the red bracket marks a shared deferral pattern, not an identity between Bayesian models and developmental biology.](../output/figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
+![{{FIGURE_ALT_ONTOGENY_HYPERPRIOR_PARALLEL}}](../output/figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
 
 ## Selection Filter
 
-[@fig:selection_filter] distinguishes selection termination from merely adding
-another historical layer. Function and phylogeny do not explain persistence by
-placing one more prior behind the prior. They filter the space of candidate
-forms: fragile, overfit, or miscalibrated priors do not remain available as the
-objects whose origin we ask about.
+[@fig:selection_filter] distinguishes selection closure from merely adding
+another historical layer. Function and phylogeny do not answer every sense of
+"why" the prior exists; they explain persistence by filtering the space of
+candidate forms. Fragile, overfit, or miscalibrated priors do not remain
+available as the objects whose origin we ask about. The figure therefore
+represents a selection-based closure of the availability question, not a
+complete causal history of the individual prior.
 
-![Candidate prior-like forms pass through a function-plus-phylogeny viability filter; nonviable forms drop out, so persistence is explained without adding another hidden selector.](../output/figures/selection_filter.png){#fig:selection_filter}
+![{{FIGURE_ALT_SELECTION_FILTER}}](../output/figures/selection_filter.png){#fig:selection_filter}
 
 ## Policy Entanglement Bridge
 
@@ -71,7 +76,7 @@ cuts rather than proof that the factors were ontologically first. This is the
 same explanatory posture as fixed-point termination: organization can precede
 the decomposition that later makes it legible.
 
-![A joint organization feeds lambda-decomposition, which extracts policy, prior-like constraint, and state factor as useful analytic cuts without proving that those factors were ontologically first.](../output/figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
+![{{FIGURE_ALT_POLICY_ENTANGLEMENT_BRIDGE}}](../output/figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
 
 ## Niche Co-Construction
 
@@ -82,7 +87,7 @@ that the filter is not purely external. The prior is not fully given by the
 environment nor fully endogenous; it is co-shaped by the reciprocal interaction
 [@odling_smee2003niche; @laland2000niche; @constant2018free].
 
-![Organism, prior, and niche are drawn as a reciprocal loop: the niche is not passive, the organism is not sealed, and selection filters a field partly built by organism-niche coupling.](../output/figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
+![{{FIGURE_ALT_NICHE_CONSTRUCTION_DIAGRAM}}](../output/figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
 
 ## Markov Blanket As Achievement
 
@@ -95,7 +100,7 @@ not a parameter received from a higher level [@kirchhoff2018markov;
 recent critiques: the notation is not enough by itself to settle organismal or
 cognitive ontology [@bruineberg2022emperor; @raja2021markov].
 
-![The Markov blanket is shown as an achieved model boundary M = Phi(X*) that can organize conditional-dependence claims without directly settling literal organismal or cognitive ontology.](../output/figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
+![{{FIGURE_ALT_MARKOV_BLANKET_ACHIEVEMENT}}](../output/figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
 
 ## Explanatory Complementarity
 
@@ -104,18 +109,19 @@ complementary perspectives rather than rival hypotheses. The regress appears
 when one question is asked to carry the load of all four; the framework itself
 does not force it [@bateson2004toward; @bergman2022leveling].
 
-![A 4x4 matrix asks each Tinbergen question in relation to every other question, showing complementarity and coordination without allowing one explanatory mode to subsume the rest.](../output/figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
+![{{FIGURE_ALT_EXPLANATORY_COMPLEMENTARITY_MATRIX}}](../output/figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
 
 ## Active Inference Cycle
 
 [@fig:active_inference_cycle] shows how active inference closes the
-action-perception loop. The prior serves a process that minimizes free energy
-through both inference and action, not inference alone
+action-perception loop. The prior serves a coupled process in which variational
+free energy evaluates approximate inference and expected free energy evaluates
+policy selection; the two objectives should not be conflated
 [@friston2012agency; @friston2015active; @da_costa2020active]. This closes the explanatory loop:
 the prior is not merely a parameter for belief updating but a constraint on the
 coupled perception-action system.
 
-![A circular active-inference cycle links perception, inference, action, and policy selection so the prior serves a closed action-perception process rather than passive belief updating alone.](../output/figures/active_inference_cycle.png){#fig:active_inference_cycle}
+![{{FIGURE_ALT_ACTIVE_INFERENCE_CYCLE}}](../output/figures/active_inference_cycle.png){#fig:active_inference_cycle}
 
 ## Variational Free Energy Landscape
 
@@ -127,7 +133,7 @@ posterior structure can approach a target posterior without turning the prior's
 origin into an empirical result [@friston2010free; @friston2013life;
 @blei2017variational; @friston2023simpler].
 
-![A variational-bound landscape shows a relative model-internal minimum where an approximate posterior approaches a target posterior, without implying literal zero free energy or empirical derivation of prior origins.](../output/figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
+![{{FIGURE_ALT_VARIATIONAL_FREE_ENERGY_LANDSCAPE}}](../output/figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
 
 ## Deterministic Simulation Trace
 
@@ -139,29 +145,29 @@ fixed-point settlement. The figure does not model cognition, sample outcomes,
 estimate effects, or report performance; it makes the formal state transition
 surface inspectable.
 
-![A deterministic simulation trace shows formal state order from prior question through regress, Tinbergen partition, termination choice, and fixed-point settlement without stochastic sampling or empirical claims.](../output/figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
+![{{FIGURE_ALT_DETERMINISTIC_SIMULATION_TRACE}}](../output/figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
 
-## Scale Invariance
+## Scale Recurrence
 
-[@fig:scale_invariance_diagram] shows that the regress-termination problem
+[@fig:scale_recurrence_diagram] shows that the regress-termination problem
 recurs at multiple scales. The fixed-point move applies at the cellular,
 organismic, and social levels without requiring a new hidden prior at each
 transition [@friston2013life; @kirchhoff2018markov]. The same category shift
 applies recursively: the prior-like settlement at one scale becomes the
 substrate for the next.
 
-![Three stacked panels repeat the same fixed-point grammar at cellular, organismic, and social scales, connected by R, to show recurrence of the termination problem rather than scale-free empirical proof.](../output/figures/scale_invariance_diagram.png){#fig:scale_invariance_diagram}
+![{{FIGURE_ALT_SCALE_RECURRENCE_DIAGRAM}}](../output/figures/scale_recurrence_diagram.png){#fig:scale_recurrence_diagram}
 
 ## Source-Claim Boundary Map
 
 [@fig:source_claim_boundary_map] makes the scholarship contract visible. The
-publication pass does not treat every discovered source as equal. Perplexity
-surfaces candidates; primary or scholarly verification decides whether a source
+publication pass does not treat every discovered source as equal. Discovery
+scans surface candidates; primary or scholarly verification decides whether a source
 is accepted, rejected, or deferred; and only accepted sources attached to claim
 ledger entries reach the manuscript. This is the paper's answer to citation
 inflation: sources enter only where they bound or strengthen a live claim.
 
-![Discovery candidates pass through scholarly verification, accepted and rejected/deferred layers, and the claim ledger before they can reach manuscript claims, formal inventory, or the visual atlas.](../output/figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
+![{{FIGURE_ALT_SOURCE_CLAIM_BOUNDARY_MAP}}](../output/figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
 
 ## Aesthetic Prior-Craft Map
 
@@ -178,7 +184,7 @@ with expectation, affordance, accident, affect, and meaning
 [@dewey1934art; @noe2015strange; @malafouris2013things;
 @malafouris2023enactychism].
 
-![Predictive aesthetics, 4E and material-engagement art, and neuroaesthetic scope feed a bounded prior-craft claim, while the claim ceiling rejects total theories of art, intention, culture, or neural updating.](../output/figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
+![{{FIGURE_ALT_AESTHETIC_PRIOR_CRAFT_MAP}}](../output/figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
 
 ## Markov Blanket Scope Split
 
@@ -189,7 +195,7 @@ the argument use Markov blankets as part of fixed-point explanation while
 preserving the critical distinction emphasized by the recent debate
 [@bruineberg2022emperor; @raja2021markov].
 
-![A three-layer scope diagram separates conditional-independence structures, active-inference model boundaries, and realized biological boundaries that require additional dynamical and philosophical premises.](../output/figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
+![{{FIGURE_ALT_MARKOV_BLANKET_SCOPE_SPLIT}}](../output/figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
 
 ## Niche-Prior Feedback Field
 
@@ -201,7 +207,7 @@ constraint on selection termination: what persists is partly produced by the
 system-niche loop that selection later filters [@constant2018free;
 @stotz2017developmental; @baltieri2022extended; @laland2000niche].
 
-![A layered feedback field shows organismic action, developmental resources, and cultural inheritance stabilizing a prior-like field across timescales without turning niche construction into a fourth termination stop.](../output/figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
+![{{FIGURE_ALT_NICHE_PRIOR_FEEDBACK_FIELD}}](../output/figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
 
 ## Before The First Prior
 
@@ -214,8 +220,12 @@ paper's scope: some forms are regulatable and reachable before they are
 available as explicit priors [@ciaunica2021first_prior;
 @allen2018body_first_prior; @sterling2012allostasis].
 
-![A constraint stack shows viability, homeostatic and allostatic regulation, co-embodiment and co-homeostasis, developmental tuning, and learned cultural priors while rejecting a hidden prior-before-priors.](../output/figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
+![{{FIGURE_ALT_FIRST_PRIOR_GROUNDING_STACK}}](../output/figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
 
 ## Figure Manifest
+
+The visual atlas contains {{VISUAL_ATLAS_FIGURE_COUNT}} argument diagrams. The
+formal supplement adds {{FORMAL_SUPPLEMENT_FIGURE_COUNT}} contract diagrams,
+for {{FIGURE_COUNT}} source-owned visualizations in total.
 
 {{VISUALIZATION_MANIFEST}}

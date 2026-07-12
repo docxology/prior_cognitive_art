@@ -4,6 +4,7 @@ from pathlib import Path
 from src.analysis.workflow import build_conceptual_report, run_analysis_pipeline
 from src.conceptual_model import (
     claim_dependencies,
+    claim_grounding,
     deterministic_simulation_trace,
     figure_specs,
     formal_claims,
@@ -24,13 +25,25 @@ def test_build_conceptual_report_has_bounded_deterministic_simulation_scope(tmp_
     assert report["symbol_count"] == len(symbol_glossary())
     assert report["text_validation_count"] == len(text_validation_checks())
     assert report["claim_dependency_count"] == len(claim_dependencies())
+    assert report["claim_grounding_count"] == len(claim_grounding())
+    assert report["claim_grounding_errors"] == []
+    assert set(report["generation"]) == {"generated_at", "python_version", "platform"}
     assert report["deterministic_simulation_step_count"] == len(deterministic_simulation_trace())
     assert report["contract_errors"] == []
     assert len(report["quadrants"]) == 4
 
 
 def test_run_analysis_pipeline_writes_manifest_and_figures(tmp_path: Path) -> None:
+    legacy_stem = "scale_" + "invariance_diagram"
+    stale_png = tmp_path / "output" / "figures" / f"{legacy_stem}.png"
+    stale_svg = tmp_path / "output" / "figures" / f"{legacy_stem}.svg"
+    stale_png.parent.mkdir(parents=True, exist_ok=True)
+    stale_png.write_bytes(b"stale")
+    stale_svg.write_text("<svg />", encoding="utf-8")
+
     paths = run_analysis_pipeline(tmp_path)
+    assert not stale_png.exists()
+    assert not stale_svg.exists()
     assert paths["conceptual_report"].exists()
     assert paths["conceptual_map"].exists()
     assert paths["deterministic_simulation_trace"].exists()
@@ -79,7 +92,7 @@ def test_run_analysis_pipeline_writes_manifest_and_figures(tmp_path: Path) -> No
         "fig:active_inference_cycle",
         "fig:variational_free_energy_landscape",
         "fig:deterministic_simulation_trace",
-        "fig:scale_invariance_diagram",
+        "fig:scale_recurrence_diagram",
         "fig:source_claim_boundary_map",
         "fig:aesthetic_prior_craft_map",
         "fig:markov_blanket_scope_split",

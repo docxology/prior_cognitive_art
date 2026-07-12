@@ -2,6 +2,7 @@ import pytest
 
 from src.conceptual_model import (
     claim_dependencies,
+    claim_grounding,
     conceptual_integrity_token,
     deterministic_simulation_trace,
     figure_specs,
@@ -12,6 +13,7 @@ from src.conceptual_model import (
     text_validation_checks,
     used_symbol_keys,
     validate_claim_dependencies,
+    validate_claim_grounding,
     validate_conceptual_contract,
 )
 
@@ -51,13 +53,25 @@ def test_argument_and_figure_manifest_are_aligned() -> None:
         "active_inference_cycle.png",
         "variational_free_energy_landscape.png",
         "deterministic_simulation_trace.png",
-        "scale_invariance_diagram.png",
+        "scale_recurrence_diagram.png",
         "source_claim_boundary_map.png",
         "aesthetic_prior_craft_map.png",
         "markov_blanket_scope_split.png",
         "niche_prior_feedback_field.png",
         "first_prior_grounding_stack.png",
     ]
+
+
+def test_figure_metadata_partitions_and_describes_every_figure() -> None:
+    figures = figure_specs()
+    assert sum(item.section == "Visual Atlas" for item in figures) == 18
+    assert sum(item.section == "Formal Supplement" for item in figures) == 3
+    assert all(item.caption and item.alt_text and item.section for item in figures)
+    assert {item.key for item in figures if item.section == "Formal Supplement"} == {
+        "formal_claim_dependency_map",
+        "symbol_glossary_closure",
+        "text_validation_ladder",
+    }
 
 
 def test_formal_supplement_contract_is_closed() -> None:
@@ -75,7 +89,7 @@ def test_formal_supplement_contract_is_closed() -> None:
         "Explanatory complementarity",
         "Active inference bridge",
         "Variational closure",
-        "Scale invariance",
+        "Scale recurrence",
         "Deterministic trace boundary",
     ]
     assert len(symbols) == len(used_symbol_keys())
@@ -87,6 +101,7 @@ def test_formal_supplement_contract_is_closed() -> None:
         "token_hydration",
         "integrity_signature",
         "claim_dependency_closure",
+        "claim_grounding_closure",
         "metadata_keyword_consistency",
         "citation_resolution",
         "figure_count_consistency",
@@ -113,6 +128,11 @@ def test_claim_dependencies_have_rationales() -> None:
         assert dep.target_claim
         assert dep.rationale
         assert dep.source_claim != dep.target_claim
+
+
+def test_claim_grounding_covers_every_formal_claim() -> None:
+    assert len(claim_grounding()) == 12
+    assert validate_claim_grounding() == ()
 
 
 def test_deterministic_trace_is_finite_ordered_formal_contract() -> None:

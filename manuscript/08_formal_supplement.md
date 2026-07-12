@@ -1,4 +1,4 @@
-# Formal Supplement {#sec:formal-supplement}
+# Formal Supplement: Minimal Notation for Regress, Closure, and Validation {#sec:formal-supplement}
 
 The formal layer is deliberately small. It does not claim an empirical model,
 and its deterministic illustrative simulation trace does not introduce
@@ -8,8 +8,11 @@ in [@sec:method].
 
 The source layer currently generates {{FORMAL_CLAIM_COUNT}} formal claims,
 {{SYMBOL_COUNT}} glossary rows, {{TEXT_VALIDATION_COUNT}} text-validation
-checks, and {{CLAIM_DEPENDENCY_COUNT}} claim dependency edges. The inventory
-token for this version is `{{CONCEPTUAL_INTEGRITY_TOKEN}}`.
+checks, {{CLAIM_DEPENDENCY_COUNT}} claim dependency edges, and
+{{CLAIM_GROUNDING_COUNT}} source-grounding edges. The inventory
+token for this version is `{{CONCEPTUAL_INTEGRITY_TOKEN}}`. This section owns
+{{FORMAL_SUPPLEMENT_FIGURE_COUNT}} contract diagrams from the 21-figure set;
+the other {{VISUAL_ATLAS_FIGURE_COUNT}} figures belong to the argument atlas.
 
 ## Deterministic Trace Contract
 
@@ -31,16 +34,22 @@ publication-package validation failure, not as a harmless visualization drift.
 
 {{FORMAL_CLAIMS}}
 
-## Claim Dependency Graph
+## Claim Grounding Map
 
-The formal claims are not independent. Each claim builds on earlier ones.
+The formal claims are not independent. Each edge records argumentative support
+or provenance, not a theorem-level entailment; in particular, a fixed-point
+description does not by itself entail a biological Markov blanket.
 {{CLAIM_DEPENDENCIES}}
 
-[@fig:formal_claim_dependency_map] shows how the numbered claims are generated
-from the same conceptual records that feed the prose, figure registry, and
-tests.
+The grounding edges are a separate provenance surface: they identify which
+named source record anchors each numbered claim.
 
-![A dependency map shows F1-F12 as generated views over Tinbergen axes, regress shape, termination moves, joint structure, niche, blanket, complementarity, and deterministic trace-boundary records, so formal labels cannot drift from prose or figures.](../output/figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
+{{CLAIM_GROUNDING}}
+
+[@fig:formal_claim_dependency_map] shows how the numbered claims are grounded
+in the same conceptual records that feed the prose, figure registry, and tests.
+
+![{{FIGURE_ALT_FORMAL_CLAIM_DEPENDENCY_MAP}}](../output/figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
 
 ## Symbol Glossary
 
@@ -57,7 +66,7 @@ notation rather than project-specific symbols.
 [@fig:symbol_glossary_closure] visualizes the closure check. A missing symbol
 row or an unused glossary row is treated as a source-contract error.
 
-![Used-symbol and glossary sets close exactly: every symbol used by a formal claim is glossaryed, and every glossary row is used, turning notation into a fail-closed source contract.](../output/figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
+![{{FIGURE_ALT_SYMBOL_GLOSSARY_CLOSURE}}](../output/figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
 
 ## Text-Integrity Checks
 
@@ -76,4 +85,4 @@ guard the project contract.
 records hydrate the manuscript, figures, reports, and registry, and those
 surfaces are checked again at render time.
 
-![The validation ladder treats the manuscript as a generated artifact: source records hydrate reports, figures, token injections, and rendered surfaces, then validation checks the same claims after generation.](../output/figures/text_validation_ladder.png){#fig:text_validation_ladder}
+![{{FIGURE_ALT_TEXT_VALIDATION_LADDER}}](../output/figures/text_validation_ladder.png){#fig:text_validation_ladder}

@@ -55,7 +55,7 @@ def draw_tinbergen_axes(output_dir: Path) -> Path:
     ax.text(1.5, 2.02, "ultimate", ha="center", va="bottom", fontsize=12, color=PALETTE["muted"], weight="bold")
     ax.text(-0.12, 1.5, "static", ha="right", va="center", fontsize=12, color=PALETTE["muted"], rotation=90, weight="bold")
     ax.text(-0.12, 0.5, "developmental", ha="right", va="center", fontsize=12, color=PALETTE["muted"], rotation=90, weight="bold")
-    ax.set_title("Tinbergen's questions are crossed axes, not stacked levels", fontsize=17, color=PALETTE["ink"], pad=22)
+    ax.set_title("Tinbergen's crossed axes show where prior-origin questions change kind", fontsize=17, color=PALETTE["ink"], pad=22)
     return _save(fig, output_dir / "tinbergen_axes.png")
 
 def draw_regress_terminations(output_dir: Path) -> Path:
@@ -76,7 +76,7 @@ def draw_regress_terminations(output_dir: Path) -> Path:
     for start, end in [((1.64, 5.12), (2.02, 5.12)), ((3.28, 5.12), (3.9, 5.12)), ((5.2, 5.12), (5.85, 5.12))]:
         _arrow(ax, start, end, color=PALETTE["muted"], lw=1.4)
     ax.text(6.05, 5.05, "...", fontsize=22, color=PALETTE["muted"])
-    ax.text(7.15, 5.26, "iteration is easy;\ntermination is the explanation", fontsize=11, color=PALETTE["red"], linespacing=1.05)
+    ax.text(7.15, 5.26, "iteration is easy;\nclosure names the stop", fontsize=11, color=PALETTE["red"], linespacing=1.05)
     _arrow(ax, (7.02, 4.95), (7.02, 4.25), color=PALETTE["red"], lw=1.8)
 
     display = {
@@ -94,7 +94,7 @@ def draw_regress_terminations(output_dir: Path) -> Path:
         ax.text(4.05, y - 0.17, answer, fontsize=9.6, color=PALETTE["ink"], va="center")
         ax.text(6.82, y - 0.02, f"limit: {limit}", fontsize=9.5, color=PALETTE["muted"], va="center")
 
-    ax.set_title("The regress stops when a termination rule replaces the next hyperprior", fontsize=16, color=PALETTE["ink"], pad=14)
+    ax.set_title("A hyperprior chain stops only when a termination rule changes the question", fontsize=16, color=PALETTE["ink"], pad=14)
     return _save(fig, output_dir / "regress_terminations.png")
 
 def draw_prior_equilibrium_map(output_dir: Path) -> Path:
@@ -140,7 +140,7 @@ def draw_prior_equilibrium_map(output_dir: Path) -> Path:
         fontsize=9.8,
         color=PALETTE["muted"],
     )
-    ax.set_title("Prior as self-individuating equilibrium", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Prior as settled organization maintained by blanket, action, and viability loops", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "prior_equilibrium_map.png")
 
 def draw_ontogeny_hyperprior_parallel(output_dir: Path) -> Path:
@@ -193,7 +193,7 @@ def draw_ontogeny_hyperprior_parallel(output_dir: Path) -> Path:
         fontsize=11.5,
         color=PALETTE["ink"],
     )
-    ax.set_title("Ontogeny-only explanation has the same shape as a hyperprior chain", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Ontogeny-only explanation repeats the hyperprior chain's deferral shape", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "ontogeny_hyperprior_parallel.png")
 
 def draw_selection_filter(output_dir: Path) -> Path:
@@ -231,5 +231,5 @@ def draw_selection_filter(output_dir: Path) -> Path:
     _arrow(ax, (6.68, 3.05), (7.9, 3.05), color=topic_pair("selection")[0], lw=2, mutation_scale=17)
     _box(ax, (8.62, 3.05), (1.58, 1.36), topic_pair("selection")[0], "persisting\nprior", "available because\nit lasted", face="white", title_size=12.2, subtitle_size=9.2)
     ax.text(1.18, 5.55, "candidate forms", ha="center", fontsize=10.5, color=PALETTE["muted"], weight="bold")
-    ax.set_title("Selection termination blocks regress by filtering what can persist", fontsize=16, color=PALETTE["ink"], pad=16)
+    ax.set_title("Selection closure explains persistence by filtering viable prior-like forms", fontsize=16, color=PALETTE["ink"], pad=16)
     return _save(fig, output_dir / "selection_filter.png")

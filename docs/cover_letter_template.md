@@ -33,7 +33,7 @@ filtering, or self-referential fixed-point organization.
 
 The contribution is conceptual and methodological. It does not report empirical
 results or simulations. Instead, it provides a bounded argument inventory, a
-claim ledger, and 19 deterministic conceptual figures that make the explanatory
+claim ledger, and 21 deterministic conceptual figures that make the explanatory
 boundaries inspectable. The manuscript also includes a deliberately bounded
 Markov blanket treatment, separating model-level use from realized-boundary
 interpretations and critique-sensitive metaphysical overreach.

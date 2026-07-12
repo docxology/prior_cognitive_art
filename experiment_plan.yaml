@@ -41,7 +41,7 @@ expected_figures:
   - fig:active_inference_cycle
   - fig:variational_free_energy_landscape
   - fig:deterministic_simulation_trace
-  - fig:scale_invariance_diagram
+  - fig:scale_recurrence_diagram
   - fig:source_claim_boundary_map
   - fig:aesthetic_prior_craft_map
   - fig:markov_blanket_scope_split

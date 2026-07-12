@@ -1,0 +1,50 @@
+/* Project-owned overrides appended after the shared Pandoc stylesheet. */
+html {
+  background: #fdfdfd;
+}
+
+body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 2rem;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+figure {
+  margin: 1rem 0 1.25rem;
+}
+
+figure img,
+figure svg {
+  display: block;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem 0.45rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+}

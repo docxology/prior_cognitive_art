@@ -13,7 +13,9 @@ This file contains LaTeX packages and commands that are automatically injected i
 
 % Document layout
 \usepackage{geometry}
-\geometry{margin=0.25in}
+% Compact preprint geometry: keep a small print-safe frame while using the
+% page width for figures and dense conceptual tables.
+\geometry{left=0.15in,right=0.15in,top=0.24in,bottom=0.24in}
 \usepackage{float}
 \usepackage{graphicx}
 
@@ -32,6 +34,15 @@ This file contains LaTeX packages and commands that are automatically injected i
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage[binary-units]{siunitx}
+
+% The manuscript is intentionally information-dense. Keep the title page's
+% explicit sizes intact while giving the body a compact, readable baseline.
+\AtBeginDocument{%
+  \fontsize{9.5pt}{11.3pt}\selectfont
+  \setlength{\parskip}{0.28em}
+  \setlength{\abovedisplayskip}{0.45em}
+  \setlength{\belowdisplayskip}{0.45em}
+}
 
 % Cross-references and citations
 \usepackage{hyperref}

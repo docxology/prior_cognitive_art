@@ -7,9 +7,7 @@ from src.conceptual_model import deterministic_simulation_trace
 from ._shared import (
     PALETTE,
     Circle,
-    Ellipse,
     FancyArrowPatch,
-    Polygon,
     Rectangle,
     _arrow,
     _box,
@@ -88,14 +86,18 @@ def draw_active_inference_cycle(output_dir: Path) -> Path:
             )
         )
 
-    # Centre label
-    ax.text(0, 0, r"$\min \mathcal{F}$", ha="center", va="center", fontsize=17,
+    # Keep the two objectives visibly distinct even though they participate in
+    # one coupled loop.  A single ``min F`` label would invite the exact
+    # inference/policy conflation the manuscript is designed to prevent.
+    ax.text(0, 0.22, r"inference: $\mathcal{F}$", ha="center", va="center", fontsize=13,
             color=PALETTE["ink"], weight="bold")
+    ax.text(0, -0.22, r"policy selection: $G$", ha="center", va="center", fontsize=11.5,
+            color=PALETTE["muted"])
 
     ax.set_xlim(-3.6, 3.6)
     ax.set_ylim(-3.6, 3.95)
     ax.set_title(
-        "Active inference: action and perception close the free-energy loop",
+        "Active inference loop: perception minimizes F while policy selection minimizes G",
         fontsize=14, color=PALETTE["ink"], pad=18,
     )
     return _save(fig, output_dir / "active_inference_cycle.png")
@@ -115,9 +117,17 @@ def draw_variational_free_energy_landscape(output_dir: Path) -> Path:
     relative_range = 1.0 - relative_floor
     Z = relative_floor + relative_range * (1.0 - np.exp(-((X ** 2 + Y ** 2) / 0.5)))
 
-    cf = ax.contourf(X, Y, Z, levels=24, cmap="Blues_r", alpha=0.85)
-    cbar = plt.colorbar(cf, ax=ax, fraction=0.035, pad=0.03)
-    cbar.set_label("Relative variational bound (a.u.)")
+    ax.contourf(X, Y, Z, levels=24, cmap="Blues_r", alpha=0.85)
+    ax.text(
+        2.72,
+        2.82,
+        "relative bound\n(schematic)",
+        ha="right",
+        va="top",
+        fontsize=9.5,
+        color=PALETTE["muted"],
+        bbox=dict(boxstyle="round,pad=0.25", facecolor=PALETTE["paper"], edgecolor=PALETTE["line"], alpha=0.9),
+    )
 
     # Bottom-of-basin contour as a relative KL/bound minimum.
     ax.contour(X, Y, Z, levels=[0.26], colors=[PALETTE["gold"]], linewidths=2.2, linestyles="--")
@@ -156,8 +166,9 @@ def draw_variational_free_energy_landscape(output_dir: Path) -> Path:
     ax.set_aspect("equal")
     ax.set_xlabel("Belief state dimension 1", fontsize=10, color=PALETTE["muted"])
     ax.set_ylabel("Belief state dimension 2", fontsize=10, color=PALETTE["muted"])
+    ax.text(-2.82, 2.86, "schematic geometry; no observations", fontsize=9.5, color=PALETTE["muted"], ha="left", va="top")
     ax.set_title(
-        "Variational bound landscape: relative inferential minimum",
+        "Schematic variational bound: relative settlement without zero-free-energy claims",
         fontsize=14, color=PALETTE["ink"], pad=18,
     )
     return _save(fig, output_dir / "variational_free_energy_landscape.png")
@@ -229,7 +240,7 @@ def draw_deterministic_simulation_trace(output_dir: Path) -> Path:
     ax.text(
         5.0,
         0.82,
-        "Deterministic illustrative simulation: formal state order only.\nNo stochastic sampling, synthetic data, empirical effects, or performance metrics.",
+        "Deterministic illustrative trace: authored formal state order only.\nNo stochastic sampling, synthetic data, empirical effects, transition kernel, or performance metric.",
         ha="center",
         va="center",
         fontsize=9.4,
@@ -237,7 +248,7 @@ def draw_deterministic_simulation_trace(output_dir: Path) -> Path:
         linespacing=1.1,
     )
     ax.set_title(
-        "Deterministic simulation trace over formal states",
+        "Deterministic trace of the argument's formal-state order",
         fontsize=15,
         color=PALETTE["ink"],
         pad=16,
@@ -245,7 +256,7 @@ def draw_deterministic_simulation_trace(output_dir: Path) -> Path:
     return _save(fig, output_dir / "deterministic_simulation_trace.png")
 
 
-def draw_scale_invariance_diagram(output_dir: Path) -> Path:
+def draw_scale_recurrence_diagram(output_dir: Path) -> Path:
     """Three stacked panels: the same fixed-point structure at three scales."""
     fig, axes = plt.subplots(3, 1, figsize=(8, 9))
     fig.patch.set_facecolor(PALETTE["paper"])
@@ -283,16 +294,14 @@ def draw_scale_invariance_diagram(output_dir: Path) -> Path:
         # Use figure.transFigure to place arrows between subplots
         ax_top = axes[idx]
         ax_bot = axes[idx + 1]
-        # Mid-x in axes[idx] data coords -> figure coords via transform
-        mid_x_data = 0.0
         # Place arrow at x=0.42 in figure coords (slightly right of centre)
         fig.text(0.42, (ax_top.get_position().y0 + ax_bot.get_position().y1) / 2,
                  r"$\downarrow \mathbf{R}$",
                  ha="center", va="center", fontsize=14, color=PALETTE["muted"], weight="bold")
 
     fig.suptitle(
-        "Scale invariance: the fixed-point move recurs at each scale",
+        "Scale recurrence: the same fixed-point grammar reappears without proving scale invariance",
         fontsize=14, color=PALETTE["ink"], y=0.98,
     )
     fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.96))
-    return _save(fig, output_dir / "scale_invariance_diagram.png")
+    return _save(fig, output_dir / "scale_recurrence_diagram.png")

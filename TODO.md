@@ -2,10 +2,10 @@
 
 ## Current Status
 
-The project is a conceptual manuscript with 20 generated figures, 11 argument
-modules, 12 formal claims, 23 claim-ledger records, a 28-row symbol glossary,
-10 text-validation checks, 14 claim dependency edges, a conceptual-integrity
-token, and 70 BibTeX records. The current pass adds a deterministic
+The project is a conceptual manuscript with 21 generated figures, 12 argument
+modules, 12 formal claims, 24 claim-ledger records, a 35-row symbol glossary,
+11 text-validation checks, 14 claim dependency edges, 12 claim-grounding edges,
+a conceptual-integrity token, and 81 BibTeX records. The current pass adds a deterministic
 illustrative simulation trace over authored formal states while retaining the
 boundary against stochastic simulations, synthetic-data experiments, empirical
 effect estimates, and performance benchmarks.

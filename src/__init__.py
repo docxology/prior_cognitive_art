@@ -1,6 +1,7 @@
 from .conceptual_model import (
     ArgumentModule,
     ClaimDependency,
+    ClaimGrounding,
     FigureSpec,
     FormalClaim,
     Quadrant,
@@ -10,6 +11,7 @@ from .conceptual_model import (
     argument_modules,
     as_records,
     claim_dependencies,
+    claim_grounding,
     conceptual_integrity_token,
     figure_specs,
     formal_claims,
@@ -19,12 +21,14 @@ from .conceptual_model import (
     text_validation_checks,
     used_symbol_keys,
     validate_claim_dependencies,
+    validate_claim_grounding,
     validate_conceptual_contract,
 )
 
 __all__ = [
     "ArgumentModule",
     "ClaimDependency",
+    "ClaimGrounding",
     "FigureSpec",
     "FormalClaim",
     "Quadrant",
@@ -34,6 +38,7 @@ __all__ = [
     "argument_modules",
     "as_records",
     "claim_dependencies",
+    "claim_grounding",
     "conceptual_integrity_token",
     "figure_specs",
     "formal_claims",
@@ -43,5 +48,6 @@ __all__ = [
     "text_validation_checks",
     "used_symbol_keys",
     "validate_claim_dependencies",
+    "validate_claim_grounding",
     "validate_conceptual_contract",
 ]
