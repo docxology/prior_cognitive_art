@@ -128,7 +128,7 @@ and tests stay aligned while publication prose changes.
 
 Concept DOI: [10.5281/zenodo.21316510](https://doi.org/10.5281/zenodo.21316510) | Version DOI: [10.5281/zenodo.21316511](https://zenodo.org/records/21316511) | Repository: [docxology/prior_cognitive_art](https://github.com/docxology/prior_cognitive_art)
 
-Publishing surface — 20 platforms, 2 published:
+Publishing surface — 20 platforms, 6 published:
 
 | Platform | Tier | Status | Reference | Credentials |
 | --- | --- | --- | --- | --- |
@@ -136,14 +136,14 @@ Publishing surface — 20 platforms, 2 published:
 | github | first-class | ✅ published | [docxology/prior_cognitive_art](https://github.com/docxology/prior_cognitive_art) | `GITHUB_TOKEN` |
 | arxiv | first-class | ⚪ available | — | — |
 | pypi | first-class | ⚪ available | — | `PYPI_TOKEN`, `TESTPYPI_TOKEN` |
-| ipfs_pinata | first-class | ⚪ available | — | `PINATA_JWT` |
+| ipfs_pinata | first-class | ✅ published | [https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W](https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W) | `PINATA_JWT` |
 | ipfs_web3storage | first-class | ⚪ available | — | `WEB3_STORAGE_TOKEN` |
 | software_heritage | first-class | ⚪ available | — | — |
-| github_pages | first-class | ⚪ available | [docxology/prior_cognitive_art](https://github.com/docxology/prior_cognitive_art) | `GITHUB_TOKEN` |
+| github_pages | first-class | ✅ published | [https://docxology.github.io/prior_cognitive_art/](https://docxology.github.io/prior_cognitive_art/) | `GITHUB_TOKEN` |
 | cloudflare_pages | first-class | ⚪ available | — | `CLOUDFLARE_API_TOKEN` |
 | netlify | first-class | ⚪ available | — | `NETLIFY_AUTH_TOKEN` |
-| huggingface_hub | first-class | ⚪ available | — | `HUGGINGFACE_TOKEN`, `HF_TOKEN` |
-| osf | first-class | ⚪ available | — | `OSF_TOKEN` |
+| huggingface_hub | first-class | ✅ published | [https://huggingface.co/datasets/ActiveInference/prior-cognitive-art](https://huggingface.co/datasets/ActiveInference/prior-cognitive-art) | `HUGGINGFACE_TOKEN`, `HF_TOKEN` |
+| osf | first-class | ✅ published | [https://osf.io/tu9qd/](https://osf.io/tu9qd/) | `OSF_TOKEN` |
 | amazon_kdp | documented | 🟡 planned | — | `AMAZON_KDP_EMAIL`, `AMAZON_KDP_PASSWORD` |
 | google_play_books | documented | 🟡 planned | — | `GOOGLE_PLAY_BOOKS_SERVICE_ACCOUNT_JSON` |
 | gumroad | documented | 🟡 planned | — | `GUMROAD_ACCESS_TOKEN` |

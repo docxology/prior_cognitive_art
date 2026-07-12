@@ -29,6 +29,11 @@ publication:
     zenodo_version_doi: "https://doi.org/10.5281/zenodo.21316511"
     zenodo_record: "https://zenodo.org/records/21316511"
     github_repository: "https://github.com/docxology/prior_cognitive_art"
+    github_release: "https://github.com/docxology/prior_cognitive_art/releases/tag/v0.1.0"
+    github_pages: "https://docxology.github.io/prior_cognitive_art/"
+    ipfs_pinata: "https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W"
+    huggingface_hub: "https://huggingface.co/datasets/ActiveInference/prior-cognitive-art"
+    osf: "https://osf.io/tu9qd/"
 
 keywords:
   - "priors"
