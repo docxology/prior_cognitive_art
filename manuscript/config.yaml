@@ -34,6 +34,7 @@ publication:
     ipfs_pinata: "https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W"
     huggingface_hub: "https://huggingface.co/datasets/ActiveInference/prior-cognitive-art"
     osf: "https://osf.io/tu9qd/"
+    software_heritage: "https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/docxology/prior_cognitive_art.git/"
 
 keywords:
   - "priors"

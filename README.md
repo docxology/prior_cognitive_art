@@ -128,7 +128,7 @@ and tests stay aligned while publication prose changes.
 
 Concept DOI: [10.5281/zenodo.21316510](https://doi.org/10.5281/zenodo.21316510) | Version DOI: [10.5281/zenodo.21316511](https://zenodo.org/records/21316511) | Repository: [docxology/prior_cognitive_art](https://github.com/docxology/prior_cognitive_art)
 
-Publishing surface — 20 platforms, 6 published:
+Publishing surface — 20 platforms, 7 published:
 
 | Platform | Tier | Status | Reference | Credentials |
 | --- | --- | --- | --- | --- |
@@ -138,7 +138,7 @@ Publishing surface — 20 platforms, 6 published:
 | pypi | first-class | ⚪ available | — | `PYPI_TOKEN`, `TESTPYPI_TOKEN` |
 | ipfs_pinata | first-class | ✅ published | [https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W](https://gateway.pinata.cloud/ipfs/QmQy8ysgSzHscMV99wXSmWjrctYuWNPwArR8Zd4T1npw9W) | `PINATA_JWT` |
 | ipfs_web3storage | first-class | ⚪ available | — | `WEB3_STORAGE_TOKEN` |
-| software_heritage | first-class | ⚪ available | — | — |
+| software_heritage | first-class | ✅ published | [https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/docxology/prior_cognitive_art.git/](https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/docxology/prior_cognitive_art.git/) | — |
 | github_pages | first-class | ✅ published | [https://docxology.github.io/prior_cognitive_art/](https://docxology.github.io/prior_cognitive_art/) | `GITHUB_TOKEN` |
 | cloudflare_pages | first-class | ⚪ available | — | `CLOUDFLARE_API_TOKEN` |
 | netlify | first-class | ⚪ available | — | `NETLIFY_AUTH_TOKEN` |
