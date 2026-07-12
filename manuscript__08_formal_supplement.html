@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>08_formal_supplement.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script data-template-mathjax-config>
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = Object.assign({}, window.MathJax.chtml, {
+  fontURL: "https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.0.0/chtml/woff2",
+  dynamicPrefix: "https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.0.0/chtml/dynamic"
+});
+</script>
+<script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"
+  type="text/javascript" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
+
+<link data-template-favicon rel="icon" href="favicon.ico">
+
+<style data-prior-cognitive-art-layout="compact">/* Project-owned overrides appended after the shared Pandoc stylesheet. */
+html {
+  background: #fdfdfd;
+}
+
+body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 2rem;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+figure {
+  margin: 1rem 0 1.25rem;
+}
+
+figure img,
+figure svg {
+  display: block;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem 0.45rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+}
+</style>
+</head>
+<body>
+<main id="main-content">
+<h1 id="sec:formal-supplement">Formal Supplement: Minimal Notation for
+Regress, Closure, and Validation</h1>
+<p>The formal layer is deliberately small. It does not claim an
+empirical model, and its deterministic illustrative simulation trace
+does not introduce simulation results. Its purpose is to keep the
+argument modular enough that each symbolic move can be checked against
+the plain-language thesis developed in [sec:method].</p>
+<p>The source layer currently generates 12 formal claims, 35 glossary
+rows, 11 text-validation checks, 14 claim dependency edges, and 12
+source-grounding edges. The inventory token for this version is
+<code>0694f506198f940e</code>. This section owns 3 contract diagrams
+from the 21-figure set; the other 18 figures belong to the argument
+atlas.</p>
+<h2 id="deterministic-trace-contract">Deterministic Trace Contract</h2>
+<p>The deterministic trace is a finite ordered object, not a transition
+kernel. Let <span
+class="math inline">\(T=(\sigma_0,\ldots,\sigma_4)\)</span>, with <span
+class="math inline">\(\delta(\sigma_i)=\sigma_{i+1}\)</span> only for
+adjacent authored states. The operator <span
+class="math inline">\(\delta\)</span> records order; it does not
+introduce <span
+class="math inline">\(p(\sigma_{i+1}\mid\sigma_i)\)</span>, an
+observation model, a reward function, a sample path, or a cognitive
+update rule.</p>
+<p>The trace therefore has three commitments. First, it must terminate
+in a named settlement state rather than adding another hidden prior.
+Second, each state must carry a local invariant that blocks numerical,
+empirical, synthetic-data, or performance readings. Third, the generated
+JSON trace must match the source-owned sequence in
+<code>src/conceptual_model.py</code>; a mismatch is treated as a
+publication-package validation failure, not as a harmless visualization
+drift.</p>
+<h2 id="numbered-formal-claims">Numbered Formal Claims</h2>
+<h3 id="formal-claim-f1-axis-partition">Formal Claim F1: Axis
+partition</h3>
+<p><span class="math inline">\(Q_T = \{p,u\} \times
+\{\mathrm{static},\mathrm{developmental}\}\)</span> and <span
+class="math inline">\(O = (p,\mathrm{developmental})\)</span>.</p>
+<p>Tinbergen explanation starts as a crossed question space. Ontogeny is
+one cell, not a level that can inherit the burden of the whole
+explanation.</p>
+<h3 id="formal-claim-f2-regress-shape">Formal Claim F2: Regress
+shape</h3>
+<p><span class="math inline">\(H(P)\)</span> and <span
+class="math inline">\(D(P)\)</span> can both be iterated; iteration
+alone does not supply <span class="math inline">\(\tau\)</span>.</p>
+<p>A hyperprior operator and a developmental selector differ in content,
+but both can recreate the same prior-of-prior regress unless a
+termination condition is named.</p>
+<h3 id="formal-claim-f3-selection-filter">Formal Claim F3: Selection
+filter</h3>
+<p><span class="math inline">\(S(P) = P^*\)</span> only for forms that
+persist under viability constraints.</p>
+<p>Function plus phylogeny blocks regress by filtering the forms that
+remain available as explanatory targets.</p>
+<h3 id="formal-claim-f4-fixed-point-stop">Formal Claim F4: Fixed-point
+stop</h3>
+<p><span class="math inline">\(X^* = \Phi(X^*)\)</span>; in that case
+<span class="math inline">\(P\)</span> names the settled organization of
+<span class="math inline">\(X^*\)</span>.</p>
+<p>The fixed-point answer is a category shift: the system is the
+prior-like settlement, rather than a bearer of one more hidden
+prior.</p>
+<h3 id="formal-claim-f5-decomposition-caution">Formal Claim F5:
+Decomposition caution</h3>
+<p><span class="math inline">\(\Lambda \to (\pi, P, x)\)</span> is an
+analytic map, not proof that <span class="math inline">\((\pi, P, x) \to
+\Lambda\)</span>.</p>
+<p>Policy, prior-like constraint, and state factors can be useful
+decompositions of joint organization without being ontologically prior
+to it.</p>
+<h3 id="formal-claim-f6-niche-co-construction">Formal Claim F6: Niche
+co-construction</h3>
+<p><span class="math inline">\((P_{t+1},E_{t+1})=N(P_t,E_t)\)</span>
+where <span class="math inline">\(N\)</span> is a niche-mediated
+co-shaping operator.</p>
+<p>The prior-like organization and its environment are updated together
+in the conceptual recurrence. This complicates selection termination
+without turning niche construction into a fourth stop rule.</p>
+<h3 id="formal-claim-f7-blanket-achievement">Formal Claim F7: Blanket
+achievement</h3>
+<p><span class="math inline">\(X^* = \Phi(X^*)\)</span> and <span
+class="math inline">\(M=(a,s)\)</span> with <span
+class="math inline">\(\Pr(\eta\mid\mu,a,s)=\Pr(\eta\mid
+a,s)\)</span>.</p>
+<p>The blanket claim is conditional and model-level: for a selected
+state partition, active and sensory variables M=(a,s) screen internal
+states from external states . The fixed point supplies an organizational
+context, not a proof that this conditional-independence boundary is a
+literal biological membrane.</p>
+<h3 id="formal-claim-f8-explanatory-complementarity">Formal Claim F8:
+Explanatory complementarity</h3>
+<p><span class="math inline">\(Q_T=\{e_i\}_{i=1}^{4},\ e_i\not\equiv
+e_j\ (i\ne j),\ \operatorname{explanation}=\bigcup_i e_i\)</span>.</p>
+<p>The four Tinbergen questions are distinct explanatory modes that can
+be coordinated without one subsuming another. Conflating them is the
+source of the regress, not the framework.</p>
+<h3 id="formal-claim-f9-active-inference-bridge">Formal Claim F9: Active
+inference bridge</h3>
+<p><span class="math inline">\(A(P,\pi): q^*=\arg\min_q
+\mathcal{F}(q\mid\pi,P),\quad \pi^*\in\arg\min_\pi G(\pi\mid
+P)\)</span>.</p>
+<p>Active inference couples perception and action while distinguishing
+variational free energy for inference from expected free energy for
+policy selection. The expression is a bridge between the two objectives,
+not a claim that they are one scalar process.</p>
+<h3 id="formal-claim-f10-variational-closure">Formal Claim F10:
+Variational closure</h3>
+<p><span
+class="math inline">\(\mathcal{F}(q)=D_{KL}(q\|p^*)+\mathcal{F}^* \ge
+\mathcal{F}^*\)</span>; q<sup>*=p</sup>* only when <span
+class="math inline">\(p^*\in\mathcal{Q}\)</span> and the minimum is
+attained.</p>
+<p>The variational free-energy bound differs from its reference minimum
+by a KL term under the stated decomposition. If the target is outside
+the variational family, the optimum is a KL projection rather than the
+target itself. This supports a bounded, model-internal settling
+interpretation; it is not a literal zero-energy claim and it does not
+derive the historical origin of the prior.</p>
+<h3 id="formal-claim-f11-scale-recurrence">Formal Claim F11: Scale
+recurrence</h3>
+<p><span class="math inline">\(R_k(X^*_k) = X^*_{k+1}\)</span> for
+scales <span class="math inline">\(k \in \{\text{cell}, \text{organism},
+\text{social}\}\)</span>.</p>
+<p>The fixed-point grammar recurs across scales: a settlement at one
+scale can become substrate for the next. This is a conceptual recurrence
+relation, not a claim of scale invariance or empirical
+self-similarity.</p>
+<h3 id="formal-claim-f12-deterministic-trace-boundary">Formal Claim F12:
+Deterministic trace boundary</h3>
+<p><span class="math inline">\(T=(\sigma_0,\ldots,\sigma_4)\)</span> and
+<span class="math inline">\(\delta(\sigma_i)=\sigma_{i+1}\)</span> for
+authored conceptual states only.</p>
+<p>The deterministic illustrative simulation records the formal state
+path through regress pressure and termination choice. It is a checkable
+exposition device, not a stochastic simulation, synthetic data
+generator, empirical estimate, or performance metric.</p>
+<h2 id="claim-grounding-map">Claim Grounding Map</h2>
+<p>The formal claims are not independent. Each edge records
+argumentative support or provenance, not a theorem-level entailment; in
+particular, a fixed-point description does not by itself entail a
+biological Markov blanket. - <strong>axis_partition →
+regress_shape</strong>: The crossed axes show which quadrant creates
+regress pressure. - <strong>regress_shape → selection_filter</strong>:
+The regress shape motivates the need for a termination condition. -
+<strong>regress_shape → fixed_point_stop</strong>: The regress shape
+motivates the fixed-point alternative. - <strong>selection_filter →
+niche_co_construction</strong>: Selection filtering is complicated by
+niche co-construction. - <strong>fixed_point_stop →
+blanket_achievement</strong>: The fixed-point settlement supplies an
+organizational context for a bounded blanket model; it does not entail a
+literal biological boundary. - <strong>axis_partition →
+explanatory_complementarity</strong>: The axis partition shows the
+questions are complementary. - <strong>decomposition_caution →
+niche_co_construction</strong>: Joint structure and niche
+co-construction both resist factor-first readings. -
+<strong>blanket_achievement → active_inference_bridge</strong>: The
+achieved blanket provides the boundary within which active inference
+operates. - <strong>fixed_point_stop → variational_closure</strong>: The
+fixed-point settlement is represented as a relative variational-bound
+minimum. - <strong>active_inference_bridge → scale_recurrence</strong>:
+Active inference at one scale provides the substrate for the next. -
+<strong>variational_closure → scale_recurrence</strong>: The variational
+closure applies recursively at each scale. -
+<strong>explanatory_complementarity → active_inference_bridge</strong>:
+Complementarity of perspectives is preserved when action and perception
+are unified. - <strong>regress_shape →
+deterministic_trace_boundary</strong>: The trace records the regress
+shape before any termination claim is accepted. -
+<strong>deterministic_trace_boundary → fixed_point_stop</strong>: The
+trace boundary preserves the fixed-point stop as a conceptual category
+shift.</p>
+<p>The grounding edges are a separate provenance surface: they identify
+which named source record anchors each numbered claim.</p>
+<ul>
+<li><code>tinbergen_axes</code> → <strong>F1</strong>
+(axis_partition)</li>
+<li><code>tinbergen_axes</code> → <strong>F8</strong>
+(explanatory_complementarity)</li>
+<li><code>regress_shape</code> → <strong>F2</strong>
+(regress_shape)</li>
+<li><code>regress_shape</code> → <strong>F12</strong>
+(deterministic_trace_boundary)</li>
+<li><code>termination_moves</code> → <strong>F3</strong>
+(selection_filter)</li>
+<li><code>termination_moves</code> → <strong>F4</strong>
+(fixed_point_stop)</li>
+<li><code>joint_structure</code> → <strong>F5</strong>
+(decomposition_caution)</li>
+<li><code>joint_structure</code> → <strong>F9</strong>
+(active_inference_bridge)</li>
+<li><code>niche_blanket</code> → <strong>F6</strong>
+(niche_co_construction)</li>
+<li><code>niche_blanket</code> → <strong>F7</strong>
+(blanket_achievement)</li>
+<li><code>niche_blanket</code> → <strong>F10</strong>
+(variational_closure)</li>
+<li><code>cross_scale_recurrence</code> → <strong>F11</strong>
+(scale_recurrence)</li>
+</ul>
+<p>[fig:formal_claim_dependency_map] shows how the numbered claims are
+grounded in the same conceptual records that feed the prose, figure
+registry, and tests.</p>
+<figure id="fig:formal_claim_dependency_map">
+<img src="../figures/formal_claim_dependency_map.png"
+alt="Source records connect by arrows to numbered formal claims F1 through F12 in two columns." />
+<figcaption>Source records connect by arrows to
+numbered formal claims F1 through F12 in two columns.</figcaption>
+</figure>
+<h2 id="symbol-glossary">Symbol Glossary</h2>
+<p>All named symbols used by the formal claims appear in
+[tbl:symbol_glossary]. Operators such as equality, set product, and
+implication are ordinary logical notation rather than project-specific
+symbols.</p>
+<table id="tbl:symbol_glossary">
+<caption>Glossary for all named symbols used in the formal
+supplement.</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Role</th>
+<th>Used in claims</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(Q_T\)</span></td>
+<td>Tinbergen question space</td>
+<td>The crossed explanatory space used by the paper.</td>
+<td>F1, F8</td>
+</tr>
+<tr>
+<td><span class="math inline">\(p\)</span></td>
+<td>proximate scale</td>
+<td>The mechanism-side explanatory scale.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(u\)</span></td>
+<td>ultimate scale</td>
+<td>The function or selection-side explanatory scale.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(O\)</span></td>
+<td>ontogeny cell</td>
+<td>The proximate-developmental quadrant.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(P\)</span></td>
+<td>prior-like constraint</td>
+<td>The prior or prior-like organization being explained.</td>
+<td>F2, F3, F4, F5, F6, F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(H\)</span></td>
+<td>hyperprior operator</td>
+<td>A prior-on-prior move in hierarchical Bayes language.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(D\)</span></td>
+<td>developmental selector</td>
+<td>An ontogenetic prior-selection move.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\tau\)</span></td>
+<td>termination condition</td>
+<td>A stop rule that prevents another regress level.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(S\)</span></td>
+<td>selection filter</td>
+<td>Function-plus-phylogeny filtering of viable forms.</td>
+<td>F3</td>
+</tr>
+<tr>
+<td><span class="math inline">\(P^*\)</span></td>
+<td>persisting prior form</td>
+<td>A prior-like form that remains available for explanation.</td>
+<td>F3</td>
+</tr>
+<tr>
+<td><span class="math inline">\(X^*\)</span></td>
+<td>settled system state</td>
+<td>A persisting self-individuating organization.</td>
+<td>F4, F7, F11</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Phi\)</span></td>
+<td>self-mapping process</td>
+<td>The process whose fixed point is the settled system state.</td>
+<td>F4, F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Lambda\)</span></td>
+<td>joint organization</td>
+<td>The entangled structure before analytic decomposition.</td>
+<td>F5</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\pi\)</span></td>
+<td>policy factor</td>
+<td>A policy factor extracted by decomposition.</td>
+<td>F5, F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(x\)</span></td>
+<td>state factor</td>
+<td>A state factor extracted by decomposition.</td>
+<td>F5</td>
+</tr>
+<tr>
+<td><span class="math inline">\(N\)</span></td>
+<td>niche-mediated co-shaping</td>
+<td>The operator representing organism-niche reciprocal shaping of
+priors.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(E\)</span></td>
+<td>environmental state</td>
+<td>The environmental or niche state co-shaped with prior-like
+organization.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(t\)</span></td>
+<td>conceptual update index</td>
+<td>An index for the ordered niche co-shaping recurrence.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(M\)</span></td>
+<td>Markov blanket variables</td>
+<td>The active and sensory variables used as a model-level
+conditional-independence boundary.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(a\)</span></td>
+<td>active blanket state</td>
+<td>An active state variable in the selected Markov blanket
+partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(s\)</span></td>
+<td>sensory blanket state</td>
+<td>A sensory state variable in the selected Markov blanket
+partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\eta\)</span></td>
+<td>external state</td>
+<td>A state outside the selected blanket partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mu\)</span></td>
+<td>internal state</td>
+<td>A state inside the selected blanket partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(A\)</span></td>
+<td>active inference operator</td>
+<td>The operator coupling perception and action under a prior and policy
+to minimize free energy.</td>
+<td>F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{F}\)</span></td>
+<td>variational free energy</td>
+<td>The upper bound on negative log evidence that the system
+minimizes.</td>
+<td>F9, F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(G\)</span></td>
+<td>expected free energy</td>
+<td>The policy-level objective used for action or policy selection in
+the bounded bridge.</td>
+<td>F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{F}^*\)</span></td>
+<td>reference bound minimum</td>
+<td>The variational free-energy value at the selected reference
+minimum.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{Q}\)</span></td>
+<td>variational family</td>
+<td>The family of approximate posteriors over which the variational
+objective is optimized.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(q\)</span></td>
+<td>variational posterior</td>
+<td>The approximate posterior distribution the system maintains.</td>
+<td>F9, F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(p^*\)</span></td>
+<td>target posterior</td>
+<td>The posterior distribution approached by the variational
+approximation at the selected minimum.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(e_i\)</span></td>
+<td>explanatory mode</td>
+<td>One of the four distinct Tinbergen explanatory modes.</td>
+<td>F8</td>
+</tr>
+<tr>
+<td><span class="math inline">\(R\)</span></td>
+<td>scale recursion operator</td>
+<td>The operator mapping a settled system at one scale to the substrate
+at the next.</td>
+<td>F11</td>
+</tr>
+<tr>
+<td><span class="math inline">\(T\)</span></td>
+<td>deterministic trace</td>
+<td>The finite authored sequence of conceptual states used for
+illustration.</td>
+<td>F12</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\sigma_i\)</span></td>
+<td>formal trace state</td>
+<td>A named state in the deterministic illustrative trace.</td>
+<td>F12</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\delta\)</span></td>
+<td>deterministic transition</td>
+<td>The transition function that orders adjacent trace states without
+stochastic sampling.</td>
+<td>F12</td>
+</tr>
+</tbody>
+</table>
+<p>[fig:symbol_glossary_closure] visualizes the closure check. A missing
+symbol row or an unused glossary row is treated as a source-contract
+error.</p>
+<figure id="fig:symbol_glossary_closure">
+<img src="../figures/symbol_glossary_closure.png"
+alt="A used-symbol set and a generated glossary set meet at an equality check, with a contract-failure warning below." />
+<figcaption>A used-symbol set and a generated
+glossary set meet at an equality check, with a contract-failure warning
+below.</figcaption>
+</figure>
+<h2 id="text-integrity-checks">Text-Integrity Checks</h2>
+<p>The manuscript treats prose as an artifact surface. Generated tokens
+do not make the argument true, but they make several kinds of drift
+observable before the paper is rendered. [tbl:text_validation_checks]
+lists the checks that guard the project contract.</p>
+<table id="tbl:text_validation_checks">
+<caption>Modular text-validation checks for the conceptual
+manuscript.</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Check</th>
+<th>Surface</th>
+<th>Invariant</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deterministic_simulation_boundary</code></td>
+<td>manuscript and analysis report</td>
+<td>The project limits simulation language to a deterministic
+illustrative trace and rejects stochastic, empirical, synthetic-data,
+and performance claims.</td>
+<td>SIMULATION_POLICY token, deterministic_simulation_manifest.json, and
+conceptual_analysis.json scope flags.</td>
+</tr>
+<tr>
+<td><code>figure_registry_closure</code></td>
+<td>../figures/figure_registry.json</td>
+<td>Every figure specification has a generated artifact and a registry
+label.</td>
+<td>figure_specs() and run_analysis_pipeline() compare expected and
+produced filenames.</td>
+</tr>
+<tr>
+<td><code>symbol_glossary_closure</code></td>
+<td>formal supplement</td>
+<td>Every symbol key used by a formal claim appears in the generated
+glossary.</td>
+<td>validate_conceptual_contract() checks formal_claims() against
+symbol_glossary().</td>
+</tr>
+<tr>
+<td><code>token_hydration</code></td>
+<td>output/manuscript</td>
+<td>Every double-brace manuscript token is generated before render.</td>
+<td>test_all_manuscript_tokens_are_generated and hydration script smoke
+test.</td>
+</tr>
+<tr>
+<td><code>integrity_signature</code></td>
+<td>reproducibility section</td>
+<td>A generated token binds the conceptual inventory used by prose,
+figures, and tests.</td>
+<td>CONCEPTUAL_INTEGRITY_TOKEN is derived from source records, not
+hand-authored prose.</td>
+</tr>
+<tr>
+<td><code>claim_dependency_closure</code></td>
+<td>formal supplement</td>
+<td>Every claim dependency edge references a claim key that exists.</td>
+<td>claim_dependencies() checks source_claim and target_claim against
+formal_claims().</td>
+</tr>
+<tr>
+<td><code>claim_grounding_closure</code></td>
+<td>formal grounding map</td>
+<td>Every formal claim is grounded in at least one named source record
+used by the grounding map.</td>
+<td>validate_claim_grounding() checks claim_grounding() against
+formal_claims().</td>
+</tr>
+<tr>
+<td><code>metadata_keyword_consistency</code></td>
+<td>metadata files</td>
+<td>Keywords in config.yaml are a subset of .zenodo.json, codemeta.json,
+and CITATION.cff.</td>
+<td>test_metadata_keywords_are_consistent_across_all_files checks all
+metadata files.</td>
+</tr>
+<tr>
+<td><code>citation_resolution</code></td>
+<td>manuscript references</td>
+<td>Every citation reference in the manuscript has a bib entry in
+references.bib.</td>
+<td>test_all_manuscript_citations_resolve_to_bib scans all manuscript
+files.</td>
+</tr>
+<tr>
+<td><code>figure_count_consistency</code></td>
+<td>manuscript and analysis report</td>
+<td>The figure count in the manuscript token matches the actual number
+of generated figure files.</td>
+<td>FIGURE_COUNT token and ../figures/*.png file count are compared by
+the analysis pipeline.</td>
+</tr>
+<tr>
+<td><code>argument_module_closure</code></td>
+<td>manuscript and source inventory</td>
+<td>Every argument module key in the source has a corresponding
+discussion in the manuscript prose.</td>
+<td>ARGUMENT_MODULES token injects the full list; the manuscript
+references each module by title.</td>
+</tr>
+</tbody>
+</table>
+<p>[fig:text_validation_ladder] shows the validation posture: authored
+source records hydrate the manuscript, figures, reports, and registry,
+and those surfaces are checked again at render time.</p>
+<figure id="fig:text_validation_ladder">
+<img src="../figures/text_validation_ladder.png"
+alt="A vertical ladder connects source records, analysis artifacts, injected tokens, rendered manuscript, and validation gates." />
+<figcaption>A vertical ladder connects source
+records, analysis artifacts, injected tokens, rendered manuscript, and
+validation gates.</figcaption>
+</figure>
+</main>
+</body>
+</html>

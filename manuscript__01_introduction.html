@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>01_introduction.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+
+<link data-template-favicon rel="icon" href="favicon.ico">
+
+<style data-prior-cognitive-art-layout="compact">/* Project-owned overrides appended after the shared Pandoc stylesheet. */
+html {
+  background: #fdfdfd;
+}
+
+body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 2rem;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+figure {
+  margin: 1rem 0 1.25rem;
+}
+
+figure img,
+figure svg {
+  display: block;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem 0.45rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+}
+</style>
+</head>
+<body>
+<main id="main-content">
+<h1 id="sec:introduction">Introduction: Why the Question of a Prior’s
+Origin Needs More Than Ontogeny</h1>
+<p>The question “why is there a prior?” is ill-typed until the
+explanatory kind is identified. It becomes unstable when the answer is
+only “because an earlier process selected it.” That move is not wrong,
+but it is developmental, and developmental answers naturally invite
+another question about where the selecting process came from. This is
+the same shape as the hyperprior problem in hierarchical Bayes: a prior
+receives another prior above it, which receives another, until the
+account stops by convention or by a stronger explanatory rule. The paper
+therefore treats “why” as a typed request, not as a license to stack
+levels indefinitely [jaynes2003probability; pearl2009causality;
+gelman2013philosophy].</p>
+<p>Tinbergen’s four questions help locate the issue [tinbergen1963aims;
+mayr1961cause; bateson2004toward; bergman2022leveling]. The questions
+are often read as a ladder, but for this manuscript they are a grid. One
+axis asks whether the account is proximate or ultimate. The other asks
+whether the account is static or developmental. Mechanism is
+proximate-static; function is ultimate-static; ontogeny is
+proximate-developmental; phylogeny is ultimate-developmental. The four
+questions are not four rungs of a single explanatory climb; they are
+four cells of a two-by-two map, and the regress pressure arises when one
+cell is asked to carry the load of all four.</p>
+<p>This grid is an explicit analytic re-description, not a claim that
+Tinbergen’s framework is uniquely or naturally a Cartesian product.
+Bergman and Beehner’s causes/consequences leveling is compatible as a
+reorganization, but it does not license treating the two-axis map as an
+empirical taxonomy [bergman2022leveling].</p>
+<p>An ontogenetic answer keeps an important part of the story: it
+explains how a prior was acquired or tuned in an individual history. It
+cannot carry the entire explanatory load. By itself, it does not explain
+why that developmental channel was available, why that class of priors
+persisted, or why the system is organized so that “having a prior” is
+the right description [friston2015active; friston2015free]. In Bayesian
+practice, the analogous problem appears when a prior is justified by a
+hyperprior, and the hyperprior by another hyperprior. The iteration is
+technically harmless — it just produces a deeper model — but it is
+explanatorily inert unless a termination condition is named that is not
+itself another prior [gelman2013philosophy; bernardo1979reference].</p>
+<p>The free energy principle provides the most developed contemporary
+site for this problem. A system that minimizes variational free energy
+under a Markov blanket can be described as instantiating a generative
+model. Here, <em>prior</em> means a distribution or parameterization
+supplied before the current update; <em>posterior</em> means the
+distribution after conditioning; and <em>prior-like</em> means a broader
+organizational constraint that may support inference without being a
+Bayesian prior in that narrow sense. Sufficient statistics of a model
+are therefore not automatically priors: the manuscript uses them only
+when their role is explicitly identified as a prior or prior-like
+constraint [friston2010free; friston2013life; hohwy2016self]. But the
+Markov blanket must be used with care. In active-inference work it is a
+statistical boundary within a model of the system; in stronger
+biological readings it is connected to autonomy and self-individuation
+[kirchhoff2018markov]. Recent critiques warn that those two registers
+should not be conflated: a Markov blanket can organize an explanatory
+model without automatically demarcating the literal physical or
+cognitive boundary of an organism [bruineberg2022emperor;
+raja2021markov]. The more recent mathematical expositions of active
+inference and the free energy principle reinforce the same discipline:
+action, perception, and model evidence belong to a formal description
+whose scope has to be stated [friston2012agency; friston2023simpler].
+This creates the same question at a deeper level: if the prior-like
+structure is a bounded model of what the system maintains, then “where
+did the prior come from?” is not answered by naming another prior above
+it. The answer must either be pragmatic (stop here for calculation),
+selective (filter by viability), or fixed-point (the system is the
+prior-like settlement, not a bearer of one more hidden prior). These are
+the paper’s three organizing families, not a claim that the space of
+explanatory stops is exhausted by them.</p>
+<p>The harder upstream version asks what comes before the first prior,
+or what could count as a bias before explicit bias. The manuscript
+treats that question as a first-principles pressure test. If “prior”
+means an inferential parameter, then putting another prior before it
+merely restarts the regress. The better answer is pre-inferential
+constraint: viability asymmetries, predictive bodily regulation, shared
+early-life regulation, and developmental niche structure make some
+expectation-forming paths available before they become belief-like
+priors. Work on the body as first prior, co-embodiment and
+co-homeostasis, allostatic regulation, visceral rhythmicity in
+development, morphogenesis, and evolved active-inference architectures
+supports this upstream frame [allen2018body_first_prior;
+ciaunica2021first_prior; sterling2012allostasis;
+corcoran2025body_first_teacher; kuchling2020morphogenesis;
+pezzulo2022evolution]. This is not a discovery of a literal hidden
+meta-prior. It is a category correction: before learned priors come
+histories of regulation, support, embodiment, and viable form.</p>
+<p>The working hypothesis is therefore modular: the regress is not a
+property of Tinbergen’s framework; it is a property of choosing the
+ontogenetic quadrant as the whole answer. Once the quadrants are kept
+distinct, the regress can be located in a specific move — treating a
+developmental answer as a complete one — rather than in the explanatory
+apparatus itself. The methodological consequences are developed in
+[sec:method], the visual atlas in [sec:visual-atlas], and the formal
+claims in [sec:formal-supplement]. The conclusion synthesizes these
+threads in [sec:conclusion].</p>
+<ul>
+<li><strong>Tinbergen is crossed, not stacked</strong>: Mechanism,
+function, ontogeny, and phylogeny form two axes: proximate versus
+ultimate and static versus developmental.</li>
+<li><strong>Ontogeny alone keeps deferring</strong>: Treating
+development as the whole answer to why a prior exists moves the question
+to the developmental source of that prior.</li>
+<li><strong>Biological inheritance mirrors hyperprior
+inheritance</strong>: Prior-selects-prior in developmental language has
+the same shape as prior-on-prior in hierarchical Bayes.</li>
+<li><strong>Three termination families organize the paper</strong>: The
+paper organizes the regress around pragmatic, selection, and fixed-point
+termination families without claiming that these exhaust every possible
+explanatory stop.</li>
+<li><strong>Before the first prior is constraint history</strong>: Going
+upstream does not reveal a hidden prior before all priors; it reveals
+viability, regulation, shared embodiment, developmental tuning, and
+niche structure that make learned priors possible.</li>
+<li><strong>Joint structure precedes factor cleanup</strong>: The
+argument is adjacent to lambda-decomposition work because joint
+organization can be prior to the factors later extracted from it.</li>
+<li><strong>Priors are co-shaped by system and niche</strong>: The
+prior-like structure is not fully given by the environment nor fully
+endogenous; it is co-shaped by the organism and its niche.</li>
+<li><strong>Markov blankets are achieved, not given</strong>: The
+statistical boundary separating internal from external states is part of
+what the persisting system achieves, not a boundary imposed from
+outside.</li>
+<li><strong>Tinbergen questions are complementary, not rival</strong>:
+The four questions are complementary perspectives on the same
+phenomenon; conflating them is the source of the regress, not the
+framework itself.</li>
+<li><strong>Active inference closes the action-perception loop</strong>:
+Active inference couples perception and action while distinguishing
+variational free energy for inference from expected free energy for
+policy selection, closing the explanatory loop the prior was meant to
+serve.</li>
+<li><strong>Prior-like structure recurs across scales</strong>: The
+regress-termination problem recurs at the cellular, organismic, and
+social scales; the fixed-point move applies at each level without
+requiring a new hidden prior.</li>
+<li><strong>Art arranges encounters with priors</strong>: The paper’s
+art claim is bounded: aesthetic practices arrange cues, contexts, and
+meanings that interact with predictive priors; they do not prove that
+art directly rewires priors as an empirical mechanism.</li>
+</ul>
+<p>The supplement formalizes this hypothesis only where the notation
+improves accountability. Its claims are auto-numbered from source
+records, its symbol glossary is generated, and its integrity token is
+injected into the rendered text. The formalism is a validation aid, not
+a simulation model. The paper sits alongside policy-entanglement and
+lambda-decomposition work in which joint organization may be prior to
+the factors later extracted from it [da_costa2020active;
+parr2022active]. The “art” in the title is meant in this sense: the
+craft of keeping explanatory kinds distinct and rendering that
+distinction as deterministic figures and checkable claims, rather than
+as a metaphysical theory of priors.</p>
+<p>This use of “art” is also disciplined by recent predictive-processing
+aesthetics. Work on visual art, music, and neuroaesthetics shows that
+aesthetic experience often turns on learned expectations, uncertainty,
+affect, and meaning-making [van_de_cruys2011putting;
+pearce2018statistical; frascaroli2024aesthetics;
+pearce2016neuroaesthetics]. That literature supports the paper’s modest
+analogy: aesthetic practices arrange encounters with priors and
+prediction errors. Material-engagement and extended-mind work make the
+analogy more public and embodied: art-making uses artifacts, media, and
+situated practice to make expectations available for inspection rather
+than keeping them inside the head [dewey1934art; clark1998extended;
+varela1991embodied; thompson2007mind; malafouris2013things;
+noe2015strange; wynn2021four_e]. None of this supports a stronger
+conclusion that art is reducible to prediction-error optimization, that
+aesthetic value is the same as epistemic value, or that the free energy
+principle is a complete theory of art [kesner2014predictive;
+burnett2020four_e; brown2009arts; bowers2012bayesian].</p>
+</main>
+</body>
+</html>

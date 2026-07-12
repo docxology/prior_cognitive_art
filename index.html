@@ -1,0 +1,3795 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Daniel Ari Friedman" />
+  <title>Prior Cognitive Art</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script data-template-mathjax-config>
+window.MathJax = window.MathJax || {};
+window.MathJax.chtml = Object.assign({}, window.MathJax.chtml, {
+  fontURL: "https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.0.0/chtml/woff2",
+  dynamicPrefix: "https://cdn.jsdelivr.net/npm/@mathjax/mathjax-newcm-font@4.0.0/chtml/dynamic"
+});
+</script>
+<script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"
+  type="text/javascript" integrity="sha384-2BWc4dVaHADUocwKrUrK9u3iDwHxVMKXWEcoRmUkXYSFKhAsgVAYClu9ydNuo5Oz" crossorigin="anonymous"></script>
+
+<link data-template-favicon rel="icon" href="favicon.ico">
+
+<style>
+:root {
+  --brand-1: #5b6ee0;
+  --web-bg: #f8f8f8;
+  --web-surface: #ffffff;
+  --web-text: #2c3e50;
+  --web-border: #bdc3c7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-1: #7e8ce8;
+    --web-bg: #0f1420;
+    --web-surface: #161c2b;
+    --web-text: #e6eaf2;
+    --web-border: #2a3447;
+  }
+}
+/* Numbered theorem-like environments. Pandoc's HTML writer drops raw-LaTeX
+   \newtheorem blocks, so WebRenderer rewrites them (web-only) into
+   .theorem-box Divs; this styles them as boxed, numbered blocks that read like
+   the PDF's theorem environments. The PDF path is unchanged (it uses the LaTeX
+   preamble). */
+.theorem-box {
+  border-left: 4px solid var(--brand-1);
+  background: var(--web-surface);
+  padding: 0.6em 1em;
+  margin: 1.1em 0;
+  border-radius: 0 4px 4px 0;
+}
+.theorem-box.definition { border-left-style: dashed; }
+.theorem-box > p:first-child { margin-top: 0; }
+.theorem-box > p:last-child { margin-bottom: 0; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Liberation Serif', 'Times New Roman', serif;
+  line-height: 1.6;
+  width: min(100%, 800px);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  color: #1a1a1a;
+  overflow-x: visible;
+}
+
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 800px) {
+  body {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  overflow-wrap: anywhere;
+}
+
+code {
+  background-color: #ecf0f1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Liberation Mono', 'Courier New', monospace;
+}
+
+pre {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #bdc3c7;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #b91c1c;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a:visited {
+  color: #8f1d1d;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.toc {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.toc a {
+  color: #b91c1c;
+}
+
+.math {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.1em;
+}
+
+mjx-container[display="true"] {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+}
+
+.figure {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.figure-caption {
+  font-style: italic;
+  color: #4b5563;
+  margin-top: 10px;
+  text-align: center;
+}
+
+</style>
+
+<style data-prior-cognitive-art-layout="compact">/* Project-owned overrides appended after the shared Pandoc stylesheet. */
+html {
+  background: #fdfdfd;
+}
+
+body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 2rem;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+figure {
+  margin: 1rem 0 1.25rem;
+}
+
+figure img,
+figure svg {
+  display: block;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem 0.45rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+}
+</style>
+</head>
+<body>
+<main id="main-content">
+<header id="title-block-header">
+<h1 class="title">Prior Cognitive Art</h1>
+<p class="subtitle">Tinbergen Axes, Hyperprior Regress, and Fixed-Point
+Explanation</p>
+<p class="author">Daniel Ari Friedman</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#abstract-a-conceptual-map-of-prior-origins-art-and-fixed-point-explanation"
+id="toc-abstract-a-conceptual-map-of-prior-origins-art-and-fixed-point-explanation"><span
+class="toc-section-number">1</span> Abstract: A Conceptual Map of Prior
+Origins, Art, and Fixed-Point Explanation</a></li>
+<li><a href="#sec:introduction" id="toc-sec:introduction"><span
+class="toc-section-number">2</span> Introduction: Why the Question of a
+Prior’s Origin Needs More Than Ontogeny</a></li>
+<li><a href="#sec:method" id="toc-sec:method"><span
+class="toc-section-number">3</span> Conceptual Method: Typed
+Explanations and Source-Owned Artifacts</a>
+<ul>
+<li><a href="#operational-protocol" id="toc-operational-protocol"><span
+class="toc-section-number">3.1</span> Operational Protocol</a></li>
+<li><a href="#tinbergen-crossed-with-prior-explanation"
+id="toc-tinbergen-crossed-with-prior-explanation"><span
+class="toc-section-number">3.2</span> Tinbergen Crossed With Prior
+Explanation</a></li>
+<li><a href="#regress-closure-strategies"
+id="toc-regress-closure-strategies"><span
+class="toc-section-number">3.3</span> Regress-Closure
+Strategies</a></li>
+<li><a href="#before-the-first-prior"
+id="toc-before-the-first-prior"><span
+class="toc-section-number">3.4</span> Before The First Prior</a></li>
+<li><a href="#the-role-of-niche-construction"
+id="toc-the-role-of-niche-construction"><span
+class="toc-section-number">3.5</span> The Role of Niche
+Construction</a></li>
+<li><a href="#active-inference-and-variational-closure"
+id="toc-active-inference-and-variational-closure"><span
+class="toc-section-number">3.6</span> Active Inference and Variational
+Closure</a></li>
+<li><a href="#aesthetic-prior-craft-as-a-bounded-analogy"
+id="toc-aesthetic-prior-craft-as-a-bounded-analogy"><span
+class="toc-section-number">3.7</span> Aesthetic Prior-Craft As A Bounded
+Analogy</a></li>
+<li><a href="#scale-recurrence" id="toc-scale-recurrence"><span
+class="toc-section-number">3.8</span> Scale Recurrence</a></li>
+<li><a href="#formal-supplement-protocol"
+id="toc-formal-supplement-protocol"><span
+class="toc-section-number">3.9</span> Formal Supplement
+Protocol</a></li>
+</ul></li>
+<li><a href="#sec:visual-atlas" id="toc-sec:visual-atlas"><span
+class="toc-section-number">4</span> Visual Atlas: Eighteen Deterministic
+Argument Diagrams</a>
+<ul>
+<li><a href="#tinbergen-axes" id="toc-tinbergen-axes"><span
+class="toc-section-number">4.1</span> Tinbergen Axes</a></li>
+<li><a href="#hyperprior-regress-and-termination"
+id="toc-hyperprior-regress-and-termination"><span
+class="toc-section-number">4.2</span> Hyperprior Regress And
+Termination</a></li>
+<li><a href="#prior-as-settled-equilibrium"
+id="toc-prior-as-settled-equilibrium"><span
+class="toc-section-number">4.3</span> Prior As Settled
+Equilibrium</a></li>
+<li><a href="#ontogeny-and-hyperprior-shape"
+id="toc-ontogeny-and-hyperprior-shape"><span
+class="toc-section-number">4.4</span> Ontogeny And Hyperprior
+Shape</a></li>
+<li><a href="#selection-filter" id="toc-selection-filter"><span
+class="toc-section-number">4.5</span> Selection Filter</a></li>
+<li><a href="#policy-entanglement-bridge"
+id="toc-policy-entanglement-bridge"><span
+class="toc-section-number">4.6</span> Policy Entanglement
+Bridge</a></li>
+<li><a href="#niche-co-construction"
+id="toc-niche-co-construction"><span
+class="toc-section-number">4.7</span> Niche Co-Construction</a></li>
+<li><a href="#markov-blanket-as-achievement"
+id="toc-markov-blanket-as-achievement"><span
+class="toc-section-number">4.8</span> Markov Blanket As
+Achievement</a></li>
+<li><a href="#explanatory-complementarity"
+id="toc-explanatory-complementarity"><span
+class="toc-section-number">4.9</span> Explanatory
+Complementarity</a></li>
+<li><a href="#active-inference-cycle"
+id="toc-active-inference-cycle"><span
+class="toc-section-number">4.10</span> Active Inference Cycle</a></li>
+<li><a href="#variational-free-energy-landscape"
+id="toc-variational-free-energy-landscape"><span
+class="toc-section-number">4.11</span> Variational Free Energy
+Landscape</a></li>
+<li><a href="#deterministic-simulation-trace"
+id="toc-deterministic-simulation-trace"><span
+class="toc-section-number">4.12</span> Deterministic Simulation
+Trace</a></li>
+<li><a href="#scale-recurrence-1" id="toc-scale-recurrence-1"><span
+class="toc-section-number">4.13</span> Scale Recurrence</a></li>
+<li><a href="#source-claim-boundary-map"
+id="toc-source-claim-boundary-map"><span
+class="toc-section-number">4.14</span> Source-Claim Boundary
+Map</a></li>
+<li><a href="#aesthetic-prior-craft-map"
+id="toc-aesthetic-prior-craft-map"><span
+class="toc-section-number">4.15</span> Aesthetic Prior-Craft
+Map</a></li>
+<li><a href="#markov-blanket-scope-split"
+id="toc-markov-blanket-scope-split"><span
+class="toc-section-number">4.16</span> Markov Blanket Scope
+Split</a></li>
+<li><a href="#niche-prior-feedback-field"
+id="toc-niche-prior-feedback-field"><span
+class="toc-section-number">4.17</span> Niche-Prior Feedback
+Field</a></li>
+<li><a href="#before-the-first-prior-1"
+id="toc-before-the-first-prior-1"><span
+class="toc-section-number">4.18</span> Before The First Prior</a></li>
+<li><a href="#figure-manifest" id="toc-figure-manifest"><span
+class="toc-section-number">4.19</span> Figure Manifest</a></li>
+</ul></li>
+<li><a href="#sec:conclusion" id="toc-sec:conclusion"><span
+class="toc-section-number">5</span> Conclusion: Prior Origins as
+Termination Problems, Not Hidden Meta-Priors</a></li>
+<li><a href="#sec:artifact-protocol"
+id="toc-sec:artifact-protocol"><span class="toc-section-number">6</span>
+Artifact Protocol: Deterministic Generation Without Empirical
+Simulation</a></li>
+<li><a href="#sec:reproducibility" id="toc-sec:reproducibility"><span
+class="toc-section-number">7</span> Reproducibility: Source-Owned
+Figures, Tokens, and Validation Gates</a></li>
+<li><a href="#sec:scope-related" id="toc-sec:scope-related"><span
+class="toc-section-number">8</span> Scope and Related Work: What the
+Paper Uses, Bounds, and Refuses</a>
+<ul>
+<li><a href="#tinbergen-and-ethological-explanation"
+id="toc-tinbergen-and-ethological-explanation"><span
+class="toc-section-number">8.1</span> Tinbergen and Ethological
+Explanation</a></li>
+<li><a href="#hierarchical-bayes-and-the-hyperprior-regress"
+id="toc-hierarchical-bayes-and-the-hyperprior-regress"><span
+class="toc-section-number">8.2</span> Hierarchical Bayes and the
+Hyperprior Regress</a></li>
+<li><a
+href="#free-energy-principle-and-markov-blanket-self-individuation"
+id="toc-free-energy-principle-and-markov-blanket-self-individuation"><span
+class="toc-section-number">8.3</span> Free Energy Principle and Markov
+Blanket Self-Individuation</a></li>
+<li><a href="#active-inference-and-policy-entanglement"
+id="toc-active-inference-and-policy-entanglement"><span
+class="toc-section-number">8.4</span> Active Inference and Policy
+Entanglement</a></li>
+<li><a href="#ecological-enactive-and-niche-construction-perspectives"
+id="toc-ecological-enactive-and-niche-construction-perspectives"><span
+class="toc-section-number">8.5</span> Ecological-Enactive and
+Niche-Construction Perspectives</a></li>
+<li><a href="#first-prior-co-homeostasis-and-upstream-bias"
+id="toc-first-prior-co-homeostasis-and-upstream-bias"><span
+class="toc-section-number">8.6</span> First Prior, Co-Homeostasis, and
+Upstream Bias</a></li>
+<li><a href="#predictive-aesthetics-and-4e-art"
+id="toc-predictive-aesthetics-and-4e-art"><span
+class="toc-section-number">8.7</span> Predictive Aesthetics And 4E
+Art</a></li>
+<li><a href="#autopoiesis-and-self-producing-organization"
+id="toc-autopoiesis-and-self-producing-organization"><span
+class="toc-section-number">8.8</span> Autopoiesis and Self-Producing
+Organization</a></li>
+<li><a href="#claim-boundaries-after-the-scholarship-pass"
+id="toc-claim-boundaries-after-the-scholarship-pass"><span
+class="toc-section-number">8.9</span> Claim Boundaries After the
+Scholarship Pass</a></li>
+</ul></li>
+<li><a href="#sec:formal-supplement"
+id="toc-sec:formal-supplement"><span class="toc-section-number">9</span>
+Formal Supplement: Minimal Notation for Regress, Closure, and
+Validation</a>
+<ul>
+<li><a href="#deterministic-trace-contract"
+id="toc-deterministic-trace-contract"><span
+class="toc-section-number">9.1</span> Deterministic Trace
+Contract</a></li>
+<li><a href="#numbered-formal-claims"
+id="toc-numbered-formal-claims"><span
+class="toc-section-number">9.2</span> Numbered Formal Claims</a>
+<ul>
+<li><a href="#formal-claim-f1-axis-partition"
+id="toc-formal-claim-f1-axis-partition"><span
+class="toc-section-number">9.2.1</span> Formal Claim F1: Axis
+partition</a></li>
+<li><a href="#formal-claim-f2-regress-shape"
+id="toc-formal-claim-f2-regress-shape"><span
+class="toc-section-number">9.2.2</span> Formal Claim F2: Regress
+shape</a></li>
+<li><a href="#formal-claim-f3-selection-filter"
+id="toc-formal-claim-f3-selection-filter"><span
+class="toc-section-number">9.2.3</span> Formal Claim F3: Selection
+filter</a></li>
+<li><a href="#formal-claim-f4-fixed-point-stop"
+id="toc-formal-claim-f4-fixed-point-stop"><span
+class="toc-section-number">9.2.4</span> Formal Claim F4: Fixed-point
+stop</a></li>
+<li><a href="#formal-claim-f5-decomposition-caution"
+id="toc-formal-claim-f5-decomposition-caution"><span
+class="toc-section-number">9.2.5</span> Formal Claim F5: Decomposition
+caution</a></li>
+<li><a href="#formal-claim-f6-niche-co-construction"
+id="toc-formal-claim-f6-niche-co-construction"><span
+class="toc-section-number">9.2.6</span> Formal Claim F6: Niche
+co-construction</a></li>
+<li><a href="#formal-claim-f7-blanket-achievement"
+id="toc-formal-claim-f7-blanket-achievement"><span
+class="toc-section-number">9.2.7</span> Formal Claim F7: Blanket
+achievement</a></li>
+<li><a href="#formal-claim-f8-explanatory-complementarity"
+id="toc-formal-claim-f8-explanatory-complementarity"><span
+class="toc-section-number">9.2.8</span> Formal Claim F8: Explanatory
+complementarity</a></li>
+<li><a href="#formal-claim-f9-active-inference-bridge"
+id="toc-formal-claim-f9-active-inference-bridge"><span
+class="toc-section-number">9.2.9</span> Formal Claim F9: Active
+inference bridge</a></li>
+<li><a href="#formal-claim-f10-variational-closure"
+id="toc-formal-claim-f10-variational-closure"><span
+class="toc-section-number">9.2.10</span> Formal Claim F10: Variational
+closure</a></li>
+<li><a href="#formal-claim-f11-scale-recurrence"
+id="toc-formal-claim-f11-scale-recurrence"><span
+class="toc-section-number">9.2.11</span> Formal Claim F11: Scale
+recurrence</a></li>
+<li><a href="#formal-claim-f12-deterministic-trace-boundary"
+id="toc-formal-claim-f12-deterministic-trace-boundary"><span
+class="toc-section-number">9.2.12</span> Formal Claim F12: Deterministic
+trace boundary</a></li>
+</ul></li>
+<li><a href="#claim-grounding-map" id="toc-claim-grounding-map"><span
+class="toc-section-number">9.3</span> Claim Grounding Map</a></li>
+<li><a href="#symbol-glossary" id="toc-symbol-glossary"><span
+class="toc-section-number">9.4</span> Symbol Glossary</a></li>
+<li><a href="#text-integrity-checks"
+id="toc-text-integrity-checks"><span
+class="toc-section-number">9.5</span> Text-Integrity Checks</a></li>
+</ul></li>
+<li><a
+href="#references-source-corpus-for-the-conceptual-and-formal-claims"
+id="toc-references-source-corpus-for-the-conceptual-and-formal-claims"><span
+class="toc-section-number">10</span> References: Source Corpus for the
+Conceptual and Formal Claims</a></li>
+</ul>
+</nav>
+<!-- prior-cognitive-art-render-input: 05eb9a0f1ea39e70879ac6d4d268a625cbd73e73b7e03b85d201af4a97d38a23 -->
+<h1 data-number="1"
+id="abstract-a-conceptual-map-of-prior-origins-art-and-fixed-point-explanation"><span
+class="header-section-number">1</span> Abstract: A Conceptual Map of
+Prior Origins, Art, and Fixed-Point Explanation</h1>
+<p>A prior is not explained by stacking more priors; it is located by
+mechanism, function, history, and fixed-point organization. The paper’s
+precise thesis is procedural: before asking why a prior exists, identify
+which explanatory kind is being requested and name the rule that will
+terminate the explanation. This working paper argues that Tinbergen’s
+four questions are not stacked levels in one causal chain. They are
+crossed axes: proximate versus ultimate, and static versus
+developmental. Mechanism and function ask what a prior is doing now;
+ontogeny and phylogeny ask how such organization came to be across
+different timescales.</p>
+<p>The paper treats the familiar “prior on a prior” problem in
+hierarchical Bayes as structurally parallel to an ontogenetic account
+that says one prior selects another. Both postpone the question unless
+they terminate. Three termination families organize the paper: pragmatic
+closure, selection closure, and fixed-point termination. They are
+organizing families, not an exhaustive taxonomy of every possible
+explanation. A final upstream pass asks what comes before the first
+prior and answers with a constraint stack – viability, allostasis,
+co-homeostasis, development, and niche support – rather than with a
+hidden meta-prior. The project uses plain text, deterministic conceptual
+visualizations, and one deterministic illustrative simulation trace. Its
+supplement adds generated, auto-numbered formal claims and a closed
+symbol glossary as text-integrity artifacts rather than empirical
+machinery. The paper includes one deterministic illustrative simulation
+trace over authored formal states; it does not run stochastic
+simulations, synthetic-data experiments, empirical estimates, or
+performance benchmarks.</p>
+<p>The “art” in the title names the craft at stake: arranging
+explanatory kinds (proximate/ultimate, static/developmental,
+selection/fixed-point) so that no single kind is mistaken for the whole,
+and rendering that arrangement as deterministic figures and checkable
+formalism rather than as empirical simulation evidence. It also marks a
+bounded link to aesthetic practice: artworks can stage encounters with
+expectations, material affordances, ambiguity, and meaning, but this
+paper treats that link as a conceptual analogy, not as an empirical
+theory of art.</p>
+<hr />
+<h1 data-number="2" id="sec:introduction"><span
+class="header-section-number">2</span> Introduction: Why the Question of
+a Prior’s Origin Needs More Than Ontogeny</h1>
+<p>The question “why is there a prior?” is ill-typed until the
+explanatory kind is identified. It becomes unstable when the answer is
+only “because an earlier process selected it.” That move is not wrong,
+but it is developmental, and developmental answers naturally invite
+another question about where the selecting process came from. This is
+the same shape as the hyperprior problem in hierarchical Bayes: a prior
+receives another prior above it, which receives another, until the
+account stops by convention or by a stronger explanatory rule. The paper
+therefore treats “why” as a typed request, not as a license to stack
+levels indefinitely <span class="citation"
+data-cites="jaynes2003probability pearl2009causality gelman2013philosophy">(<a
+href="#ref-jaynes2003probability" role="doc-biblioref">Jaynes 2003</a>;
+<a href="#ref-pearl2009causality" role="doc-biblioref">Pearl 2009</a>;
+<a href="#ref-gelman2013philosophy" role="doc-biblioref">Gelman and
+Shalizi 2013</a>)</span>.</p>
+<p>Tinbergen’s four questions help locate the issue <span
+class="citation"
+data-cites="tinbergen1963aims mayr1961cause bateson2004toward bergman2022leveling">(<a
+href="#ref-tinbergen1963aims" role="doc-biblioref">Tinbergen 1963</a>;
+<a href="#ref-mayr1961cause" role="doc-biblioref">Mayr 1961</a>; <a
+href="#ref-bateson2004toward" role="doc-biblioref">Bateson and Laland
+2013</a>; <a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>. The questions
+are often read as a ladder, but for this manuscript they are a grid. One
+axis asks whether the account is proximate or ultimate. The other asks
+whether the account is static or developmental. Mechanism is
+proximate-static; function is ultimate-static; ontogeny is
+proximate-developmental; phylogeny is ultimate-developmental. The four
+questions are not four rungs of a single explanatory climb; they are
+four cells of a two-by-two map, and the regress pressure arises when one
+cell is asked to carry the load of all four.</p>
+<p>This grid is an explicit analytic re-description, not a claim that
+Tinbergen’s framework is uniquely or naturally a Cartesian product.
+Bergman and Beehner’s causes/consequences leveling is compatible as a
+reorganization, but it does not license treating the two-axis map as an
+empirical taxonomy <span class="citation"
+data-cites="bergman2022leveling">(<a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>.</p>
+<p>An ontogenetic answer keeps an important part of the story: it
+explains how a prior was acquired or tuned in an individual history. It
+cannot carry the entire explanatory load. By itself, it does not explain
+why that developmental channel was available, why that class of priors
+persisted, or why the system is organized so that “having a prior” is
+the right description <span class="citation"
+data-cites="friston2015active friston2015free">(<a
+href="#ref-friston2015active" role="doc-biblioref">Friston, Rigoli, et
+al. 2015</a>; <a href="#ref-friston2015free"
+role="doc-biblioref">Friston, Levin, et al. 2015</a>)</span>. In
+Bayesian practice, the analogous problem appears when a prior is
+justified by a hyperprior, and the hyperprior by another hyperprior. The
+iteration is technically harmless — it just produces a deeper model —
+but it is explanatorily inert unless a termination condition is named
+that is not itself another prior <span class="citation"
+data-cites="gelman2013philosophy bernardo1979reference">(<a
+href="#ref-gelman2013philosophy" role="doc-biblioref">Gelman and Shalizi
+2013</a>; <a href="#ref-bernardo1979reference"
+role="doc-biblioref">Bernardo 1979</a>)</span>.</p>
+<p>The free energy principle provides the most developed contemporary
+site for this problem. A system that minimizes variational free energy
+under a Markov blanket can be described as instantiating a generative
+model. Here, <em>prior</em> means a distribution or parameterization
+supplied before the current update; <em>posterior</em> means the
+distribution after conditioning; and <em>prior-like</em> means a broader
+organizational constraint that may support inference without being a
+Bayesian prior in that narrow sense. Sufficient statistics of a model
+are therefore not automatically priors: the manuscript uses them only
+when their role is explicitly identified as a prior or prior-like
+constraint <span class="citation"
+data-cites="friston2010free friston2013life hohwy2016self">(<a
+href="#ref-friston2010free" role="doc-biblioref">Friston 2010</a>, <a
+href="#ref-friston2013life" role="doc-biblioref">2013</a>; <a
+href="#ref-hohwy2016self" role="doc-biblioref">Hohwy 2016b</a>)</span>.
+But the Markov blanket must be used with care. In active-inference work
+it is a statistical boundary within a model of the system; in stronger
+biological readings it is connected to autonomy and self-individuation
+<span class="citation" data-cites="kirchhoff2018markov">(<a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>)</span>. Recent critiques warn that those two registers should
+not be conflated: a Markov blanket can organize an explanatory model
+without automatically demarcating the literal physical or cognitive
+boundary of an organism <span class="citation"
+data-cites="bruineberg2022emperor raja2021markov">(<a
+href="#ref-bruineberg2022emperor" role="doc-biblioref">Bruineberg et al.
+2022</a>; <a href="#ref-raja2021markov" role="doc-biblioref">Raja et al.
+2021</a>)</span>. The more recent mathematical expositions of active
+inference and the free energy principle reinforce the same discipline:
+action, perception, and model evidence belong to a formal description
+whose scope has to be stated <span class="citation"
+data-cites="friston2012agency friston2023simpler">(<a
+href="#ref-friston2012agency" role="doc-biblioref">Friston et al.
+2012</a>, <a href="#ref-friston2023simpler"
+role="doc-biblioref">2023</a>)</span>. This creates the same question at
+a deeper level: if the prior-like structure is a bounded model of what
+the system maintains, then “where did the prior come from?” is not
+answered by naming another prior above it. The answer must either be
+pragmatic (stop here for calculation), selective (filter by viability),
+or fixed-point (the system is the prior-like settlement, not a bearer of
+one more hidden prior). These are the paper’s three organizing families,
+not a claim that the space of explanatory stops is exhausted by
+them.</p>
+<p>The harder upstream version asks what comes before the first prior,
+or what could count as a bias before explicit bias. The manuscript
+treats that question as a first-principles pressure test. If “prior”
+means an inferential parameter, then putting another prior before it
+merely restarts the regress. The better answer is pre-inferential
+constraint: viability asymmetries, predictive bodily regulation, shared
+early-life regulation, and developmental niche structure make some
+expectation-forming paths available before they become belief-like
+priors. Work on the body as first prior, co-embodiment and
+co-homeostasis, allostatic regulation, visceral rhythmicity in
+development, morphogenesis, and evolved active-inference architectures
+supports this upstream frame <span class="citation"
+data-cites="allen2018body_first_prior ciaunica2021first_prior sterling2012allostasis corcoran2025body_first_teacher kuchling2020morphogenesis pezzulo2022evolution">(<a
+href="#ref-allen2018body_first_prior" role="doc-biblioref">Allen and
+Tsakiris 2018</a>; <a href="#ref-ciaunica2021first_prior"
+role="doc-biblioref">Ciaunica et al. 2021</a>; <a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>; <a href="#ref-corcoran2025body_first_teacher"
+role="doc-biblioref">Corcoran et al. 2025</a>; <a
+href="#ref-kuchling2020morphogenesis" role="doc-biblioref">Kuchling et
+al. 2020</a>; <a href="#ref-pezzulo2022evolution"
+role="doc-biblioref">Pezzulo et al. 2022</a>)</span>. This is not a
+discovery of a literal hidden meta-prior. It is a category correction:
+before learned priors come histories of regulation, support, embodiment,
+and viable form.</p>
+<p>The working hypothesis is therefore modular: the regress is not a
+property of Tinbergen’s framework; it is a property of choosing the
+ontogenetic quadrant as the whole answer. Once the quadrants are kept
+distinct, the regress can be located in a specific move — treating a
+developmental answer as a complete one — rather than in the explanatory
+apparatus itself. The methodological consequences are developed in
+sec. <a href="#sec:method">3</a>, the visual atlas in sec. <a
+href="#sec:visual-atlas">4</a>, and the formal claims in sec. <a
+href="#sec:formal-supplement">9</a>. The conclusion synthesizes these
+threads in sec. <a href="#sec:conclusion">5</a>.</p>
+<ul>
+<li><strong>Tinbergen is crossed, not stacked</strong>: Mechanism,
+function, ontogeny, and phylogeny form two axes: proximate versus
+ultimate and static versus developmental.</li>
+<li><strong>Ontogeny alone keeps deferring</strong>: Treating
+development as the whole answer to why a prior exists moves the question
+to the developmental source of that prior.</li>
+<li><strong>Biological inheritance mirrors hyperprior
+inheritance</strong>: Prior-selects-prior in developmental language has
+the same shape as prior-on-prior in hierarchical Bayes.</li>
+<li><strong>Three termination families organize the paper</strong>: The
+paper organizes the regress around pragmatic, selection, and fixed-point
+termination families without claiming that these exhaust every possible
+explanatory stop.</li>
+<li><strong>Before the first prior is constraint history</strong>: Going
+upstream does not reveal a hidden prior before all priors; it reveals
+viability, regulation, shared embodiment, developmental tuning, and
+niche structure that make learned priors possible.</li>
+<li><strong>Joint structure precedes factor cleanup</strong>: The
+argument is adjacent to lambda-decomposition work because joint
+organization can be prior to the factors later extracted from it.</li>
+<li><strong>Priors are co-shaped by system and niche</strong>: The
+prior-like structure is not fully given by the environment nor fully
+endogenous; it is co-shaped by the organism and its niche.</li>
+<li><strong>Markov blankets are achieved, not given</strong>: The
+statistical boundary separating internal from external states is part of
+what the persisting system achieves, not a boundary imposed from
+outside.</li>
+<li><strong>Tinbergen questions are complementary, not rival</strong>:
+The four questions are complementary perspectives on the same
+phenomenon; conflating them is the source of the regress, not the
+framework itself.</li>
+<li><strong>Active inference closes the action-perception loop</strong>:
+Active inference couples perception and action while distinguishing
+variational free energy for inference from expected free energy for
+policy selection, closing the explanatory loop the prior was meant to
+serve.</li>
+<li><strong>Prior-like structure recurs across scales</strong>: The
+regress-termination problem recurs at the cellular, organismic, and
+social scales; the fixed-point move applies at each level without
+requiring a new hidden prior.</li>
+<li><strong>Art arranges encounters with priors</strong>: The paper’s
+art claim is bounded: aesthetic practices arrange cues, contexts, and
+meanings that interact with predictive priors; they do not prove that
+art directly rewires priors as an empirical mechanism.</li>
+</ul>
+<p>The supplement formalizes this hypothesis only where the notation
+improves accountability. Its claims are auto-numbered from source
+records, its symbol glossary is generated, and its integrity token is
+injected into the rendered text. The formalism is a validation aid, not
+a simulation model. The paper sits alongside policy-entanglement and
+lambda-decomposition work in which joint organization may be prior to
+the factors later extracted from it <span class="citation"
+data-cites="da_costa2020active parr2022active">(<a
+href="#ref-da_costa2020active" role="doc-biblioref">Costa et al.
+2020</a>; <a href="#ref-parr2022active" role="doc-biblioref">Parr et al.
+2022</a>)</span>. The “art” in the title is meant in this sense: the
+craft of keeping explanatory kinds distinct and rendering that
+distinction as deterministic figures and checkable claims, rather than
+as a metaphysical theory of priors.</p>
+<p>This use of “art” is also disciplined by recent predictive-processing
+aesthetics. Work on visual art, music, and neuroaesthetics shows that
+aesthetic experience often turns on learned expectations, uncertainty,
+affect, and meaning-making <span class="citation"
+data-cites="van_de_cruys2011putting pearce2018statistical frascaroli2024aesthetics pearce2016neuroaesthetics">(<a
+href="#ref-van_de_cruys2011putting" role="doc-biblioref">Van de Cruys
+and Wagemans 2011</a>; <a href="#ref-pearce2018statistical"
+role="doc-biblioref">Pearce 2018</a>; <a
+href="#ref-frascaroli2024aesthetics" role="doc-biblioref">Frascaroli et
+al. 2024</a>; <a href="#ref-pearce2016neuroaesthetics"
+role="doc-biblioref">Pearce et al. 2016</a>)</span>. That literature
+supports the paper’s modest analogy: aesthetic practices arrange
+encounters with priors and prediction errors. Material-engagement and
+extended-mind work make the analogy more public and embodied: art-making
+uses artifacts, media, and situated practice to make expectations
+available for inspection rather than keeping them inside the head <span
+class="citation"
+data-cites="dewey1934art clark1998extended varela1991embodied thompson2007mind malafouris2013things noe2015strange wynn2021four_e">(<a
+href="#ref-dewey1934art" role="doc-biblioref">Dewey 1934</a>; <a
+href="#ref-clark1998extended" role="doc-biblioref">Clark and Chalmers
+1998</a>; <a href="#ref-varela1991embodied" role="doc-biblioref">Varela
+et al. 1991</a>; <a href="#ref-thompson2007mind"
+role="doc-biblioref">Thompson 2007</a>; <a
+href="#ref-malafouris2013things" role="doc-biblioref">Malafouris
+2013</a>; <a href="#ref-noe2015strange" role="doc-biblioref">Noë
+2015</a>; <a href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et al.
+2021</a>)</span>. None of this supports a stronger conclusion that art
+is reducible to prediction-error optimization, that aesthetic value is
+the same as epistemic value, or that the free energy principle is a
+complete theory of art <span class="citation"
+data-cites="kesner2014predictive burnett2020four_e brown2009arts bowers2012bayesian">(<a
+href="#ref-kesner2014predictive" role="doc-biblioref">Kesner 2014</a>;
+<a href="#ref-burnett2020four_e" role="doc-biblioref">Burnett and
+Gallagher 2020</a>; <a href="#ref-brown2009arts"
+role="doc-biblioref">Brown and Dissanayake 2009</a>; <a
+href="#ref-bowers2012bayesian" role="doc-biblioref">Bowers and Davis
+2012</a>)</span>.</p>
+<hr />
+<h1 data-number="3" id="sec:method"><span
+class="header-section-number">3</span> Conceptual Method: Typed
+Explanations and Source-Owned Artifacts</h1>
+<p>This is a conceptual paper. It includes one deterministic
+illustrative simulation trace over authored formal states, but it uses
+no stochastic simulation, no synthetic data, no empirical-effect
+estimate, and no numerical performance claim. Its method is diagrammatic
+clarification: keep the quadrants, regress types, trace states, and
+termination moves explicit enough that the prose cannot silently trade
+one explanatory kind for another. The methodological commitment is that
+the distinction between explanatory kinds — proximate versus ultimate,
+static versus developmental — must be preserved through every stage of
+the argument. When the distinction is lost, the regress reappears as if
+it were forced by the framework, when in fact it is forced by a category
+error: asking a developmental question to answer a static one.</p>
+<p>The source layer records 4 Tinbergen quadrants, 3 termination modes,
+12 argument modules, 21 figure specifications, 12 formal claims, and 35
+glossary rows. Those records are rendered into visual artifacts,
+supplement formalisms, and manuscript variables during the analysis
+stage. The visual inventory is deliberately partitioned: the atlas
+contains 18 argument diagrams, while the formal supplement contains 3
+contract diagrams.</p>
+<h2 data-number="3.1" id="operational-protocol"><span
+class="header-section-number">3.1</span> Operational Protocol</h2>
+<p>The manuscript applies a compact five-step protocol to each “why”
+question:</p>
+<ol type="1">
+<li><strong>Type the request.</strong> State whether the question
+concerns mechanism, function, ontogeny, phylogeny, or another explicitly
+named explanatory kind.</li>
+<li><strong>Expose deferral.</strong> Show whether the proposed answer
+merely moves the prior to a hyperprior, selector, or earlier
+developmental condition.</li>
+<li><strong>Name the stop.</strong> Identify pragmatic, selection, or
+fixed-point closure when one of those families does the relevant
+explanatory work; do not imply the list is exhaustive.</li>
+<li><strong>State the ceiling.</strong> Mark what the stop explains and
+what it leaves open, especially for Markov blankets, niche construction,
+and aesthetic analogy.</li>
+<li><strong>Render and validate.</strong> Generate the diagram and
+formal record from the source inventory, hydrate the prose, and reject
+stale or mismatched outputs.</li>
+</ol>
+<p>This protocol is an accountability device, not a causal model or an
+empirical estimator. It makes category changes visible before they
+become prose claims.</p>
+<h2 data-number="3.2"
+id="tinbergen-crossed-with-prior-explanation"><span
+class="header-section-number">3.2</span> Tinbergen Crossed With Prior
+Explanation</h2>
+<p>tbl. <a href="#tbl:tinbergen_quadrants">1</a> lays out the crossed
+structure. Mechanism and function are static: they can close locally by
+saying what a prior is doing now. Ontogeny and phylogeny are
+developmental: they explain how a structure came to be over time. The
+regress appears when a developmental answer is asked to serve as the
+whole explanation.</p>
+<table id="tbl:tinbergen_quadrants">
+<caption>Table 1: Tinbergen quadrant map for prior
+explanation.</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Question</th>
+<th>Scale</th>
+<th>Time-form</th>
+<th>Prior question answered</th>
+<th>Regress status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mechanism</td>
+<td>proximate</td>
+<td>static</td>
+<td>What the prior is doing now inside the system.</td>
+<td>closes locally by naming present causal organization</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>ultimate</td>
+<td>static</td>
+<td>What the prior is for now in selection-structured terms.</td>
+<td>closes locally by naming viability and use</td>
+</tr>
+<tr>
+<td>Ontogeny</td>
+<td>proximate</td>
+<td>developmental</td>
+<td>How the prior became shaped across an individual history.</td>
+<td>defers the question to the source of that history</td>
+</tr>
+<tr>
+<td>Phylogeny</td>
+<td>ultimate</td>
+<td>developmental</td>
+<td>How the prior persisted across population histories.</td>
+<td>blocks regress through selection-filtered survival</td>
+</tr>
+</tbody>
+</table>
+<p>The table makes the main constraint visible. Mechanism and function
+are static in the relevant sense: they can close locally by saying what
+a prior is doing now. Ontogeny and phylogeny are developmental: they
+explain how a structure came to be over time. The regress appears when a
+developmental answer is asked to serve as the whole explanation. This is
+why Bateson and Laland’s update of Tinbergen’s framework matters: they
+show that the four questions are complementary, not competing, and that
+conflation among them is the source of persistent confusion in ethology
+and beyond <span class="citation" data-cites="bateson2004toward">(<a
+href="#ref-bateson2004toward" role="doc-biblioref">Bateson and Laland
+2013</a>)</span>. Bergman and Beehner’s cause/consequence leveling is
+useful because it shows the framework can be reorganized without losing
+the need for explanatory distinctions <span class="citation"
+data-cites="bergman2022leveling">(<a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>. The same
+conflation arises when “why is there a prior?” is answered by only
+naming a developmental channel. Konner’s nine-level proposal is useful
+here as a cautionary extension rather than as a replacement: one can
+split Tinbergen’s questions into finer levels, but this paper depends
+only on preserving the kinds of explanation they name <span
+class="citation" data-cites="konner2021nine">(<a
+href="#ref-konner2021nine" role="doc-biblioref">Konner 2021</a>)</span>.
+The category-theoretic distinction between explanatory kinds is not
+merely terminological: it tracks a real difference in what an
+explanation is being asked to do <span class="citation"
+data-cites="smith2000formal godfrey2013theoretical">(<a
+href="#ref-smith2000formal" role="doc-biblioref">Smith 2000</a>; <a
+href="#ref-godfrey2013theoretical" role="doc-biblioref">Godfrey-Smith
+2014</a>)</span>.</p>
+<h2 data-number="3.3" id="regress-closure-strategies"><span
+class="header-section-number">3.3</span> Regress-Closure Strategies</h2>
+<ul>
+<li><strong>Pragmatic termination</strong> (formal sufficiency): Install
+a flat or weak hyperprior and stop asking. Limitation: It is useful for
+calculation but thin as an explanation.</li>
+<li><strong>Selection termination</strong> (viability filtering):
+Function and phylogeny answer why this prior persists. Limitation: It
+explains persistence, not the fine structure of a single organism.</li>
+<li><strong>Self-referential termination</strong> (fixed-point
+individuation): The prior is the settled organization of the process it
+constrains. Limitation: It must be stated as a category shift, not
+another hidden prior.</li>
+</ul>
+<p>These are closure strategies rather than three proofs that one
+metaphysical question has been answered. The first move, pragmatic
+termination, is the standard move in applied Bayesian statistics:
+install a weakly informative, reference, or penalized complexity prior
+and then test whether the model is adequate for the task <span
+class="citation"
+data-cites="gelman2013philosophy simpson2017penalising">(<a
+href="#ref-gelman2013philosophy" role="doc-biblioref">Gelman and Shalizi
+2013</a>; <a href="#ref-simpson2017penalising"
+role="doc-biblioref">Simpson et al. 2017</a>)</span>. It is
+epistemically honest about its own limitation: prior predictive checks,
+posterior predictive checks, and sensitivity analysis regularize
+inference without claiming to discover the origin of the prior. The
+second move, selection termination, treats the prior as the surviving
+form after viability filtering by function and phylogeny <span
+class="citation" data-cites="friston2015free constant2018free">(<a
+href="#ref-friston2015free" role="doc-biblioref">Friston, Levin, et al.
+2015</a>; <a href="#ref-constant2018free" role="doc-biblioref">Constant
+et al. 2018</a>)</span>. It explains persistence without explaining fine
+structure. The third move, fixed-point termination, is the most
+interesting for cognitive science because it changes the grammar of the
+question. Instead of asking for a prior behind the prior, it asks
+whether the persisting organization of the system is what the term
+“prior” was naming.</p>
+<p>That is why the free energy principle and Markov blanket
+self-individuation matter here <span class="citation"
+data-cites="friston2010free ramstead2018answering kirchhoff2018markov">(<a
+href="#ref-friston2010free" role="doc-biblioref">Friston 2010</a>; <a
+href="#ref-ramstead2018answering" role="doc-biblioref">Ramstead et al.
+2018</a>; <a href="#ref-kirchhoff2018markov"
+role="doc-biblioref">Kirchhoff et al. 2018</a>)</span>. When the Markov
+blanket is treated as a model-level boundary tied to the system’s
+self-maintaining dynamics, the prior-like structure becomes a bounded
+description of organization rather than a parameter received from a
+higher level <span class="citation"
+data-cites="constant2018free hohwy2016self">(<a
+href="#ref-constant2018free" role="doc-biblioref">Constant et al.
+2018</a>; <a href="#ref-hohwy2016self" role="doc-biblioref">Hohwy
+2016b</a>)</span>. The critique literature matters because it blocks an
+overclaim: the notation does not by itself identify a literal organism
+boundary, so the fixed-point move must be stated as a bounded modeling
+claim, not a metaphysical shortcut <span class="citation"
+data-cites="bruineberg2022emperor raja2021markov">(<a
+href="#ref-bruineberg2022emperor" role="doc-biblioref">Bruineberg et al.
+2022</a>; <a href="#ref-raja2021markov" role="doc-biblioref">Raja et al.
+2021</a>)</span>. The system does not have a prior in the way it has a
+property; it persists as the organization that makes prior-like
+constraint legible.</p>
+<h2 data-number="3.4" id="before-the-first-prior"><span
+class="header-section-number">3.4</span> Before The First Prior</h2>
+<p>The first-principles version of the problem asks what is upstream of
+the first inferential prior. This paper answers by refusing to treat
+“before” as another level in a Bayesian hierarchy. A prior-before-priors
+would only duplicate the hyperprior regress. The upstream layer has to
+be a different explanatory kind: viability constraints, regulatory
+asymmetries, embodied support, and developmental scaffolding that make
+expectation-forming possible before the organism can own an explicit
+prior.</p>
+<p>This move draws on four adjacent literatures. Interoceptive
+predictive processing treats the body as a first prior for
+self-modeling, which shifts the origin question from detached belief to
+regulatory bodily organization <span class="citation"
+data-cites="allen2018body_first_prior">(<a
+href="#ref-allen2018body_first_prior" role="doc-biblioref">Allen and
+Tsakiris 2018</a>)</span>. Early-life co-embodiment and co-homeostasis
+work pushes farther upstream: bodily regulation is initially shared with
+caregivers and environments rather than privately possessed <span
+class="citation" data-cites="ciaunica2021first_prior">(<a
+href="#ref-ciaunica2021first_prior" role="doc-biblioref">Ciaunica et al.
+2021</a>)</span>. Allostasis names predictive regulation as a core
+physiological pattern, while recent developmental work on rhythmic
+visceral dynamics describes how bodily regularities can teach early
+cognition before explicit conceptual learning <span class="citation"
+data-cites="sterling2012allostasis corcoran2025body_first_teacher">(<a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>; <a href="#ref-corcoran2025body_first_teacher"
+role="doc-biblioref">Corcoran et al. 2025</a>)</span>. Finally,
+morphogenesis and evolutionary active-inference accounts suggest that
+constraint histories can be biological and architectural before they are
+cognitive in the narrow sense <span class="citation"
+data-cites="kuchling2020morphogenesis pezzulo2022evolution linson2018active_ecological">(<a
+href="#ref-kuchling2020morphogenesis" role="doc-biblioref">Kuchling et
+al. 2020</a>; <a href="#ref-pezzulo2022evolution"
+role="doc-biblioref">Pezzulo et al. 2022</a>; <a
+href="#ref-linson2018active_ecological" role="doc-biblioref">Linson et
+al. 2018</a>)</span>.</p>
+<p>The RedTeam boundary is therefore strict. These sources license an
+upstream constraint stack, not a literal first-prior discovery. “Bias
+before bias” means asymmetry before inference: some forms are viable,
+regulatable, shareable, and developmentally reachable before they are
+available as priors in a model. fig. <a
+href="#fig:first_prior_grounding_stack">18</a> renders that distinction
+as a visual constraint stack.</p>
+<h2 data-number="3.5" id="the-role-of-niche-construction"><span
+class="header-section-number">3.5</span> The Role of Niche
+Construction</h2>
+<p>The niche-construction reading of the free energy principle deepens
+the selection-termination move. Foundational niche-construction theory
+argues that organisms modify the selection pressures they and their
+descendants face, and that cultural practices can participate in that
+feedback <span class="citation"
+data-cites="laland2000niche odling_smee2003niche">(<a
+href="#ref-laland2000niche" role="doc-biblioref">Laland et al. 2000</a>;
+<a href="#ref-odling_smee2003niche" role="doc-biblioref">Odling-Smee et
+al. 2003</a>)</span>. Constant and colleagues add the variational
+version: organisms actively structure their niche, and the niche
+structures them back, so that the statistical regularities exploited by
+the organism are partly of its own making <span class="citation"
+data-cites="constant2018free baltieri2022extended">(<a
+href="#ref-constant2018free" role="doc-biblioref">Constant et al.
+2018</a>; <a href="#ref-baltieri2022extended"
+role="doc-biblioref">Baltieri et al. 2022</a>)</span>. Developmental
+niche construction adds an important boundary: the constructed
+environment does not only select among ready-made forms; it also helps
+produce developmental variation and transmit resources across
+generations <span class="citation"
+data-cites="stotz2017developmental">(<a
+href="#ref-stotz2017developmental" role="doc-biblioref">Stotz
+2017</a>)</span>. This does not eliminate selection — viability still
+filters what can persist — but it shows that the filter is not purely
+external. The prior-like structure is co-shaped by the system and its
+environment. This complicates the selection-termination move without
+changing its logical role: it still blocks regress by naming what
+persists rather than by adding another hidden level. The visual atlas in
+sec. <a href="#sec:visual-atlas">4</a> renders this co-shaping
+diagrammatically.</p>
+<h2 data-number="3.6"
+id="active-inference-and-variational-closure"><span
+class="header-section-number">3.6</span> Active Inference and
+Variational Closure</h2>
+<p>Active inference extends the free energy principle to action and
+policy selection <span class="citation"
+data-cites="friston2012agency friston2015active da_costa2020active friston2017active">(<a
+href="#ref-friston2012agency" role="doc-biblioref">Friston et al.
+2012</a>; <a href="#ref-friston2015active" role="doc-biblioref">Friston,
+Rigoli, et al. 2015</a>; <a href="#ref-da_costa2020active"
+role="doc-biblioref">Costa et al. 2020</a>; <a
+href="#ref-friston2017active" role="doc-biblioref">Friston et al.
+2017</a>)</span>. Extended active-inference work makes the same point at
+the organism-niche surface: action changes the sensory and material
+field in which future inference occurs <span class="citation"
+data-cites="baltieri2022extended">(<a href="#ref-baltieri2022extended"
+role="doc-biblioref">Baltieri et al. 2022</a>)</span>. The prior serves
+a coupled perception-action process, but the objectives must not be
+collapsed: variational free energy evaluates an approximate posterior,
+whereas expected free energy evaluates policies. This closes the
+explanatory loop without claiming that inference and policy selection
+are the same optimization problem. The variational free energy bounds
+negative log evidence from above, or equivalently tightens the evidence
+lower bound as the approximate posterior approaches the target posterior
+within its variational family <span class="citation"
+data-cites="blei2017variational">(<a href="#ref-blei2017variational"
+role="doc-biblioref">Blei et al. 2017</a>)</span>. In this paper that
+formal fact is used narrowly: it supports a model-internal settling
+interpretation of prior-like constraint, not a claim that free energy
+literally vanishes or that variational inference has derived the
+historical origin of the prior <span class="citation"
+data-cites="friston2019free friston2023simpler da_costa2023bayesian bowers2012bayesian">(<a
+href="#ref-friston2019free" role="doc-biblioref">Friston 2019</a>; <a
+href="#ref-friston2023simpler" role="doc-biblioref">Friston et al.
+2023</a>; <a href="#ref-da_costa2023bayesian" role="doc-biblioref">Costa
+et al. 2023</a>; <a href="#ref-bowers2012bayesian"
+role="doc-biblioref">Bowers and Davis 2012</a>)</span>.</p>
+<p>The same boundary applies to epistemic value. Active inference can
+model information-seeking policies and uncertainty reduction <span
+class="citation" data-cites="friston2015active parr2022active">(<a
+href="#ref-friston2015active" role="doc-biblioref">Friston, Rigoli, et
+al. 2015</a>; <a href="#ref-parr2022active" role="doc-biblioref">Parr et
+al. 2022</a>)</span>, but epistemic value is not aesthetic value. When
+the paper uses aesthetic scholarship, it treats art as a field of staged
+expectation, ambiguity, affect, and meaning, not as a proof that
+aesthetic worth is just expected free-energy minimization <span
+class="citation"
+data-cites="van_de_cruys2024order frascaroli2024aesthetics burnett2020four_e">(<a
+href="#ref-van_de_cruys2024order" role="doc-biblioref">Van de Cruys et
+al. 2024</a>; <a href="#ref-frascaroli2024aesthetics"
+role="doc-biblioref">Frascaroli et al. 2024</a>; <a
+href="#ref-burnett2020four_e" role="doc-biblioref">Burnett and Gallagher
+2020</a>)</span>.</p>
+<h2 data-number="3.7"
+id="aesthetic-prior-craft-as-a-bounded-analogy"><span
+class="header-section-number">3.7</span> Aesthetic Prior-Craft As A
+Bounded Analogy</h2>
+<p>Predictive-processing aesthetics offers the paper its title
+discipline. Visual art, music, and aesthetic experience often involve
+learned regularities, expectation, prediction error, affect, and
+meaning-making <span class="citation"
+data-cites="van_de_cruys2011putting kesner2014predictive pearce2018statistical starr2023aesthetic">(<a
+href="#ref-van_de_cruys2011putting" role="doc-biblioref">Van de Cruys
+and Wagemans 2011</a>; <a href="#ref-kesner2014predictive"
+role="doc-biblioref">Kesner 2014</a>; <a
+href="#ref-pearce2018statistical" role="doc-biblioref">Pearce 2018</a>;
+<a href="#ref-starr2023aesthetic" role="doc-biblioref">Starr
+2023</a>)</span>. Those sources make it legitimate to say that artworks
+can arrange encounters with priors: a painting, musical style,
+performance, or conceptual work can build expectations, violate or
+loosen them, and invite a viewer or listener to recover structure at
+another level. Neuroaesthetics adds a useful triad of sensory-motor,
+emotion-valuation, and meaning-knowledge systems, which keeps the
+account from reducing art to low-level perceptual surprise <span
+class="citation"
+data-cites="chatterjee2014neuroaesthetics pearce2016neuroaesthetics">(<a
+href="#ref-chatterjee2014neuroaesthetics"
+role="doc-biblioref">Chatterjee and Vartanian 2014</a>; <a
+href="#ref-pearce2016neuroaesthetics" role="doc-biblioref">Pearce et al.
+2016</a>)</span>.</p>
+<p>The analogy becomes stronger, and safer, when art is treated as
+material practice rather than as perception alone. Dewey’s
+art-as-experience frame, Noe’s “strange tools” account, extended-mind
+theory, and material-engagement archaeology all support a view in which
+artworks and art-making are public, embodied, and artifact-mediated ways
+of reorganizing attention and action <span class="citation"
+data-cites="dewey1934art noe2015strange clark1998extended malafouris2013things malafouris2019mind wynn2021four_e">(<a
+href="#ref-dewey1934art" role="doc-biblioref">Dewey 1934</a>; <a
+href="#ref-noe2015strange" role="doc-biblioref">Noë 2015</a>; <a
+href="#ref-clark1998extended" role="doc-biblioref">Clark and Chalmers
+1998</a>; <a href="#ref-malafouris2013things"
+role="doc-biblioref">Malafouris 2013</a>, <a
+href="#ref-malafouris2019mind" role="doc-biblioref">2019</a>; <a
+href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et al.
+2021</a>)</span>. Recent material-engagement work on art and chance
+sharpens this point: making is not merely the execution of an inner plan
+but an encounter with affordances, accidents, and media that can change
+what counts as the next relevant move <span class="citation"
+data-cites="march2023art malafouris2023enactychism">(<a
+href="#ref-march2023art" role="doc-biblioref">March and Malafouris
+2023</a>; <a href="#ref-malafouris2023enactychism"
+role="doc-biblioref">Malafouris 2023</a>)</span>. In the paper’s terms,
+the artwork is not a hidden predictive model; it is a crafted
+environment in which prior-like expectations are exposed, perturbed, and
+made legible. fig. <a href="#fig:aesthetic_prior_craft_map">15</a>
+summarizes this source-to-claim boundary.</p>
+<p>That analogy is deliberately bounded. Predictive processing is a
+fruitful lens for expectation and ambiguity in aesthetic experience, not
+a master theory of art. Enactive and 4E accounts emphasize that artworks
+are embodied, sociomaterial practices and affordance fields, while
+neuroaesthetic critics warn that the arts exceed narrow aesthetic
+preference or neural reward <span class="citation"
+data-cites="rietveld2014rich burnett2020four_e brown2009arts">(<a
+href="#ref-rietveld2014rich" role="doc-biblioref">Rietveld and
+Kiverstein 2014</a>; <a href="#ref-burnett2020four_e"
+role="doc-biblioref">Burnett and Gallagher 2020</a>; <a
+href="#ref-brown2009arts" role="doc-biblioref">Brown and Dissanayake
+2009</a>)</span>. Predictive accounts of imagination and enactive
+accounts of surprise add the same caution from another angle: prediction
+can illuminate imaginative perception and improvisation, but it should
+not erase the difference between controlled imagining, embodied
+discovery, and aesthetic practice <span class="citation"
+data-cites="jones2020prediction cavedon_taylor2022predictive gallagher2022surprise">(<a
+href="#ref-jones2020prediction" role="doc-biblioref">Jones and Wilkinson
+2020</a>; <a href="#ref-cavedon_taylor2022predictive"
+role="doc-biblioref">Cavedon-Taylor 2022</a>; <a
+href="#ref-gallagher2022surprise" role="doc-biblioref">Gallagher
+2022</a>)</span>. The manuscript therefore treats “prior cognitive art”
+as the craft of arranging explanatory encounters with priors, not as a
+mechanism claim about artists’ intentions, viewers’ neural updating, or
+imagination as prediction alone.</p>
+<h2 data-number="3.8" id="scale-recurrence"><span
+class="header-section-number">3.8</span> Scale Recurrence</h2>
+<p>The regress-termination problem recurs at multiple scales. The
+fixed-point move applies at each scale without requiring a new hidden
+prior: the prior-like settlement at one scale becomes the substrate for
+the next. This recurrence is a structural analogy, not a claim of scale
+invariance or empirical self-similarity. Three concrete instances make
+the recurrence precise.</p>
+<p>At the <strong>cellular</strong> level, the Markov blanket of a
+single cell is a prior-like model of molecular organization: the cell
+maintains exchange statistics that can be represented as a boundary
+process rather than received from a higher level <span class="citation"
+data-cites="friston2013life kirchhoff2018markov bruineberg2022emperor">(<a
+href="#ref-friston2013life" role="doc-biblioref">Friston 2013</a>; <a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>; <a href="#ref-bruineberg2022emperor"
+role="doc-biblioref">Bruineberg et al. 2022</a>)</span>. At the
+<strong>organismic</strong> level, the nervous system maintains
+prior-like constraints that guide perception and action; the brain-body
+system is modeled as maintaining its own action-perception boundary
+rather than being handed one from outside <span class="citation"
+data-cites="friston2010free hohwy2016self maturana1980autopoiesis">(<a
+href="#ref-friston2010free" role="doc-biblioref">Friston 2010</a>; <a
+href="#ref-hohwy2016self" role="doc-biblioref">Hohwy 2016b</a>; <a
+href="#ref-maturana1980autopoiesis" role="doc-biblioref">Maturana and
+Varela 1980</a>)</span>. At the <strong>social</strong> level, cultural
+practices and shared models function as prior-like structures that
+organize collective behavior, and those practices are themselves steady
+states of a population rather than externally supplied rules <span
+class="citation"
+data-cites="constant2018free ramstead2023encultured">(<a
+href="#ref-constant2018free" role="doc-biblioref">Constant et al.
+2018</a>; <a href="#ref-ramstead2023encultured"
+role="doc-biblioref">Ramstead et al. 2023</a>)</span>. In each case the
+same move terminates the regress: identify the persisting organization
+rather than posit a selector behind it. The fixed-point structure <span
+class="math inline">\(X^*_k = \Phi(X^*_k)\)</span> recurs, and the scale
+recursion operator <span class="math inline">\(R\)</span> carries the
+settlement from one level to the substrate of the next without
+introducing a new explanatory kind.</p>
+<h2 data-number="3.9" id="formal-supplement-protocol"><span
+class="header-section-number">3.9</span> Formal Supplement Protocol</h2>
+<p>The supplement uses generated numbering rather than hand-maintained
+labels. Each formal claim is derived from source records, and every
+project-specific symbol in those claims must appear in the generated
+glossary table. This gives the text a lightweight integrity surface: if
+the formal notation and glossary drift apart, the source contract fails
+before render. The contract is deliberately small — 12 claims, one
+glossary of 35 rows, 11 validation checks — because the point is not to
+build a formal model but to make drift detectable.</p>
+<hr />
+<h1 data-number="4" id="sec:visual-atlas"><span
+class="header-section-number">4</span> Visual Atlas: Eighteen
+Deterministic Argument Diagrams</h1>
+<p>This section is called a visual atlas rather than results because the
+paper does not run experiments. It contains 18 conceptual argument
+diagrams generated from the static source inventory. The complete
+21-figure set also includes 3 contract diagrams in sec. <a
+href="#sec:formal-supplement">9</a>; those supplement figures validate
+claims, symbols, and text rather than add new substantive arguments. The
+one deterministic simulation trace is an authored formal-state sequence,
+not stochastic sampling or empirical evidence. Every figure is
+source-owned, captioned, and given generated accessibility text.</p>
+<h2 data-number="4.1" id="tinbergen-axes"><span
+class="header-section-number">4.1</span> Tinbergen Axes</h2>
+<p>fig. <a href="#fig:tinbergen_axes">1</a> shows the central
+correction. Tinbergen’s four questions form two axes, not a stacked
+series of causes. The quadrant that creates regress pressure is ontogeny
+when it is made to answer more than it can answer. Recent work that
+re-levels Tinbergen into causes and consequences sharpens the same
+point: the questions can be reorganized, but they cannot be collapsed
+into one explanatory kind <span class="citation"
+data-cites="bergman2022leveling">(<a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>.</p>
+<figure id="fig:tinbergen_axes">
+<img src="../figures/tinbergen_axes.png"
+alt="Figure 1: Four colored panels arrange mechanism, function, ontogeny, and phylogeny on crossed proximate-ultimate and static-developmental axes." />
+<figcaption>Figure 1: Four colored panels arrange
+mechanism, function, ontogeny, and phylogeny on crossed
+proximate-ultimate and static-developmental axes.</figcaption>
+</figure>
+<h2 data-number="4.2" id="hyperprior-regress-and-termination"><span
+class="header-section-number">4.2</span> Hyperprior Regress And
+Termination</h2>
+<p>fig. <a href="#fig:regress_terminations">2</a> maps the formal
+parallel between hierarchical Bayes and developmental inheritance. A
+prior on a prior can always be extended upward. A developmental prior
+that selects another developmental prior can always be extended
+backward. The explanatory task is not to add another level; it is to
+name the stopping condition. The pragmatic branch is continuous with
+Bayesian workflow discipline: a prior is justified by model adequacy and
+regularization, not by discovering an ultimate meta-prior <span
+class="citation"
+data-cites="gelman2013philosophy simpson2017penalising">(<a
+href="#ref-gelman2013philosophy" role="doc-biblioref">Gelman and Shalizi
+2013</a>; <a href="#ref-simpson2017penalising"
+role="doc-biblioref">Simpson et al. 2017</a>)</span>.</p>
+<figure id="fig:regress_terminations">
+<img src="../figures/regress_terminations.png"
+alt="Figure 2: A prior leads to a hyperprior and then another level, above three exits labeled pragmatic, selection, and self-referential termination." />
+<figcaption>Figure 2: A prior leads to a hyperprior
+and then another level, above three exits labeled pragmatic, selection,
+and self-referential termination.</figcaption>
+</figure>
+<h2 data-number="4.3" id="prior-as-settled-equilibrium"><span
+class="header-section-number">4.3</span> Prior As Settled
+Equilibrium</h2>
+<p>fig. <a href="#fig:prior_equilibrium_map">3</a> sketches the
+fixed-point move. In this framing, a prior is not an object inside the
+system that needs another prior above it. It is the settled organization
+of perception, action, and boundary maintenance that persists. This is
+where the argument sits closest to free-energy and autopoietic readings
+of cognition <span class="citation"
+data-cites="friston2010free maturana1980autopoiesis">(<a
+href="#ref-friston2010free" role="doc-biblioref">Friston 2010</a>; <a
+href="#ref-maturana1980autopoiesis" role="doc-biblioref">Maturana and
+Varela 1980</a>)</span>.</p>
+<figure id="fig:prior_equilibrium_map">
+<img src="../figures/prior_equilibrium_map.png"
+alt="Figure 3: Concentric loops connect blanket persistence, environmental viability, and action-perception closure around a prior-like settled organization." />
+<figcaption>Figure 3: Concentric loops connect
+blanket persistence, environmental viability, and action-perception
+closure around a prior-like settled organization.</figcaption>
+</figure>
+<h2 data-number="4.4" id="ontogeny-and-hyperprior-shape"><span
+class="header-section-number">4.4</span> Ontogeny And Hyperprior
+Shape</h2>
+<p>fig. <a href="#fig:ontogeny_hyperprior_parallel">4</a> makes the
+structural analogy explicit. In hierarchical Bayes, a prior can be
+justified by a hyperprior, which can be justified by another hyperprior.
+In an ontogenetic-only biological account, a current prior can be
+justified by a developmental selector, which can then be asked to
+justify its own source. The point is not that these are the same
+substantive theory. The point is that they share a regress shape.</p>
+<figure id="fig:ontogeny_hyperprior_parallel">
+<img src="../figures/ontogeny_hyperprior_parallel.png"
+alt="Figure 4: Parallel Bayesian and developmental chains show that adding another prior or selector repeats the same deferral shape." />
+<figcaption>Figure 4: Parallel Bayesian and
+developmental chains show that adding another prior or selector repeats
+the same deferral shape.</figcaption>
+</figure>
+<h2 data-number="4.5" id="selection-filter"><span
+class="header-section-number">4.5</span> Selection Filter</h2>
+<p>fig. <a href="#fig:selection_filter">5</a> distinguishes selection
+closure from merely adding another historical layer. Function and
+phylogeny do not answer every sense of “why” the prior exists; they
+explain persistence by filtering the space of candidate forms. Fragile,
+overfit, or miscalibrated priors do not remain available as the objects
+whose origin we ask about. The figure therefore represents a
+selection-based closure of the availability question, not a complete
+causal history of the individual prior.</p>
+<figure id="fig:selection_filter">
+<img src="../figures/selection_filter.png"
+alt="Figure 5: Candidate prior-like forms pass through a function-and-phylogeny viability filter, leaving a persisting prior form." />
+<figcaption>Figure 5: Candidate prior-like forms pass
+through a function-and-phylogeny viability filter, leaving a persisting
+prior form.</figcaption>
+</figure>
+<h2 data-number="4.6" id="policy-entanglement-bridge"><span
+class="header-section-number">4.6</span> Policy Entanglement Bridge</h2>
+<p>fig. <a href="#fig:policy_entanglement_bridge">6</a> sketches why the
+argument sits beside policy-entanglement work. If lambda-decomposition
+extracts policy, state, and prior-like factors from an already joint
+structure, then those factors are useful cuts rather than proof that the
+factors were ontologically first. This is the same explanatory posture
+as fixed-point termination: organization can precede the decomposition
+that later makes it legible.</p>
+<figure id="fig:policy_entanglement_bridge">
+<img src="../figures/policy_entanglement_bridge.png"
+alt="Figure 6: A joint organization branches into policy, prior-like constraint, and state factors after lambda-decomposition." />
+<figcaption>Figure 6: A joint organization branches
+into policy, prior-like constraint, and state factors after
+lambda-decomposition.</figcaption>
+</figure>
+<h2 data-number="4.7" id="niche-co-construction"><span
+class="header-section-number">4.7</span> Niche Co-Construction</h2>
+<p>fig. <a href="#fig:niche_construction_diagram">7</a> shows how the
+prior-like structure is co-shaped by organism and environment. The
+niche-construction reading does not eliminate selection — viability
+still filters what can persist — but it shows that the filter is not
+purely external. The prior is not fully given by the environment nor
+fully endogenous; it is co-shaped by the reciprocal interaction <span
+class="citation"
+data-cites="odling_smee2003niche laland2000niche constant2018free">(<a
+href="#ref-odling_smee2003niche" role="doc-biblioref">Odling-Smee et al.
+2003</a>; <a href="#ref-laland2000niche" role="doc-biblioref">Laland et
+al. 2000</a>; <a href="#ref-constant2018free"
+role="doc-biblioref">Constant et al. 2018</a>)</span>.</p>
+<figure id="fig:niche_construction_diagram">
+<img src="../figures/niche_construction_diagram.png"
+alt="Figure 7: Organism and environment or niche reciprocally shape a central prior-like structure through two-way arrows." />
+<figcaption>Figure 7: Organism and environment or
+niche reciprocally shape a central prior-like structure through two-way
+arrows.</figcaption>
+</figure>
+<h2 data-number="4.8" id="markov-blanket-as-achievement"><span
+class="header-section-number">4.8</span> Markov Blanket As
+Achievement</h2>
+<p>fig. <a href="#fig:markov_blanket_achievement">8</a> shows the Markov
+blanket as a self-maintaining model boundary rather than an externally
+imposed partition. When the blanket is treated as an achievement of the
+system, the prior-like structure becomes part of what the model
+describes the system as maintaining, not a parameter received from a
+higher level <span class="citation"
+data-cites="kirchhoff2018markov friston2013life">(<a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>; <a href="#ref-friston2013life" role="doc-biblioref">Friston
+2013</a>)</span>. The figure also marks the scope boundary introduced by
+recent critiques: the notation is not enough by itself to settle
+organismal or cognitive ontology <span class="citation"
+data-cites="bruineberg2022emperor raja2021markov">(<a
+href="#ref-bruineberg2022emperor" role="doc-biblioref">Bruineberg et al.
+2022</a>; <a href="#ref-raja2021markov" role="doc-biblioref">Raja et al.
+2021</a>)</span>.</p>
+<figure id="fig:markov_blanket_achievement">
+<img src="../figures/markov_blanket_achievement.png"
+alt="Figure 8: A settled system sits inside a model boundary separating internal and external states, with a warning against reading the boundary as literal ontology." />
+<figcaption>Figure 8: A settled system sits inside a
+model boundary separating internal and external states, with a warning
+against reading the boundary as literal ontology.</figcaption>
+</figure>
+<h2 data-number="4.9" id="explanatory-complementarity"><span
+class="header-section-number">4.9</span> Explanatory
+Complementarity</h2>
+<p>fig. <a href="#fig:explanatory_complementarity_matrix">9</a> shows
+the four Tinbergen questions as complementary perspectives rather than
+rival hypotheses. The regress appears when one question is asked to
+carry the load of all four; the framework itself does not force it <span
+class="citation" data-cites="bateson2004toward bergman2022leveling">(<a
+href="#ref-bateson2004toward" role="doc-biblioref">Bateson and Laland
+2013</a>; <a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>.</p>
+<figure id="fig:explanatory_complementarity_matrix">
+<img src="../figures/explanatory_complementarity_matrix.png"
+alt="Figure 9: A four-by-four matrix highlights each Tinbergen question on the diagonal and coordination signs in off-diagonal cells." />
+<figcaption>Figure 9: A four-by-four matrix
+highlights each Tinbergen question on the diagonal and coordination
+signs in off-diagonal cells.</figcaption>
+</figure>
+<h2 data-number="4.10" id="active-inference-cycle"><span
+class="header-section-number">4.10</span> Active Inference Cycle</h2>
+<p>fig. <a href="#fig:active_inference_cycle">10</a> shows how active
+inference closes the action-perception loop. The prior serves a coupled
+process in which variational free energy evaluates approximate inference
+and expected free energy evaluates policy selection; the two objectives
+should not be conflated <span class="citation"
+data-cites="friston2012agency friston2015active da_costa2020active">(<a
+href="#ref-friston2012agency" role="doc-biblioref">Friston et al.
+2012</a>; <a href="#ref-friston2015active" role="doc-biblioref">Friston,
+Rigoli, et al. 2015</a>; <a href="#ref-da_costa2020active"
+role="doc-biblioref">Costa et al. 2020</a>)</span>. This closes the
+explanatory loop: the prior is not merely a parameter for belief
+updating but a constraint on the coupled perception-action system.</p>
+<figure id="fig:active_inference_cycle">
+<img src="../figures/active_inference_cycle.png"
+alt="Figure 10: Perception, inference, action, and policy selection form a clockwise loop with distinct F and G roles." />
+<figcaption>Figure 10: Perception, inference, action,
+and policy selection form a clockwise loop with distinct F and G
+roles.</figcaption>
+</figure>
+<h2 data-number="4.11" id="variational-free-energy-landscape"><span
+class="header-section-number">4.11</span> Variational Free Energy
+Landscape</h2>
+<p>fig. <a href="#fig:variational_free_energy_landscape">11</a> shows
+the free-energy landscape as a relative variational-bound landscape. The
+prior-like structure is not presented as the literal floor of a
+vanishing free-energy surface. Instead, the figure marks a
+model-internal settling interpretation: under the bound, approximate
+posterior structure can approach a target posterior without turning the
+prior’s origin into an empirical result <span class="citation"
+data-cites="friston2010free friston2013life blei2017variational friston2023simpler">(<a
+href="#ref-friston2010free" role="doc-biblioref">Friston 2010</a>, <a
+href="#ref-friston2013life" role="doc-biblioref">2013</a>; <a
+href="#ref-blei2017variational" role="doc-biblioref">Blei et al.
+2017</a>; <a href="#ref-friston2023simpler" role="doc-biblioref">Friston
+et al. 2023</a>)</span>.</p>
+<figure id="fig:variational_free_energy_landscape">
+<img src="../figures/variational_free_energy_landscape.png"
+alt="Figure 11: A qualitative basin shows an initial approximate posterior moving toward a target posterior under a relative variational bound." />
+<figcaption>Figure 11: A qualitative basin shows an
+initial approximate posterior moving toward a target posterior under a
+relative variational bound.</figcaption>
+</figure>
+<h2 data-number="4.12" id="deterministic-simulation-trace"><span
+class="header-section-number">4.12</span> Deterministic Simulation
+Trace</h2>
+<p>fig. <a href="#fig:deterministic_simulation_trace">12</a> is the
+manuscript’s only simulation-named artifact, and its scope is
+intentionally narrow. It shows deterministic simulation as an ordered
+trace over formal state labels: a question about the prior, exposure of
+regress, Tinbergen partition, termination choice, and fixed-point
+settlement. The figure does not model cognition, sample outcomes,
+estimate effects, or report performance; it makes the formal state
+transition surface inspectable.</p>
+<figure id="fig:deterministic_simulation_trace">
+<img src="../figures/deterministic_simulation_trace.png"
+alt="Figure 12: Five colored formal states progress from asking about a prior through regress, partition, termination, and settled organization." />
+<figcaption>Figure 12: Five colored formal states
+progress from asking about a prior through regress, partition,
+termination, and settled organization.</figcaption>
+</figure>
+<h2 data-number="4.13" id="scale-recurrence-1"><span
+class="header-section-number">4.13</span> Scale Recurrence</h2>
+<p>fig. <a href="#fig:scale_recurrence_diagram">13</a> shows that the
+regress-termination problem recurs at multiple scales. The fixed-point
+move applies at the cellular, organismic, and social levels without
+requiring a new hidden prior at each transition <span class="citation"
+data-cites="friston2013life kirchhoff2018markov">(<a
+href="#ref-friston2013life" role="doc-biblioref">Friston 2013</a>; <a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>)</span>. The same category shift applies recursively: the
+prior-like settlement at one scale becomes the substrate for the
+next.</p>
+<figure id="fig:scale_recurrence_diagram">
+<img src="../figures/scale_recurrence_diagram.png"
+alt="Figure 13: Cellular, organismic, and social panels repeat a fixed-point equation and connect downward through a recurrence operator R." />
+<figcaption>Figure 13: Cellular, organismic, and
+social panels repeat a fixed-point equation and connect downward through
+a recurrence operator R.</figcaption>
+</figure>
+<h2 data-number="4.14" id="source-claim-boundary-map"><span
+class="header-section-number">4.14</span> Source-Claim Boundary Map</h2>
+<p>fig. <a href="#fig:source_claim_boundary_map">14</a> makes the
+scholarship contract visible. The publication pass does not treat every
+discovered source as equal. Discovery scans surface candidates; primary
+or scholarly verification decides whether a source is accepted,
+rejected, or deferred; and only accepted sources attached to claim
+ledger entries reach the manuscript. This is the paper’s answer to
+citation inflation: sources enter only where they bound or strengthen a
+live claim.</p>
+<figure id="fig:source_claim_boundary_map">
+<img src="../figures/source_claim_boundary_map.png"
+alt="Figure 14: Candidate sources pass through verification, accepted or rejected layers, and a claim ledger before reaching manuscript and formal outputs." />
+<figcaption>Figure 14: Candidate sources pass through
+verification, accepted or rejected layers, and a claim ledger before
+reaching manuscript and formal outputs.</figcaption>
+</figure>
+<h2 data-number="4.15" id="aesthetic-prior-craft-map"><span
+class="header-section-number">4.15</span> Aesthetic Prior-Craft Map</h2>
+<p>fig. <a href="#fig:aesthetic_prior_craft_map">15</a> makes the
+title’s art claim inspectable. It does not route all aesthetic
+experience through prediction error. Instead, it shows three supporting
+lines feeding one bounded claim: predictive aesthetics for staged
+expectation, 4E and material-engagement scholarship for situated
+practice, and neuroaesthetic scope controls for sensory, valuation, and
+meaning systems <span class="citation"
+data-cites="frascaroli2024aesthetics burnett2020four_e chatterjee2014neuroaesthetics wynn2021four_e">(<a
+href="#ref-frascaroli2024aesthetics" role="doc-biblioref">Frascaroli et
+al. 2024</a>; <a href="#ref-burnett2020four_e"
+role="doc-biblioref">Burnett and Gallagher 2020</a>; <a
+href="#ref-chatterjee2014neuroaesthetics"
+role="doc-biblioref">Chatterjee and Vartanian 2014</a>; <a
+href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et al.
+2021</a>)</span>. The figure also keeps the claim ceiling in view:
+prior-craft is not a theory of artist intention or neural updating. The
+point is narrower and stronger: artworks and art-making can arrange
+encounters with expectation, affordance, accident, affect, and meaning
+<span class="citation"
+data-cites="dewey1934art noe2015strange malafouris2013things malafouris2023enactychism">(<a
+href="#ref-dewey1934art" role="doc-biblioref">Dewey 1934</a>; <a
+href="#ref-noe2015strange" role="doc-biblioref">Noë 2015</a>; <a
+href="#ref-malafouris2013things" role="doc-biblioref">Malafouris
+2013</a>, <a href="#ref-malafouris2023enactychism"
+role="doc-biblioref">2023</a>)</span>.</p>
+<figure id="fig:aesthetic_prior_craft_map">
+<img src="../figures/aesthetic_prior_craft_map.png"
+alt="Figure 15: Predictive aesthetics, four-E practice, and neuroaesthetic scope converge on bounded prior-craft beside a claim ceiling." />
+<figcaption>Figure 15: Predictive aesthetics, four-E
+practice, and neuroaesthetic scope converge on bounded prior-craft
+beside a claim ceiling.</figcaption>
+</figure>
+<h2 data-number="4.16" id="markov-blanket-scope-split"><span
+class="header-section-number">4.16</span> Markov Blanket Scope
+Split</h2>
+<p>fig. <a href="#fig:markov_blanket_scope_split">16</a> separates three
+uses of Markov blankets: Pearl-style conditional-independence structure,
+Friston-style active-inference model boundary, and realized organismal
+or cognitive boundary. The split lets the argument use Markov blankets
+as part of fixed-point explanation while preserving the critical
+distinction emphasized by the recent debate <span class="citation"
+data-cites="bruineberg2022emperor raja2021markov">(<a
+href="#ref-bruineberg2022emperor" role="doc-biblioref">Bruineberg et al.
+2022</a>; <a href="#ref-raja2021markov" role="doc-biblioref">Raja et al.
+2021</a>)</span>.</p>
+<figure id="fig:markov_blanket_scope_split">
+<img src="../figures/markov_blanket_scope_split.png"
+alt="Figure 16: Three source registers feed model use, metaphysical use, and biological realization, with the paper’s bounded stance at the right." />
+<figcaption>Figure 16: Three source registers feed
+model use, metaphysical use, and biological realization, with the
+paper’s bounded stance at the right.</figcaption>
+</figure>
+<h2 data-number="4.17" id="niche-prior-feedback-field"><span
+class="header-section-number">4.17</span> Niche-Prior Feedback
+Field</h2>
+<p>fig. <a href="#fig:niche_prior_feedback_field">17</a> gives the
+niche-construction claim a richer shape. Organismic action,
+developmental resources, and cultural inheritance operate at different
+timescales but feed back into the same prior-like field. The point is
+not that niche construction is a fourth termination. It is a constraint
+on selection termination: what persists is partly produced by the
+system-niche loop that selection later filters <span class="citation"
+data-cites="constant2018free stotz2017developmental baltieri2022extended laland2000niche">(<a
+href="#ref-constant2018free" role="doc-biblioref">Constant et al.
+2018</a>; <a href="#ref-stotz2017developmental"
+role="doc-biblioref">Stotz 2017</a>; <a href="#ref-baltieri2022extended"
+role="doc-biblioref">Baltieri et al. 2022</a>; <a
+href="#ref-laland2000niche" role="doc-biblioref">Laland et al.
+2000</a>)</span>.</p>
+<figure id="fig:niche_prior_feedback_field">
+<img src="../figures/niche_prior_feedback_field.png"
+alt="Figure 17: Organismic action, developmental resources, and cultural inheritance feed a central prior-like field across timescales." />
+<figcaption>Figure 17: Organismic action,
+developmental resources, and cultural inheritance feed a central
+prior-like field across timescales.</figcaption>
+</figure>
+<h2 data-number="4.18" id="before-the-first-prior-1"><span
+class="header-section-number">4.18</span> Before The First Prior</h2>
+<p>fig. <a href="#fig:first_prior_grounding_stack">18</a> answers the
+upstream version of the regress question. It does not draw a prior
+behind the first prior. Instead, it places viability asymmetry,
+allostatic regulation, co-embodiment and co-homeostasis, developmental
+tuning, and cultural niche craft in a constraint stack. This lets the
+figure say what “bias before bias” can mean without violating the
+paper’s scope: some forms are regulatable and reachable before they are
+available as explicit priors <span class="citation"
+data-cites="ciaunica2021first_prior allen2018body_first_prior sterling2012allostasis">(<a
+href="#ref-ciaunica2021first_prior" role="doc-biblioref">Ciaunica et al.
+2021</a>; <a href="#ref-allen2018body_first_prior"
+role="doc-biblioref">Allen and Tsakiris 2018</a>; <a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>)</span>.</p>
+<figure id="fig:first_prior_grounding_stack">
+<img src="../figures/first_prior_grounding_stack.png"
+alt="Figure 18: A layered stack moves from viability and regulation through co-homeostasis and development to cultural priors, rejecting a hidden prior-before-priors." />
+<figcaption>Figure 18: A layered stack moves from
+viability and regulation through co-homeostasis and development to
+cultural priors, rejecting a hidden prior-before-priors.</figcaption>
+</figure>
+<h2 data-number="4.19" id="figure-manifest"><span
+class="header-section-number">4.19</span> Figure Manifest</h2>
+<p>The visual atlas contains 18 argument diagrams. The formal supplement
+adds 3 contract diagrams, for 21 source-owned visualizations in
+total.</p>
+<ul>
+<li><code>tinbergen_axes.png</code>: Four colored panels hold
+Tinbergen’s questions in tension rather than stacking them into a causal
+ladder. Read across scale and then down temporality: mechanism and
+function can close local questions about present organization and
+current use, while ontogeny and phylogeny ask how that form was shaped
+and retained. The key visual warning is that the regress appears when
+one panel, usually ontogeny, is asked to speak for the whole grid. The
+figure therefore turns a familiar taxonomy into a guardrail against
+explaining a prior by merely naming its developmental source.</li>
+<li><code>regress_terminations.png</code>: The upper chain is
+deliberately too easy to extend: a prior receives a hyperprior, then
+that hyperprior seems to need its own warrant. The lower register names
+the three different ways the picture can stop without pretending the
+next box solves the problem. Pragmatic, selection, and fixed-point
+endings are visualized as explanatory disciplines, not as empirical
+discoveries of prior origins. The point is not that the endings are
+interchangeable; each buys closure at a different price: formal
+sufficiency, viability filtering, or a category shift from hidden cause
+to settled organization.</li>
+<li><code>prior_equilibrium_map.png</code>: The circular composition
+makes the fixed-point move visible: the prior is not another hidden
+object above the system, but the settled organization of the system’s
+own process. Blanket persistence, action-perception closure, and
+environmental viability feed back into the same maintained form. The
+claim is a category shift about what is being explained, not a numerical
+equilibrium result. The figure should be read as a maintenance grammar:
+the explanatory target is the stable pattern by which the system keeps
+being the kind of system that can carry prior-like constraints.</li>
+<li><code>ontogeny_hyperprior_parallel.png</code>: The two horizontal
+chains are drawn as visual echoes. A Bayesian hyperprior and an
+ontogenetic selector are not the same biological claim, but both can
+defer the question to the source that licensed the current prior. The
+red bracket marks that shared silhouette of deferral while preserving
+the difference between formal hierarchy and developmental history. The
+bottom warning is the important reading instruction: adding another
+selector, tutor, developmental episode, or higher prior can continue the
+chain without explaining why the chain is allowed to terminate.</li>
+<li><code>selection_filter.png</code>: Candidate prior-like forms enter
+as a rough population, not as equal explanatory successes. The
+function-plus-phylogeny funnel removes forms that cannot remain
+available as persisting targets: fragile, miscalibrated, or overfit
+structures drop out of the story. Selection blocks regress by explaining
+availability through viability rather than placing one more selector
+behind the filter. The figure deliberately leaves individual fine
+structure outside the funnel’s answer, because selection explains why a
+form is available to inherit, use, or refine, not every detail of how
+one organism acquired it.</li>
+<li><code>policy_entanglement_bridge.png</code>: The large joint form on
+the left is intentionally prior to the separated boxes on the right.
+Lambda-decomposition makes policy, prior-like constraint, and state
+factor legible after the analytic cut, but it does not prove that those
+factors were ontologically first. The bridge keeps the argument focused
+on how cleaned-up factors are extracted from an already organized field.
+This matters for the paper’s prior-origin question because a formal
+decomposition can clarify a system without becoming a story about the
+historical order in which the system’s parts came to be.</li>
+<li><code>formal_claim_dependency_map.png</code>: The map turns the
+formal supplement into a provenance surface. Claims F1-F12 are not
+decorative theorem labels; they are grounded in source records for axes,
+regress shape, termination moves, joint structure, niche, blanket,
+complementarity, and trace boundaries. Numbering follows source order,
+so prose, figures, and formal labels have to move together. The arrows
+record grounding, not theorem-level entailment. The figure’s job is
+editorial as much as philosophical: it shows where a reader can ask
+which source-owned record authorizes each formal move.</li>
+<li><code>symbol_glossary_closure.png</code>: The paired panels make a
+simple editorial demand: every formal mark used by a claim must be
+defined, and every definition must be used. This turns notation from
+ornament into an accountable surface of the manuscript. If the two sides
+fall out of correspondence, the package fails before render. The visual
+symmetry is intentionally blunt: a symbol that appears only in prose
+decoration, or a glossary row that never serves a claim, would make the
+formal supplement less trustworthy rather than more impressive.</li>
+<li><code>text_validation_ladder.png</code>: The ladder treats the paper
+as something made, not merely written. Source records hydrate reports,
+figures, tokens, and render surfaces; validation then climbs the same
+stack after generation. A drifting caption, registry row, or prose token
+is therefore not a minor typo but a contract error in the artifact
+pipeline. The figure also explains why the project keeps manuscript
+prose, dashboard data, figure metadata, and validator output in the same
+loop instead of treating them as separate publication chores.</li>
+<li><code>niche_construction_diagram.png</code>: The central prior is
+drawn between organism and niche because neither side owns the
+explanation alone. Organisms act into environments that answer back as
+altered regularities, affordances, and selection pressures. Viability
+still filters what persists, but the filter is partly made by the
+organism-niche loop it later appears to judge. The two-way arrows
+prevent the figure from becoming a simple environmental imprint model:
+priors are co-shaped by what organisms do, what niches make available,
+and what remains viable across that reciprocal history.</li>
+<li><code>markov_blanket_achievement.png</code>: The boundary is
+deliberately drawn as a model-level partition M=(a,s) whose
+conditional-independence relation screens internal from external states.
+It is associated with settled organization, not read off the world as a
+literal membrane. The image keeps formal usefulness and ontological
+restraint in the same frame. It therefore supports the manuscript’s
+blanket language while blocking a stronger claim that the notation alone
+discovers the true edge of an organism, artwork, or cognitive
+system.</li>
+<li><code>explanatory_complementarity_matrix.png</code>: The matrix lets
+each Tinbergen question meet the others without being absorbed by them.
+Diagonal cells name each explanatory mode; off-diagonal cells mark
+places where coordination is legitimate but reduction is not. The
+regress is not caused by asking several questions. It is caused by
+collapsing their different jobs into one overburdened answer. The plus
+signs should be read as invitations to coordinate mechanism, function,
+ontogeny, and phylogeny, not as permission to translate all four into a
+single master vocabulary.</li>
+<li><code>active_inference_cycle.png</code>: The loop makes active
+inference a practice rather than a passive estimate. Perception and
+inference are evaluated through variational free energy, while policy
+selection is evaluated through expected free energy; the objectives
+remain distinct inside one action-perception loop. Prior-like structure
+is a constraint in that coupled organization, not merely a static number
+placed before observation. The center of the image marks inferential
+pressure, while the cycle shows why that pressure only matters inside an
+organism-world practice of sensing, selecting, and acting.</li>
+<li><code>variational_free_energy_landscape.png</code>: The basin is a
+picture of relative settlement inside a model, not a claim that free
+energy literally falls to zero. The marked path shows an approximate
+posterior moving toward a target posterior under a tractable bound. The
+figure supports a bounded settling metaphor for prior-like constraint
+while refusing an empirical origin story for priors. The color field is
+schematic geometry rather than observed data, so the reader should take
+it as a disciplined analogy for variational closure, not as a fitted
+result.</li>
+<li><code>deterministic_simulation_trace.png</code>: The trace borrows
+the visual grammar of a state diagram while staying inside the paper’s
+conceptual scope. Each node is an authored formal state: question,
+regress, Tinbergen partition, termination choice, and fixed-point
+settlement. The arrows record argumentative order only; the invariants
+block stochastic, synthetic-data, performance, or effect-size readings.
+The figure is included because ordered formal commitments are easier to
+audit visually, not because the paper runs a cognitive simulation.</li>
+<li><code>scale_recurrence_diagram.png</code>: The three panels repeat
+the fixed-point grammar at cellular, organismic, and social registers. A
+prior-like settlement at one scale can become substrate for another
+through R, but the image does not smuggle in a new hidden prior at each
+transition. It shows recurrence of an explanatory problem, not
+mathematical scale invariance or empirical self-similarity. The repeated
+grammar invites comparison without erasing scale-specific mechanisms,
+histories, and material supports.</li>
+<li><code>source_claim_boundary_map.png</code>: The map makes citation
+discipline part of the artwork of the paper. Discovery candidates do not
+flow directly into prose; they pass through verification and
+claim-ledger boundaries before reaching manuscript claims, formal
+inventory, or visual atlas. Rejected and deferred sources stay visible
+so scholarship does not become unbounded accumulation. The image also
+marks a practical rule for future edits: a source can expand the paper
+only when it changes a live claim, a boundary condition, or a generated
+artifact contract.</li>
+<li><code>aesthetic_prior_craft_map.png</code>: This figure is the
+paper’s most self-conscious art claim. Predictive aesthetics,
+4E/material engagement, and neuroaesthetic scope converge on
+prior-craft: artworks can stage encounters with expectation, ambiguity,
+affordance, affect, and meaning. The red ceiling matters as much as the
+purple center: this is not a total theory of art, intention, culture, or
+neural updating. The figure’s value is to keep the title term active
+without letting it become an empirical claim that art directly installs
+or rewires priors.</li>
+<li><code>markov_blanket_scope_split.png</code>: The split makes three
+registers visible before they can be collapsed: a
+conditional-independence structure, an active-inference model boundary,
+and a realized biological or cognitive boundary. The first two support
+the paper’s model-level argument. The third requires additional
+dynamical and philosophical premises, so it is held behind an explicit
+boundary condition. The right-hand boxes state the operational rule: use
+blankets to discipline model talk, not to shortcut the ontology of
+living or cognitive systems.</li>
+<li><code>niche_prior_feedback_field.png</code>: The field layers fast
+organismal action, slower developmental resources, and still slower
+cultural inheritance. Prior-like structure stabilizes through the
+recurrence among these bands, including material and cultural scaffolds,
+rather than arriving from organism or environment alone. The field
+constrains selection termination without becoming a fourth stopping
+rule. The timescale arrow is part of the argument: what looks like an
+individual’s prior may depend on slower supports that were already
+arranged by development, culture, and niche construction.</li>
+<li><code>first_prior_grounding_stack.png</code>: The stack answers the
+RedTeam question by refusing the easy move of placing one more prior
+behind the first prior. Viability asymmetry, homeostatic and allostatic
+regulation, co-embodiment and co-homeostasis, developmental tuning, and
+cultural niche craft are shown as enabling constraints before explicit
+belief-like priors. The bottom boundary is part of the claim: upstream
+bias is a history of regulation and support, not an empirical discovery
+of a literal prior-before-priors. The stack improves the manuscript’s
+origin story by showing how bias can be real, structured, and inherited
+without being another belief waiting at the beginning of the chain.</li>
+</ul>
+<hr />
+<h1 data-number="5" id="sec:conclusion"><span
+class="header-section-number">5</span> Conclusion: Prior Origins as
+Termination Problems, Not Hidden Meta-Priors</h1>
+<p>The regress was never forced by Tinbergen. It appeared because an
+ontogenetic answer was asked to do the work of every quadrant. Mechanism
+and function can close locally. Phylogeny and function can jointly block
+regress through selection. The fixed-point move goes further by denying
+that another prior is needed at the same explanatory type. These three
+terminations are organizing families appropriate to different
+explanatory kinds, not an exhaustive catalogue. The error is to use one
+where another is needed, or to pretend that a stop answers more than it
+does. The active inference bridge (sec. <a href="#sec:method">3</a>;
+sec. <a href="#sec:visual-atlas">4</a>) shows that the prior serves a
+free-energy-minimizing process that couples perception and action, and
+the scale-recurrence argument shows that the same fixed-point structure
+recurs at cellular, organismic, and social levels. The related work in
+sec. <a href="#sec:scope-related">8</a> situates these claims in the
+broader literature, and the artifact protocol in sec. <a
+href="#sec:artifact-protocol">6</a> documents the reproducibility
+surface.</p>
+<p>The bridge to policy entanglement is now narrow and explicit. The
+relevant parallel is not merely that both topics use Bayesian language.
+It is that joint organization may be prior to the factors later
+decomposed from it. If lambda-decomposition treats joint structure as
+explanatorily primitive, then an art of the prior can do the same for
+cognition: the system is not given a prior from outside; it persists as
+the organization that makes prior-like constraint legible <span
+class="citation" data-cites="da_costa2020active parr2022active">(<a
+href="#ref-da_costa2020active" role="doc-biblioref">Costa et al.
+2020</a>; <a href="#ref-parr2022active" role="doc-biblioref">Parr et al.
+2022</a>)</span>. In active inference terms, the generative model is not
+an object carried by the agent; it is a bounded description of the
+agent’s mode of persisting under a Markov blanket <span class="citation"
+data-cites="friston2013life kirchhoff2018markov bruineberg2022emperor friston2023simpler">(<a
+href="#ref-friston2013life" role="doc-biblioref">Friston 2013</a>; <a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>; <a href="#ref-bruineberg2022emperor"
+role="doc-biblioref">Bruineberg et al. 2022</a>; <a
+href="#ref-friston2023simpler" role="doc-biblioref">Friston et al.
+2023</a>)</span>. The decomposition into policy, prior, and state is
+analytically useful but ontologically secondary <span class="citation"
+data-cites="hohwy2016viability">(<a href="#ref-hohwy2016viability"
+role="doc-biblioref">Hohwy 2017</a>)</span>.</p>
+<p>The niche-construction reading adds a further dimension <span
+class="citation"
+data-cites="laland2000niche odling_smee2003niche constant2018free">(<a
+href="#ref-laland2000niche" role="doc-biblioref">Laland et al. 2000</a>;
+<a href="#ref-odling_smee2003niche" role="doc-biblioref">Odling-Smee et
+al. 2003</a>; <a href="#ref-constant2018free"
+role="doc-biblioref">Constant et al. 2018</a>)</span>. If the organism
+partly constructs the statistical regularities it exploits, then the
+prior is not fully given by the environment nor fully endogenous. It is
+co-shaped. This does not change the logic of termination — it still
+blocks regress by naming what persists rather than by adding another
+level — but it complicates the simple inside/outside picture that the
+fixed-point move can suggest. The argument therefore treats niche
+construction as a constraint on selection termination rather than as a
+fourth stop: developmental and cultural resources shape what can later
+be selected, but the logical work is still done by naming the persisting
+organization rather than by adding another selector <span
+class="citation"
+data-cites="bateson2004toward stotz2017developmental baltieri2022extended">(<a
+href="#ref-bateson2004toward" role="doc-biblioref">Bateson and Laland
+2013</a>; <a href="#ref-stotz2017developmental"
+role="doc-biblioref">Stotz 2017</a>; <a href="#ref-baltieri2022extended"
+role="doc-biblioref">Baltieri et al. 2022</a>)</span>.</p>
+<p>The upstream first-prior argument sharpens the same point. Asking
+what comes before the first prior should not license a
+prior-before-priors. The better answer is a stack of constraints that
+precede explicit inferential ownership: viability, predictive
+regulation, co-embodiment, co-homeostasis, developmental tuning, and
+niche-supported expectation. In that sense, the bias before bias is not
+another belief. It is the embodied and ecological history that makes
+some belief-like priors possible <span class="citation"
+data-cites="ciaunica2021first_prior allen2018body_first_prior sterling2012allostasis corcoran2025body_first_teacher pezzulo2022evolution">(<a
+href="#ref-ciaunica2021first_prior" role="doc-biblioref">Ciaunica et al.
+2021</a>; <a href="#ref-allen2018body_first_prior"
+role="doc-biblioref">Allen and Tsakiris 2018</a>; <a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>; <a href="#ref-corcoran2025body_first_teacher"
+role="doc-biblioref">Corcoran et al. 2025</a>; <a
+href="#ref-pezzulo2022evolution" role="doc-biblioref">Pezzulo et al.
+2022</a>)</span>.</p>
+<p>The formal supplement adds a second constraint on the manuscript
+itself. If a later revision changes the formal claims, symbols, figures,
+or validation checks, the generated counts and integrity token must move
+with it. That is the right level of rigor for this paper: enough
+structure to catch drift, without pretending that conceptual notation
+has become an empirical result. The supplement does not prove the
+thesis; it makes the thesis checkable against its own artifacts.</p>
+<p>The same discipline now governs the word “art.” Predictive-processing
+aesthetics makes the title more than a metaphor: artworks can organize
+encounters with learned expectations, ambiguity, and meaning. Material
+and enactive art scholarship strengthens the point by showing that these
+encounters are often made through bodies, media, tools, affordances, and
+chance <span class="citation"
+data-cites="wynn2021four_e march2023art malafouris2023enactychism">(<a
+href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et al. 2021</a>; <a
+href="#ref-march2023art" role="doc-biblioref">March and Malafouris
+2023</a>; <a href="#ref-malafouris2023enactychism"
+role="doc-biblioref">Malafouris 2023</a>)</span>. But the paper does not
+collapse aesthetic value into epistemic value, and it does not treat the
+free energy principle as a general theory of art. The art here is a
+practice of arranging explanatory encounters with priors while keeping
+the explanatory kinds visible enough that the arrangement can be
+inspected.</p>
+<hr />
+<h1 data-number="6" id="sec:artifact-protocol"><span
+class="header-section-number">6</span> Artifact Protocol: Deterministic
+Generation Without Empirical Simulation</h1>
+<p>The project deliberately preserves the template’s reproducible
+artifact surface while changing the research mode described in sec. <a
+href="#sec:method">3</a>. The reproducibility claims are detailed in
+sec. <a href="#sec:reproducibility">7</a>.</p>
+<ul>
+<li>Project mode: plain text, deterministic conceptual visualizations,
+and one deterministic illustrative simulation trace</li>
+<li>Simulation policy: The paper includes one deterministic illustrative
+simulation trace over authored formal states; it does not run stochastic
+simulations, synthetic-data experiments, empirical estimates, or
+performance benchmarks.</li>
+<li>Conceptual report status: available</li>
+<li>Formal claims generated: 12</li>
+<li>Symbol glossary rows generated: 35</li>
+<li>Text-validation checks generated: 11</li>
+<li>Python version: 3.12.13</li>
+<li>Platform: macOS-26.5.2-arm64-arm-64bit</li>
+<li>Generation timestamp: 2026-07-12T01:43:50Z</li>
+</ul>
+<p>The retained analysis-stage script name is compatibility glue for the
+template runner. It generates conceptual figures and JSON reports; it
+does not perform optimization, empirical metric collection, stochastic
+sampling, synthetic-data generation, or cognitive simulation. The
+deterministic trace artifacts record only the authored formal-state
+sequence described in sec. <a href="#sec:visual-atlas">4</a>.</p>
+<hr />
+<h1 data-number="7" id="sec:reproducibility"><span
+class="header-section-number">7</span> Reproducibility: Source-Owned
+Figures, Tokens, and Validation Gates</h1>
+<p>The reproducibility claim is modest: the prose tokens and figures are
+generated from explicit project files, and the project states its
+deterministic-trace boundary. The formal supplement in sec. <a
+href="#sec:formal-supplement">9</a> provides the integrity checks that
+make drift detectable before render.</p>
+<ul>
+<li>Config hash: <code>43a77c8fbb29bf9a</code></li>
+<li>Version: <code>0.1.0</code></li>
+<li>First author: Daniel Ari Friedman</li>
+<li>Keywords: priors, Tinbergen’s four questions, hierarchical Bayes,
+free energy principle, Markov blankets, cognitive science, conceptual
+visualization</li>
+<li>Figure artifacts counted: 42</li>
+<li>Data artifacts counted: 4</li>
+<li>Report artifacts counted: 10</li>
+<li>Conceptual integrity token: <code>0694f506198f940e</code></li>
+<li>Formal claims generated: 12</li>
+<li>Symbol glossary rows generated: 35</li>
+<li>Text-validation checks generated: 11</li>
+</ul>
+<p>Regenerate the working artifacts with:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python projects/working/prior_cognitive_art/scripts/optimization_analysis.py</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python projects/working/prior_cognitive_art/scripts/z_generate_manuscript_variables.py</span></code></pre></div>
+<hr />
+<h1 data-number="8" id="sec:scope-related"><span
+class="header-section-number">8</span> Scope and Related Work: What the
+Paper Uses, Bounds, and Refuses</h1>
+<p>The paper is not a full literature review. It uses a focused set of
+sources to frame the argument introduced in sec. <a
+href="#sec:introduction">2</a> and to bound the claims that would
+otherwise be easy to overstate.</p>
+<h2 data-number="8.1" id="tinbergen-and-ethological-explanation"><span
+class="header-section-number">8.1</span> Tinbergen and Ethological
+Explanation</h2>
+<p>Tinbergen’s four questions provide the structural device for the
+paper <span class="citation" data-cites="tinbergen1963aims">(<a
+href="#ref-tinbergen1963aims" role="doc-biblioref">Tinbergen
+1963</a>)</span>. The questions — mechanism, function, ontogeny, and
+phylogeny — were originally proposed as complementary modes of
+explanation for animal behavior. Bateson and Laland’s appreciation and
+update clarifies that the four questions are not rival hypotheses but
+complementary perspectives, and that conflating them is the recurring
+source of explanatory confusion <span class="citation"
+data-cites="bateson2004toward">(<a href="#ref-bateson2004toward"
+role="doc-biblioref">Bateson and Laland 2013</a>)</span>. Bergman and
+Beehner’s contemporary leveling proposal adds a useful pressure test by
+organizing Tinbergen around causes and consequences rather than the
+familiar four-box layout <span class="citation"
+data-cites="bergman2022leveling">(<a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>)</span>. This paper
+keeps the crossed visual grammar because it makes the prior-regress
+problem easier to inspect, while accepting the deeper point that
+explanatory kinds can be reorganized without collapsing into one kind.
+The regress appears when one quadrant, typically ontogeny, is asked to
+carry the explanatory load that belongs to all four. Godfrey-Smith’s
+philosophy of biology provides further background on the relationship
+between function, selection, and explanation in biology <span
+class="citation" data-cites="godfrey2013theoretical">(<a
+href="#ref-godfrey2013theoretical" role="doc-biblioref">Godfrey-Smith
+2014</a>)</span>. Konner’s nine-level expansion shows how Tinbergen’s
+framework can be subdivided for human behavioral explanation, but this
+paper uses it only as a reminder that finer explanation levels do not
+remove the need to keep explanatory kinds distinct <span
+class="citation" data-cites="konner2021nine">(<a
+href="#ref-konner2021nine" role="doc-biblioref">Konner
+2021</a>)</span>.</p>
+<h2 data-number="8.2"
+id="hierarchical-bayes-and-the-hyperprior-regress"><span
+class="header-section-number">8.2</span> Hierarchical Bayes and the
+Hyperprior Regress</h2>
+<p>Hierarchical Bayesian reasoning provides the formal analogue of the
+hyperprior regress <span class="citation"
+data-cites="jaynes2003probability pearl2009causality">(<a
+href="#ref-jaynes2003probability" role="doc-biblioref">Jaynes 2003</a>;
+<a href="#ref-pearl2009causality" role="doc-biblioref">Pearl
+2009</a>)</span>. In hierarchical models, a prior on parameters is
+itself given a prior, and the chain can be extended indefinitely. Gelman
+and Shalizi argue that in practice the chain stops for pragmatic reasons
+such as model adequacy, predictive performance, and regularization, not
+because a deeper level of reality is reached <span class="citation"
+data-cites="gelman2013philosophy">(<a href="#ref-gelman2013philosophy"
+role="doc-biblioref">Gelman and Shalizi 2013</a>)</span>.
+Penalized-complexity priors make one version of that pragmatic stop
+explicit by centering prior choice on a simpler base model and a
+controlled penalty for added complexity <span class="citation"
+data-cites="simpson2017penalising">(<a href="#ref-simpson2017penalising"
+role="doc-biblioref">Simpson et al. 2017</a>)</span>. This is the
+pragmatic-termination move in the paper’s framework. The paper’s
+contribution is to situate that pragmatic stop alongside two other
+termination kinds that are not merely conventional.</p>
+<h2 data-number="8.3"
+id="free-energy-principle-and-markov-blanket-self-individuation"><span
+class="header-section-number">8.3</span> Free Energy Principle and
+Markov Blanket Self-Individuation</h2>
+<p>The free energy principle is the cognitive-science home for
+fixed-point individuation <span class="citation"
+data-cites="friston2010free">(<a href="#ref-friston2010free"
+role="doc-biblioref">Friston 2010</a>)</span>. Friston’s “Life as We
+Know It” extends the principle to self-organization and pattern
+regulation, arguing that self-organizing systems that maintain their
+boundaries can be described as minimizing variational free energy <span
+class="citation" data-cites="friston2013life">(<a
+href="#ref-friston2013life" role="doc-biblioref">Friston
+2013</a>)</span>. The Markov blanket, the statistical boundary
+separating internal from external states in a model, is central to this
+move. Kirchhoff and colleagues connect Markov blankets to biological
+autonomy and active inference, while Parr, Da Costa, and Friston develop
+the connection among Markov blankets, free energy, and biological
+self-organization <span class="citation"
+data-cites="kirchhoff2018markov parr2020prefrontal">(<a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>; <a href="#ref-parr2020prefrontal" role="doc-biblioref">Parr et
+al. 2020</a>)</span>. Hohwy’s “self-evidencing brain” frames the brain
+as a system that maintains itself by evidence-gathering under a
+generative model, making the prior-like structure an achievement rather
+than a given <span class="citation"
+data-cites="hohwy2016self hohwy2016predictive">(<a
+href="#ref-hohwy2016self" role="doc-biblioref">Hohwy 2016b</a>, <a
+href="#ref-hohwy2016predictive" role="doc-biblioref">2016a</a>)</span>.
+Ramstead and colleagues connect this to Schrodinger’s question about how
+organisms resist entropy <span class="citation"
+data-cites="ramstead2018answering">(<a href="#ref-ramstead2018answering"
+role="doc-biblioref">Ramstead et al. 2018</a>)</span>. The boundary
+literature constrains the paper’s use of this material: Bruineberg and
+colleagues distinguish the epistemic use of Markov blankets in models
+from their metaphysical use as physical boundaries, and Raja and
+colleagues argue that the Markov blanket formalism can become a
+scope-expanding trick when treated as a universal boundary detector
+<span class="citation"
+data-cites="bruineberg2022emperor raja2021markov">(<a
+href="#ref-bruineberg2022emperor" role="doc-biblioref">Bruineberg et al.
+2022</a>; <a href="#ref-raja2021markov" role="doc-biblioref">Raja et al.
+2021</a>)</span>.</p>
+<h2 data-number="8.4"
+id="active-inference-and-policy-entanglement"><span
+class="header-section-number">8.4</span> Active Inference and Policy
+Entanglement</h2>
+<p>Active inference extends the free energy principle to action and
+policy selection <span class="citation"
+data-cites="friston2012agency friston2015active da_costa2020active friston2017active">(<a
+href="#ref-friston2012agency" role="doc-biblioref">Friston et al.
+2012</a>; <a href="#ref-friston2015active" role="doc-biblioref">Friston,
+Rigoli, et al. 2015</a>; <a href="#ref-da_costa2020active"
+role="doc-biblioref">Costa et al. 2020</a>; <a
+href="#ref-friston2017active" role="doc-biblioref">Friston et al.
+2017</a>)</span>. The system selects actions that minimize expected free
+energy, and the policy itself can be treated as a prior over action
+sequences. Friston and colleagues’ agency paper is useful here because
+it explicitly casts action and posterior belief as joint free-energy
+minimization, not sequential modules <span class="citation"
+data-cites="friston2012agency">(<a href="#ref-friston2012agency"
+role="doc-biblioref">Friston et al. 2012</a>)</span>. The “particular
+physics” and “made simpler but not too simple” formulations generalize
+the principle to systems that persist under a Markov blanket while
+making the mathematical scope more explicit <span class="citation"
+data-cites="friston2019free friston2023simpler friston2024active">(<a
+href="#ref-friston2019free" role="doc-biblioref">Friston 2019</a>; <a
+href="#ref-friston2023simpler" role="doc-biblioref">Friston et al.
+2023</a>, <a href="#ref-friston2024active"
+role="doc-biblioref">2024</a>)</span>. The Bayesian mechanics framework
+formalizes this further by showing how stationary processes underwrite
+the blanket’s statistical structure <span class="citation"
+data-cites="da_costa2023bayesian">(<a href="#ref-da_costa2023bayesian"
+role="doc-biblioref">Costa et al. 2023</a>)</span>. This is where the
+paper’s bridge to policy-entanglement and lambda-decomposition work
+becomes relevant: if the joint organization of policy, prior, and state
+is prior to the factors later extracted from it, then decomposition is
+an analytic move, not a metaphysical one <span class="citation"
+data-cites="parr2022active hipolito2021active">(<a
+href="#ref-parr2022active" role="doc-biblioref">Parr et al. 2022</a>; <a
+href="#ref-hipolito2021active" role="doc-biblioref">Hipólito et al.
+2021</a>)</span>. The factors are useful cuts; they are not proof that
+the factors came first.</p>
+<h2 data-number="8.5"
+id="ecological-enactive-and-niche-construction-perspectives"><span
+class="header-section-number">8.5</span> Ecological-Enactive and
+Niche-Construction Perspectives</h2>
+<p>Bruineberg, Kiverstein, and Rietveld offer an ecological-enactive
+critique of the free energy principle, arguing that the “anticipating
+brain” is not a scientist testing hypotheses but an organism coupled to
+its environment <span class="citation"
+data-cites="bruineberg2018free">(<a href="#ref-bruineberg2018free"
+role="doc-biblioref">Bruineberg et al. 2018</a>)</span>. This does not
+undermine the termination framework; it enriches it. If the prior-like
+structure is co-shaped by organism and environment, then the selection
+filter is not purely external. Foundational niche-construction theory
+supplies the broader evolutionary claim: organisms modify the selective
+environments that later feed back on them, and cultural practices can be
+part of that loop <span class="citation"
+data-cites="laland2000niche odling_smee2003niche">(<a
+href="#ref-laland2000niche" role="doc-biblioref">Laland et al. 2000</a>;
+<a href="#ref-odling_smee2003niche" role="doc-biblioref">Odling-Smee et
+al. 2003</a>)</span>. Constant and colleagues formalize a variational
+version of this idea: organisms actively structure the statistical
+regularities they exploit, so the prior is not fully given by the
+environment nor fully endogenous <span class="citation"
+data-cites="constant2018free">(<a href="#ref-constant2018free"
+role="doc-biblioref">Constant et al. 2018</a>)</span>. Extended active
+inference develops the cognitive-niche side of that claim <span
+class="citation" data-cites="baltieri2022extended">(<a
+href="#ref-baltieri2022extended" role="doc-biblioref">Baltieri et al.
+2022</a>)</span>. Stotz’s developmental-niche construction account keeps
+the boundary sharp: selective niche construction and developmental niche
+construction are not the same causal pattern, so the paper treats
+co-construction as a constraint on selection termination rather than as
+a new termination kind <span class="citation"
+data-cites="stotz2017developmental">(<a
+href="#ref-stotz2017developmental" role="doc-biblioref">Stotz
+2017</a>)</span>. Clark’s “Surfing Uncertainty” provides an accessible
+synthesis of the predictive-processing literature that situates these
+debates <span class="citation" data-cites="clark2013surfing">(<a
+href="#ref-clark2013surfing" role="doc-biblioref">Clark
+2015</a>)</span>. Seth’s work on interoceptive inference extends the
+framework to selfhood and bodily awareness <span class="citation"
+data-cites="seth2015interoceptive seth2021being">(<a
+href="#ref-seth2015interoceptive" role="doc-biblioref">Seth 2015</a>, <a
+href="#ref-seth2021being" role="doc-biblioref">2021</a>)</span>, and
+Wiese provides a careful philosophical analysis of the Markov blanket
+formalism and its implications for consciousness science <span
+class="citation" data-cites="wiese2023markov">(<a
+href="#ref-wiese2023markov" role="doc-biblioref">Wiese 2023</a>)</span>.
+Ramstead, Kirchhoff, and Friston connect the Markov blanket and free
+energy formalisms to cultural and encultured cognition <span
+class="citation" data-cites="ramstead2023encultured">(<a
+href="#ref-ramstead2023encultured" role="doc-biblioref">Ramstead et al.
+2023</a>)</span>.</p>
+<h2 data-number="8.6"
+id="first-prior-co-homeostasis-and-upstream-bias"><span
+class="header-section-number">8.6</span> First Prior, Co-Homeostasis,
+and Upstream Bias</h2>
+<p>The first-prior literature gives the paper a sharper answer to the
+question before the question. Allen and Tsakiris argue that
+interoceptive predictive processing makes the body primary for
+self-modeling, so the origin of priors cannot be separated from bodily
+regulation <span class="citation"
+data-cites="allen2018body_first_prior">(<a
+href="#ref-allen2018body_first_prior" role="doc-biblioref">Allen and
+Tsakiris 2018</a>)</span>. Ciaunica, Constant, Preissl, and Fotopoulou
+push that frame into early life: the “first prior” is not a private
+intellectual possession but a co-embodied and co-homeostatic condition
+in which regulation is scaffolded by another body and by the environment
+<span class="citation" data-cites="ciaunica2021first_prior">(<a
+href="#ref-ciaunica2021first_prior" role="doc-biblioref">Ciaunica et al.
+2021</a>)</span>. That scholarship supports the manuscript’s upstream
+claim only when bounded carefully. It does not prove an ultimate prior;
+it helps specify what kind of non-prior condition can come before
+explicit priors.</p>
+<p>Physiology and developmental work add the next layer. Sterling’s
+allostasis model treats regulation as predictive control rather than
+mere reactive correction <span class="citation"
+data-cites="sterling2012allostasis">(<a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>)</span>. Corcoran and colleagues’ body-as-first-teacher account
+argues that rhythmic visceral dynamics can shape early cognition, making
+bodily regularity part of the developmental source of later expectation
+<span class="citation" data-cites="corcoran2025body_first_teacher">(<a
+href="#ref-corcoran2025body_first_teacher" role="doc-biblioref">Corcoran
+et al. 2025</a>)</span>. The biological-scale extension comes from
+morphogenesis and active inference: morphogenetic pattern formation can
+be framed as variational inference, and evolved brain architectures can
+be understood as predictive and active-inference solutions shaped by
+organismic requirements <span class="citation"
+data-cites="kuchling2020morphogenesis pezzulo2022evolution">(<a
+href="#ref-kuchling2020morphogenesis" role="doc-biblioref">Kuchling et
+al. 2020</a>; <a href="#ref-pezzulo2022evolution"
+role="doc-biblioref">Pezzulo et al. 2022</a>)</span>. Linson and
+colleagues’ ecological active-inference account keeps this embodied and
+environment-facing rather than skull-bound <span class="citation"
+data-cites="linson2018active_ecological">(<a
+href="#ref-linson2018active_ecological" role="doc-biblioref">Linson et
+al. 2018</a>)</span>. Together these sources support “bias before bias”
+as a layered constraint history: viable form, bodily regulation, shared
+homeostasis, developmental channel, and niche structure before explicit
+learned priors.</p>
+<h2 data-number="8.7" id="predictive-aesthetics-and-4e-art"><span
+class="header-section-number">8.7</span> Predictive Aesthetics And 4E
+Art</h2>
+<p>The title’s “art” claim is not a full theory of art. It is a bounded
+use of a developing research program that connects aesthetics with
+predictive processing. Van de Cruys and Wagemans propose that visual
+artworks can build and violate expectations in ways that become
+rewarding when structure is recovered, while Kesner extends the account
+toward art experience but stresses the difficulty of linking neural
+prediction to subjective and cultural meaning <span class="citation"
+data-cites="van_de_cruys2011putting kesner2014predictive">(<a
+href="#ref-van_de_cruys2011putting" role="doc-biblioref">Van de Cruys
+and Wagemans 2011</a>; <a href="#ref-kesner2014predictive"
+role="doc-biblioref">Kesner 2014</a>)</span>. The 2024 Royal Society
+theme issue makes the same boundary useful for this paper: predictive
+processing is a fruitful encounter with aesthetics, especially around
+inference, affect, and meaning-making, but it remains a program of
+hypotheses rather than an exhaustive account of art <span
+class="citation"
+data-cites="frascaroli2024aesthetics van_de_cruys2024order">(<a
+href="#ref-frascaroli2024aesthetics" role="doc-biblioref">Frascaroli et
+al. 2024</a>; <a href="#ref-van_de_cruys2024order"
+role="doc-biblioref">Van de Cruys et al. 2024</a>)</span>.</p>
+<p>Music cognition gives the clearest example of learned priors in
+aesthetic practice. Pearce’s review of statistical learning and
+probabilistic prediction shows how musical enculturation can be modeled
+through learned regularities that shape expectation, emotion, memory,
+segmentation, and meter <span class="citation"
+data-cites="pearce2018statistical">(<a href="#ref-pearce2018statistical"
+role="doc-biblioref">Pearce 2018</a>)</span>. Starr’s proposal that
+aesthetic experience models human learning similarly supports the idea
+that aesthetic judgment can involve Bayesian prediction and exploratory
+learning, but it remains a theoretical account rather than evidence that
+art directly rewires priors <span class="citation"
+data-cites="starr2023aesthetic">(<a href="#ref-starr2023aesthetic"
+role="doc-biblioref">Starr 2023</a>)</span>. Neuroaesthetics adds a
+second boundary. The aesthetic triad of sensory-motor,
+emotion-valuation, and meaning-knowledge systems keeps the analysis from
+reducing art to low-level prediction error or reward <span
+class="citation"
+data-cites="chatterjee2014neuroaesthetics pearce2016neuroaesthetics">(<a
+href="#ref-chatterjee2014neuroaesthetics"
+role="doc-biblioref">Chatterjee and Vartanian 2014</a>; <a
+href="#ref-pearce2016neuroaesthetics" role="doc-biblioref">Pearce et al.
+2016</a>)</span>.</p>
+<p>The strongest counterweight comes from 4E, material-engagement, and
+art-theoretic critique. Rietveld and Kiverstein’s affordance landscape
+frames skilled engagement as a field of possibilities for action, while
+Burnett and Gallagher argue that aesthetic experience spans embodied,
+embedded, enacted, and extended registers rather than one single
+explanatory principle <span class="citation"
+data-cites="rietveld2014rich burnett2020four_e">(<a
+href="#ref-rietveld2014rich" role="doc-biblioref">Rietveld and
+Kiverstein 2014</a>; <a href="#ref-burnett2020four_e"
+role="doc-biblioref">Burnett and Gallagher 2020</a>)</span>. Dewey’s
+art-as-experience account, Noe’s account of artworks as strange tools,
+and Clark and Chalmers’ extended mind thesis make the same
+methodological pressure visible: art is not only an inner perceptual
+episode but also a public practice that recruits artifacts, habits,
+bodies, and environments <span class="citation"
+data-cites="dewey1934art noe2015strange clark1998extended">(<a
+href="#ref-dewey1934art" role="doc-biblioref">Dewey 1934</a>; <a
+href="#ref-noe2015strange" role="doc-biblioref">Noë 2015</a>; <a
+href="#ref-clark1998extended" role="doc-biblioref">Clark and Chalmers
+1998</a>)</span>. Wynn, Overmann, and Malafouris sharpen the material
+point for early technical culture: 4E cognition makes tools and
+artifacts part of the explanatory field rather than passive outputs of
+an inner mind <span class="citation" data-cites="wynn2021four_e">(<a
+href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et al.
+2021</a>)</span>. Material-engagement theory adds the strongest
+archaeological and creative-practice version of that point. Malafouris
+treats mind as partly enacted through things, March and Malafouris
+discuss art through material engagement, and enactychism places chance
+and accident inside the creative process rather than outside it <span
+class="citation"
+data-cites="malafouris2013things malafouris2019mind march2023art malafouris2023enactychism">(<a
+href="#ref-malafouris2013things" role="doc-biblioref">Malafouris
+2013</a>, <a href="#ref-malafouris2019mind"
+role="doc-biblioref">2019</a>, <a href="#ref-malafouris2023enactychism"
+role="doc-biblioref">2023</a>; <a href="#ref-march2023art"
+role="doc-biblioref">March and Malafouris 2023</a>)</span>.</p>
+<p>Imagination and improvisation sharpen the limit. Jones and Wilkinson
+use predictive processing to connect prediction and imagination, and
+Cavedon-Taylor asks how imagination bears on predictive accounts of
+perception; both are useful because they show that generative cognition
+is not exhausted by passive sensory prediction <span class="citation"
+data-cites="jones2020prediction cavedon_taylor2022predictive">(<a
+href="#ref-jones2020prediction" role="doc-biblioref">Jones and Wilkinson
+2020</a>; <a href="#ref-cavedon_taylor2022predictive"
+role="doc-biblioref">Cavedon-Taylor 2022</a>)</span>. Gallagher’s
+enactive critique of surprise in improvisation then marks the line the
+paper must not cross: predictive language can clarify expectation, but
+it can also flatten the open-ended, situated discovery that makes art
+more than error correction <span class="citation"
+data-cites="gallagher2022surprise">(<a href="#ref-gallagher2022surprise"
+role="doc-biblioref">Gallagher 2022</a>)</span>. Brown and Dissanayake’s
+warning that the arts are more than aesthetics prevents the same
+narrowing from the neuroaesthetic side <span class="citation"
+data-cites="brown2009arts">(<a href="#ref-brown2009arts"
+role="doc-biblioref">Brown and Dissanayake 2009</a>)</span>.</p>
+<p>Cultural and evolutionary scholarship supports the population-scale
+version of the analogy while keeping it bounded. Runaway cultural niche
+construction shows how socially transmitted practices can reshape
+selection environments, and Morriss-Kay’s review of artistic creativity
+places art in a long biological and cultural trajectory <span
+class="citation"
+data-cites="rendell2011runaway morriss_kay2010evolution">(<a
+href="#ref-rendell2011runaway" role="doc-biblioref">Rendell et al.
+2011</a>; <a href="#ref-morriss_kay2010evolution"
+role="doc-biblioref">Morriss-Kay 2010</a>)</span>. These sources support
+the manuscript’s final scope: “prior cognitive art” names a craft of
+arranging encounters with expectations, affordances, and explanatory
+kinds, not a reduction of art to predictive coding and not evidence that
+any single artwork directly installs a prior.</p>
+<h2 data-number="8.8"
+id="autopoiesis-and-self-producing-organization"><span
+class="header-section-number">8.8</span> Autopoiesis and Self-Producing
+Organization</h2>
+<p>Autopoiesis supplies the language of self-producing organization
+<span class="citation" data-cites="maturana1980autopoiesis">(<a
+href="#ref-maturana1980autopoiesis" role="doc-biblioref">Maturana and
+Varela 1980</a>)</span>. The autopoietic tradition predates the free
+energy principle but shares its central insight: living systems are
+characterized by their self-maintaining organization, not by their
+material composition. The fixed-point termination move in this paper is
+the formal echo of that insight: the prior is the settled organization
+of the process it constrains, not another object behind it. Bateson’s
+“Steps to an Ecology of Mind” provides a broader cybernetic context for
+thinking about circular causality and self-referential organization
+<span class="citation" data-cites="bateson1972steps">(<a
+href="#ref-bateson1972steps" role="doc-biblioref">Bateson
+1972</a>)</span>.</p>
+<h2 data-number="8.9"
+id="claim-boundaries-after-the-scholarship-pass"><span
+class="header-section-number">8.9</span> Claim Boundaries After the
+Scholarship Pass</h2>
+<p>The scholarship pass leaves the paper with five explicit boundaries.
+First, Tinbergen and later extensions are used to keep explanation kinds
+distinct, not to claim a complete taxonomy of cognition <span
+class="citation"
+data-cites="tinbergen1963aims bateson2004toward bergman2022leveling konner2021nine">(<a
+href="#ref-tinbergen1963aims" role="doc-biblioref">Tinbergen 1963</a>;
+<a href="#ref-bateson2004toward" role="doc-biblioref">Bateson and Laland
+2013</a>; <a href="#ref-bergman2022leveling"
+role="doc-biblioref">Bergman and Beehner 2022</a>; <a
+href="#ref-konner2021nine" role="doc-biblioref">Konner 2021</a>)</span>.
+Second, Markov blankets are used as bounded modeling devices within
+active-inference and autonomy arguments, not as automatic detectors of
+organismal or cognitive ontology <span class="citation"
+data-cites="kirchhoff2018markov bruineberg2022emperor raja2021markov friston2023simpler">(<a
+href="#ref-kirchhoff2018markov" role="doc-biblioref">Kirchhoff et al.
+2018</a>; <a href="#ref-bruineberg2022emperor"
+role="doc-biblioref">Bruineberg et al. 2022</a>; <a
+href="#ref-raja2021markov" role="doc-biblioref">Raja et al. 2021</a>; <a
+href="#ref-friston2023simpler" role="doc-biblioref">Friston et al.
+2023</a>)</span>. Third, niche construction and developmental systems
+scholarship supports the co-shaping claim while also preventing the
+paper from collapsing developmental and selective niche construction
+into one causal pattern <span class="citation"
+data-cites="laland2000niche odling_smee2003niche constant2018free stotz2017developmental baltieri2022extended">(<a
+href="#ref-laland2000niche" role="doc-biblioref">Laland et al. 2000</a>;
+<a href="#ref-odling_smee2003niche" role="doc-biblioref">Odling-Smee et
+al. 2003</a>; <a href="#ref-constant2018free"
+role="doc-biblioref">Constant et al. 2018</a>; <a
+href="#ref-stotz2017developmental" role="doc-biblioref">Stotz 2017</a>;
+<a href="#ref-baltieri2022extended" role="doc-biblioref">Baltieri et al.
+2022</a>)</span>. Fourth, first-prior, interoceptive, allostatic,
+developmental, morphogenetic, and evolutionary active-inference
+scholarship supports an upstream constraint stack, not the claim that
+scholarship has discovered a literal first meta-prior <span
+class="citation"
+data-cites="allen2018body_first_prior ciaunica2021first_prior sterling2012allostasis corcoran2025body_first_teacher kuchling2020morphogenesis pezzulo2022evolution">(<a
+href="#ref-allen2018body_first_prior" role="doc-biblioref">Allen and
+Tsakiris 2018</a>; <a href="#ref-ciaunica2021first_prior"
+role="doc-biblioref">Ciaunica et al. 2021</a>; <a
+href="#ref-sterling2012allostasis" role="doc-biblioref">Sterling
+2012</a>; <a href="#ref-corcoran2025body_first_teacher"
+role="doc-biblioref">Corcoran et al. 2025</a>; <a
+href="#ref-kuchling2020morphogenesis" role="doc-biblioref">Kuchling et
+al. 2020</a>; <a href="#ref-pezzulo2022evolution"
+role="doc-biblioref">Pezzulo et al. 2022</a>)</span>. Fifth, predictive,
+material-engagement, and 4E aesthetics support the claim that artworks
+can stage encounters with expectation, ambiguity, affordance, affect,
+and meaning, but not the stronger claim that predictive processing,
+epistemic value, or neuroaesthetic reward is a complete account of art
+<span class="citation"
+data-cites="frascaroli2024aesthetics wynn2021four_e malafouris2013things burnett2020four_e brown2009arts">(<a
+href="#ref-frascaroli2024aesthetics" role="doc-biblioref">Frascaroli et
+al. 2024</a>; <a href="#ref-wynn2021four_e" role="doc-biblioref">Wynn et
+al. 2021</a>; <a href="#ref-malafouris2013things"
+role="doc-biblioref">Malafouris 2013</a>; <a
+href="#ref-burnett2020four_e" role="doc-biblioref">Burnett and Gallagher
+2020</a>; <a href="#ref-brown2009arts" role="doc-biblioref">Brown and
+Dissanayake 2009</a>)</span>. Those boundaries are the publication
+version of the argument. Decomposed factors need not be ontologically
+prior to the joint structure from which they are extracted, but the
+paper does not infer that joint structure from terminology alone.</p>
+<hr />
+<h1 data-number="9" id="sec:formal-supplement"><span
+class="header-section-number">9</span> Formal Supplement: Minimal
+Notation for Regress, Closure, and Validation</h1>
+<p>The formal layer is deliberately small. It does not claim an
+empirical model, and its deterministic illustrative simulation trace
+does not introduce simulation results. Its purpose is to keep the
+argument modular enough that each symbolic move can be checked against
+the plain-language thesis developed in sec. <a
+href="#sec:method">3</a>.</p>
+<p>The source layer currently generates 12 formal claims, 35 glossary
+rows, 11 text-validation checks, 14 claim dependency edges, and 12
+source-grounding edges. The inventory token for this version is
+<code>0694f506198f940e</code>. This section owns 3 contract diagrams
+from the 21-figure set; the other 18 figures belong to the argument
+atlas.</p>
+<h2 data-number="9.1" id="deterministic-trace-contract"><span
+class="header-section-number">9.1</span> Deterministic Trace
+Contract</h2>
+<p>The deterministic trace is a finite ordered object, not a transition
+kernel. Let <span
+class="math inline">\(T=(\sigma_0,\ldots,\sigma_4)\)</span>, with <span
+class="math inline">\(\delta(\sigma_i)=\sigma_{i+1}\)</span> only for
+adjacent authored states. The operator <span
+class="math inline">\(\delta\)</span> records order; it does not
+introduce <span
+class="math inline">\(p(\sigma_{i+1}\mid\sigma_i)\)</span>, an
+observation model, a reward function, a sample path, or a cognitive
+update rule.</p>
+<p>The trace therefore has three commitments. First, it must terminate
+in a named settlement state rather than adding another hidden prior.
+Second, each state must carry a local invariant that blocks numerical,
+empirical, synthetic-data, or performance readings. Third, the generated
+JSON trace must match the source-owned sequence in
+<code>src/conceptual_model.py</code>; a mismatch is treated as a
+publication-package validation failure, not as a harmless visualization
+drift.</p>
+<h2 data-number="9.2" id="numbered-formal-claims"><span
+class="header-section-number">9.2</span> Numbered Formal Claims</h2>
+<h3 data-number="9.2.1" id="formal-claim-f1-axis-partition"><span
+class="header-section-number">9.2.1</span> Formal Claim F1: Axis
+partition</h3>
+<p><span class="math inline">\(Q_T = \{p,u\} \times
+\{\mathrm{static},\mathrm{developmental}\}\)</span> and <span
+class="math inline">\(O = (p,\mathrm{developmental})\)</span>.</p>
+<p>Tinbergen explanation starts as a crossed question space. Ontogeny is
+one cell, not a level that can inherit the burden of the whole
+explanation.</p>
+<h3 data-number="9.2.2" id="formal-claim-f2-regress-shape"><span
+class="header-section-number">9.2.2</span> Formal Claim F2: Regress
+shape</h3>
+<p><span class="math inline">\(H(P)\)</span> and <span
+class="math inline">\(D(P)\)</span> can both be iterated; iteration
+alone does not supply <span class="math inline">\(\tau\)</span>.</p>
+<p>A hyperprior operator and a developmental selector differ in content,
+but both can recreate the same prior-of-prior regress unless a
+termination condition is named.</p>
+<h3 data-number="9.2.3" id="formal-claim-f3-selection-filter"><span
+class="header-section-number">9.2.3</span> Formal Claim F3: Selection
+filter</h3>
+<p><span class="math inline">\(S(P) = P^*\)</span> only for forms that
+persist under viability constraints.</p>
+<p>Function plus phylogeny blocks regress by filtering the forms that
+remain available as explanatory targets.</p>
+<h3 data-number="9.2.4" id="formal-claim-f4-fixed-point-stop"><span
+class="header-section-number">9.2.4</span> Formal Claim F4: Fixed-point
+stop</h3>
+<p><span class="math inline">\(X^* = \Phi(X^*)\)</span>; in that case
+<span class="math inline">\(P\)</span> names the settled organization of
+<span class="math inline">\(X^*\)</span>.</p>
+<p>The fixed-point answer is a category shift: the system is the
+prior-like settlement, rather than a bearer of one more hidden
+prior.</p>
+<h3 data-number="9.2.5" id="formal-claim-f5-decomposition-caution"><span
+class="header-section-number">9.2.5</span> Formal Claim F5:
+Decomposition caution</h3>
+<p><span class="math inline">\(\Lambda \to (\pi, P, x)\)</span> is an
+analytic map, not proof that <span class="math inline">\((\pi, P, x) \to
+\Lambda\)</span>.</p>
+<p>Policy, prior-like constraint, and state factors can be useful
+decompositions of joint organization without being ontologically prior
+to it.</p>
+<h3 data-number="9.2.6" id="formal-claim-f6-niche-co-construction"><span
+class="header-section-number">9.2.6</span> Formal Claim F6: Niche
+co-construction</h3>
+<p><span class="math inline">\((P_{t+1},E_{t+1})=N(P_t,E_t)\)</span>
+where <span class="math inline">\(N\)</span> is a niche-mediated
+co-shaping operator.</p>
+<p>The prior-like organization and its environment are updated together
+in the conceptual recurrence. This complicates selection termination
+without turning niche construction into a fourth stop rule.</p>
+<h3 data-number="9.2.7" id="formal-claim-f7-blanket-achievement"><span
+class="header-section-number">9.2.7</span> Formal Claim F7: Blanket
+achievement</h3>
+<p><span class="math inline">\(X^* = \Phi(X^*)\)</span> and <span
+class="math inline">\(M=(a,s)\)</span> with <span
+class="math inline">\(\Pr(\eta\mid\mu,a,s)=\Pr(\eta\mid
+a,s)\)</span>.</p>
+<p>The blanket claim is conditional and model-level: for a selected
+state partition, active and sensory variables M=(a,s) screen internal
+states from external states . The fixed point supplies an organizational
+context, not a proof that this conditional-independence boundary is a
+literal biological membrane.</p>
+<h3 data-number="9.2.8"
+id="formal-claim-f8-explanatory-complementarity"><span
+class="header-section-number">9.2.8</span> Formal Claim F8: Explanatory
+complementarity</h3>
+<p><span class="math inline">\(Q_T=\{e_i\}_{i=1}^{4},\ e_i\not\equiv
+e_j\ (i\ne j),\ \operatorname{explanation}=\bigcup_i e_i\)</span>.</p>
+<p>The four Tinbergen questions are distinct explanatory modes that can
+be coordinated without one subsuming another. Conflating them is the
+source of the regress, not the framework.</p>
+<h3 data-number="9.2.9"
+id="formal-claim-f9-active-inference-bridge"><span
+class="header-section-number">9.2.9</span> Formal Claim F9: Active
+inference bridge</h3>
+<p><span class="math inline">\(A(P,\pi): q^*=\arg\min_q
+\mathcal{F}(q\mid\pi,P),\quad \pi^*\in\arg\min_\pi G(\pi\mid
+P)\)</span>.</p>
+<p>Active inference couples perception and action while distinguishing
+variational free energy for inference from expected free energy for
+policy selection. The expression is a bridge between the two objectives,
+not a claim that they are one scalar process.</p>
+<h3 data-number="9.2.10" id="formal-claim-f10-variational-closure"><span
+class="header-section-number">9.2.10</span> Formal Claim F10:
+Variational closure</h3>
+<p><span
+class="math inline">\(\mathcal{F}(q)=D_{KL}(q\|p^*)+\mathcal{F}^* \ge
+\mathcal{F}^*\)</span>; q<sup>*=p</sup>* only when <span
+class="math inline">\(p^*\in\mathcal{Q}\)</span> and the minimum is
+attained.</p>
+<p>The variational free-energy bound differs from its reference minimum
+by a KL term under the stated decomposition. If the target is outside
+the variational family, the optimum is a KL projection rather than the
+target itself. This supports a bounded, model-internal settling
+interpretation; it is not a literal zero-energy claim and it does not
+derive the historical origin of the prior.</p>
+<h3 data-number="9.2.11" id="formal-claim-f11-scale-recurrence"><span
+class="header-section-number">9.2.11</span> Formal Claim F11: Scale
+recurrence</h3>
+<p><span class="math inline">\(R_k(X^*_k) = X^*_{k+1}\)</span> for
+scales <span class="math inline">\(k \in \{\text{cell}, \text{organism},
+\text{social}\}\)</span>.</p>
+<p>The fixed-point grammar recurs across scales: a settlement at one
+scale can become substrate for the next. This is a conceptual recurrence
+relation, not a claim of scale invariance or empirical
+self-similarity.</p>
+<h3 data-number="9.2.12"
+id="formal-claim-f12-deterministic-trace-boundary"><span
+class="header-section-number">9.2.12</span> Formal Claim F12:
+Deterministic trace boundary</h3>
+<p><span class="math inline">\(T=(\sigma_0,\ldots,\sigma_4)\)</span> and
+<span class="math inline">\(\delta(\sigma_i)=\sigma_{i+1}\)</span> for
+authored conceptual states only.</p>
+<p>The deterministic illustrative simulation records the formal state
+path through regress pressure and termination choice. It is a checkable
+exposition device, not a stochastic simulation, synthetic data
+generator, empirical estimate, or performance metric.</p>
+<h2 data-number="9.3" id="claim-grounding-map"><span
+class="header-section-number">9.3</span> Claim Grounding Map</h2>
+<p>The formal claims are not independent. Each edge records
+argumentative support or provenance, not a theorem-level entailment; in
+particular, a fixed-point description does not by itself entail a
+biological Markov blanket. - <strong>axis_partition →
+regress_shape</strong>: The crossed axes show which quadrant creates
+regress pressure. - <strong>regress_shape → selection_filter</strong>:
+The regress shape motivates the need for a termination condition. -
+<strong>regress_shape → fixed_point_stop</strong>: The regress shape
+motivates the fixed-point alternative. - <strong>selection_filter →
+niche_co_construction</strong>: Selection filtering is complicated by
+niche co-construction. - <strong>fixed_point_stop →
+blanket_achievement</strong>: The fixed-point settlement supplies an
+organizational context for a bounded blanket model; it does not entail a
+literal biological boundary. - <strong>axis_partition →
+explanatory_complementarity</strong>: The axis partition shows the
+questions are complementary. - <strong>decomposition_caution →
+niche_co_construction</strong>: Joint structure and niche
+co-construction both resist factor-first readings. -
+<strong>blanket_achievement → active_inference_bridge</strong>: The
+achieved blanket provides the boundary within which active inference
+operates. - <strong>fixed_point_stop → variational_closure</strong>: The
+fixed-point settlement is represented as a relative variational-bound
+minimum. - <strong>active_inference_bridge → scale_recurrence</strong>:
+Active inference at one scale provides the substrate for the next. -
+<strong>variational_closure → scale_recurrence</strong>: The variational
+closure applies recursively at each scale. -
+<strong>explanatory_complementarity → active_inference_bridge</strong>:
+Complementarity of perspectives is preserved when action and perception
+are unified. - <strong>regress_shape →
+deterministic_trace_boundary</strong>: The trace records the regress
+shape before any termination claim is accepted. -
+<strong>deterministic_trace_boundary → fixed_point_stop</strong>: The
+trace boundary preserves the fixed-point stop as a conceptual category
+shift.</p>
+<p>The grounding edges are a separate provenance surface: they identify
+which named source record anchors each numbered claim.</p>
+<ul>
+<li><code>tinbergen_axes</code> → <strong>F1</strong>
+(axis_partition)</li>
+<li><code>tinbergen_axes</code> → <strong>F8</strong>
+(explanatory_complementarity)</li>
+<li><code>regress_shape</code> → <strong>F2</strong>
+(regress_shape)</li>
+<li><code>regress_shape</code> → <strong>F12</strong>
+(deterministic_trace_boundary)</li>
+<li><code>termination_moves</code> → <strong>F3</strong>
+(selection_filter)</li>
+<li><code>termination_moves</code> → <strong>F4</strong>
+(fixed_point_stop)</li>
+<li><code>joint_structure</code> → <strong>F5</strong>
+(decomposition_caution)</li>
+<li><code>joint_structure</code> → <strong>F9</strong>
+(active_inference_bridge)</li>
+<li><code>niche_blanket</code> → <strong>F6</strong>
+(niche_co_construction)</li>
+<li><code>niche_blanket</code> → <strong>F7</strong>
+(blanket_achievement)</li>
+<li><code>niche_blanket</code> → <strong>F10</strong>
+(variational_closure)</li>
+<li><code>cross_scale_recurrence</code> → <strong>F11</strong>
+(scale_recurrence)</li>
+</ul>
+<p>fig. <a href="#fig:formal_claim_dependency_map">19</a> shows how the
+numbered claims are grounded in the same conceptual records that feed
+the prose, figure registry, and tests.</p>
+<figure id="fig:formal_claim_dependency_map">
+<img src="../figures/formal_claim_dependency_map.png"
+alt="Figure 19: Source records connect by arrows to numbered formal claims F1 through F12 in two columns." />
+<figcaption>Figure 19: Source records connect by
+arrows to numbered formal claims F1 through F12 in two
+columns.</figcaption>
+</figure>
+<h2 data-number="9.4" id="symbol-glossary"><span
+class="header-section-number">9.4</span> Symbol Glossary</h2>
+<p>All named symbols used by the formal claims appear in tbl. <a
+href="#tbl:symbol_glossary">2</a>. Operators such as equality, set
+product, and implication are ordinary logical notation rather than
+project-specific symbols.</p>
+<table id="tbl:symbol_glossary">
+<caption>Table 2: Glossary for all named symbols used in the formal
+supplement.</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Role</th>
+<th>Used in claims</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(Q_T\)</span></td>
+<td>Tinbergen question space</td>
+<td>The crossed explanatory space used by the paper.</td>
+<td>F1, F8</td>
+</tr>
+<tr>
+<td><span class="math inline">\(p\)</span></td>
+<td>proximate scale</td>
+<td>The mechanism-side explanatory scale.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(u\)</span></td>
+<td>ultimate scale</td>
+<td>The function or selection-side explanatory scale.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(O\)</span></td>
+<td>ontogeny cell</td>
+<td>The proximate-developmental quadrant.</td>
+<td>F1</td>
+</tr>
+<tr>
+<td><span class="math inline">\(P\)</span></td>
+<td>prior-like constraint</td>
+<td>The prior or prior-like organization being explained.</td>
+<td>F2, F3, F4, F5, F6, F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(H\)</span></td>
+<td>hyperprior operator</td>
+<td>A prior-on-prior move in hierarchical Bayes language.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(D\)</span></td>
+<td>developmental selector</td>
+<td>An ontogenetic prior-selection move.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\tau\)</span></td>
+<td>termination condition</td>
+<td>A stop rule that prevents another regress level.</td>
+<td>F2</td>
+</tr>
+<tr>
+<td><span class="math inline">\(S\)</span></td>
+<td>selection filter</td>
+<td>Function-plus-phylogeny filtering of viable forms.</td>
+<td>F3</td>
+</tr>
+<tr>
+<td><span class="math inline">\(P^*\)</span></td>
+<td>persisting prior form</td>
+<td>A prior-like form that remains available for explanation.</td>
+<td>F3</td>
+</tr>
+<tr>
+<td><span class="math inline">\(X^*\)</span></td>
+<td>settled system state</td>
+<td>A persisting self-individuating organization.</td>
+<td>F4, F7, F11</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Phi\)</span></td>
+<td>self-mapping process</td>
+<td>The process whose fixed point is the settled system state.</td>
+<td>F4, F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\Lambda\)</span></td>
+<td>joint organization</td>
+<td>The entangled structure before analytic decomposition.</td>
+<td>F5</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\pi\)</span></td>
+<td>policy factor</td>
+<td>A policy factor extracted by decomposition.</td>
+<td>F5, F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(x\)</span></td>
+<td>state factor</td>
+<td>A state factor extracted by decomposition.</td>
+<td>F5</td>
+</tr>
+<tr>
+<td><span class="math inline">\(N\)</span></td>
+<td>niche-mediated co-shaping</td>
+<td>The operator representing organism-niche reciprocal shaping of
+priors.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(E\)</span></td>
+<td>environmental state</td>
+<td>The environmental or niche state co-shaped with prior-like
+organization.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(t\)</span></td>
+<td>conceptual update index</td>
+<td>An index for the ordered niche co-shaping recurrence.</td>
+<td>F6</td>
+</tr>
+<tr>
+<td><span class="math inline">\(M\)</span></td>
+<td>Markov blanket variables</td>
+<td>The active and sensory variables used as a model-level
+conditional-independence boundary.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(a\)</span></td>
+<td>active blanket state</td>
+<td>An active state variable in the selected Markov blanket
+partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(s\)</span></td>
+<td>sensory blanket state</td>
+<td>A sensory state variable in the selected Markov blanket
+partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\eta\)</span></td>
+<td>external state</td>
+<td>A state outside the selected blanket partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mu\)</span></td>
+<td>internal state</td>
+<td>A state inside the selected blanket partition.</td>
+<td>F7</td>
+</tr>
+<tr>
+<td><span class="math inline">\(A\)</span></td>
+<td>active inference operator</td>
+<td>The operator coupling perception and action under a prior and policy
+to minimize free energy.</td>
+<td>F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{F}\)</span></td>
+<td>variational free energy</td>
+<td>The upper bound on negative log evidence that the system
+minimizes.</td>
+<td>F9, F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(G\)</span></td>
+<td>expected free energy</td>
+<td>The policy-level objective used for action or policy selection in
+the bounded bridge.</td>
+<td>F9</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{F}^*\)</span></td>
+<td>reference bound minimum</td>
+<td>The variational free-energy value at the selected reference
+minimum.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\mathcal{Q}\)</span></td>
+<td>variational family</td>
+<td>The family of approximate posteriors over which the variational
+objective is optimized.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(q\)</span></td>
+<td>variational posterior</td>
+<td>The approximate posterior distribution the system maintains.</td>
+<td>F9, F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(p^*\)</span></td>
+<td>target posterior</td>
+<td>The posterior distribution approached by the variational
+approximation at the selected minimum.</td>
+<td>F10</td>
+</tr>
+<tr>
+<td><span class="math inline">\(e_i\)</span></td>
+<td>explanatory mode</td>
+<td>One of the four distinct Tinbergen explanatory modes.</td>
+<td>F8</td>
+</tr>
+<tr>
+<td><span class="math inline">\(R\)</span></td>
+<td>scale recursion operator</td>
+<td>The operator mapping a settled system at one scale to the substrate
+at the next.</td>
+<td>F11</td>
+</tr>
+<tr>
+<td><span class="math inline">\(T\)</span></td>
+<td>deterministic trace</td>
+<td>The finite authored sequence of conceptual states used for
+illustration.</td>
+<td>F12</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\sigma_i\)</span></td>
+<td>formal trace state</td>
+<td>A named state in the deterministic illustrative trace.</td>
+<td>F12</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\delta\)</span></td>
+<td>deterministic transition</td>
+<td>The transition function that orders adjacent trace states without
+stochastic sampling.</td>
+<td>F12</td>
+</tr>
+</tbody>
+</table>
+<p>fig. <a href="#fig:symbol_glossary_closure">20</a> visualizes the
+closure check. A missing symbol row or an unused glossary row is treated
+as a source-contract error.</p>
+<figure id="fig:symbol_glossary_closure">
+<img src="../figures/symbol_glossary_closure.png"
+alt="Figure 20: A used-symbol set and a generated glossary set meet at an equality check, with a contract-failure warning below." />
+<figcaption>Figure 20: A used-symbol set and a
+generated glossary set meet at an equality check, with a
+contract-failure warning below.</figcaption>
+</figure>
+<h2 data-number="9.5" id="text-integrity-checks"><span
+class="header-section-number">9.5</span> Text-Integrity Checks</h2>
+<p>The manuscript treats prose as an artifact surface. Generated tokens
+do not make the argument true, but they make several kinds of drift
+observable before the paper is rendered. tbl. <a
+href="#tbl:text_validation_checks">3</a> lists the checks that guard the
+project contract.</p>
+<table id="tbl:text_validation_checks">
+<caption>Table 3: Modular text-validation checks for the conceptual
+manuscript.</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Check</th>
+<th>Surface</th>
+<th>Invariant</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deterministic_simulation_boundary</code></td>
+<td>manuscript and analysis report</td>
+<td>The project limits simulation language to a deterministic
+illustrative trace and rejects stochastic, empirical, synthetic-data,
+and performance claims.</td>
+<td>SIMULATION_POLICY token, deterministic_simulation_manifest.json, and
+conceptual_analysis.json scope flags.</td>
+</tr>
+<tr>
+<td><code>figure_registry_closure</code></td>
+<td>../figures/figure_registry.json</td>
+<td>Every figure specification has a generated artifact and a registry
+label.</td>
+<td>figure_specs() and run_analysis_pipeline() compare expected and
+produced filenames.</td>
+</tr>
+<tr>
+<td><code>symbol_glossary_closure</code></td>
+<td>formal supplement</td>
+<td>Every symbol key used by a formal claim appears in the generated
+glossary.</td>
+<td>validate_conceptual_contract() checks formal_claims() against
+symbol_glossary().</td>
+</tr>
+<tr>
+<td><code>token_hydration</code></td>
+<td>output/manuscript</td>
+<td>Every double-brace manuscript token is generated before render.</td>
+<td>test_all_manuscript_tokens_are_generated and hydration script smoke
+test.</td>
+</tr>
+<tr>
+<td><code>integrity_signature</code></td>
+<td>reproducibility section</td>
+<td>A generated token binds the conceptual inventory used by prose,
+figures, and tests.</td>
+<td>CONCEPTUAL_INTEGRITY_TOKEN is derived from source records, not
+hand-authored prose.</td>
+</tr>
+<tr>
+<td><code>claim_dependency_closure</code></td>
+<td>formal supplement</td>
+<td>Every claim dependency edge references a claim key that exists.</td>
+<td>claim_dependencies() checks source_claim and target_claim against
+formal_claims().</td>
+</tr>
+<tr>
+<td><code>claim_grounding_closure</code></td>
+<td>formal grounding map</td>
+<td>Every formal claim is grounded in at least one named source record
+used by the grounding map.</td>
+<td>validate_claim_grounding() checks claim_grounding() against
+formal_claims().</td>
+</tr>
+<tr>
+<td><code>metadata_keyword_consistency</code></td>
+<td>metadata files</td>
+<td>Keywords in config.yaml are a subset of .zenodo.json, codemeta.json,
+and CITATION.cff.</td>
+<td>test_metadata_keywords_are_consistent_across_all_files checks all
+metadata files.</td>
+</tr>
+<tr>
+<td><code>citation_resolution</code></td>
+<td>manuscript references</td>
+<td>Every citation reference in the manuscript has a bib entry in
+references.bib.</td>
+<td>test_all_manuscript_citations_resolve_to_bib scans all manuscript
+files.</td>
+</tr>
+<tr>
+<td><code>figure_count_consistency</code></td>
+<td>manuscript and analysis report</td>
+<td>The figure count in the manuscript token matches the actual number
+of generated figure files.</td>
+<td>FIGURE_COUNT token and ../figures/*.png file count are compared by
+the analysis pipeline.</td>
+</tr>
+<tr>
+<td><code>argument_module_closure</code></td>
+<td>manuscript and source inventory</td>
+<td>Every argument module key in the source has a corresponding
+discussion in the manuscript prose.</td>
+<td>ARGUMENT_MODULES token injects the full list; the manuscript
+references each module by title.</td>
+</tr>
+</tbody>
+</table>
+<p>fig. <a href="#fig:text_validation_ladder">21</a> shows the
+validation posture: authored source records hydrate the manuscript,
+figures, reports, and registry, and those surfaces are checked again at
+render time.</p>
+<figure id="fig:text_validation_ladder">
+<img src="../figures/text_validation_ladder.png"
+alt="Figure 21: A vertical ladder connects source records, analysis artifacts, injected tokens, rendered manuscript, and validation gates." />
+<figcaption>Figure 21: A vertical ladder connects
+source records, analysis artifacts, injected tokens, rendered
+manuscript, and validation gates.</figcaption>
+</figure>
+<hr />
+<h1 data-number="10"
+id="references-source-corpus-for-the-conceptual-and-formal-claims"><span
+class="header-section-number">10</span> References: Source Corpus for
+the Conceptual and Formal Claims</h1>
+<p>References are managed in <code>references.bib</code>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-allen2018body_first_prior" class="csl-entry"
+role="listitem">
+Allen, Micah, and Manos Tsakiris. 2018. <span>“The Body as First Prior:
+Interoceptive Predictive Processing and the Primacy of
+Self-Models.”</span> In <em>The Interoceptive Mind: From Homeostasis to
+Awareness</em>, edited by Manos Tsakiris and Helena De Preester. Oxford
+University Press. <a
+href="https://doi.org/10.1093/oso/9780198811930.003.0002">https://doi.org/10.1093/oso/9780198811930.003.0002</a>.
+</div>
+<div id="ref-baltieri2022extended" class="csl-entry" role="listitem">
+Baltieri, Manuel, Christopher L. Buckley, and Joe Dewhurst. 2022.
+<span>“Extended Active Inference: Constructing Predictive Cognition
+Beyond Skulls.”</span> <em>Mind &amp; Language</em> 37 (3): 373–94. <a
+href="https://doi.org/10.1111/mila.12330">https://doi.org/10.1111/mila.12330</a>.
+</div>
+<div id="ref-bateson1972steps" class="csl-entry" role="listitem">
+Bateson, Gregory. 1972. <em>Steps to an Ecology of Mind</em>. University
+of Chicago Press.
+</div>
+<div id="ref-bateson2004toward" class="csl-entry" role="listitem">
+Bateson, Patrick, and Kevin N. Laland. 2013. <span>“Tinbergen’s Four
+Questions: An Appreciation and an Update.”</span> <em>Trends in Ecology
+&amp; Evolution</em> 28 (12): 712–18. <a
+href="https://doi.org/10.1016/j.tree.2013.09.013">https://doi.org/10.1016/j.tree.2013.09.013</a>.
+</div>
+<div id="ref-bergman2022leveling" class="csl-entry" role="listitem">
+Bergman, Thore J., and Jacinta C. Beehner. 2022. <span>“Leveling with
+Tinbergen: Four Levels Simplified to Causes and Consequences.”</span>
+<em>Evolutionary Anthropology</em> 31 (1): 12–19. <a
+href="https://doi.org/10.1002/evan.21931">https://doi.org/10.1002/evan.21931</a>.
+</div>
+<div id="ref-bernardo1979reference" class="csl-entry" role="listitem">
+Bernardo, Jose M. 1979. <span>“Reference Posterior Distributions for
+Bayesian Inference.”</span> <em>Journal of the Royal Statistical
+Society: Series B (Methodological)</em> 41 (2): 113–28. <a
+href="https://doi.org/10.1111/j.2517-6161.1979.tb01066.x">https://doi.org/10.1111/j.2517-6161.1979.tb01066.x</a>.
+</div>
+<div id="ref-blei2017variational" class="csl-entry" role="listitem">
+Blei, David M., Alp Kucukelbir, and Jon D. McAuliffe. 2017.
+<span>“Variational Inference: A Review for Statisticians.”</span>
+<em>Journal of the American Statistical Association</em> 112 (518):
+859–77. <a
+href="https://doi.org/10.1080/01621459.2017.1285773">https://doi.org/10.1080/01621459.2017.1285773</a>.
+</div>
+<div id="ref-bowers2012bayesian" class="csl-entry" role="listitem">
+Bowers, Jeffrey S., and Colin J. Davis. 2012. <span>“Bayesian Just-so
+Stories in Psychology and Neuroscience.”</span> <em>Psychological
+Bulletin</em> 138 (3): 389–414. <a
+href="https://doi.org/10.1037/a0026450">https://doi.org/10.1037/a0026450</a>.
+</div>
+<div id="ref-brown2009arts" class="csl-entry" role="listitem">
+Brown, Steven, and Ellen Dissanayake. 2009. <span>“The Arts Are More
+Than Aesthetics: Neuroaesthetics as Narrow Aesthetics.”</span> In
+<em>Neuroaesthetics</em>, edited by Martin Skov and Oshin Vartanian.
+Baywood.
+</div>
+<div id="ref-bruineberg2022emperor" class="csl-entry" role="listitem">
+Bruineberg, Jelle, Krzysztof Dolega, Joe Dewhurst, and Manuel Baltieri.
+2022. <span>“The Emperor’s New Markov Blankets.”</span> <em>Behavioral
+and Brain Sciences</em> 45: e183. <a
+href="https://doi.org/10.1017/S0140525X21002351">https://doi.org/10.1017/S0140525X21002351</a>.
+</div>
+<div id="ref-bruineberg2018free" class="csl-entry" role="listitem">
+Bruineberg, Jelle, Julian Kiverstein, and Erik Rietveld. 2018.
+<span>“The Anticipating Brain Is Not a Scientist: The Free-Energy
+Principle from an Ecological-Enactive Perspective.”</span>
+<em>Synthese</em> 195 (6): 2417–44. <a
+href="https://doi.org/10.1007/s11229-016-1239-1">https://doi.org/10.1007/s11229-016-1239-1</a>.
+</div>
+<div id="ref-burnett2020four_e" class="csl-entry" role="listitem">
+Burnett, Mia, and Shaun Gallagher. 2020. <span>“4E Cognition and the
+Spectrum of Aesthetic Experience.”</span> <em>JOLMA: The Journal for the
+Philosophy of Language, Mind and the Arts</em> 1 (2): 157–76. <a
+href="https://doi.org/10.30687/Jolma/2723-9640/2020/02/001">https://doi.org/10.30687/Jolma/2723-9640/2020/02/001</a>.
+</div>
+<div id="ref-cavedon_taylor2022predictive" class="csl-entry"
+role="listitem">
+Cavedon-Taylor, Dan. 2022. <span>“Predictive Processing and Perception:
+What Does Imagining Have to Do with It?”</span> <em>Consciousness and
+Cognition</em> 106: 103419. <a
+href="https://doi.org/10.1016/j.concog.2022.103419">https://doi.org/10.1016/j.concog.2022.103419</a>.
+</div>
+<div id="ref-chatterjee2014neuroaesthetics" class="csl-entry"
+role="listitem">
+Chatterjee, Anjan, and Oshin Vartanian. 2014.
+<span>“Neuroaesthetics.”</span> <em>Trends in Cognitive Sciences</em> 18
+(7): 370–75. <a
+href="https://doi.org/10.1016/j.tics.2014.03.003">https://doi.org/10.1016/j.tics.2014.03.003</a>.
+</div>
+<div id="ref-ciaunica2021first_prior" class="csl-entry" role="listitem">
+Ciaunica, Anna, Axel Constant, Hubert Preissl, and Katerina Fotopoulou.
+2021. <span>“The First Prior: From Co-Embodiment to Co-Homeostasis in
+Early Life.”</span> <em>Consciousness and Cognition</em> 91: 103117. <a
+href="https://doi.org/10.1016/j.concog.2021.103117">https://doi.org/10.1016/j.concog.2021.103117</a>.
+</div>
+<div id="ref-clark2013surfing" class="csl-entry" role="listitem">
+Clark, Andy. 2015. <em>Surfing Uncertainty: Prediction, Action, and the
+Embodied Mind</em>. Oxford University Press.
+</div>
+<div id="ref-clark1998extended" class="csl-entry" role="listitem">
+Clark, Andy, and David J. Chalmers. 1998. <span>“The Extended
+Mind.”</span> <em>Analysis</em> 58 (1): 7–19. <a
+href="https://doi.org/10.1093/analys/58.1.7">https://doi.org/10.1093/analys/58.1.7</a>.
+</div>
+<div id="ref-constant2018free" class="csl-entry" role="listitem">
+Constant, Axel, Maxwell J. D. Ramstead, Michael D. Kirchhoff, and Karl
+J. Friston. 2018. <span>“A Variational Approach to Niche
+Construction.”</span> <em>The Journal of the Royal Society
+Interface</em> 15 (141): 20170685. <a
+href="https://doi.org/10.1098/rsif.2017.0685">https://doi.org/10.1098/rsif.2017.0685</a>.
+</div>
+<div id="ref-corcoran2025body_first_teacher" class="csl-entry"
+role="listitem">
+Corcoran, Andrew W., Kelsey Perrykkad, Daniel Feuerriegel, and Jonathan
+E. Robinson. 2025. <span>“Body as First Teacher: The Role of Rhythmic
+Visceral Dynamics in Early Cognitive Development.”</span>
+<em>Perspectives on Psychological Science</em> 20 (1): 3–23. <a
+href="https://doi.org/10.1177/17456916231185343">https://doi.org/10.1177/17456916231185343</a>.
+</div>
+<div id="ref-da_costa2023bayesian" class="csl-entry" role="listitem">
+Costa, Lancelot da, Karl Friston, Christopher Heins, and Grigorios A.
+Pavliotis. 2023. <span>“Bayesian Mechanics for Stationary
+Processes.”</span> <em>Proceedings of the Royal Society A</em> 479
+(2276): 20230005. <a
+href="https://doi.org/10.1098/rspa.2023.0005">https://doi.org/10.1098/rspa.2023.0005</a>.
+</div>
+<div id="ref-da_costa2020active" class="csl-entry" role="listitem">
+Costa, Lancelot da, Thomas Parr, Noor Sajid, Sebastijan Veselic,
+Victoria Neacsu, and Karl Friston. 2020. <span>“Active Inference on
+Discrete State-Spaces: A Synthesis.”</span> <em>Journal of Mathematical
+Psychology</em> 99: 102447. <a
+href="https://doi.org/10.1016/j.jmp.2020.102447">https://doi.org/10.1016/j.jmp.2020.102447</a>.
+</div>
+<div id="ref-dewey1934art" class="csl-entry" role="listitem">
+Dewey, John. 1934. <em>Art as Experience</em>. Minton, Balch; Company.
+</div>
+<div id="ref-frascaroli2024aesthetics" class="csl-entry"
+role="listitem">
+Frascaroli, Jacopo, Helmut Leder, Elvira Brattico, and Sander Van de
+Cruys. 2024. <span>“Aesthetics and Predictive Processing: Grounds and
+Prospects of a Fruitful Encounter.”</span> <em>Philosophical
+Transactions of the Royal Society B</em> 379 (1895): 20220410. <a
+href="https://doi.org/10.1098/rstb.2022.0410">https://doi.org/10.1098/rstb.2022.0410</a>.
+</div>
+<div id="ref-friston2010free" class="csl-entry" role="listitem">
+Friston, Karl. 2010. <span>“The Free-Energy Principle: A Unified Brain
+Theory?”</span> <em>Nature Reviews Neuroscience</em> 11 (2): 127–38. <a
+href="https://doi.org/10.1038/nrn2787">https://doi.org/10.1038/nrn2787</a>.
+</div>
+<div id="ref-friston2013life" class="csl-entry" role="listitem">
+Friston, Karl. 2013. <span>“Life as We Know It.”</span> <em>Journal of
+the Royal Society Interface</em> 10 (86): 20130475. <a
+href="https://doi.org/10.1098/rsif.2013.0475">https://doi.org/10.1098/rsif.2013.0475</a>.
+</div>
+<div id="ref-friston2019free" class="csl-entry" role="listitem">
+Friston, Karl. 2019. <span>“A Free Energy Principle for a Particular
+Physics.”</span> <em>arXiv Preprint arXiv:1906.10184</em>.
+</div>
+<div id="ref-friston2017active" class="csl-entry" role="listitem">
+Friston, Karl J., Thomas FitzGerald, Francesco Rigoli, Pepa
+Schwartenbeck, John O’Doherty, and Giovanni Pezzulo. 2017. <span>“Active
+Inference and Learning: Acquiring and Integrating Knowledge Through
+Action and Perception.”</span> <em>Neuroscience of Consciousness</em>
+2017 (1): niw013. <a
+href="https://doi.org/10.1093/nc/niw013">https://doi.org/10.1093/nc/niw013</a>.
+</div>
+<div id="ref-friston2023simpler" class="csl-entry" role="listitem">
+Friston, Karl, Lancelot Da Costa, Noor Sajid, et al. 2023. <span>“The
+Free Energy Principle Made Simpler but Not Too Simple.”</span>
+<em>Physics Reports</em> 1024: 1–29. <a
+href="https://doi.org/10.1016/j.physrep.2023.07.001">https://doi.org/10.1016/j.physrep.2023.07.001</a>.
+</div>
+<div id="ref-friston2024active" class="csl-entry" role="listitem">
+Friston, Karl, Lancelot Da Costa, Noor Sajid, Christopher Heins,
+Grigorios A. Pavliotis, and Thomas Parr. 2024. <span>“Path Integrals,
+Particular Kinds, and Strange Things.”</span> <em>Physics of Life
+Reviews</em> 51: 1–21. <a
+href="https://doi.org/10.1016/j.plrev.2024.05.003">https://doi.org/10.1016/j.plrev.2024.05.003</a>.
+</div>
+<div id="ref-friston2015free" class="csl-entry" role="listitem">
+Friston, Karl, Daniel Levin, Biswa Sengupta, and Giovanni Pezzulo. 2015.
+<span>“Knowing One’s Place: A Free-Energy Approach to Pattern
+Regulation.”</span> <em>Journal of the Royal Society Interface</em> 12
+(105): 20141383. <a
+href="https://doi.org/10.1098/rsif.2014.1383">https://doi.org/10.1098/rsif.2014.1383</a>.
+</div>
+<div id="ref-friston2015active" class="csl-entry" role="listitem">
+Friston, Karl, Francesco Rigoli, Dimitri Ognibene, Christoph Mathys,
+Thomas Fitzgerald, and Giovanni Pezzulo. 2015. <span>“Active Inference
+and Epistemic Value.”</span> <em>Cognitive Neuroscience</em> 6 (4):
+187–214. <a
+href="https://doi.org/10.1080/17588928.2015.1020053">https://doi.org/10.1080/17588928.2015.1020053</a>.
+</div>
+<div id="ref-friston2012agency" class="csl-entry" role="listitem">
+Friston, Karl, Spyridon Samothrakis, and Read Montague. 2012.
+<span>“Active Inference and Agency: Optimal Control Without Cost
+Functions.”</span> <em>Biological Cybernetics</em> 106 (8–9): 523–41. <a
+href="https://doi.org/10.1007/s00422-012-0512-8">https://doi.org/10.1007/s00422-012-0512-8</a>.
+</div>
+<div id="ref-gallagher2022surprise" class="csl-entry" role="listitem">
+Gallagher, Shaun. 2022. <span>“Surprise! Why Enactivism and Predictive
+Processing Are Parting Ways: The Case of Improvisation.”</span>
+<em>Possibility Studies and Society</em> 1 (3): 269–78. <a
+href="https://doi.org/10.1177/27538699221132691">https://doi.org/10.1177/27538699221132691</a>.
+</div>
+<div id="ref-gelman2013philosophy" class="csl-entry" role="listitem">
+Gelman, Andrew, and Cosma Rohilla Shalizi. 2013. <span>“Philosophy and
+the Practice of Bayesian Statistics.”</span> <em>British Journal of
+Mathematical and Statistical Psychology</em> 66 (1): 8–38. <a
+href="https://doi.org/10.1111/j.2044-8317.2011.02037.x">https://doi.org/10.1111/j.2044-8317.2011.02037.x</a>.
+</div>
+<div id="ref-godfrey2013theoretical" class="csl-entry" role="listitem">
+Godfrey-Smith, Peter. 2014. <em>Philosophy of Biology</em>. Princeton
+University Press.
+</div>
+<div id="ref-hipolito2021active" class="csl-entry" role="listitem">
+Hipólito, Inês, Thomas van Es, Merlijn Duijzings, and Michael Kirchhoff.
+2021. <span>“Active Inference and Cognitive Systems: A Survey.”</span>
+<em>Cognitive Systems Research</em> 69: 8–18. <a
+href="https://doi.org/10.1016/j.cogsys.2021.05.003">https://doi.org/10.1016/j.cogsys.2021.05.003</a>.
+</div>
+<div id="ref-hohwy2016predictive" class="csl-entry" role="listitem">
+Hohwy, Jakob. 2016a. <em>The Predictive Mind</em>. Oxford University
+Press.
+</div>
+<div id="ref-hohwy2016self" class="csl-entry" role="listitem">
+Hohwy, Jakob. 2016b. <span>“The Self-Evidencing Brain.”</span>
+<em>Noûs</em> 50 (2): 259–85. <a
+href="https://doi.org/10.1111/nous.12062">https://doi.org/10.1111/nous.12062</a>.
+</div>
+<div id="ref-hohwy2016viability" class="csl-entry" role="listitem">
+Hohwy, Jakob. 2017. <span>“How to Enact Maximal Intelligibility in
+Active Inference.”</span> In <em>PsyArXiv</em>. <a
+href="https://doi.org/10.31234/osf.io/b4h6n">https://doi.org/10.31234/osf.io/b4h6n</a>.
+</div>
+<div id="ref-jaynes2003probability" class="csl-entry" role="listitem">
+Jaynes, Edwin T. 2003. <em>Probability Theory: The Logic of
+Science</em>. Cambridge University Press.
+</div>
+<div id="ref-jones2020prediction" class="csl-entry" role="listitem">
+Jones, Max, and Sam Wilkinson. 2020. <span>“From Prediction to
+Imagination.”</span> In <em>The Cambridge Handbook of the
+Imagination</em>, edited by Anna Abraham. Cambridge University Press. <a
+href="https://doi.org/10.1017/9781108580298.007">https://doi.org/10.1017/9781108580298.007</a>.
+</div>
+<div id="ref-kesner2014predictive" class="csl-entry" role="listitem">
+Kesner, Ladislav. 2014. <span>“The Predictive Mind and the Experience of
+Visual Art Work.”</span> <em>Frontiers in Psychology</em> 5: 1417. <a
+href="https://doi.org/10.3389/fpsyg.2014.01417">https://doi.org/10.3389/fpsyg.2014.01417</a>.
+</div>
+<div id="ref-kirchhoff2018markov" class="csl-entry" role="listitem">
+Kirchhoff, Michael, Thomas Parr, Emile Palacios, Karl Friston, and
+Julian Kiverstein. 2018. <span>“The Markov Blankets of Life: Autonomy,
+Active Inference and the Free Energy Principle.”</span> <em>Journal of
+the Royal Society Interface</em> 15 (138): 20170792. <a
+href="https://doi.org/10.1098/rsif.2017.0792">https://doi.org/10.1098/rsif.2017.0792</a>.
+</div>
+<div id="ref-konner2021nine" class="csl-entry" role="listitem">
+Konner, Melvin. 2021. <span>“Nine Levels of Explanation: A Proposed
+Expansion of Tinbergen’s Four-Level Framework for Understanding the
+Causes of Behavior.”</span> <em>Human Nature</em> 32 (4): 748–93. <a
+href="https://doi.org/10.1007/s12110-021-09414-8">https://doi.org/10.1007/s12110-021-09414-8</a>.
+</div>
+<div id="ref-kuchling2020morphogenesis" class="csl-entry"
+role="listitem">
+Kuchling, Franz, Karl Friston, Georgi Georgiev, and Michael Levin. 2020.
+<span>“Morphogenesis as Bayesian Inference: A Variational Approach to
+Pattern Formation and Control in Complex Biological Systems.”</span>
+<em>Physics of Life Reviews</em> 33: 88–108. <a
+href="https://doi.org/10.1016/j.plrev.2019.06.001">https://doi.org/10.1016/j.plrev.2019.06.001</a>.
+</div>
+<div id="ref-laland2000niche" class="csl-entry" role="listitem">
+Laland, Kevin N., John Odling-Smee, and Marcus W. Feldman. 2000.
+<span>“Niche Construction, Biological Evolution, and Cultural
+Change.”</span> <em>Behavioral and Brain Sciences</em> 23 (1): 131–46.
+<a
+href="https://doi.org/10.1017/S0140525X00002417">https://doi.org/10.1017/S0140525X00002417</a>.
+</div>
+<div id="ref-linson2018active_ecological" class="csl-entry"
+role="listitem">
+Linson, Adam, Andy Clark, Subramanian Ramamoorthy, and Karl Friston.
+2018. <span>“The Active Inference Approach to Ecological Perception:
+General Information Dynamics for Natural and Artificial Embodied
+Cognition.”</span> <em>Frontiers in Robotics and AI</em> 5: 21. <a
+href="https://doi.org/10.3389/frobt.2018.00021">https://doi.org/10.3389/frobt.2018.00021</a>.
+</div>
+<div id="ref-malafouris2013things" class="csl-entry" role="listitem">
+Malafouris, Lambros. 2013. <em>How Things Shape the Mind: A Theory of
+Material Engagement</em>. MIT Press.
+</div>
+<div id="ref-malafouris2019mind" class="csl-entry" role="listitem">
+Malafouris, Lambros. 2019. <span>“Mind and Material Engagement.”</span>
+<em>Phenomenology and the Cognitive Sciences</em> 18 (1): 1–17. <a
+href="https://doi.org/10.1007/s11097-018-9606-7">https://doi.org/10.1007/s11097-018-9606-7</a>.
+</div>
+<div id="ref-malafouris2023enactychism" class="csl-entry"
+role="listitem">
+Malafouris, Lambros. 2023. <span>“Enactychism: Enacting Chance in
+Creative Material Engagement.”</span> <em>Possibility Studies and
+Society</em> 1 (3): 300–310. <a
+href="https://doi.org/10.1177/27538699231178170">https://doi.org/10.1177/27538699231178170</a>.
+</div>
+<div id="ref-march2023art" class="csl-entry" role="listitem">
+March, Paul Louis, and Lambros Malafouris. 2023. <span>“Art Through
+Material Engagement...and Vice Versa.”</span> In <em>The Routledge
+International Handbook of Creative Cognition</em>, edited by Linden J.
+Ball and Frederic Vallee-Tourangeau. Routledge. <a
+href="https://doi.org/10.4324/9781003009351-37">https://doi.org/10.4324/9781003009351-37</a>.
+</div>
+<div id="ref-maturana1980autopoiesis" class="csl-entry" role="listitem">
+Maturana, Humberto R., and Francisco J. Varela. 1980. <em>Autopoiesis
+and Cognition: The Realization of the Living</em>. D. Reidel.
+</div>
+<div id="ref-mayr1961cause" class="csl-entry" role="listitem">
+Mayr, Ernst. 1961. <span>“Cause and Effect in Biology.”</span>
+<em>Science</em> 134 (3489): 1501–6. <a
+href="https://doi.org/10.1126/science.134.3489.1501">https://doi.org/10.1126/science.134.3489.1501</a>.
+</div>
+<div id="ref-morriss_kay2010evolution" class="csl-entry"
+role="listitem">
+Morriss-Kay, Gillian M. 2010. <span>“The Evolution of Human Artistic
+Creativity.”</span> <em>Journal of Anatomy</em> 216 (2): 158–76. <a
+href="https://doi.org/10.1111/j.1469-7580.2009.01160.x">https://doi.org/10.1111/j.1469-7580.2009.01160.x</a>.
+</div>
+<div id="ref-noe2015strange" class="csl-entry" role="listitem">
+Noë, Alva. 2015. <em>Strange Tools: Art and Human Nature</em>. Hill;
+Wang.
+</div>
+<div id="ref-odling_smee2003niche" class="csl-entry" role="listitem">
+Odling-Smee, F. John, Kevin N. Laland, and Marcus W. Feldman. 2003.
+<em>Niche Construction: The Neglected Process in Evolution</em>.
+Monographs in Population Biology 37. Princeton University Press.
+</div>
+<div id="ref-parr2020prefrontal" class="csl-entry" role="listitem">
+Parr, Thomas, Lancelot Da Costa, and Karl Friston. 2020. <span>“Markov
+Blankets, Free Energy, and the Self-Organisation of Biological
+Systems.”</span> <em>Entropy</em> 22 (9): 984. <a
+href="https://doi.org/10.3390/e22090984">https://doi.org/10.3390/e22090984</a>.
+</div>
+<div id="ref-parr2022active" class="csl-entry" role="listitem">
+Parr, Thomas, Giovanni Pezzulo, and Karl J. Friston. 2022. <em>Active
+Inference: The Free Energy Principle in Mind, Brain, and Behavior</em>.
+MIT Press. <a
+href="https://doi.org/10.7551/mitpress/14695.001.0001">https://doi.org/10.7551/mitpress/14695.001.0001</a>.
+</div>
+<div id="ref-pearce2018statistical" class="csl-entry" role="listitem">
+Pearce, Marcus T. 2018. <span>“Statistical Learning and Probabilistic
+Prediction in Music Cognition: Mechanisms of Stylistic
+Enculturation.”</span> <em>Annals of the New York Academy of
+Sciences</em> 1423 (1): 378–95. <a
+href="https://doi.org/10.1111/nyas.13654">https://doi.org/10.1111/nyas.13654</a>.
+</div>
+<div id="ref-pearce2016neuroaesthetics" class="csl-entry"
+role="listitem">
+Pearce, Marcus T., Dahlia W. Zaidel, Oshin Vartanian, et al. 2016.
+<span>“Neuroaesthetics: The Cognitive Neuroscience of Aesthetic
+Experience.”</span> <em>Perspectives on Psychological Science</em> 11
+(2): 265–79. <a
+href="https://doi.org/10.1177/1745691615621274">https://doi.org/10.1177/1745691615621274</a>.
+</div>
+<div id="ref-pearl2009causality" class="csl-entry" role="listitem">
+Pearl, Judea. 2009. <em>Causality: Models, Reasoning, and
+Inference</em>. 2nd ed. Cambridge University Press.
+</div>
+<div id="ref-pezzulo2022evolution" class="csl-entry" role="listitem">
+Pezzulo, Giovanni, Thomas Parr, and Karl Friston. 2022. <span>“The
+Evolution of Brain Architectures for Predictive Coding and Active
+Inference.”</span> <em>Philosophical Transactions of the Royal Society
+B: Biological Sciences</em> 377 (1844): 20200531. <a
+href="https://doi.org/10.1098/rstb.2020.0531">https://doi.org/10.1098/rstb.2020.0531</a>.
+</div>
+<div id="ref-raja2021markov" class="csl-entry" role="listitem">
+Raja, Vicente, Dinesh Valluri, Edward Baggs, Anthony Chemero, and
+Michael L. Anderson. 2021. <span>“The Markov Blanket Trick: On the Scope
+of the Free Energy Principle and Active Inference.”</span> <em>Physics
+of Life Reviews</em> 39: 49–72. <a
+href="https://doi.org/10.1016/j.plrev.2021.09.001">https://doi.org/10.1016/j.plrev.2021.09.001</a>.
+</div>
+<div id="ref-ramstead2018answering" class="csl-entry" role="listitem">
+Ramstead, Maxwell J. D., Paul B. Badcock, and Karl J. Friston. 2018.
+<span>“Answering Schroedinger’s Question: A Free-Energy
+Formulation.”</span> <em>Physics of Life Reviews</em> 24: 1–16. <a
+href="https://doi.org/10.1016/j.plrev.2017.09.001">https://doi.org/10.1016/j.plrev.2017.09.001</a>.
+</div>
+<div id="ref-ramstead2023encultured" class="csl-entry" role="listitem">
+Ramstead, Maxwell J. D., Michael D. Kirchhoff, and Karl J. Friston.
+2023. <span>“A Tale of Two (Mathematical) Trinities: Markov Blankets and
+the Free Energy Principle.”</span> <em>Physics of Life Reviews</em> 47:
+141–52. <a
+href="https://doi.org/10.1016/j.plrev.2023.09.001">https://doi.org/10.1016/j.plrev.2023.09.001</a>.
+</div>
+<div id="ref-rendell2011runaway" class="csl-entry" role="listitem">
+Rendell, Luke, Laurel Fogarty, and Kevin N. Laland. 2011. <span>“Runaway
+Cultural Niche Construction.”</span> <em>Philosophical Transactions of
+the Royal Society B</em> 366 (1566): 823–35. <a
+href="https://doi.org/10.1098/rstb.2010.0256">https://doi.org/10.1098/rstb.2010.0256</a>.
+</div>
+<div id="ref-rietveld2014rich" class="csl-entry" role="listitem">
+Rietveld, Erik, and Julian Kiverstein. 2014. <span>“A Rich Landscape of
+Affordances.”</span> <em>Ecological Psychology</em> 26 (4): 325–52. <a
+href="https://doi.org/10.1080/10407413.2014.958035">https://doi.org/10.1080/10407413.2014.958035</a>.
+</div>
+<div id="ref-seth2015interoceptive" class="csl-entry" role="listitem">
+Seth, Anil K. 2015. <span>“The Cybernetic Bayesian Brain: From
+Interoceptive Inference to Sensorimotor Contingencies.”</span> In
+<em>Open MIND</em>, edited by Thomas K. Metzinger and Jennifer M. Windt.
+MIND Group. <a
+href="https://doi.org/10.15502/9783958570108">https://doi.org/10.15502/9783958570108</a>.
+</div>
+<div id="ref-seth2021being" class="csl-entry" role="listitem">
+Seth, Anil K. 2021. <em>Being You: A New Science of Consciousness</em>.
+Faber &amp; Faber.
+</div>
+<div id="ref-simpson2017penalising" class="csl-entry" role="listitem">
+Simpson, Daniel, Håvard Rue, Thiago G. Martins, Andrea Riebler, and
+Sigrunn H. Sørbye. 2017. <span>“Penalising Model Component Complexity: A
+Principled, Practical Approach to Constructing Priors.”</span>
+<em>Statistical Science</em> 32 (1): 1–28. <a
+href="https://doi.org/10.1214/16-STS576">https://doi.org/10.1214/16-STS576</a>.
+</div>
+<div id="ref-smith2000formal" class="csl-entry" role="listitem">
+Smith, John Maynard. 2000. <span>“The Concept of Information in
+Biology.”</span> <em>Philosophy of Science</em> 67 (2): 177–94. <a
+href="https://doi.org/10.1086/392768">https://doi.org/10.1086/392768</a>.
+</div>
+<div id="ref-starr2023aesthetic" class="csl-entry" role="listitem">
+Starr, G. Gabrielle. 2023. <span>“Aesthetic Experience Models Human
+Learning.”</span> <em>Frontiers in Human Neuroscience</em> 17: 1146083.
+<a
+href="https://doi.org/10.3389/fnhum.2023.1146083">https://doi.org/10.3389/fnhum.2023.1146083</a>.
+</div>
+<div id="ref-sterling2012allostasis" class="csl-entry" role="listitem">
+Sterling, Peter. 2012. <span>“Allostasis: A Model of Predictive
+Regulation.”</span> <em>Physiology &amp; Behavior</em> 106 (1): 5–15. <a
+href="https://doi.org/10.1016/j.physbeh.2011.06.004">https://doi.org/10.1016/j.physbeh.2011.06.004</a>.
+</div>
+<div id="ref-stotz2017developmental" class="csl-entry" role="listitem">
+Stotz, Karola. 2017. <span>“Why Developmental Niche Construction Is Not
+Selective Niche Construction: And Why It Matters.”</span> <em>Interface
+Focus</em> 7 (5): 20160157. <a
+href="https://doi.org/10.1098/rsfs.2016.0157">https://doi.org/10.1098/rsfs.2016.0157</a>.
+</div>
+<div id="ref-thompson2007mind" class="csl-entry" role="listitem">
+Thompson, Evan. 2007. <em>Mind in Life: Biology, Phenomenology, and the
+Sciences of Mind</em>. Harvard University Press.
+</div>
+<div id="ref-tinbergen1963aims" class="csl-entry" role="listitem">
+Tinbergen, Niko. 1963. <span>“On Aims and Methods of Ethology.”</span>
+<em>Zeitschrift Fuer Tierpsychologie</em> 20 (4): 410–33. <a
+href="https://doi.org/10.1111/j.1439-0310.1963.tb01161.x">https://doi.org/10.1111/j.1439-0310.1963.tb01161.x</a>.
+</div>
+<div id="ref-van_de_cruys2024order" class="csl-entry" role="listitem">
+Van de Cruys, Sander, Jacopo Frascaroli, and Karl Friston. 2024.
+<span>“Order and Change in Art: Towards an Active Inference Account of
+Aesthetic Experience.”</span> <em>Philosophical Transactions of the
+Royal Society B</em> 379 (1895): 20220411. <a
+href="https://doi.org/10.1098/rstb.2022.0411">https://doi.org/10.1098/rstb.2022.0411</a>.
+</div>
+<div id="ref-van_de_cruys2011putting" class="csl-entry" role="listitem">
+Van de Cruys, Sander, and Johan Wagemans. 2011. <span>“Putting Reward in
+Art: A Tentative Prediction Error Account of Visual Art.”</span>
+<em>I-Perception</em> 2 (9): 1035–62. <a
+href="https://doi.org/10.1068/i0466aap">https://doi.org/10.1068/i0466aap</a>.
+</div>
+<div id="ref-varela1991embodied" class="csl-entry" role="listitem">
+Varela, Francisco J., Evan Thompson, and Eleanor Rosch. 1991. <em>The
+Embodied Mind: Cognitive Science and Human Experience</em>. MIT Press.
+</div>
+<div id="ref-wiese2023markov" class="csl-entry" role="listitem">
+Wiese, Wanja. 2023. <span>“Toward a Mature Science of
+Consciousness.”</span> <em>Frontiers in Systems Neuroscience</em> 17:
+1130468. <a
+href="https://doi.org/10.3389/fnsys.2023.1130468">https://doi.org/10.3389/fnsys.2023.1130468</a>.
+</div>
+<div id="ref-wynn2021four_e" class="csl-entry" role="listitem">
+Wynn, Thomas, Karenleigh A. Overmann, and Lambros Malafouris. 2021.
+<span>“4E Cognition in the Lower Palaeolithic: An Introduction.”</span>
+<em>Adaptive Behavior</em> 29 (2): 99–106. <a
+href="https://doi.org/10.1177/1059712320967184">https://doi.org/10.1177/1059712320967184</a>.
+</div>
+</div>
+</main>
+</body>
+</html>

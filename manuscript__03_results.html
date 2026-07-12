@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03_results.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+
+<link data-template-favicon rel="icon" href="favicon.ico">
+
+<style data-prior-cognitive-art-layout="compact">/* Project-owned overrides appended after the shared Pandoc stylesheet. */
+html {
+  background: #fdfdfd;
+}
+
+body {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 1rem 1rem 2rem;
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+figure {
+  margin: 1rem 0 1.25rem;
+}
+
+figure img,
+figure svg {
+  display: block;
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+figcaption {
+  max-width: 1100px;
+  margin: 0.45rem auto 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+table {
+  font-size: 0.88rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem 0.45rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  header {
+    margin-bottom: 1.25rem;
+  }
+}
+</style>
+</head>
+<body>
+<main id="main-content">
+<h1 id="sec:visual-atlas">Visual Atlas: Eighteen Deterministic Argument
+Diagrams</h1>
+<p>This section is called a visual atlas rather than results because the
+paper does not run experiments. It contains 18 conceptual argument
+diagrams generated from the static source inventory. The complete
+21-figure set also includes 3 contract diagrams in
+[sec:formal-supplement]; those supplement figures validate claims,
+symbols, and text rather than add new substantive arguments. The one
+deterministic simulation trace is an authored formal-state sequence, not
+stochastic sampling or empirical evidence. Every figure is source-owned,
+captioned, and given generated accessibility text.</p>
+<h2 id="tinbergen-axes">Tinbergen Axes</h2>
+<p>[fig:tinbergen_axes] shows the central correction. Tinbergen’s four
+questions form two axes, not a stacked series of causes. The quadrant
+that creates regress pressure is ontogeny when it is made to answer more
+than it can answer. Recent work that re-levels Tinbergen into causes and
+consequences sharpens the same point: the questions can be reorganized,
+but they cannot be collapsed into one explanatory kind
+[bergman2022leveling].</p>
+<figure id="fig:tinbergen_axes">
+<img src="../figures/tinbergen_axes.png"
+alt="Four colored panels arrange mechanism, function, ontogeny, and phylogeny on crossed proximate-ultimate and static-developmental axes." />
+<figcaption>Four colored panels arrange mechanism,
+function, ontogeny, and phylogeny on crossed proximate-ultimate and
+static-developmental axes.</figcaption>
+</figure>
+<h2 id="hyperprior-regress-and-termination">Hyperprior Regress And
+Termination</h2>
+<p>[fig:regress_terminations] maps the formal parallel between
+hierarchical Bayes and developmental inheritance. A prior on a prior can
+always be extended upward. A developmental prior that selects another
+developmental prior can always be extended backward. The explanatory
+task is not to add another level; it is to name the stopping condition.
+The pragmatic branch is continuous with Bayesian workflow discipline: a
+prior is justified by model adequacy and regularization, not by
+discovering an ultimate meta-prior [gelman2013philosophy;
+simpson2017penalising].</p>
+<figure id="fig:regress_terminations">
+<img src="../figures/regress_terminations.png"
+alt="A prior leads to a hyperprior and then another level, above three exits labeled pragmatic, selection, and self-referential termination." />
+<figcaption>A prior leads to a hyperprior and then
+another level, above three exits labeled pragmatic, selection, and
+self-referential termination.</figcaption>
+</figure>
+<h2 id="prior-as-settled-equilibrium">Prior As Settled Equilibrium</h2>
+<p>[fig:prior_equilibrium_map] sketches the fixed-point move. In this
+framing, a prior is not an object inside the system that needs another
+prior above it. It is the settled organization of perception, action,
+and boundary maintenance that persists. This is where the argument sits
+closest to free-energy and autopoietic readings of cognition
+[friston2010free; maturana1980autopoiesis].</p>
+<figure id="fig:prior_equilibrium_map">
+<img src="../figures/prior_equilibrium_map.png"
+alt="Concentric loops connect blanket persistence, environmental viability, and action-perception closure around a prior-like settled organization." />
+<figcaption>Concentric loops connect blanket
+persistence, environmental viability, and action-perception closure
+around a prior-like settled organization.</figcaption>
+</figure>
+<h2 id="ontogeny-and-hyperprior-shape">Ontogeny And Hyperprior
+Shape</h2>
+<p>[fig:ontogeny_hyperprior_parallel] makes the structural analogy
+explicit. In hierarchical Bayes, a prior can be justified by a
+hyperprior, which can be justified by another hyperprior. In an
+ontogenetic-only biological account, a current prior can be justified by
+a developmental selector, which can then be asked to justify its own
+source. The point is not that these are the same substantive theory. The
+point is that they share a regress shape.</p>
+<figure id="fig:ontogeny_hyperprior_parallel">
+<img src="../figures/ontogeny_hyperprior_parallel.png"
+alt="Parallel Bayesian and developmental chains show that adding another prior or selector repeats the same deferral shape." />
+<figcaption>Parallel Bayesian and developmental
+chains show that adding another prior or selector repeats the same
+deferral shape.</figcaption>
+</figure>
+<h2 id="selection-filter">Selection Filter</h2>
+<p>[fig:selection_filter] distinguishes selection closure from merely
+adding another historical layer. Function and phylogeny do not answer
+every sense of “why” the prior exists; they explain persistence by
+filtering the space of candidate forms. Fragile, overfit, or
+miscalibrated priors do not remain available as the objects whose origin
+we ask about. The figure therefore represents a selection-based closure
+of the availability question, not a complete causal history of the
+individual prior.</p>
+<figure id="fig:selection_filter">
+<img src="../figures/selection_filter.png"
+alt="Candidate prior-like forms pass through a function-and-phylogeny viability filter, leaving a persisting prior form." />
+<figcaption>Candidate prior-like forms pass through a
+function-and-phylogeny viability filter, leaving a persisting prior
+form.</figcaption>
+</figure>
+<h2 id="policy-entanglement-bridge">Policy Entanglement Bridge</h2>
+<p>[fig:policy_entanglement_bridge] sketches why the argument sits
+beside policy-entanglement work. If lambda-decomposition extracts
+policy, state, and prior-like factors from an already joint structure,
+then those factors are useful cuts rather than proof that the factors
+were ontologically first. This is the same explanatory posture as
+fixed-point termination: organization can precede the decomposition that
+later makes it legible.</p>
+<figure id="fig:policy_entanglement_bridge">
+<img src="../figures/policy_entanglement_bridge.png"
+alt="A joint organization branches into policy, prior-like constraint, and state factors after lambda-decomposition." />
+<figcaption>A joint organization branches into
+policy, prior-like constraint, and state factors after
+lambda-decomposition.</figcaption>
+</figure>
+<h2 id="niche-co-construction">Niche Co-Construction</h2>
+<p>[fig:niche_construction_diagram] shows how the prior-like structure
+is co-shaped by organism and environment. The niche-construction reading
+does not eliminate selection — viability still filters what can persist
+— but it shows that the filter is not purely external. The prior is not
+fully given by the environment nor fully endogenous; it is co-shaped by
+the reciprocal interaction [odling_smee2003niche; laland2000niche;
+constant2018free].</p>
+<figure id="fig:niche_construction_diagram">
+<img src="../figures/niche_construction_diagram.png"
+alt="Organism and environment or niche reciprocally shape a central prior-like structure through two-way arrows." />
+<figcaption>Organism and environment or niche
+reciprocally shape a central prior-like structure through two-way
+arrows.</figcaption>
+</figure>
+<h2 id="markov-blanket-as-achievement">Markov Blanket As
+Achievement</h2>
+<p>[fig:markov_blanket_achievement] shows the Markov blanket as a
+self-maintaining model boundary rather than an externally imposed
+partition. When the blanket is treated as an achievement of the system,
+the prior-like structure becomes part of what the model describes the
+system as maintaining, not a parameter received from a higher level
+[kirchhoff2018markov; friston2013life]. The figure also marks the scope
+boundary introduced by recent critiques: the notation is not enough by
+itself to settle organismal or cognitive ontology
+[bruineberg2022emperor; raja2021markov].</p>
+<figure id="fig:markov_blanket_achievement">
+<img src="../figures/markov_blanket_achievement.png"
+alt="A settled system sits inside a model boundary separating internal and external states, with a warning against reading the boundary as literal ontology." />
+<figcaption>A settled system sits inside a model
+boundary separating internal and external states, with a warning against
+reading the boundary as literal ontology.</figcaption>
+</figure>
+<h2 id="explanatory-complementarity">Explanatory Complementarity</h2>
+<p>[fig:explanatory_complementarity_matrix] shows the four Tinbergen
+questions as complementary perspectives rather than rival hypotheses.
+The regress appears when one question is asked to carry the load of all
+four; the framework itself does not force it [bateson2004toward;
+bergman2022leveling].</p>
+<figure id="fig:explanatory_complementarity_matrix">
+<img src="../figures/explanatory_complementarity_matrix.png"
+alt="A four-by-four matrix highlights each Tinbergen question on the diagonal and coordination signs in off-diagonal cells." />
+<figcaption>A four-by-four matrix highlights each
+Tinbergen question on the diagonal and coordination signs in
+off-diagonal cells.</figcaption>
+</figure>
+<h2 id="active-inference-cycle">Active Inference Cycle</h2>
+<p>[fig:active_inference_cycle] shows how active inference closes the
+action-perception loop. The prior serves a coupled process in which
+variational free energy evaluates approximate inference and expected
+free energy evaluates policy selection; the two objectives should not be
+conflated [friston2012agency; friston2015active; da_costa2020active].
+This closes the explanatory loop: the prior is not merely a parameter
+for belief updating but a constraint on the coupled perception-action
+system.</p>
+<figure id="fig:active_inference_cycle">
+<img src="../figures/active_inference_cycle.png"
+alt="Perception, inference, action, and policy selection form a clockwise loop with distinct F and G roles." />
+<figcaption>Perception, inference, action, and policy
+selection form a clockwise loop with distinct F and G
+roles.</figcaption>
+</figure>
+<h2 id="variational-free-energy-landscape">Variational Free Energy
+Landscape</h2>
+<p>[fig:variational_free_energy_landscape] shows the free-energy
+landscape as a relative variational-bound landscape. The prior-like
+structure is not presented as the literal floor of a vanishing
+free-energy surface. Instead, the figure marks a model-internal settling
+interpretation: under the bound, approximate posterior structure can
+approach a target posterior without turning the prior’s origin into an
+empirical result [friston2010free; friston2013life; blei2017variational;
+friston2023simpler].</p>
+<figure id="fig:variational_free_energy_landscape">
+<img src="../figures/variational_free_energy_landscape.png"
+alt="A qualitative basin shows an initial approximate posterior moving toward a target posterior under a relative variational bound." />
+<figcaption>A qualitative basin shows an initial
+approximate posterior moving toward a target posterior under a relative
+variational bound.</figcaption>
+</figure>
+<h2 id="deterministic-simulation-trace">Deterministic Simulation
+Trace</h2>
+<p>[fig:deterministic_simulation_trace] is the manuscript’s only
+simulation-named artifact, and its scope is intentionally narrow. It
+shows deterministic simulation as an ordered trace over formal state
+labels: a question about the prior, exposure of regress, Tinbergen
+partition, termination choice, and fixed-point settlement. The figure
+does not model cognition, sample outcomes, estimate effects, or report
+performance; it makes the formal state transition surface
+inspectable.</p>
+<figure id="fig:deterministic_simulation_trace">
+<img src="../figures/deterministic_simulation_trace.png"
+alt="Five colored formal states progress from asking about a prior through regress, partition, termination, and settled organization." />
+<figcaption>Five colored formal states progress from
+asking about a prior through regress, partition, termination, and
+settled organization.</figcaption>
+</figure>
+<h2 id="scale-recurrence">Scale Recurrence</h2>
+<p>[fig:scale_recurrence_diagram] shows that the regress-termination
+problem recurs at multiple scales. The fixed-point move applies at the
+cellular, organismic, and social levels without requiring a new hidden
+prior at each transition [friston2013life; kirchhoff2018markov]. The
+same category shift applies recursively: the prior-like settlement at
+one scale becomes the substrate for the next.</p>
+<figure id="fig:scale_recurrence_diagram">
+<img src="../figures/scale_recurrence_diagram.png"
+alt="Cellular, organismic, and social panels repeat a fixed-point equation and connect downward through a recurrence operator R." />
+<figcaption>Cellular, organismic, and social panels
+repeat a fixed-point equation and connect downward through a recurrence
+operator R.</figcaption>
+</figure>
+<h2 id="source-claim-boundary-map">Source-Claim Boundary Map</h2>
+<p>[fig:source_claim_boundary_map] makes the scholarship contract
+visible. The publication pass does not treat every discovered source as
+equal. Discovery scans surface candidates; primary or scholarly
+verification decides whether a source is accepted, rejected, or
+deferred; and only accepted sources attached to claim ledger entries
+reach the manuscript. This is the paper’s answer to citation inflation:
+sources enter only where they bound or strengthen a live claim.</p>
+<figure id="fig:source_claim_boundary_map">
+<img src="../figures/source_claim_boundary_map.png"
+alt="Candidate sources pass through verification, accepted or rejected layers, and a claim ledger before reaching manuscript and formal outputs." />
+<figcaption>Candidate sources pass through
+verification, accepted or rejected layers, and a claim ledger before
+reaching manuscript and formal outputs.</figcaption>
+</figure>
+<h2 id="aesthetic-prior-craft-map">Aesthetic Prior-Craft Map</h2>
+<p>[fig:aesthetic_prior_craft_map] makes the title’s art claim
+inspectable. It does not route all aesthetic experience through
+prediction error. Instead, it shows three supporting lines feeding one
+bounded claim: predictive aesthetics for staged expectation, 4E and
+material-engagement scholarship for situated practice, and
+neuroaesthetic scope controls for sensory, valuation, and meaning
+systems [frascaroli2024aesthetics; burnett2020four_e;
+chatterjee2014neuroaesthetics; wynn2021four_e]. The figure also keeps
+the claim ceiling in view: prior-craft is not a theory of artist
+intention or neural updating. The point is narrower and stronger:
+artworks and art-making can arrange encounters with expectation,
+affordance, accident, affect, and meaning [dewey1934art; noe2015strange;
+malafouris2013things; malafouris2023enactychism].</p>
+<figure id="fig:aesthetic_prior_craft_map">
+<img src="../figures/aesthetic_prior_craft_map.png"
+alt="Predictive aesthetics, four-E practice, and neuroaesthetic scope converge on bounded prior-craft beside a claim ceiling." />
+<figcaption>Predictive aesthetics, four-E practice,
+and neuroaesthetic scope converge on bounded prior-craft beside a claim
+ceiling.</figcaption>
+</figure>
+<h2 id="markov-blanket-scope-split">Markov Blanket Scope Split</h2>
+<p>[fig:markov_blanket_scope_split] separates three uses of Markov
+blankets: Pearl-style conditional-independence structure, Friston-style
+active-inference model boundary, and realized organismal or cognitive
+boundary. The split lets the argument use Markov blankets as part of
+fixed-point explanation while preserving the critical distinction
+emphasized by the recent debate [bruineberg2022emperor;
+raja2021markov].</p>
+<figure id="fig:markov_blanket_scope_split">
+<img src="../figures/markov_blanket_scope_split.png"
+alt="Three source registers feed model use, metaphysical use, and biological realization, with the paper’s bounded stance at the right." />
+<figcaption>Three source registers feed model use,
+metaphysical use, and biological realization, with the paper’s bounded
+stance at the right.</figcaption>
+</figure>
+<h2 id="niche-prior-feedback-field">Niche-Prior Feedback Field</h2>
+<p>[fig:niche_prior_feedback_field] gives the niche-construction claim a
+richer shape. Organismic action, developmental resources, and cultural
+inheritance operate at different timescales but feed back into the same
+prior-like field. The point is not that niche construction is a fourth
+termination. It is a constraint on selection termination: what persists
+is partly produced by the system-niche loop that selection later filters
+[constant2018free; stotz2017developmental; baltieri2022extended;
+laland2000niche].</p>
+<figure id="fig:niche_prior_feedback_field">
+<img src="../figures/niche_prior_feedback_field.png"
+alt="Organismic action, developmental resources, and cultural inheritance feed a central prior-like field across timescales." />
+<figcaption>Organismic action, developmental
+resources, and cultural inheritance feed a central prior-like field
+across timescales.</figcaption>
+</figure>
+<h2 id="before-the-first-prior">Before The First Prior</h2>
+<p>[fig:first_prior_grounding_stack] answers the upstream version of the
+regress question. It does not draw a prior behind the first prior.
+Instead, it places viability asymmetry, allostatic regulation,
+co-embodiment and co-homeostasis, developmental tuning, and cultural
+niche craft in a constraint stack. This lets the figure say what “bias
+before bias” can mean without violating the paper’s scope: some forms
+are regulatable and reachable before they are available as explicit
+priors [ciaunica2021first_prior; allen2018body_first_prior;
+sterling2012allostasis].</p>
+<figure id="fig:first_prior_grounding_stack">
+<img src="../figures/first_prior_grounding_stack.png"
+alt="A layered stack moves from viability and regulation through co-homeostasis and development to cultural priors, rejecting a hidden prior-before-priors." />
+<figcaption>A layered stack moves from viability and
+regulation through co-homeostasis and development to cultural priors,
+rejecting a hidden prior-before-priors.</figcaption>
+</figure>
+<h2 id="figure-manifest">Figure Manifest</h2>
+<p>The visual atlas contains 18 argument diagrams. The formal supplement
+adds 3 contract diagrams, for 21 source-owned visualizations in
+total.</p>
+<ul>
+<li><code>tinbergen_axes.png</code>: Four colored panels hold
+Tinbergen’s questions in tension rather than stacking them into a causal
+ladder. Read across scale and then down temporality: mechanism and
+function can close local questions about present organization and
+current use, while ontogeny and phylogeny ask how that form was shaped
+and retained. The key visual warning is that the regress appears when
+one panel, usually ontogeny, is asked to speak for the whole grid. The
+figure therefore turns a familiar taxonomy into a guardrail against
+explaining a prior by merely naming its developmental source.</li>
+<li><code>regress_terminations.png</code>: The upper chain is
+deliberately too easy to extend: a prior receives a hyperprior, then
+that hyperprior seems to need its own warrant. The lower register names
+the three different ways the picture can stop without pretending the
+next box solves the problem. Pragmatic, selection, and fixed-point
+endings are visualized as explanatory disciplines, not as empirical
+discoveries of prior origins. The point is not that the endings are
+interchangeable; each buys closure at a different price: formal
+sufficiency, viability filtering, or a category shift from hidden cause
+to settled organization.</li>
+<li><code>prior_equilibrium_map.png</code>: The circular composition
+makes the fixed-point move visible: the prior is not another hidden
+object above the system, but the settled organization of the system’s
+own process. Blanket persistence, action-perception closure, and
+environmental viability feed back into the same maintained form. The
+claim is a category shift about what is being explained, not a numerical
+equilibrium result. The figure should be read as a maintenance grammar:
+the explanatory target is the stable pattern by which the system keeps
+being the kind of system that can carry prior-like constraints.</li>
+<li><code>ontogeny_hyperprior_parallel.png</code>: The two horizontal
+chains are drawn as visual echoes. A Bayesian hyperprior and an
+ontogenetic selector are not the same biological claim, but both can
+defer the question to the source that licensed the current prior. The
+red bracket marks that shared silhouette of deferral while preserving
+the difference between formal hierarchy and developmental history. The
+bottom warning is the important reading instruction: adding another
+selector, tutor, developmental episode, or higher prior can continue the
+chain without explaining why the chain is allowed to terminate.</li>
+<li><code>selection_filter.png</code>: Candidate prior-like forms enter
+as a rough population, not as equal explanatory successes. The
+function-plus-phylogeny funnel removes forms that cannot remain
+available as persisting targets: fragile, miscalibrated, or overfit
+structures drop out of the story. Selection blocks regress by explaining
+availability through viability rather than placing one more selector
+behind the filter. The figure deliberately leaves individual fine
+structure outside the funnel’s answer, because selection explains why a
+form is available to inherit, use, or refine, not every detail of how
+one organism acquired it.</li>
+<li><code>policy_entanglement_bridge.png</code>: The large joint form on
+the left is intentionally prior to the separated boxes on the right.
+Lambda-decomposition makes policy, prior-like constraint, and state
+factor legible after the analytic cut, but it does not prove that those
+factors were ontologically first. The bridge keeps the argument focused
+on how cleaned-up factors are extracted from an already organized field.
+This matters for the paper’s prior-origin question because a formal
+decomposition can clarify a system without becoming a story about the
+historical order in which the system’s parts came to be.</li>
+<li><code>formal_claim_dependency_map.png</code>: The map turns the
+formal supplement into a provenance surface. Claims F1-F12 are not
+decorative theorem labels; they are grounded in source records for axes,
+regress shape, termination moves, joint structure, niche, blanket,
+complementarity, and trace boundaries. Numbering follows source order,
+so prose, figures, and formal labels have to move together. The arrows
+record grounding, not theorem-level entailment. The figure’s job is
+editorial as much as philosophical: it shows where a reader can ask
+which source-owned record authorizes each formal move.</li>
+<li><code>symbol_glossary_closure.png</code>: The paired panels make a
+simple editorial demand: every formal mark used by a claim must be
+defined, and every definition must be used. This turns notation from
+ornament into an accountable surface of the manuscript. If the two sides
+fall out of correspondence, the package fails before render. The visual
+symmetry is intentionally blunt: a symbol that appears only in prose
+decoration, or a glossary row that never serves a claim, would make the
+formal supplement less trustworthy rather than more impressive.</li>
+<li><code>text_validation_ladder.png</code>: The ladder treats the paper
+as something made, not merely written. Source records hydrate reports,
+figures, tokens, and render surfaces; validation then climbs the same
+stack after generation. A drifting caption, registry row, or prose token
+is therefore not a minor typo but a contract error in the artifact
+pipeline. The figure also explains why the project keeps manuscript
+prose, dashboard data, figure metadata, and validator output in the same
+loop instead of treating them as separate publication chores.</li>
+<li><code>niche_construction_diagram.png</code>: The central prior is
+drawn between organism and niche because neither side owns the
+explanation alone. Organisms act into environments that answer back as
+altered regularities, affordances, and selection pressures. Viability
+still filters what persists, but the filter is partly made by the
+organism-niche loop it later appears to judge. The two-way arrows
+prevent the figure from becoming a simple environmental imprint model:
+priors are co-shaped by what organisms do, what niches make available,
+and what remains viable across that reciprocal history.</li>
+<li><code>markov_blanket_achievement.png</code>: The boundary is
+deliberately drawn as a model-level partition M=(a,s) whose
+conditional-independence relation screens internal from external states.
+It is associated with settled organization, not read off the world as a
+literal membrane. The image keeps formal usefulness and ontological
+restraint in the same frame. It therefore supports the manuscript’s
+blanket language while blocking a stronger claim that the notation alone
+discovers the true edge of an organism, artwork, or cognitive
+system.</li>
+<li><code>explanatory_complementarity_matrix.png</code>: The matrix lets
+each Tinbergen question meet the others without being absorbed by them.
+Diagonal cells name each explanatory mode; off-diagonal cells mark
+places where coordination is legitimate but reduction is not. The
+regress is not caused by asking several questions. It is caused by
+collapsing their different jobs into one overburdened answer. The plus
+signs should be read as invitations to coordinate mechanism, function,
+ontogeny, and phylogeny, not as permission to translate all four into a
+single master vocabulary.</li>
+<li><code>active_inference_cycle.png</code>: The loop makes active
+inference a practice rather than a passive estimate. Perception and
+inference are evaluated through variational free energy, while policy
+selection is evaluated through expected free energy; the objectives
+remain distinct inside one action-perception loop. Prior-like structure
+is a constraint in that coupled organization, not merely a static number
+placed before observation. The center of the image marks inferential
+pressure, while the cycle shows why that pressure only matters inside an
+organism-world practice of sensing, selecting, and acting.</li>
+<li><code>variational_free_energy_landscape.png</code>: The basin is a
+picture of relative settlement inside a model, not a claim that free
+energy literally falls to zero. The marked path shows an approximate
+posterior moving toward a target posterior under a tractable bound. The
+figure supports a bounded settling metaphor for prior-like constraint
+while refusing an empirical origin story for priors. The color field is
+schematic geometry rather than observed data, so the reader should take
+it as a disciplined analogy for variational closure, not as a fitted
+result.</li>
+<li><code>deterministic_simulation_trace.png</code>: The trace borrows
+the visual grammar of a state diagram while staying inside the paper’s
+conceptual scope. Each node is an authored formal state: question,
+regress, Tinbergen partition, termination choice, and fixed-point
+settlement. The arrows record argumentative order only; the invariants
+block stochastic, synthetic-data, performance, or effect-size readings.
+The figure is included because ordered formal commitments are easier to
+audit visually, not because the paper runs a cognitive simulation.</li>
+<li><code>scale_recurrence_diagram.png</code>: The three panels repeat
+the fixed-point grammar at cellular, organismic, and social registers. A
+prior-like settlement at one scale can become substrate for another
+through R, but the image does not smuggle in a new hidden prior at each
+transition. It shows recurrence of an explanatory problem, not
+mathematical scale invariance or empirical self-similarity. The repeated
+grammar invites comparison without erasing scale-specific mechanisms,
+histories, and material supports.</li>
+<li><code>source_claim_boundary_map.png</code>: The map makes citation
+discipline part of the artwork of the paper. Discovery candidates do not
+flow directly into prose; they pass through verification and
+claim-ledger boundaries before reaching manuscript claims, formal
+inventory, or visual atlas. Rejected and deferred sources stay visible
+so scholarship does not become unbounded accumulation. The image also
+marks a practical rule for future edits: a source can expand the paper
+only when it changes a live claim, a boundary condition, or a generated
+artifact contract.</li>
+<li><code>aesthetic_prior_craft_map.png</code>: This figure is the
+paper’s most self-conscious art claim. Predictive aesthetics,
+4E/material engagement, and neuroaesthetic scope converge on
+prior-craft: artworks can stage encounters with expectation, ambiguity,
+affordance, affect, and meaning. The red ceiling matters as much as the
+purple center: this is not a total theory of art, intention, culture, or
+neural updating. The figure’s value is to keep the title term active
+without letting it become an empirical claim that art directly installs
+or rewires priors.</li>
+<li><code>markov_blanket_scope_split.png</code>: The split makes three
+registers visible before they can be collapsed: a
+conditional-independence structure, an active-inference model boundary,
+and a realized biological or cognitive boundary. The first two support
+the paper’s model-level argument. The third requires additional
+dynamical and philosophical premises, so it is held behind an explicit
+boundary condition. The right-hand boxes state the operational rule: use
+blankets to discipline model talk, not to shortcut the ontology of
+living or cognitive systems.</li>
+<li><code>niche_prior_feedback_field.png</code>: The field layers fast
+organismal action, slower developmental resources, and still slower
+cultural inheritance. Prior-like structure stabilizes through the
+recurrence among these bands, including material and cultural scaffolds,
+rather than arriving from organism or environment alone. The field
+constrains selection termination without becoming a fourth stopping
+rule. The timescale arrow is part of the argument: what looks like an
+individual’s prior may depend on slower supports that were already
+arranged by development, culture, and niche construction.</li>
+<li><code>first_prior_grounding_stack.png</code>: The stack answers the
+RedTeam question by refusing the easy move of placing one more prior
+behind the first prior. Viability asymmetry, homeostatic and allostatic
+regulation, co-embodiment and co-homeostasis, developmental tuning, and
+cultural niche craft are shown as enabling constraints before explicit
+belief-like priors. The bottom boundary is part of the claim: upstream
+bias is a history of regulation and support, not an empirical discovery
+of a literal prior-before-priors. The stack improves the manuscript’s
+origin story by showing how bias can be real, structured, and inherited
+without being another belief waiting at the beginning of the chain.</li>
+</ul>
+</main>
+</body>
+</html>
