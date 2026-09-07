@@ -32,7 +32,7 @@ closure, rendered-token scans, PDF structural checks, and browser QA.
   stamping, and validation in one fail-fast sequence.
 - `src/render_manifest.py` hashes source inputs and rendered Markdown, HTML,
   PDF, and slide surfaces; stale files are blocking failures.
-- Project-owned `manuscript/web.css` provides compact, near-edge-to-edge HTML
+- Project-owned `docs/manuscript/web.css` provides compact, near-edge-to-edge HTML
   layout without modifying the shared template renderer.
 - The cover was simplified while retaining deterministic 2048 x 2048 PNG/SVG
   outputs. Variational and active-inference semantics were clarified.

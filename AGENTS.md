@@ -1,7 +1,19 @@
 # AGENTS.md - Prior Cognitive Art
 
-This project lives in the private sidecar under `working/` and is mirrored into
-the public template checkout as `projects/working/prior_cognitive_art`.
+This project lives in the private sidecar under
+`ongoing/Uncategorized/` and is mirrored into the public template checkout
+as `projects/ongoing/Uncategorized/prior_cognitive_art`.
+
+## Layout map
+
+- `src/` — conceptual model, figure modules (`src/figures/`), analysis workflow (`src/analysis/`), rendering + manuscript variables
+- `data/` — claim ledger and inputs (has own AGENTS.md/README.md)
+- `docs/manuscript/` — manuscript sections
+- `scripts/` — thin orchestrators (see Project Contract below)
+- `tests/` — pytest suite
+- `docs/` — project documentation incl. `audit/` reports
+- `.omo/` — agent-loop campaign state (evidence + timestamped ulw-loop runs); QA/evidence artifacts only
+- `.codex_qa/` — rendered PDF-page QA images, contact sheets, and caption pages at the repo root; QA artifacts only, not manuscript sources
 
 ## Project Contract
 
@@ -17,8 +29,8 @@ the public template checkout as `projects/working/prior_cognitive_art`.
 ## Verification
 
 ```bash
-uv run pytest projects/working/prior_cognitive_art/tests/
-uv run python projects/working/prior_cognitive_art/scripts/optimization_analysis.py
-uv run python projects/working/prior_cognitive_art/scripts/z_generate_manuscript_variables.py
-uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
+uv run pytest projects/ongoing/Uncategorized/prior_cognitive_art/tests/
+uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/optimization_analysis.py
+uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/z_generate_manuscript_variables.py
+uv run python scripts/03_render_pdf.py --project ongoing/Uncategorized/prior_cognitive_art
 ```

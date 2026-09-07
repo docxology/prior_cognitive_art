@@ -1,4 +1,4 @@
-# manuscript/
+# docs/manuscript/
 
 Sections:
 

@@ -5,7 +5,7 @@
 `src/` contains importable conceptual inventory and deterministic visualization
 builders. `scripts/` contains thin entry points for the template runner, with
 `build_publication_package.py` as the fail-fast orchestration boundary.
-`manuscript/` contains the publication prose with `{{VARIABLE}}` tokens hydrated
+`docs/manuscript/` contains the publication prose with `{{VARIABLE}}` tokens hydrated
 from `src/manuscript_variables.py`. `tests/` exercises the real workflow without
 mocks. `data/` holds the claim ledger. `docs/` holds local workflow
 documentation.

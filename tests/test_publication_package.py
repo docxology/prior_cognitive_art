@@ -8,7 +8,7 @@ from pathlib import Path
 from src.conceptual_model import as_records, deterministic_simulation_trace, figure_specs
 from src.render_manifest import build_render_manifest, validate_render_manifest
 from src.rendering import apply_project_web_style
-from scripts.validate_publication_package import (
+from src.publication_validation import (
     _check_dashboard_data,
     _check_deterministic_trace_contract,
     _check_documented_inventory_claims,
@@ -125,7 +125,7 @@ def test_publication_package_rejects_figure_metadata_drift() -> None:
     path.write_text(json.dumps(payload), encoding="utf-8")
     try:
         issues: list[str] = []
-        from scripts.validate_publication_package import _check_counts
+        from src.publication_validation import _check_counts
 
         _check_counts(PROJECT_ROOT, issues)
     finally:
@@ -141,7 +141,7 @@ def test_publication_package_rejects_wrong_figure_section() -> None:
     path.write_text(json.dumps(payload), encoding="utf-8")
     try:
         issues: list[str] = []
-        from scripts.validate_publication_package import _check_counts
+        from src.publication_validation import _check_counts
 
         _check_counts(PROJECT_ROOT, issues)
     finally:

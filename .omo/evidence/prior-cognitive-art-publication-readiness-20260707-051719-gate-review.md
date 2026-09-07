@@ -50,7 +50,7 @@ Approved. The after-split artifacts now satisfy the requested outcome.
   `_niche_blanket_figures.py` 168, `_active_scale_figures.py` 157,
   `_shared.py` 74, and `__init__.py` 2. No `SIZE_OK` exception is present.
 - Direct source/render scans found zero draft/future-work/TODO/FIXME/TBD
-  residue across 27 manuscript/publication surfaces, and zero unresolved
+  residue across 27 docs/manuscript/publication surfaces, and zero unresolved
   `{{`/`}}` template tokens across 13 rendered manuscript, combined PDF
   markdown, and combined web markdown surfaces. `pdftotext` plus `rg` found no
   draft, unresolved token, TODO, or empirical-performance residue in the PDF.

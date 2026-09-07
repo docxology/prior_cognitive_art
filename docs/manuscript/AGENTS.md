@@ -1,4 +1,4 @@
-# manuscript/ AGENTS
+# docs/manuscript/ AGENTS
 
 The manuscript is prose-first and permits only the deterministic illustrative
 simulation trace generated from `src/conceptual_model.py`. Generated figures

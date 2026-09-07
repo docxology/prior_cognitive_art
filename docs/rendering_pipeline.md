@@ -16,6 +16,6 @@ source digest, embedded render fingerprints, and output hashes. It also checks
 dashboard JSON parity, section/alt-text metadata, and stale mirrored assets.
 
 The shared template renderer remains untouched. The project stylesheet at
-`manuscript/web.css` is injected by `src/rendering.py` after rendering so the
+`docs/manuscript/web.css` is injected by `src/rendering.py` after rendering so the
 HTML manuscript can use near-edge-to-edge layout without creating a template-
 wide behavior change.
