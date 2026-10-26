@@ -32,5 +32,5 @@ as `projects/ongoing/Uncategorized/prior_cognitive_art`.
 uv run pytest projects/ongoing/Uncategorized/prior_cognitive_art/tests/
 uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/optimization_analysis.py
 uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/z_generate_manuscript_variables.py
-uv run python scripts/03_render_pdf.py --project ongoing/Uncategorized/prior_cognitive_art
+uv run python scripts/pipeline/stage_03_render.py --project ongoing/Uncategorized/prior_cognitive_art
 ```

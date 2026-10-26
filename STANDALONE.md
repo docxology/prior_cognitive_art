@@ -1,9 +1,9 @@
 # Standalone Notes
 
-This project can be edited directly in the private sidecar, but rendering is
-expected to happen through the sibling `template` checkout.
+This repository is the public mirror of a manuscript project that is edited in
+the private sidecar and rendered through the sibling `template` checkout.
 
-Use from the project directory for local artifact generation:
+Use from the project root for local artifact generation:
 
 ```bash
 uv run python scripts/optimization_analysis.py
@@ -12,18 +12,19 @@ uv run python scripts/generate_api_docs.py
 uv run python scripts/z_generate_manuscript_variables.py
 ```
 
-Or run the template render command from `/Users/4d/Documents/GitHub/template`:
+Or run the mirror copy and the render stage from the `template` checkout root,
+where the project is mirrored as `projects/ongoing/Uncategorized/prior_cognitive_art`:
 
 ```bash
-uv run python projects/working/prior_cognitive_art/scripts/optimization_analysis.py
-uv run python projects/working/prior_cognitive_art/scripts/z_generate_manuscript_variables.py
-uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
+uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/optimization_analysis.py
+uv run python projects/ongoing/Uncategorized/prior_cognitive_art/scripts/z_generate_manuscript_variables.py
+uv run python scripts/pipeline/stage_03_render.py --project ongoing/Uncategorized/prior_cognitive_art
 ```
 
-Run tests from the template checkout:
+Run tests from the project root:
 
 ```bash
-uv run pytest projects/working/prior_cognitive_art/tests/
+uv run pytest tests/
 ```
 
 The current publication-readiness gate is documented in

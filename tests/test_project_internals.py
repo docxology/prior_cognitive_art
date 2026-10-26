@@ -281,7 +281,7 @@ def test_manuscript_has_no_publication_draft_gap_language() -> None:
         r"\bFIXME\b",
         r"\bTBD\b",
     )
-    surfaces = list((PROJECT_ROOT / "manuscript").glob("*.md"))
+    surfaces = list((PROJECT_ROOT / "docs" / "manuscript").glob("*.md"))
     surfaces.extend((PROJECT_ROOT / "output" / "manuscript").glob("*.md"))
     for combined in (
         PROJECT_ROOT / "output" / "pdf" / "_combined_manuscript.md",
@@ -387,7 +387,7 @@ def test_metadata_keywords_are_consistent_across_all_files() -> None:
 
     import yaml
 
-    config = yaml.safe_load((PROJECT_ROOT / "manuscript" / "config.yaml").read_text())
+    config = yaml.safe_load((PROJECT_ROOT / "docs" / "manuscript" / "config.yaml").read_text())
     config_kw = set(config["keywords"])
 
     zenodo = json.loads((PROJECT_ROOT / ".zenodo.json").read_text())
@@ -409,7 +409,7 @@ def test_metadata_versions_are_consistent() -> None:
     pyproj = (PROJECT_ROOT / "pyproject.toml").read_text()
     pyproj_ver = re.search(r'version\s*=\s*"([^"]+)"', pyproj).group(1)
 
-    config = yaml.safe_load((PROJECT_ROOT / "manuscript" / "config.yaml").read_text())
+    config = yaml.safe_load((PROJECT_ROOT / "docs" / "manuscript" / "config.yaml").read_text())
     config_ver = config["paper"]["version"]
 
     codemeta = json.loads((PROJECT_ROOT / "codemeta.json").read_text())
@@ -427,7 +427,7 @@ def test_metadata_versions_are_consistent() -> None:
 def test_cover_metadata_uses_dynamic_date_and_published_doi() -> None:
     import yaml
 
-    config = yaml.safe_load((PROJECT_ROOT / "manuscript" / "config.yaml").read_text())
+    config = yaml.safe_load((PROJECT_ROOT / "docs" / "manuscript" / "config.yaml").read_text())
     publication = config["publication"]
     assert "date" not in config["paper"]
     assert config["paper"]["cover"]["image"] == "cover/prior_cognitive_art_cover_square.png"
@@ -442,11 +442,11 @@ def test_cover_metadata_uses_dynamic_date_and_published_doi() -> None:
 
 def test_all_manuscript_citations_resolve_to_bib() -> None:
     """Every @citation in the manuscript must have a bib entry."""
-    bib_text = (PROJECT_ROOT / "manuscript" / "references.bib").read_text()
+    bib_text = (PROJECT_ROOT / "docs" / "manuscript" / "references.bib").read_text()
     bib_keys = set(re.findall(r"@\w+\{([^,]+),", bib_text))
 
     cited_keys: set[str] = set()
-    for md in (PROJECT_ROOT / "manuscript").glob("*.md"):
+    for md in (PROJECT_ROOT / "docs" / "manuscript").glob("*.md"):
         text = md.read_text(encoding="utf-8")
         for match in re.findall(r"@(\w+)", text):
             if match not in ("fig", "tbl", "sec"):
@@ -460,7 +460,7 @@ def test_all_figure_references_resolve() -> None:
     """Every @fig:reference in the manuscript must have a {#fig:label} definition."""
     fig_defs: set[str] = set()
     fig_refs: set[str] = set()
-    for md in (PROJECT_ROOT / "manuscript").glob("*.md"):
+    for md in (PROJECT_ROOT / "docs" / "manuscript").glob("*.md"):
         text = md.read_text(encoding="utf-8")
         fig_defs.update(re.findall(r"#fig:(\w+)", text))
         fig_refs.update(re.findall(r"@fig:(\w+)", text))
@@ -473,7 +473,7 @@ def test_all_table_references_resolve() -> None:
     """Every @tbl:reference in the manuscript must have a {#tbl:label} definition."""
     tbl_defs: set[str] = set()
     tbl_refs: set[str] = set()
-    for md in (PROJECT_ROOT / "manuscript").glob("*.md"):
+    for md in (PROJECT_ROOT / "docs" / "manuscript").glob("*.md"):
         text = md.read_text(encoding="utf-8")
         tbl_defs.update(re.findall(r"#tbl:(\w+)", text))
         tbl_refs.update(re.findall(r"@tbl:(\w+)", text))

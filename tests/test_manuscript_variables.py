@@ -17,9 +17,9 @@ from src.manuscript_variables import generate_variables, save_variables
 
 
 def _write_minimal_project(root: Path) -> None:
-    (root / "manuscript").mkdir(parents=True)
+    (root / "docs" / "manuscript").mkdir(parents=True)
     (root / "output" / "reports").mkdir(parents=True)
-    (root / "manuscript" / "config.yaml").write_text(
+    (root / "docs" / "manuscript" / "config.yaml").write_text(
         "paper:\n"
         '  title: "Prior Cognitive Art"\n'
         '  subtitle: "Tinbergen Axes"\n'
@@ -64,8 +64,8 @@ def test_generate_variables_uses_concept_inventory(tmp_path: Path) -> None:
 
 
 def test_generate_variables_requires_analysis_report(tmp_path: Path) -> None:
-    (tmp_path / "manuscript").mkdir()
-    (tmp_path / "manuscript" / "config.yaml").write_text("paper:\n  title: Draft\n", encoding="utf-8")
+    (tmp_path / "docs" / "manuscript").mkdir(parents=True)
+    (tmp_path / "docs" / "manuscript" / "config.yaml").write_text("paper:\n  title: Draft\n", encoding="utf-8")
     with pytest.raises(FileNotFoundError):
         generate_variables(tmp_path, require_analysis_outputs=True)
 
@@ -80,7 +80,7 @@ def test_all_manuscript_tokens_are_generated() -> None:
     project_root = Path(__file__).resolve().parents[1]
     variables = generate_variables(project_root, require_analysis_outputs=False)
     tokens: set[str] = set()
-    for manuscript_file in (project_root / "manuscript").glob("*.md"):
+    for manuscript_file in (project_root / "docs" / "manuscript").glob("*.md"):
         tokens.update(re.findall(r"\{\{([A-Z0-9_]+)\}\}", manuscript_file.read_text(encoding="utf-8")))
     assert tokens
     assert tokens <= set(variables)

@@ -465,7 +465,10 @@ def _check_documented_inventory_claims(
             ("Generated figures", "Generated-artifact count vs docs | **{value} PNGs** = {value} claimed"),
         ),
     }
-    stale_path = "/Users/4d/Documents/GitHub/template/projects/working/prior_cognitive_art"
+    stale_paths = (
+        "/Users/4d/Documents/GitHub",
+        "projects/working/prior_cognitive_art",
+    )
 
     for path in surfaces:
         try:
@@ -473,7 +476,7 @@ def _check_documented_inventory_claims(
         except OSError as exc:
             issues.append(f"cannot read documented inventory surface {path.relative_to(project_root)}: {exc}")
             continue
-        if stale_path in text:
+        if any(pattern in text for pattern in stale_paths):
             issues.append(f"{path.relative_to(project_root)} contains stale template-side project path")
         for label, template in required_claims.get(str(path.relative_to(project_root)), ()):
             expected_text = template.format(value=documented[label])
@@ -599,7 +602,7 @@ def _check_pdf(project_root: Path, issues: list[str]) -> None:
 
 
 def _check_hydrated_manuscript(project_root: Path, issues: list[str]) -> None:
-    source_files = {path.name for path in (project_root / "manuscript").glob("[0-9][0-9]_*.md")}
+    source_files = {path.name for path in (project_root / "docs" / "manuscript").glob("[0-9][0-9]_*.md")}
     output_dir = project_root / "output/manuscript"
     for name in sorted(source_files):
         path = output_dir / name

@@ -83,11 +83,11 @@ uv run pytest tests/
 uv run python scripts/build_publication_package.py
 ```
 
-From `/Users/4d/Documents/GitHub/template`:
+From the `template` checkout root:
 
 ```bash
 uv run python -m infrastructure.orchestration link-projects --dry-run
-uv run python scripts/03_render_pdf.py --project working/prior_cognitive_art
+uv run python scripts/pipeline/stage_03_render.py --project ongoing/Uncategorized/prior_cognitive_art
 ```
 
 ## Figure Set

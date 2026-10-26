@@ -14,9 +14,10 @@ data experiments, empirical-effect estimation, or numerical performance claims.
 
 ## Run
 
-From the template checkout:
+From the project root:
 
 ```bash
+uv sync --extra dev
 uv run python scripts/build_publication_package.py
 ```
 
@@ -171,7 +172,7 @@ _Status legend: ✅ published (durable identifier recorded in `config.yaml`) · 
 ## Testing
 
 ```bash
-uv run pytest projects/working/prior_cognitive_art/tests/ --cov=projects/working/prior_cognitive_art/src
+uv run --extra dev pytest tests/ --cov=src
 ```
 
 The project test suite covers the conceptual inventory, generated artifacts,

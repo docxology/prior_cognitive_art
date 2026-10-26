@@ -1,16 +1,17 @@
 # tests/
 
-Run from the template checkout:
+Run from the project root:
 
 ```bash
-uv run pytest projects/working/prior_cognitive_art/tests/
+uv sync --extra dev
+uv run --extra dev pytest tests/
 ```
 
 Or with coverage:
 
 ```bash
-uv run pytest projects/working/prior_cognitive_art/tests/ \
-  --cov=projects/working/prior_cognitive_art/src \
+uv run --extra dev pytest tests/ \
+  --cov=src \
   --cov-report=term-missing
 ```
 

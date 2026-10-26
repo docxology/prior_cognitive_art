@@ -39,7 +39,7 @@ def build(*, dry_run: bool = False) -> None:
         ("manuscript hydration", [*local, "scripts/z_generate_manuscript_variables.py"], PROJECT_ROOT),
         (
             "PDF, web, and slide rendering",
-            ["uv", "run", "python", "scripts/03_render_pdf.py", "--project", "working/prior_cognitive_art", "--skip-manuscript-hydration"],
+            ["uv", "run", "python", "scripts/pipeline/stage_03_render.py", "--project", "ongoing/Uncategorized/prior_cognitive_art", "--skip-manuscript-hydration"],
             template_root,
         ),
         ("dashboard generation", [*local, "scripts/build_dashboard.py"], PROJECT_ROOT),

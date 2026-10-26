@@ -16,7 +16,7 @@ def apply_project_web_style(project_root: Path) -> list[Path]:
     makes the applied style observable to the package validator.
     """
 
-    css_path = project_root / "manuscript" / "web.css"
+    css_path = project_root / "docs" / "manuscript" / "web.css"
     web_dir = project_root / "output" / "web"
     if not css_path.exists() or not web_dir.exists():
         return []

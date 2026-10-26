@@ -1,7 +1,7 @@
 # Documentation Audit Report — Prior Cognitive Art
 
 **Date:** 2026-07-10
-**Scope:** `/Users/4d/Documents/GitHub/projects/working/prior_cognitive_art`
+**Scope:** `prior_cognitive_art` project tree
 **Method:** source-contract parity, generated-surface freshness, bibliography
 closure, rendered-token scans, PDF structural checks, and browser QA.
 

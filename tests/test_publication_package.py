@@ -231,7 +231,7 @@ def test_render_manifest_rejects_invalid_schema(tmp_path: Path) -> None:
 
 
 def test_project_web_style_is_idempotent_and_requires_head(tmp_path: Path) -> None:
-    manuscript = tmp_path / "manuscript"
+    manuscript = tmp_path / "docs" / "manuscript"
     web = tmp_path / "output" / "web"
     manuscript.mkdir(parents=True)
     web.mkdir(parents=True)

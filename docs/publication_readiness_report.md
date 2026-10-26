@@ -85,8 +85,8 @@ and cover. The compact layout uses 9.5pt body text with approximately 11.3pt
 leading and `0.15in` left/right margins; a long methodology heading was
 shortened after inspection to prevent awkward hyphenation.
 
-Browser QA served `/Users/4d/Documents/GitHub/projects/working/prior_cognitive_art/output`
-as the web root and opened `/web/index.html` and `/web/dashboard.html` in
+Browser QA served the project `output/` directory as the web root and opened
+`/web/index.html` and `/web/dashboard.html` in
 Chrome DevTools. Desktop and 390px mobile views showed no horizontal overflow;
 the manuscript loaded 21/21 images and the dashboard 22/22 images, with zero
 broken images, unresolved tokens, raw citation markers, or console errors after

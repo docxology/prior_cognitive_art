@@ -36,7 +36,7 @@ def _build_timestamp() -> str:
 
 
 def _load_config(project_root: Path) -> dict[str, Any]:
-    config_path = project_root / "manuscript" / "config.yaml"
+    config_path = project_root / "docs" / "manuscript" / "config.yaml"
     if not config_path.exists():
         logger.warning("Config file not found: %s", config_path)
         return {}
@@ -55,7 +55,7 @@ def _load_json_report(project_root: Path, name: str) -> dict[str, Any]:
 
 
 def _compute_config_hash(project_root: Path) -> str:
-    config_path = project_root / "manuscript" / "config.yaml"
+    config_path = project_root / "docs" / "manuscript" / "config.yaml"
     if not config_path.exists():
         return "N/A"
     return hashlib.sha256(config_path.read_bytes()).hexdigest()[:16]
