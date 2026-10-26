@@ -19,7 +19,7 @@ def _template_root() -> Path:
         PROJECT_ROOT.parents[2] / "template",
     ]
     for candidate in candidates:
-        if (candidate / "infrastructure").is_dir() and (candidate / "scripts" / "03_render_pdf.py").exists():
+        if (candidate / "infrastructure").is_dir() and (candidate / "scripts" / "pipeline" / "stage_03_render.py").exists():
             return candidate
     raise FileNotFoundError("could not locate the template checkout containing infrastructure/")
 

@@ -24,7 +24,8 @@ uv run python scripts/pipeline/stage_03_render.py --project ongoing/Uncategorize
 Run tests from the project root:
 
 ```bash
-uv run pytest tests/
+uv sync --extra dev
+uv run --extra dev pytest tests/
 ```
 
 The current publication-readiness gate is documented in
