@@ -477,7 +477,7 @@ work that re-levels Tinbergen into causes and consequences sharpens the same
 point: the questions can be reorganized, but they cannot be collapsed into one
 explanatory kind [@bergman2022leveling].
 
-![Four colored panels arrange mechanism, function, ontogeny, and phylogeny on crossed proximate-ultimate and static-developmental axes.](../figures/tinbergen_axes.png){#fig:tinbergen_axes}
+![Four colored panels arrange mechanism, function, ontogeny, and phylogeny on crossed proximate-ultimate and static-developmental axes.](figures/tinbergen_axes.png){#fig:tinbergen_axes}
 
 ## Hyperprior Regress And Termination
 
@@ -490,7 +490,7 @@ workflow discipline: a prior is justified by model adequacy and regularization,
 not by discovering an ultimate meta-prior [@gelman2013philosophy;
 @simpson2017penalising].
 
-![A prior leads to a hyperprior and then another level, above three exits labeled pragmatic, selection, and self-referential termination.](../figures/regress_terminations.png){#fig:regress_terminations}
+![A prior leads to a hyperprior and then another level, above three exits labeled pragmatic, selection, and self-referential termination.](figures/regress_terminations.png){#fig:regress_terminations}
 
 ## Prior As Settled Equilibrium
 
@@ -500,7 +500,7 @@ is the settled organization of perception, action, and boundary maintenance that
 persists. This is where the argument sits closest to free-energy and
 autopoietic readings of cognition [@friston2010free; @maturana1980autopoiesis].
 
-![Concentric loops connect blanket persistence, environmental viability, and action-perception closure around a prior-like settled organization.](../figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
+![Concentric loops connect blanket persistence, environmental viability, and action-perception closure around a prior-like settled organization.](figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
 
 ## Ontogeny And Hyperprior Shape
 
@@ -511,7 +511,7 @@ current prior can be justified by a developmental selector, which can then be
 asked to justify its own source. The point is not that these are the same
 substantive theory. The point is that they share a regress shape.
 
-![Parallel Bayesian and developmental chains show that adding another prior or selector repeats the same deferral shape.](../figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
+![Parallel Bayesian and developmental chains show that adding another prior or selector repeats the same deferral shape.](figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
 
 ## Selection Filter
 
@@ -523,7 +523,7 @@ available as the objects whose origin we ask about. The figure therefore
 represents a selection-based closure of the availability question, not a
 complete causal history of the individual prior.
 
-![Candidate prior-like forms pass through a function-and-phylogeny viability filter, leaving a persisting prior form.](../figures/selection_filter.png){#fig:selection_filter}
+![Candidate prior-like forms pass through a function-and-phylogeny viability filter, leaving a persisting prior form.](figures/selection_filter.png){#fig:selection_filter}
 
 ## Policy Entanglement Bridge
 
@@ -534,7 +534,7 @@ cuts rather than proof that the factors were ontologically first. This is the
 same explanatory posture as fixed-point termination: organization can precede
 the decomposition that later makes it legible.
 
-![A joint organization branches into policy, prior-like constraint, and state factors after lambda-decomposition.](../figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
+![A joint organization branches into policy, prior-like constraint, and state factors after lambda-decomposition.](figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
 
 ## Niche Co-Construction
 
@@ -545,7 +545,7 @@ that the filter is not purely external. The prior is not fully given by the
 environment nor fully endogenous; it is co-shaped by the reciprocal interaction
 [@odling_smee2003niche; @laland2000niche; @constant2018free].
 
-![Organism and environment or niche reciprocally shape a central prior-like structure through two-way arrows.](../figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
+![Organism and environment or niche reciprocally shape a central prior-like structure through two-way arrows.](figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
 
 ## Markov Blanket As Achievement
 
@@ -558,7 +558,7 @@ not a parameter received from a higher level [@kirchhoff2018markov;
 recent critiques: the notation is not enough by itself to settle organismal or
 cognitive ontology [@bruineberg2022emperor; @raja2021markov].
 
-![A settled system sits inside a model boundary separating internal and external states, with a warning against reading the boundary as literal ontology.](../figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
+![A settled system sits inside a model boundary separating internal and external states, with a warning against reading the boundary as literal ontology.](figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
 
 ## Explanatory Complementarity
 
@@ -567,7 +567,7 @@ complementary perspectives rather than rival hypotheses. The regress appears
 when one question is asked to carry the load of all four; the framework itself
 does not force it [@bateson2004toward; @bergman2022leveling].
 
-![A four-by-four matrix highlights each Tinbergen question on the diagonal and coordination signs in off-diagonal cells.](../figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
+![A four-by-four matrix highlights each Tinbergen question on the diagonal and coordination signs in off-diagonal cells.](figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
 
 ## Active Inference Cycle
 
@@ -579,7 +579,7 @@ policy selection; the two objectives should not be conflated
 the prior is not merely a parameter for belief updating but a constraint on the
 coupled perception-action system.
 
-![Perception, inference, action, and policy selection form a clockwise loop with distinct F and G roles.](../figures/active_inference_cycle.png){#fig:active_inference_cycle}
+![Perception, inference, action, and policy selection form a clockwise loop with distinct F and G roles.](figures/active_inference_cycle.png){#fig:active_inference_cycle}
 
 ## Variational Free Energy Landscape
 
@@ -591,7 +591,7 @@ posterior structure can approach a target posterior without turning the prior's
 origin into an empirical result [@friston2010free; @friston2013life;
 @blei2017variational; @friston2023simpler].
 
-![A qualitative basin shows an initial approximate posterior moving toward a target posterior under a relative variational bound.](../figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
+![A qualitative basin shows an initial approximate posterior moving toward a target posterior under a relative variational bound.](figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
 
 ## Deterministic Simulation Trace
 
@@ -603,7 +603,7 @@ fixed-point settlement. The figure does not model cognition, sample outcomes,
 estimate effects, or report performance; it makes the formal state transition
 surface inspectable.
 
-![Five colored formal states progress from asking about a prior through regress, partition, termination, and settled organization.](../figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
+![Five colored formal states progress from asking about a prior through regress, partition, termination, and settled organization.](figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
 
 ## Scale Recurrence
 
@@ -614,7 +614,7 @@ transition [@friston2013life; @kirchhoff2018markov]. The same category shift
 applies recursively: the prior-like settlement at one scale becomes the
 substrate for the next.
 
-![Cellular, organismic, and social panels repeat a fixed-point equation and connect downward through a recurrence operator R.](../figures/scale_recurrence_diagram.png){#fig:scale_recurrence_diagram}
+![Cellular, organismic, and social panels repeat a fixed-point equation and connect downward through a recurrence operator R.](figures/scale_recurrence_diagram.png){#fig:scale_recurrence_diagram}
 
 ## Source-Claim Boundary Map
 
@@ -625,7 +625,7 @@ is accepted, rejected, or deferred; and only accepted sources attached to claim
 ledger entries reach the manuscript. This is the paper's answer to citation
 inflation: sources enter only where they bound or strengthen a live claim.
 
-![Candidate sources pass through verification, accepted or rejected layers, and a claim ledger before reaching manuscript and formal outputs.](../figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
+![Candidate sources pass through verification, accepted or rejected layers, and a claim ledger before reaching manuscript and formal outputs.](figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
 
 ## Aesthetic Prior-Craft Map
 
@@ -642,7 +642,7 @@ with expectation, affordance, accident, affect, and meaning
 [@dewey1934art; @noe2015strange; @malafouris2013things;
 @malafouris2023enactychism].
 
-![Predictive aesthetics, four-E practice, and neuroaesthetic scope converge on bounded prior-craft beside a claim ceiling.](../figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
+![Predictive aesthetics, four-E practice, and neuroaesthetic scope converge on bounded prior-craft beside a claim ceiling.](figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
 
 ## Markov Blanket Scope Split
 
@@ -653,7 +653,7 @@ the argument use Markov blankets as part of fixed-point explanation while
 preserving the critical distinction emphasized by the recent debate
 [@bruineberg2022emperor; @raja2021markov].
 
-![Three source registers feed model use, metaphysical use, and biological realization, with the paper's bounded stance at the right.](../figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
+![Three source registers feed model use, metaphysical use, and biological realization, with the paper's bounded stance at the right.](figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
 
 ## Niche-Prior Feedback Field
 
@@ -665,7 +665,7 @@ constraint on selection termination: what persists is partly produced by the
 system-niche loop that selection later filters [@constant2018free;
 @stotz2017developmental; @baltieri2022extended; @laland2000niche].
 
-![Organismic action, developmental resources, and cultural inheritance feed a central prior-like field across timescales.](../figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
+![Organismic action, developmental resources, and cultural inheritance feed a central prior-like field across timescales.](figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
 
 ## Before The First Prior
 
@@ -678,7 +678,7 @@ paper's scope: some forms are regulatable and reachable before they are
 available as explicit priors [@ciaunica2021first_prior;
 @allen2018body_first_prior; @sterling2012allostasis].
 
-![A layered stack moves from viability and regulation through co-homeostasis and development to cultural priors, rejecting a hidden prior-before-priors.](../figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
+![A layered stack moves from viability and regulation through co-homeostasis and development to cultural priors, rejecting a hidden prior-before-priors.](figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
 
 ## Figure Manifest
 
@@ -1262,7 +1262,7 @@ named source record anchors each numbered claim.
 [@fig:formal_claim_dependency_map] shows how the numbered claims are grounded
 in the same conceptual records that feed the prose, figure registry, and tests.
 
-![Source records connect by arrows to numbered formal claims F1 through F12 in two columns.](../figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
+![Source records connect by arrows to numbered formal claims F1 through F12 in two columns.](figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
 
 ## Symbol Glossary
 
@@ -1313,7 +1313,7 @@ notation rather than project-specific symbols.
 [@fig:symbol_glossary_closure] visualizes the closure check. A missing symbol
 row or an unused glossary row is treated as a source-contract error.
 
-![A used-symbol set and a generated glossary set meet at an equality check, with a contract-failure warning below.](../figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
+![A used-symbol set and a generated glossary set meet at an equality check, with a contract-failure warning below.](figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
 
 ## Text-Integrity Checks
 
@@ -1325,7 +1325,7 @@ guard the project contract.
 | Check | Surface | Invariant | Evidence |
 |---|---|---|---|
 | `deterministic_simulation_boundary` | manuscript and analysis report | The project limits simulation language to a deterministic illustrative trace and rejects stochastic, empirical, synthetic-data, and performance claims. | SIMULATION_POLICY token, deterministic_simulation_manifest.json, and conceptual_analysis.json scope flags. |
-| `figure_registry_closure` | ../figures/figure_registry.json | Every figure specification has a generated artifact and a registry label. | figure_specs() and run_analysis_pipeline() compare expected and produced filenames. |
+| `figure_registry_closure` | figures/figure_registry.json | Every figure specification has a generated artifact and a registry label. | figure_specs() and run_analysis_pipeline() compare expected and produced filenames. |
 | `symbol_glossary_closure` | formal supplement | Every symbol key used by a formal claim appears in the generated glossary. | validate_conceptual_contract() checks formal_claims() against symbol_glossary(). |
 | `token_hydration` | output/manuscript | Every double-brace manuscript token is generated before render. | test_all_manuscript_tokens_are_generated and hydration script smoke test. |
 | `integrity_signature` | reproducibility section | A generated token binds the conceptual inventory used by prose, figures, and tests. | CONCEPTUAL_INTEGRITY_TOKEN is derived from source records, not hand-authored prose. |
@@ -1333,7 +1333,7 @@ guard the project contract.
 | `claim_grounding_closure` | formal grounding map | Every formal claim is grounded in at least one named source record used by the grounding map. | validate_claim_grounding() checks claim_grounding() against formal_claims(). |
 | `metadata_keyword_consistency` | metadata files | Keywords in config.yaml are a subset of .zenodo.json, codemeta.json, and CITATION.cff. | test_metadata_keywords_are_consistent_across_all_files checks all metadata files. |
 | `citation_resolution` | manuscript references | Every citation reference in the manuscript has a bib entry in references.bib. | test_all_manuscript_citations_resolve_to_bib scans all manuscript files. |
-| `figure_count_consistency` | manuscript and analysis report | The figure count in the manuscript token matches the actual number of generated figure files. | FIGURE_COUNT token and ../figures/*.png file count are compared by the analysis pipeline. |
+| `figure_count_consistency` | manuscript and analysis report | The figure count in the manuscript token matches the actual number of generated figure files. | FIGURE_COUNT token and figures/*.png file count are compared by the analysis pipeline. |
 | `argument_module_closure` | manuscript and source inventory | Every argument module key in the source has a corresponding discussion in the manuscript prose. | ARGUMENT_MODULES token injects the full list; the manuscript references each module by title. |
 
 : Modular text-validation checks for the conceptual manuscript. {#tbl:text_validation_checks}
@@ -1342,7 +1342,7 @@ guard the project contract.
 records hydrate the manuscript, figures, reports, and registry, and those
 surfaces are checked again at render time.
 
-![A vertical ladder connects source records, analysis artifacts, injected tokens, rendered manuscript, and validation gates.](../figures/text_validation_ladder.png){#fig:text_validation_ladder}
+![A vertical ladder connects source records, analysis artifacts, injected tokens, rendered manuscript, and validation gates.](figures/text_validation_ladder.png){#fig:text_validation_ladder}
 
 
 
