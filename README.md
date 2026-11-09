@@ -178,3 +178,7 @@ uv run --extra dev pytest tests/ --cov=src
 The project test suite covers the conceptual inventory, generated artifacts,
 hydration, rendering contracts, source-owned visual metadata, freshness gates,
 and publication-package negative controls.
+
+## License
+
+Licensed under [CC BY-NC 4.0](LICENSE).
