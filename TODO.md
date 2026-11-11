@@ -27,3 +27,7 @@ source-owned in `FigureSpec.caption` inside `src/conceptual_model.py`.
   unless they change a live claim.
 - Before submission, rerun the full publication gate and inspect the rendered
   PDF after any venue-specific formatting changes.
+
+## Workflowz review — 2026-11-10
+
+Coverage note: no concrete improvement survived the bounded packet review. The packet covered 5 project files and excerpts from 13 of 39 source candidates (plus 2 marker excerpts) out of 273 files; it did not include the full conceptual model, analysis workflow, dashboard/validation implementations, tests, lockfile, CI, or rendered artifacts. Re-review on a concrete failure or source change.
