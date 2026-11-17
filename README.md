@@ -12,6 +12,8 @@ The project uses plain text, deterministic conceptual visualizations, and one
 authored formal-state trace. It does not run stochastic simulations, synthetic
 data experiments, empirical-effect estimation, or numerical performance claims.
 
+![Prior Cognitive Art architecture: crossed Tinbergen axes, ontogenetic vs hyperprior regress stopping moves, closed formal claim inventory, and deterministic 21-figure publication pipeline](docs/assets/architecture-overview.svg)
+
 ## Run
 
 From the project root:
