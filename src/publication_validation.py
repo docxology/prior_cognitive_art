@@ -421,13 +421,13 @@ def _check_documented_inventory_claims(
         "Bibliography": len(re.findall(r"@\w+\{([^,\s]+)", bib_text)),
     }
     surfaces = (
-        project_root / "README.md",
-        project_root / "TODO.md",
+        project_root / "docs/overview.md",
+        project_root / "docs/maintenance.md",
         project_root / "docs/publication_readiness_report.md",
         project_root / "docs/audit/documentation-audit-report.md",
     )
     required_claims = {
-        "README.md": (
+        "docs/overview.md": (
             ("Tinbergen quadrants", "| Tinbergen quadrants | {value} |"),
             ("Termination modes", "| Termination modes | {value} |"),
             ("Argument modules", "| Argument modules | {value} |"),
@@ -438,7 +438,7 @@ def _check_documented_inventory_claims(
             ("Claim dependencies", "| Claim dependencies | {value} |"),
             ("Claim grounding edges", "| Claim grounding edges | {value} |"),
         ),
-        "TODO.md": (
+        "docs/maintenance.md": (
             ("Generated figures", "{value} generated figures"),
             ("Argument modules", "{value} argument\nmodules"),
             ("Formal claims", "{value} formal claims"),
@@ -620,8 +620,8 @@ def _check_hydrated_manuscript(project_root: Path, issues: list[str]) -> None:
         if path.exists()
     }
     for spec in figure_specs():
-        marker = f"(../output/figures/{spec.filename}){{#fig:{spec.key}}}"
-        pattern = re.compile(rf"!\[([^\]]*)\]{re.escape(marker)}")
+        name_and_label = re.escape(f"/{spec.filename}){{#fig:{spec.key}}}")
+        pattern = re.compile(rf"!\[([^\]]*)\]\((?:\.\./figures|\.\./\.\./output/figures){name_and_label}")
         matches = [
             alt_text
             for manuscript_text in hydrated.values()
@@ -689,7 +689,8 @@ def validate_publication_package(project_root: Path) -> tuple[bool, list[str], d
 
     required = (
         "README.md",
-        "TODO.md",
+        "docs/overview.md",
+        "docs/maintenance.md",
         "CITATION.cff",
         "codemeta.json",
         ".zenodo.json",

@@ -19,7 +19,7 @@ work that re-levels Tinbergen into causes and consequences sharpens the same
 point: the questions can be reorganized, but they cannot be collapsed into one
 explanatory kind [@bergman2022leveling].
 
-![{{FIGURE_ALT_TINBERGEN_AXES}}](../output/figures/tinbergen_axes.png){#fig:tinbergen_axes}
+![{{FIGURE_ALT_TINBERGEN_AXES}}](../../output/figures/tinbergen_axes.png){#fig:tinbergen_axes}
 
 ## Hyperprior Regress And Termination
 
@@ -32,7 +32,7 @@ workflow discipline: a prior is justified by model adequacy and regularization,
 not by discovering an ultimate meta-prior [@gelman2013philosophy;
 @simpson2017penalising].
 
-![{{FIGURE_ALT_REGRESS_TERMINATIONS}}](../output/figures/regress_terminations.png){#fig:regress_terminations}
+![{{FIGURE_ALT_REGRESS_TERMINATIONS}}](../../output/figures/regress_terminations.png){#fig:regress_terminations}
 
 ## Prior As Settled Equilibrium
 
@@ -42,7 +42,7 @@ is the settled organization of perception, action, and boundary maintenance that
 persists. This is where the argument sits closest to free-energy and
 autopoietic readings of cognition [@friston2010free; @maturana1980autopoiesis].
 
-![{{FIGURE_ALT_PRIOR_EQUILIBRIUM_MAP}}](../output/figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
+![{{FIGURE_ALT_PRIOR_EQUILIBRIUM_MAP}}](../../output/figures/prior_equilibrium_map.png){#fig:prior_equilibrium_map}
 
 ## Ontogeny And Hyperprior Shape
 
@@ -53,7 +53,7 @@ current prior can be justified by a developmental selector, which can then be
 asked to justify its own source. The point is not that these are the same
 substantive theory. The point is that they share a regress shape.
 
-![{{FIGURE_ALT_ONTOGENY_HYPERPRIOR_PARALLEL}}](../output/figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
+![{{FIGURE_ALT_ONTOGENY_HYPERPRIOR_PARALLEL}}](../../output/figures/ontogeny_hyperprior_parallel.png){#fig:ontogeny_hyperprior_parallel}
 
 ## Selection Filter
 
@@ -65,7 +65,7 @@ available as the objects whose origin we ask about. The figure therefore
 represents a selection-based closure of the availability question, not a
 complete causal history of the individual prior.
 
-![{{FIGURE_ALT_SELECTION_FILTER}}](../output/figures/selection_filter.png){#fig:selection_filter}
+![{{FIGURE_ALT_SELECTION_FILTER}}](../../output/figures/selection_filter.png){#fig:selection_filter}
 
 ## Policy Entanglement Bridge
 
@@ -76,7 +76,7 @@ cuts rather than proof that the factors were ontologically first. This is the
 same explanatory posture as fixed-point termination: organization can precede
 the decomposition that later makes it legible.
 
-![{{FIGURE_ALT_POLICY_ENTANGLEMENT_BRIDGE}}](../output/figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
+![{{FIGURE_ALT_POLICY_ENTANGLEMENT_BRIDGE}}](../../output/figures/policy_entanglement_bridge.png){#fig:policy_entanglement_bridge}
 
 ## Niche Co-Construction
 
@@ -87,7 +87,7 @@ that the filter is not purely external. The prior is not fully given by the
 environment nor fully endogenous; it is co-shaped by the reciprocal interaction
 [@odling_smee2003niche; @laland2000niche; @constant2018free].
 
-![{{FIGURE_ALT_NICHE_CONSTRUCTION_DIAGRAM}}](../output/figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
+![{{FIGURE_ALT_NICHE_CONSTRUCTION_DIAGRAM}}](../../output/figures/niche_construction_diagram.png){#fig:niche_construction_diagram}
 
 ## Markov Blanket As Achievement
 
@@ -100,7 +100,7 @@ not a parameter received from a higher level [@kirchhoff2018markov;
 recent critiques: the notation is not enough by itself to settle organismal or
 cognitive ontology [@bruineberg2022emperor; @raja2021markov].
 
-![{{FIGURE_ALT_MARKOV_BLANKET_ACHIEVEMENT}}](../output/figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
+![{{FIGURE_ALT_MARKOV_BLANKET_ACHIEVEMENT}}](../../output/figures/markov_blanket_achievement.png){#fig:markov_blanket_achievement}
 
 ## Explanatory Complementarity
 
@@ -109,7 +109,7 @@ complementary perspectives rather than rival hypotheses. The regress appears
 when one question is asked to carry the load of all four; the framework itself
 does not force it [@bateson2004toward; @bergman2022leveling].
 
-![{{FIGURE_ALT_EXPLANATORY_COMPLEMENTARITY_MATRIX}}](../output/figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
+![{{FIGURE_ALT_EXPLANATORY_COMPLEMENTARITY_MATRIX}}](../../output/figures/explanatory_complementarity_matrix.png){#fig:explanatory_complementarity_matrix}
 
 ## Active Inference Cycle
 
@@ -121,7 +121,7 @@ policy selection; the two objectives should not be conflated
 the prior is not merely a parameter for belief updating but a constraint on the
 coupled perception-action system.
 
-![{{FIGURE_ALT_ACTIVE_INFERENCE_CYCLE}}](../output/figures/active_inference_cycle.png){#fig:active_inference_cycle}
+![{{FIGURE_ALT_ACTIVE_INFERENCE_CYCLE}}](../../output/figures/active_inference_cycle.png){#fig:active_inference_cycle}
 
 ## Variational Free Energy Landscape
 
@@ -133,7 +133,7 @@ posterior structure can approach a target posterior without turning the prior's
 origin into an empirical result [@friston2010free; @friston2013life;
 @blei2017variational; @friston2023simpler].
 
-![{{FIGURE_ALT_VARIATIONAL_FREE_ENERGY_LANDSCAPE}}](../output/figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
+![{{FIGURE_ALT_VARIATIONAL_FREE_ENERGY_LANDSCAPE}}](../../output/figures/variational_free_energy_landscape.png){#fig:variational_free_energy_landscape}
 
 ## Deterministic Simulation Trace
 
@@ -145,7 +145,7 @@ fixed-point settlement. The figure does not model cognition, sample outcomes,
 estimate effects, or report performance; it makes the formal state transition
 surface inspectable.
 
-![{{FIGURE_ALT_DETERMINISTIC_SIMULATION_TRACE}}](../output/figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
+![{{FIGURE_ALT_DETERMINISTIC_SIMULATION_TRACE}}](../../output/figures/deterministic_simulation_trace.png){#fig:deterministic_simulation_trace}
 
 ## Scale Recurrence
 
@@ -156,7 +156,7 @@ transition [@friston2013life; @kirchhoff2018markov]. The same category shift
 applies recursively: the prior-like settlement at one scale becomes the
 substrate for the next.
 
-![{{FIGURE_ALT_SCALE_RECURRENCE_DIAGRAM}}](../output/figures/scale_recurrence_diagram.png){#fig:scale_recurrence_diagram}
+![{{FIGURE_ALT_SCALE_RECURRENCE_DIAGRAM}}](../../output/figures/scale_recurrence_diagram.png){#fig:scale_recurrence_diagram}
 
 ## Source-Claim Boundary Map
 
@@ -167,7 +167,7 @@ is accepted, rejected, or deferred; and only accepted sources attached to claim
 ledger entries reach the manuscript. This is the paper's answer to citation
 inflation: sources enter only where they bound or strengthen a live claim.
 
-![{{FIGURE_ALT_SOURCE_CLAIM_BOUNDARY_MAP}}](../output/figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
+![{{FIGURE_ALT_SOURCE_CLAIM_BOUNDARY_MAP}}](../../output/figures/source_claim_boundary_map.png){#fig:source_claim_boundary_map}
 
 ## Aesthetic Prior-Craft Map
 
@@ -184,7 +184,7 @@ with expectation, affordance, accident, affect, and meaning
 [@dewey1934art; @noe2015strange; @malafouris2013things;
 @malafouris2023enactychism].
 
-![{{FIGURE_ALT_AESTHETIC_PRIOR_CRAFT_MAP}}](../output/figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
+![{{FIGURE_ALT_AESTHETIC_PRIOR_CRAFT_MAP}}](../../output/figures/aesthetic_prior_craft_map.png){#fig:aesthetic_prior_craft_map}
 
 ## Markov Blanket Scope Split
 
@@ -195,7 +195,7 @@ the argument use Markov blankets as part of fixed-point explanation while
 preserving the critical distinction emphasized by the recent debate
 [@bruineberg2022emperor; @raja2021markov].
 
-![{{FIGURE_ALT_MARKOV_BLANKET_SCOPE_SPLIT}}](../output/figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
+![{{FIGURE_ALT_MARKOV_BLANKET_SCOPE_SPLIT}}](../../output/figures/markov_blanket_scope_split.png){#fig:markov_blanket_scope_split}
 
 ## Niche-Prior Feedback Field
 
@@ -207,7 +207,7 @@ constraint on selection termination: what persists is partly produced by the
 system-niche loop that selection later filters [@constant2018free;
 @stotz2017developmental; @baltieri2022extended; @laland2000niche].
 
-![{{FIGURE_ALT_NICHE_PRIOR_FEEDBACK_FIELD}}](../output/figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
+![{{FIGURE_ALT_NICHE_PRIOR_FEEDBACK_FIELD}}](../../output/figures/niche_prior_feedback_field.png){#fig:niche_prior_feedback_field}
 
 ## Before The First Prior
 
@@ -220,7 +220,7 @@ paper's scope: some forms are regulatable and reachable before they are
 available as explicit priors [@ciaunica2021first_prior;
 @allen2018body_first_prior; @sterling2012allostasis].
 
-![{{FIGURE_ALT_FIRST_PRIOR_GROUNDING_STACK}}](../output/figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
+![{{FIGURE_ALT_FIRST_PRIOR_GROUNDING_STACK}}](../../output/figures/first_prior_grounding_stack.png){#fig:first_prior_grounding_stack}
 
 ## Figure Manifest
 

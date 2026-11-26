@@ -98,7 +98,7 @@ warning; it did not affect rendering or image/network success.
 `FigureSpec.caption`, `FigureSpec.alt_text`, and `FigureSpec.section` now own
 publication captions, accessibility text, and the atlas/supplement split.
 Hydrated manuscript alt text, the figure registry, report, dashboard payload,
-API docs, and dashboard gallery are checked for parity. `TODO.md` remains
+API docs, and dashboard gallery are checked for parity. [The maintenance notes](maintenance.md) remain
 forward-looking; readiness and audit documents record observed evidence rather
 than inherited stale screenshots.
 

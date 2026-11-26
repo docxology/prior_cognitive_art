@@ -24,9 +24,9 @@ regenerate; do not edit one surface in isolation.
 
 ## Project constraints
 
-The project intentionally avoids simulations. If a change needs generated data,
-it should be deterministic inventory or visualization metadata unless the user
-explicitly changes the paper scope.
+The scope permits the one authored finite-state trace in the formal
+supplement. Generated records describe that trace, the conceptual inventory,
+and the figures. Empirical and stochastic studies require a change in scope.
 
 Do not reintroduce inherited optimization, metric, or convergence language from
 the template scaffold. The retained `optimization_analysis.py` filename is

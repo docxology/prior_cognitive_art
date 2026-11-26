@@ -1,19 +1,14 @@
-# Prior Cognitive Art Docs
+# Prior Cognitive Art documentation
 
-This directory records the local workflow for a conceptual manuscript with one
-deterministic illustrative simulation trace and no stochastic, empirical,
-synthetic-data, or performance claims.
+Prior Cognitive Art is a conceptual manuscript with deterministic
+figures and one authored illustrative trace. Its [overview](overview.md)
+describes the argument, generated artifacts, and checked inventory.
 
-- `agent_instructions.md` — editing contract for AI agents
-- `architecture.md` — source/script/manuscript boundary
-- `cover_letter_template.md` — venue-adaptable cover letter scaffold
-- `output_inventory.md` — generated artifacts
-- `preprint_release_checklist.md` — final preprint / working-paper release QA
-- `publication_readiness_report.md` — current publication-readiness gate report
-- `rendering_pipeline.md` — render commands and ordering
-- `reviewer_risk_register.md` — anticipated reviewer concerns and mitigations
-- `scholarship-audit.md` — accepted and deferred scholarship decisions
-- `submission_package.md` — venue-neutral pre-submission metadata and checklist
-- `syntax_guide.md` — Pandoc figure and table reference syntax
-- `testing_philosophy.md` — focused no-mock test contract
-- `venue_selection_matrix.md` — venue/preprint route scoring aid
+| Task | Guide |
+| --- | --- |
+| Read the paper and source contract | [Manuscript](manuscript/README.md), [syntax](syntax_guide.md), [scholarship audit](scholarship-audit.md) |
+| Build and verify locally | [Rendering pipeline](rendering_pipeline.md), [standalone notes](standalone.md), [output inventory](output_inventory.md) |
+| Develop the project | [Architecture](architecture.md), [module map](developer/source.md), [scripts](developer/scripts.md), [testing](testing_philosophy.md) |
+| Review the publication evidence | [Readiness](publication_readiness_report.md), [audit](audit/README.md), [reviewer risks](reviewer_risk_register.md) |
+| Review submission materials | [Submission package](submission_package.md), [preprint checklist](preprint_release_checklist.md), [venue selection](venue_selection_matrix.md), [cover-letter scaffold](cover_letter_template.md) |
+| Maintain the repository | [Maintenance notes](maintenance.md), [contributor guidance](agent_instructions.md) |

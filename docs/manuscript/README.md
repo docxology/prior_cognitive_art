@@ -1,4 +1,4 @@
-# docs/manuscript/
+# Prior Cognitive Art manuscript
 
 Sections:
 
@@ -23,4 +23,9 @@ Supporting files:
 - `SYNTAX.md` — Pandoc figure/table reference syntax guide
 - `layer_contract.yaml` — source/script/manuscript boundary rules
 
-Run `scripts/z_generate_manuscript_variables.py` after generating figures.
+Follow the [pinned build](../rendering_pipeline.md). It generates figures from
+the conceptual model, resolves prose tokens into `output/manuscript/`, and
+validates the finished PDF, HTML, and slides.
+
+The [reference inventory](../overview.md#conceptual-inventory) and
+[scholarship audit](../scholarship-audit.md) document the claim boundaries.

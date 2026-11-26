@@ -49,7 +49,7 @@ named source record anchors each numbered claim.
 [@fig:formal_claim_dependency_map] shows how the numbered claims are grounded
 in the same conceptual records that feed the prose, figure registry, and tests.
 
-![{{FIGURE_ALT_FORMAL_CLAIM_DEPENDENCY_MAP}}](../output/figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
+![{{FIGURE_ALT_FORMAL_CLAIM_DEPENDENCY_MAP}}](../../output/figures/formal_claim_dependency_map.png){#fig:formal_claim_dependency_map}
 
 ## Symbol Glossary
 
@@ -66,7 +66,7 @@ notation rather than project-specific symbols.
 [@fig:symbol_glossary_closure] visualizes the closure check. A missing symbol
 row or an unused glossary row is treated as a source-contract error.
 
-![{{FIGURE_ALT_SYMBOL_GLOSSARY_CLOSURE}}](../output/figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
+![{{FIGURE_ALT_SYMBOL_GLOSSARY_CLOSURE}}](../../output/figures/symbol_glossary_closure.png){#fig:symbol_glossary_closure}
 
 ## Text-Integrity Checks
 
@@ -85,4 +85,4 @@ guard the project contract.
 records hydrate the manuscript, figures, reports, and registry, and those
 surfaces are checked again at render time.
 
-![{{FIGURE_ALT_TEXT_VALIDATION_LADDER}}](../output/figures/text_validation_ladder.png){#fig:text_validation_ladder}
+![{{FIGURE_ALT_TEXT_VALIDATION_LADDER}}](../../output/figures/text_validation_ladder.png){#fig:text_validation_ladder}

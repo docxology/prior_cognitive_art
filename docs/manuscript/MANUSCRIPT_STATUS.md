@@ -1,7 +1,7 @@
-# Manuscript Status
+# Manuscript status
 
-- **Project:** prior_cognitive_art
-- **Manuscript title:** Prior Cognitive Art
-- **Location:** `docs/manuscript/` (canonical default; legacy `docs/manuscript/` fallback resolved by `infrastructure.core.project_paths.resolve_manuscript_dir`)
-- **Type:** Active publication-target manuscript (10 section files)
-- **Status file purpose:** Tracks publication-readiness of the manuscript content in this directory. Migrated from legacy `docs/manuscript/` location.
+The ten ordered Markdown files in this directory are the maintained
+publication sources. The [paper index](README.md) identifies the
+supporting files. Use the [readiness report](../publication_readiness_report.md)
+for venue-neutral publication gates and the
+[pinned render setup](../rendering_pipeline.md) for local verification.

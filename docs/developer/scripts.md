@@ -14,7 +14,7 @@ Thin project entry points. Business, data, and presentation logic lives in
 | `validate_publication_package.py` | Source-count and artifact consistency gate | `src.publication_validation.validate_publication_package` | `uv run python scripts/validate_publication_package.py` |
 
 `__init__.py` marks the directory as a package for test imports;
-`CONVENTIONS.md` records the thin-orchestrator rules.
+[Script conventions](script-conventions.md) record the thin-orchestrator rules.
 
 Run order:
 
