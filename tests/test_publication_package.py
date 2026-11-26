@@ -193,7 +193,7 @@ def test_publication_package_rejects_simulation_manifest_drift() -> None:
 
 
 def test_publication_package_rejects_documented_inventory_drift() -> None:
-    path = PROJECT_ROOT / "README.md"
+    path = PROJECT_ROOT / "docs/overview.md"
     original = path.read_text(encoding="utf-8")
     path.write_text(original.replace("| Generated figures | 21 |", "| Generated figures | 20 |"), encoding="utf-8")
     try:
@@ -212,7 +212,7 @@ def test_publication_package_rejects_documented_inventory_drift() -> None:
         )
     finally:
         path.write_text(original, encoding="utf-8")
-    assert "README.md missing documented inventory claim '| Generated figures | 21 |'" in issues
+    assert "docs/overview.md missing documented inventory claim '| Generated figures | 21 |'" in issues
 
 
 def test_render_manifest_matches_current_outputs() -> None:

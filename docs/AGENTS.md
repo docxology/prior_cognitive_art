@@ -6,3 +6,6 @@ project scope changes.
 
 Subfolders: `audit/` — audit reports (currently
 `documentation-audit-report.md`); see [`audit/AGENTS.md`](audit/AGENTS.md).
+
+The [documentation index](README.md) links the current guides and the
+[developer references](developer/).

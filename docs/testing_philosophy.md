@@ -18,7 +18,13 @@ temporary directories (via `tmp_path`) or the project `output/` directory.
 
 ## Current test suite
 
-The project test suite targets full coverage of `src/` and includes:
+Run `uv run --no-sync pytest tests/` after the
+[local publication build](rendering_pipeline.md). The optional coverage
+report has a separate threshold in `pyproject.toml`. The smoke tests use
+subprocesses, whose coverage requires explicit instrumentation when
+measuring them with pytest-cov.
+
+The suite includes:
 
 - `test_conceptual_model.py` — concept inventory and contract validation
 - `test_analysis_workflow.py` — pipeline output and figure generation
